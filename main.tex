@@ -6,19 +6,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm}
 \usepackage{lipsum}
-\usepackage{listings}
+% \usepackage{listings}
 \usepackage{enumitem}
 % \usepackage[linesnumbered,vlined]{algorithm2e}
 \usepackage[noend]{algorithm,algpseudocode}
 % \usepackage{alg}
 % \usepackage{theoremref}
-\usepackage[colorlinks, bookmarks=true]{hyperref}
+% \usepackage[colorlinks, bookmarks=true]{hyperref}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 % \usepackage{autoref}
 % \usepackage{graphicx,listings,amsmath,amssymb,amsthm,amsfonts,tikz}
-\renewcommand{\algorithmicrequire}{\textbf{Dane wejściowe:}}
-\renewcommand{\algorithmicensure}{\textbf{Wynik:}}
 % \SetKwInput{KwData}{Dane wejściowe}
 % \SetKwInput{KwResult}{Wynik}
 
@@ -54,6 +53,8 @@
 %\renewcommand \qedsymbol {\ensuremath{\square}}
 % ...
 %%%%%
+\renewcommand{\algorithmicrequire}{\textbf{Dane wejściowe:}}
+\renewcommand{\algorithmicensure}{\textbf{Wynik:}}
 \theoremstyle{definition}
 \newtheorem{definition}{Definicja}
 \theoremstyle{remark} \newtheorem{observation}{Obserwacja}
@@ -188,10 +189,10 @@
 	(2) Aby pokazać, że $G/N$ jest grupą należy pokazać (2.1) zamkniętość na $\otimes$, (2.2) łączność $\otimes$, (2.3) istnienie elementu neutralnego oraz (2.4) istnienie elementów odwrotnych.\newline
 	(2.1) $G/N$ jest zamknięty na $\otimes$. Weźmy dowolne $aN, \, bN \in G/N$. Mamy $(aN)(bN) = abN$. $ab \in G$, więc $abN \in G/N$.\newline
 	(2.2) $\otimes$ jest łączne. Weźmy dowolne $aN, \, bN, \, cN \in G/N$. Korzystając z łączności $\odot$ i faktu, że N jest normalna ($cN = Nc$), mamy 
-	\begin{align*}
-		aN((bN)(cN)) & = aN(bcN) = a(bc)N = (ab)cN        \\
-		             & = (ab)Nc = (abN)cN = ((aN)(bN))cN. 
-	\end{align*}
+	\begin{align}
+		aN((bN)(cN)) &= aN(bcN) = a(bc)N = (ab)cN        \\
+		             &= (ab)Nc = (abN)cN = ((aN)(bN))cN. 
+	\end{align}
 	(2.3) Istnieje w $G/N$ element neutralny. Weźmy $eN$, gdzie $e$ jest elementem neutralnym w $G$. Dla dowolnego $aN \in G/N$ mamy $(aN)(eN) = aeN = aN$.\newline
 	(2.4) Dla każdego elementu istnieje element odwrotny. Weźmy dowolne $aN \in G/N$. Niech $-a$ będzie elementem odwrotnym $a$. Wiemy, że $-a \in G$. Mamy \[(aN)(-aN) = a(-a)N = eN,\] czyli element odwrotny w $G/N$.
 \end{proof}
@@ -436,7 +437,7 @@
 	\begin{proof}
 		Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{F}_q$. Dowód przebiegał będzie w dwóch krokach: (1) pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$ oraz, że (2) jeśli $\zeta \in \mathbb{F}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{F}_q$, to istnieje $h(X) \in \mathbb{F}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.\newline
 		(1) Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.\newline
-		Możemy zauważyć, że powyższą równoważność można zaaplikować do $\zeta$ otrzumując $\zeta \in \mahbb{F}_{q^k}$ wtw, gdy $\zeta^{q^k} = \zeta$ a więc i $q^k = 1\, (mod\,n)$.\newline
+		Możemy zauważyć, że powyższą równoważność można zaaplikować do $\zeta$ otrzumując $\zeta \in \mathbb{F}_{q^k}$ wtw, gdy $\zeta^{q^k} = \zeta$ a więc i $q^k = 1\, (mod\,n)$.\newline
 		Weźmy $d = o_n(q)$. Wtedy $\mathbb{F}_{q^d}$ będzie najmniejszym ciałem, zawierającym wszystkie pierwiastki $n$-tego stopnia nad $\mathbb{F_q}$.\newline
 		(2) Niech $m(X) \in \mathbb{F}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{F}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{F}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{F}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{F}_q$. \newline 
 		Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{F}_q$.
