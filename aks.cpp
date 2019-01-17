@@ -138,6 +138,7 @@ RESULT aks(const ZZ& n) {
     }
     
     ZZ l(sqrt_ceil(phi(ZZ(r))) * ln_ceil);
+    cout << l << "\n";
     for (ZZ a(1); a <= l; a++) {
         cout << a << "\n";
         ZZX mod;
