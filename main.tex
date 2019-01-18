@@ -61,6 +61,7 @@
 \theoremstyle{plain} \newtheorem{theorem}{Twierdzenie}
 \theoremstyle{plain} \newtheorem{lemma}{Lemat}
 \theoremstyle{remark} \newtheorem*{remark*}{Uwaga}
+\theoremstyle{reminder} \newtheorem*{reminder*}{Przypomnienie}
 % \usepackage{etoolbox}
 % \makeatletter
 % \patchcmd{\@makechapterhead}% <cmd>
@@ -82,11 +83,14 @@
 
 \chapter{Podstawy algebraiczne}
 
+Aby udowodnić poprawność algorytmu AKS potrzebne nam będą podstawowe pojęcia oraz twierdzenia algebry abstrakcyjnej, w szczególności własności pierścieni ilorazowych oraz wielomianów cyklotomicznych i pierwiastków z jedności nad ciałem. Poniższy rozdział poświęcony jest więc wprowadzeniu tych pojęć oraz udowodnieniu twierdzeń przydatnych później w dowodzie poprawności algorytmu AKS.
+
 \section{Pierścień, ciało, pierścień ilorazowy}
+
+Zdefiniujmy najpierw podstawowe struktury algebraiczne, których własności będziemy często wykorzystywać w dowodach lematów i twierdzeń, prowadzących do udowodnienia poprawności algorytmu.
 
 \theoremstyle{definition} 
 \begin{definition}
-	
 	Zbiór $R$ zamknięty na dwie operacje binarne $\oplus$ oraz $\odot$ nazywamy \textit{\textbf{pierścieniem}}, jeśli 
 	\begin{itemize}[leftmargin=.5in]
 		\item $\oplus$ jest przemienna ($\forall_{a, b \in R} \, a \oplus b = b \oplus a$) oraz łączna ($\forall_{a, b, c \in R} \, (a \oplus b) \oplus c = a \oplus (b \oplus c)$);
@@ -113,6 +117,8 @@
 	Pierścień $\langle R, \oplus, \odot \rangle$ nazywamy \textit{\textbf{przemiennym}} jeśli $\forall_{a, b \in R} \, ab = ba$.
 \end{definition}
 
+Możemy teraz zauważyć, że pierścieniem jest na przykład zbiór liczb całkowitych z mnożeniem i dodawaniem lub zbiór wielomianów o współczynnikach całkowitych z dodawaniem i mnożeniem wielomianów.
+
 \theoremstyle{definition} 
 \begin{definition}
 	Pierścień $\langle F, \oplus, \odot \rangle$ nazywamy \textit{\textbf{ciałem}}, jeśli 
@@ -121,6 +127,8 @@
 		\item $\langle F \setminus \{0\}, \odot, 1 \rangle$ jest grupą abelową.
 	\end{itemize}
 \end{definition}
+
+Innymi słowy jest to pierścień z elementem neutralnym mnożenia, w którym dla każdego niezerowego elementu istnieje element odwrotny. Przykładem ciał są zbiory reszt z dzielenia przez liczbę pierwszą z operacjami dodawania i mnożenia modulo. Jeśli rozważymy natomiast wcześniej przywołane przykłady pierścieni, możemy zauważyć, że zarówno zbiór liczb całkowitych jak i zbiór wielomianów o całkowitych współczynnikach nie jest ciałem. W obu przykładach zbiory te nie spełniają warunku na istnienie elementów odwrotnych.
 
 \begin{definition}
 	\textbf{\textit{Charakterystyką}} ciała $F$ będziemy nazywać najmniejszą taką liczbę naturalną $char(F) = n$, że suma $n$ jedynek równa się zeru w $F$.
@@ -135,10 +143,13 @@
 	\end{itemize}
 \end{definition}
 
+Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalnej w teorii grup. Co więcej, analogia ta aplikuje się także do konstrukcji pierścienia ilorazowego. Ideał pełni bowiem w konstrukcji pierścienia ilorazowego taką rolę, jaką w konstrukcji grupy ilorazowej pełni podgrupą normalna.
+
 \theoremstyle{theorem}
 \begin{theorem}
 	Jeśli $\langle R, \oplus, \odot \rangle$ jest pierścieniem przemiennym oraz $1 \in R$, to dla $a \in R$ zbiór $\langle a \rangle = \{ ar \, | \, r \in R  \}$ jest jego ideałem. Taki ideał nazywamy \textit{\textbf{ideałem głównym}} generowanym przez element $a$.
 \end{theorem}
+
 \begin{proof}
 	Aby pokazać, że $I = \langle a \rangle$ ($a \in R$) jest ideałem $\langle R, \oplus, \odot \rangle$, należy pokazać, że (1) $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2) $\forall_{i \in I, r \in R} \, i \odot r \in I \wedge r \odot i \in I $.
 	
@@ -157,10 +168,12 @@
 	Ideał $M$ w pierścieniu $R$ nazywamy \textit{\textbf{ideałem maksymalnym}}, jeśli dla każdego ideału $I$ nad $R$ zachodzi $M \subseteq I \Rightarrow I = R$.
 \end{definition}
 
-\theoremstyle{definition}
-\begin{definition}
+% \theoremstyle{definition}
+\begin{reminder*}
 	Podgrupę $\langle N, \circ \rangle $ grupy $\langle G, \circ \rangle$ nazywamy \textit{\textbf{podgrupą normalną}}, jeśli $\forall_{g \in G} \, gN = Ng$, gdzie $gN = \{gn \, | \, n \in N\}$ oraz $Ng = \{ng \, | \, n \in N\}$.
-\end{definition}
+\end{reminder*}
+
+Możemy też uzasadnić analogię między ideałem a podgrupą formalną w formalny sposób.
 
 \begin{lemma}
 	Ideał $I$ pierścienia $\langle R, \oplus, \odot \rangle$ jest podgrupą normalną grupy $\langle R, \oplus \rangle$.
@@ -228,7 +241,7 @@
 \end{proof}
 
 \theoremstyle{theorem}
-\begin{theorem}
+\begin{theorem}\label{pier_ilo_cialem0}
 	Jeśli $\langle R, \oplus, \odot \rangle$ jest pierścieniem przemiennym z $1$, a $I$ ideałem maksymalnym nad R, to $R/I$ z działaniami zdefiniowanymi jak w powyższych twierdzeniach jest ciałem.
 \end{theorem}
 
