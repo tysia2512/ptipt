@@ -3,3 +3,9 @@ ntl-11.3.2.tar*
 ntl-11.3.2/*
 main.synctex.*
 aks
+main.aux
+main.fdb_latexmk
+main.fls
+main.log
+main.out
+main.toc

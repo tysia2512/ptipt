@@ -173,7 +173,7 @@ Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalne
 	Podgrupę $\langle N, \circ \rangle $ grupy $\langle G, \circ \rangle$ nazywamy \textit{\textbf{podgrupą normalną}}, jeśli $\forall_{g \in G} \, gN = Ng$, gdzie $gN = \{gn \, | \, n \in N\}$ oraz $Ng = \{ng \, | \, n \in N\}$.
 \end{reminder*}
 
-Możemy też uzasadnić analogię między ideałem a podgrupą formalną w formalny sposób.
+Możemy też uzasadnić analogię między ideałem a podgrupą formalną w sposób formalny.
 
 \begin{lemma}
 	Ideał $I$ pierścienia $\langle R, \oplus, \odot \rangle$ jest podgrupą normalną grupy $\langle R, \oplus \rangle$.
@@ -183,6 +183,8 @@ Możemy też uzasadnić analogię między ideałem a podgrupą formalną w forma
 	Z definicji ideału wiemy, że $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$. \newline
 	Należy pokazać, że dla dowolnego $r \in R$ zachodzi $r \oplus I = I \oplus r$. Wiemy, że $\oplus$ jest przemienna, więc mamy ${\{r \oplus i \, | \, i \in I, r \in R\}} = {\{i \oplus r \, | \, i \in I, r \in R\}}$, czyli $r \oplus I = I \oplus r$.
 \end{proof}
+
+Kolejnym krokiem, prowadzącym do zdefiniowania pojęcia pierścienia ilorazowego jest zdefiniowanie pojęcia analogicznego w teorii grup - grupy ilorazowej.
 
 \theoremstyle{theorem}\label{grup_ilo}
 \begin{theorem}
@@ -210,13 +212,15 @@ Możemy też uzasadnić analogię między ideałem a podgrupą formalną w forma
 	(2.4) Dla każdego elementu istnieje element odwrotny. Weźmy dowolne $aN \in G/N$. Niech $-a$ będzie elementem odwrotnym $a$. Wiemy, że $-a \in G$. Mamy \[(aN)(-aN) = a(-a)N = eN,\] czyli element odwrotny w $G/N$.
 \end{proof}
 
+Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowania pierścienia ilorazowego. Jest on analogicznie zbiorem warstw względem ideału z odpowiednio zdefiniowanymi działaniami.
+
 \begin{theorem}
-	Niech $I$ będzie ideałem pierścienia przemiennego $\langle R, \oplus, \odot \rangle$. $\langle R/I, +, \times \rangle$, gdzie:
+	Niech $I$ będzie ideałem pierścienia przemiennego $\langle R, \oplus, \odot \rangle$. Jeśli zdefiniujemy operacje $+$ i $\times$ jako: 
 	\begin{itemize}[leftmargin=.5in]
-		\item $(r \oplus I) \times (s \oplus I) = r \odot s \oplus I$,
-		\item $(r \oplus I) + (s \oplus I) = r \oplus s \oplus I$
+		\item $(r \oplus I) \times (s \oplus I) = r \odot s \oplus I$ oraz
+		\item $(r \oplus I) + (s \oplus I) = r \oplus s \oplus I$,
 	\end{itemize}
-	jest pierścieniem przemiennym.
+	to $\langle R/I, +, \times \rangle$ jest pierścieniem przemiennym, nazywanym \textbf{\textit{pierścieniem ilorazowym}}.
 \end{theorem}
 
 % SPRAWDZONE DOTĄD
