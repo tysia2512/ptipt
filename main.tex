@@ -136,14 +136,14 @@ Innymi słowy jest to pierścień z elementem neutralnym mnożenia, w którym dl
 
 \theoremstyle{definition}
 \begin{definition}
-	Niepusty zbiór $I \subseteq R$ nazywamy ideałem pierścienia $\langle R, \oplus, \odot \rangle$, jeśli
+	Niepusty zbiór $I \subseteq R$ nazywamy \textbf{\textit{ideałem pierścienia}} $\langle R, \oplus, \odot \rangle$, jeśli
 	\begin{itemize}[leftmargin=.5in]
 		\item $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz
 		\item $\forall_{i \in I, r \in R} \: ir \in I \wedge ri \in I $.
 	\end{itemize}
 \end{definition}
 
-Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalnej w teorii grup. Co więcej, analogia ta aplikuje się także do konstrukcji pierścienia ilorazowego. Ideał pełni bowiem w konstrukcji pierścienia ilorazowego taką rolę, jaką w konstrukcji grupy ilorazowej pełni podgrupą normalna.
+Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalnej w teorii grup. Co więcej, analogia ta aplikuje się także do konstrukcji pierścienia ilorazowego. Ideał pełni bowiem w konstrukcji pierścienia ilorazowego taką rolę, jaką w konstrukcji grupy ilorazowej pełni podgrupa normalna.
 
 \theoremstyle{theorem}
 \begin{theorem}
@@ -173,7 +173,7 @@ Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalne
 	Podgrupę $\langle N, \circ \rangle $ grupy $\langle G, \circ \rangle$ nazywamy \textit{\textbf{podgrupą normalną}}, jeśli $\forall_{g \in G} \, gN = Ng$, gdzie $gN = \{gn \, | \, n \in N\}$ oraz $Ng = \{ng \, | \, n \in N\}$.
 \end{reminder*}
 
-Możemy też uzasadnić analogię między ideałem a podgrupą formalną w sposób formalny.
+Możemy teraz przedstawić analogię między ideałem a podgrupą normalną w sposób formalny.
 
 \begin{lemma}
 	Ideał $I$ pierścienia $\langle R, \oplus, \odot \rangle$ jest podgrupą normalną grupy $\langle R, \oplus \rangle$.
@@ -184,7 +184,7 @@ Możemy też uzasadnić analogię między ideałem a podgrupą formalną w spos�
 	Należy pokazać, że dla dowolnego $r \in R$ zachodzi $r \oplus I = I \oplus r$. Wiemy, że $\oplus$ jest przemienna, więc mamy ${\{r \oplus i \, | \, i \in I, r \in R\}} = {\{i \oplus r \, | \, i \in I, r \in R\}}$, czyli $r \oplus I = I \oplus r$.
 \end{proof}
 
-Kolejnym krokiem, prowadzącym do zdefiniowania pojęcia pierścienia ilorazowego jest zdefiniowanie pojęcia analogicznego w teorii grup - grupy ilorazowej.
+Zdefiniujmy więc pojęcie grupy ilorazowej, które stanie się podstawą definicji pierścienia ilorazowego.
 
 \theoremstyle{theorem}\label{grup_ilo}
 \begin{theorem}
@@ -244,7 +244,7 @@ Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowa
 	(3.7) $\times$ jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) \times (b \oplus I) = a \odot b \oplus I = b \odot a \oplus I = (b \oplus I) \times (a \oplus I)$.
 \end{proof}
 
-Możemy ostatecznie udowodnić twierdzenie, które, jeśli zaaoplikowane do pierścienia wielomianów, będzie bezpośrednio użyte w dowodzie poprawności algorytmu AKS.
+Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pierścienie ilorazowe są ciałami. Będzie to twierdzenie, którego będziemy używać w późniejszych lematach dla pierścienia ilorazowego pierścienia wielomianów.
 
 \theoremstyle{theorem}
 \begin{theorem}\label{pier_ilo_cialem0}
@@ -295,6 +295,8 @@ Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawi
 	Dowód twierdzenia przebiega poprzez pokazanie kolejnych własności pierścienia. Elementem zerowym jest wielomian zerowy, a elementem neutralnym mnożenia jest $1$.
 \end{remark*}
 
+Przyjrzyjmy się bliżej pierścieniowi wielomianów, którego współczynniki są elementami ciała. Na podstawie poniższych lematów o ideałach w tym pierścieniu oraz twierdzeń z powyższej sekcji, będziemy mogli określić strukturę pewnych pierścieni ilorazowych, które pojawią się później w dowodzie poprawności algorytmu AKS.
+
 \begin{lemma}
 	Jeśli $\langle F, \oplus, \odot, 0, 1 \rangle$ jest ciałem, to wszystkie ideały nad $F[X]$ są ideałami głównymi.
 \end{lemma}
@@ -311,7 +313,7 @@ Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawi
 	Weźmy dowolny ideał $I$ nad $F[X]$. Wiemy, że jest to ideał główny, więc istnieje $f(x) \in F[X]$ takie, że $I = \langle f(x) \rangle$. Załóżmy, że $\langle g(x) \rangle \subset I$. Znaczy to, że istnieje $h(x) \in F[X]$ takie, że $g(x) = f(x)h(x)$. $g(x)$ jest nierozkładalny, więc $f(x)$ lub $h(x)$ jest wielomianem stopnia $0$. Jeśli $f(x)$ jest stopnia $0$, to $\langle f(x) \rangle = F$. Jeśli $h(x)$ jest stopnia $0$, to $\langle g(x) \rangle = \langle h(x) \rangle$, co jest sprzeczne z założeniem.
 \end{proof}
 
-Możemy teraz zaaplikować powyższe twierdzenia do ciała liczb całkowitych modulo liczba pierwsza.
+Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb całkowitych modulo liczba pierwsza.
 
 \begin{theorem} \label{pier_ilo_ciałem}
 	Jeśli $p$ jest pierwsze i $h(x)$ jest nierozkładalnym w $\mathbb{Z}_p[X]$ wielomianem stopnia $d$ to pierścień ilorazowy $\langle \mathbb{Z}_p[X]/\langle h(x) \rangle, \oplus, \odot \rangle$ jest ciałem rzędu $p^d$.
@@ -800,7 +802,6 @@ Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów
 	
 \chapter{Implementacja}
 	
-\end{proof}
 %%%%% BIBLIOGRAFIA
 
 %\begin{thebibliography}{1}
