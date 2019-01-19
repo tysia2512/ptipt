@@ -10,12 +10,14 @@
 \usepackage{enumitem}
 % \usepackage[linesnumbered,vlined]{algorithm2e}
 \usepackage[noend]{algorithm,algpseudocode}
+% \usepackage[shortlabels]{enumitem}
 % \usepackage{alg}
 % \usepackage{theoremref}
 % \usepackage[colorlinks, bookmarks=true]{hyperref}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{enumitem}
 % \usepackage{autoref}
 % \usepackage{graphicx,listings,amsmath,amssymb,amsthm,amsfonts,tikz}
 % \SetKwInput{KwData}{Dane wejściowe}
@@ -92,7 +94,7 @@ Zdefiniujmy najpierw podstawowe struktury algebraiczne, których własności bę
 \theoremstyle{definition} 
 \begin{definition}
 	Zbiór $R$ zamknięty na dwie operacje binarne $\oplus$ oraz $\odot$ nazywamy \textit{\textbf{pierścieniem}}, jeśli 
-	\begin{itemize}[leftmargin=.5in]
+	\begin{itemize}[leftmargin=.4in]
 		\item $\oplus$ jest przemienna ($\forall_{a, b \in R} \, a \oplus b = b \oplus a$) oraz łączna ($\forall_{a, b, c \in R} \, (a \oplus b) \oplus c = a \oplus (b \oplus c)$);
 		\item zawiera element zerowy ($\exists_{0 \in R} \forall_{a \in R} \, a \oplus 0 = 0 \oplus a = 0$);
 		\item dla każdego elementu zawiera element odwrotny ($\forall_{a \in R} \exists_{(-a) \in R} \, a \oplus (-a) = 0$);
@@ -122,7 +124,7 @@ Możemy teraz zauważyć, że pierścieniem jest na przykład zbiór liczb całk
 \theoremstyle{definition} 
 \begin{definition}
 	Pierścień $\langle F, \oplus, \odot \rangle$ nazywamy \textit{\textbf{ciałem}}, jeśli 
-	\begin{itemize}[leftmargin=.5in]
+	\begin{itemize}[leftmargin=.4in]
 		\item istnieje element neutralny mnożenia ($\exists_{1 \in F} \forall_{a \in F} \, a1 = 1a = a$) oraz
 		\item $\langle F \setminus \{0\}, \odot, 1 \rangle$ jest grupą abelową.
 	\end{itemize}
@@ -152,15 +154,17 @@ Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalne
 
 \begin{proof}
 	Aby pokazać, że $I = \langle a \rangle$ ($a \in R$) jest ideałem $\langle R, \oplus, \odot \rangle$, należy pokazać, że (1) $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2) $\forall_{i \in I, r \in R} \, i \odot r \in I \wedge r \odot i \in I $.
-		
-		
-	Aby udowodnić (1), wystarczy pokazać, że (1.1) istnieje element neutralny $e \in I$, (1.2) $I$ jest zamknięte na $\oplus$ oraz (1.3) dla każdego elementu istnieje w $I$ element odwrotny. \newline
-	\newline
-	(1.1) Wiemy, że $0 \in R$, więc $a0=0 \in I$. \newline
-	(1.2) Weźmy dowolne $i_1, i_2 \in I$. Istnieją takie $r_1, r_2 \in R$, że $i_1 = ar_1$ oraz $i_2 = ar_2$. Stąd $i_1 \oplus i_2 = (ar_1) \oplus (ar_2)$. Z własności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $(ar_1) \oplus (ar_2) = a(r_1 \oplus r_2)$, więc $i_1 \oplus i_2 \in I$, czyli $I$ jest zamknięty na $\oplus$. \newline
-	(1.3) Weźmy dowolne $i = ar \in I, r \in R$. Istnieje $-r \in R$, więc $a(-r) \in I$. Wiemy, że $i \oplus a(-r) = ar \oplus a(-r) = a(r \oplus -r) = a0 = 0$, więc $a(-r) \in I$ jest elementem odwrotnym $i$.\newline
-	\newline
-	(2) Weźmy dowolne $i = ar_1 \in I, \, r \in R$. $ir = ar_1r = a(r_1r)$, więc $ir \in I$. Z przemienności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $ri = ir$, więc $ri \in I$.
+	%  (1),  \newline
+    \newline
+    \begin{enumerate}[label={(\arabic*)}, leftmargin=.4in]
+        \item Aby udowodnić, że $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ wystarczy pokazać, że (1.1) istnieje element neutralny $e \in I$, (1.2) $I$ jest zamknięte na $\oplus$ oraz (1.3) dla każdego elementu istnieje w $I$ element odwrotny.
+            \begin{enumerate}[label=(1.\arabic*)]
+            \item Wiemy, że $0 \in R$, więc $a0=0 \in I$.
+            \item Weźmy dowolne $i_1, i_2 \in I$. Istnieją takie $r_1, r_2 \in R$, że $i_1 = ar_1$ oraz $i_2 = ar_2$. Stąd $i_1 \oplus i_2 = (ar_1) \oplus (ar_2)$. Z własności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $(ar_1) \oplus (ar_2) = a(r_1 \oplus r_2)$, więc $i_1 \oplus i_2 \in I$, czyli $I$ jest zamknięty na $\oplus$.
+            \item Weźmy dowolne $i = ar \in I, r \in R$. Istnieje $-r \in R$, więc $a(-r) \in I$. Wiemy, że $i \oplus a(-r) = ar \oplus a(-r) = a(r \oplus -r) = a0 = 0$, więc $a(-r) \in I$ jest elementem odwrotnym $i$.
+            \end{enumerate}
+        \item Weźmy dowolne $i = ar_1 \in I, \, r \in R$. $ir = ar_1r = a(r_1r)$, więc $ir \in I$. Z przemienności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $ri = ir$, więc $ri \in I$.
+    \end{enumerate}
 \end{proof}
 
 \theoremstyle{definition}
@@ -327,7 +331,7 @@ Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb ca�
 
 \section{Pierwiastki z jedności, wielomiany cyklotomiczne}
 
-Kolejną grupą twierdzeń potrzebnych do udowodnienia poprawności algorytmu AKS są twierdzenia związane z pierwiastkami jedności nad ciałem. Aby uprościć późniejsze rozważania, wprowadźmy kolejne pojęcia związane z ciałami:
+Kolejną grupą twierdzeń potrzebnych do udowodnienia poprawności algorytmu AKS są twierdzenia związane z pierwiastkami jedności nad ciałem. Aby uprościć późniejsze rozważania, wprowadźmy kolejne pojęcia związane z ciałami.
 
 \begin{definition}
 	\textit{\textbf{Podciałem}} ciała $F$ nazywamy takie $G$, że $G \subseteq F$ z działaniami z $F$ ograniczonymi do elementów $G$ jest ciałem.
@@ -360,6 +364,8 @@ Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewneg
 	Więc $F[X]/\langle h(X) \rangle$ jest rozszerzeniem $F$.\newline
 	Ponieważ $deg(f) \geq 2$, $\alpha = X + \langle h(X)\rangle \in F[X]/\langle h(X) \rangle$. Wtedy $h(\alpha) = a_0 + a_1(X + \langle h(X)\rangle) + \dots + a_n(X+\langle h(X)\rangle)^n = h(X) + \langle h(X) \rangle = 0$ w $F[X]/\langle h(X) \rangle$. Czyli $\alpha$ jest pierwiastkiem $f(X)$.
 \end{proof}
+
+% Mając już potrzebne terminy wprowadźmy
 	
 \begin{theorem}
 	Dla każdego ciała $F$ i wielomianu $f(X) \in F[X], \, deg(f) \geq 1$ istnieje ciało rozkładu $f(X)$ nad $F$.
@@ -389,7 +395,7 @@ Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewneg
 	Ponieważ $F$ i $G$ są ciałami dla tych samych operacji $0_F=0_G$ i $1_F = 1_G$, z definicji charakterystyki mamy $char(F) = char(G)$.
 \end{proof}
 
-Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności nad ciałem.
+Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności nad ciałem. 
 	
 \begin{theorem}
 	Dla każdego ciała $F, p = char(F)$ zbiór pierwiastków $n$-tego stopnia z jedności $E^{(n)}$, gdzie $n \in \mathbb{N}$ oraz $p \nmid n$ z operacją mnożenia w $K^{(n)}$ jest grupą cykliczną rozmiaru $n$.
@@ -406,9 +412,9 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
     
 
 % TODO przenieść to gdzieś indziej. to niepoważnie wygląda tu
-\begin{definition}
+\begin{reminder*}
 	\textbf{\textit{Funkcją Eulera}} nazywamy taką funkcję $\phi$, że dla $n \in \mathbb{N}, \, n \geq 2$ $\phi(n)$ jest równa liczbie liczb naturalnych $q < n$ takich, że $NWD(n, q) = 1$. 
-\end{definition}
+\end{reminder*}
 
 Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomianu cyklotomicznego oraz udowodnić kilka związanych z nimi własności, które okażą się pomocne w dalszych dowodach.
 
