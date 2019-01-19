@@ -407,7 +407,9 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 \begin{definition}
 	\textbf{\textit{Funkcją Eulera}} nazywamy taką funkcję $\phi$, że dla $n \in \mathbb{N}, \, n \geq 2$ $\phi(n)$ jest równa liczbie liczb naturalnych $q < n$ takich, że $NWD(n, q) = 1$. 
 \end{definition}
-	
+
+Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomianu cyklotomicznego oraz udowodnić kilka związanych z nimi własności, które okażą się pomocne w dalszych dowodach.
+
 \begin{definition}
 	Pierwiastek $n$-tego stopnia z jedności nad ciałem $F$ nazywamy \textbf{\textit{pierwotnym}}, jeśli jest generatorem grupy $E^{(n)}$.
 \end{definition}
@@ -439,7 +441,9 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 \begin{observation}
 	$Q_n(X)$ nie zależy od wyboru $\zeta$ oraz jest stopnia $\phi(n)$. Dodatkowo z definicji $K^{(n)}$ wiemy, że współczynniki $Q_n(X)$ należą do $K^{(n)}$.
 \end{observation}
-	
+    
+% Wprowadźmy także pojęcie \textit{wielomianu minimalnego} oraz udowodnijmy jego istnienie, co będzie przydatne dla udowodnienia twierdzenia \ref{kluczowe}.
+
 \begin{definition}
 	Jeśli $G$ jest rozszerzeniem ciała $F$, to \textbf{\textit{wielomianem minimalnym}} dla $g \in G$ nazywamy nierozkładalny moniczny wielomian $m(X) \in F[X]$ taki, że $m(g) = 0$.
 \end{definition}
@@ -505,7 +509,9 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 \end{algorithm}
 	
 \section{Dowód poprawności}
-	
+    
+Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów i ostatecznie wykorzystanie ich do udowodnienia twierdzenia, że algorytm zwróci \textit{PIERWSZA} wtw, gdy liczba $n$ na wejściu jest pierwsza. Lematy prowadzące do końcowego twierdzenia będą często udowodnione z użyciem twierdzeń i lematów z poprzedniego rozdziału. Sam dowód twierdzenia o poprawności będzie opierał się na założeniu nie wprost, że $n$ jest złożona, a algorytm zwróci \textit{PIERWSZA} w kroku 7. Zdefiniujemy bowiem na podstawie $n$, jej pierwszego dzielnika $p$ oraz wybranego w trakcie wykonania algorytmu $r$ zbiór, który, korzystając z założeń wynikających z przebiegu algorytmu, będziemy mogli ograniczyć z dwóch stron, doprowadzając do sprzeczności. Następujące lematy przyjmują bowiem założenia, jakie te liczby spełniają w ostatnim kroku algorytmu.
+
 \begin{lemma}\label{newton1}
 	Dla $n \in \mathbb{N}, \, n \geq 2$ zachodzi ${2n + 1 \choose n} \geq 2^{n+1}$.
 \end{lemma}
