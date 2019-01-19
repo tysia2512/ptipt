@@ -155,16 +155,16 @@ Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalne
 \begin{proof}
 	Aby pokazać, że $I = \langle a \rangle$ ($a \in R$) jest ideałem $\langle R, \oplus, \odot \rangle$, należy pokazać, że (1) $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2) $\forall_{i \in I, r \in R} \, i \odot r \in I \wedge r \odot i \in I $.
 	%  (1),  \newline
-    \newline
-    \begin{enumerate}[label={(\arabic*)}, leftmargin=.4in]
-        \item Aby udowodnić, że $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ wystarczy pokazać, że (1.1) istnieje element neutralny $e \in I$, (1.2) $I$ jest zamknięte na $\oplus$ oraz (1.3) dla każdego elementu istnieje w $I$ element odwrotny.
-            \begin{enumerate}[label=(1.\arabic*)]
-            \item Wiemy, że $0 \in R$, więc $a0=0 \in I$.
-            \item Weźmy dowolne $i_1, i_2 \in I$. Istnieją takie $r_1, r_2 \in R$, że $i_1 = ar_1$ oraz $i_2 = ar_2$. Stąd $i_1 \oplus i_2 = (ar_1) \oplus (ar_2)$. Z własności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $(ar_1) \oplus (ar_2) = a(r_1 \oplus r_2)$, więc $i_1 \oplus i_2 \in I$, czyli $I$ jest zamknięty na $\oplus$.
-            \item Weźmy dowolne $i = ar \in I, r \in R$. Istnieje $-r \in R$, więc $a(-r) \in I$. Wiemy, że $i \oplus a(-r) = ar \oplus a(-r) = a(r \oplus -r) = a0 = 0$, więc $a(-r) \in I$ jest elementem odwrotnym $i$.
-            \end{enumerate}
-        \item Weźmy dowolne $i = ar_1 \in I, \, r \in R$. $ir = ar_1r = a(r_1r)$, więc $ir \in I$. Z przemienności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $ri = ir$, więc $ri \in I$.
-    \end{enumerate}
+	% \newline
+	\begin{enumerate}[label={(\arabic*)}, leftmargin=.4in]
+		\item Aby udowodnić, że $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ wystarczy pokazać, że (1.1) istnieje element neutralny $e \in I$, (1.2) $I$ jest zamknięte na $\oplus$ oraz (1.3) dla każdego elementu istnieje w $I$ element odwrotny.
+		      \begin{enumerate}[label=(1.\arabic*)]
+		      	\item Wiemy, że $0 \in R$, więc $a0=0 \in I$.
+		      	\item Weźmy dowolne $i_1, i_2 \in I$. Istnieją takie $r_1, r_2 \in R$, że $i_1 = ar_1$ oraz $i_2 = ar_2$. Stąd $i_1 \oplus i_2 = (ar_1) \oplus (ar_2)$. Z własności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $(ar_1) \oplus (ar_2) = a(r_1 \oplus r_2)$, więc $i_1 \oplus i_2 \in I$, czyli $I$ jest zamknięty na $\oplus$.
+		      	\item Weźmy dowolne $i = ar \in I, r \in R$. Istnieje $-r \in R$, więc $a(-r) \in I$. Wiemy, że $i \oplus a(-r) = ar \oplus a(-r) = a(r \oplus -r) = a0 = 0$, więc $a(-r) \in I$ jest elementem odwrotnym $i$.
+		      \end{enumerate}
+		\item Weźmy dowolne $i = ar_1 \in I, \, r \in R$. $ir = ar_1r = a(r_1r)$, więc $ir \in I$. Z przemienności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $ri = ir$, więc $ri \in I$.
+	\end{enumerate}
 \end{proof}
 
 \theoremstyle{definition}
@@ -196,31 +196,32 @@ Zdefiniujmy więc pojęcie grupy ilorazowej, które stanie się podstawą defin
 \end{theorem}
 
 \begin{proof}
-	Należy udowodnić, że \newline
-	(1) działanie jest dobrze zdefiniowane, czyli $\forall_{a, b, c, d \in G/N} \, a = b \wedge c = d \Rightarrow ac = bd$;\newline
-	(2) $G/N$ z wyżej zdefiniowanym działaniem jest grupą.\newline
-	\newline
-	(1) Weźmy $aN = bN \in G/N$ oraz $cN = dN \in G/N$. Chcemy pokazać, że $(aN)(cN) = (bN)(dN)$. Wiemy, że, skoro $\langle N, \circ \rangle$ jest grupą, istnieje element neutralny $e \in N$. Stąd wiemy, że $a = ae \in aN$ oraz $b = be \in bN$. Z $aN = bN$ mamy $b \in aN$. Istnieje więc $n_1 \in N$ takie, że $an_1 = b$. Analogicznie, istnieje $n_2 \in N$ takie, że $cn_2 = d$.\newline
-	\newline
-	Można zauważyć, że dla dowolnego $n \in N$ $nN = N$. Własność ta wynika bezpośrednio z faktu, że $N$ jest zamknięty na $\circ$.\newline
-	\newline
-	Korzystając z powyższej obserwacji oraz faktu, że $N$ jest podgrupą normalną mamy $(bN)(dN) = bdN = an_1cn_2N = an_1cN = an_1Nc = aNc = acN$.\newline
-	(2) Aby pokazać, że $G/N$ jest grupą należy pokazać (2.1) zamkniętość na $\otimes$, (2.2) łączność $\otimes$, (2.3) istnienie elementu neutralnego oraz (2.4) istnienie elementów odwrotnych.\newline
-	(2.1) $G/N$ jest zamknięty na $\otimes$. Weźmy dowolne $aN, \, bN \in G/N$. Mamy $(aN)(bN) = abN$. $ab \in G$, więc $abN \in G/N$.\newline
-	(2.2) $\otimes$ jest łączne. Weźmy dowolne $aN, \, bN, \, cN \in G/N$. Korzystając z łączności $\odot$ i faktu, że N jest normalna ($cN = Nc$), mamy 
-	\begin{align}
-		aN((bN)(cN)) & = aN(bcN) = a(bc)N = (ab)cN        \\
-		             & = (ab)Nc = (abN)cN = ((aN)(bN))cN. 
-	\end{align}
-	(2.3) Istnieje w $G/N$ element neutralny. Weźmy $eN$, gdzie $e$ jest elementem neutralnym w $G$. Dla dowolnego $aN \in G/N$ mamy $(aN)(eN) = aeN = aN$.\newline
-	(2.4) Dla każdego elementu istnieje element odwrotny. Weźmy dowolne $aN \in G/N$. Niech $-a$ będzie elementem odwrotnym $a$. Wiemy, że $-a \in G$. Mamy \[(aN)(-aN) = a(-a)N = eN,\] czyli element odwrotny w $G/N$.
+	Należy udowodnić, że (1) działanie jest dobrze zdefiniowane, czyli $\forall_{a, b, c, d \in G/N} \, a = b \wedge c = d \Rightarrow ac = bd$ oraz (2) $G/N$ z wyżej zdefiniowanym działaniem jest grupą.\newline
+	\begin{enumerate}[label={(\arabic*)}, leftmargin=.4in]
+		\item Weźmy $aN = bN \in G/N$ oraz $cN = dN \in G/N$. Chcemy pokazać, że $(aN)(cN) = (bN)(dN)$. Wiemy, że, skoro $\langle N, \circ \rangle$ jest grupą, istnieje element neutralny $e \in N$. Stąd wiemy, że $a = ae \in aN$ oraz $b = be \in bN$. Z $aN = bN$ mamy $b \in aN$. Istnieje więc $n_1 \in N$ takie, że $an_1 = b$. Analogicznie, istnieje $n_2 \in N$ takie, że $cn_2 = d$.\newline
+		      \newline
+		      Można zauważyć, że dla dowolnego $n \in N$ $nN = N$. Własność ta wynika bezpośrednio z faktu, że $N$ jest zamknięty na $\circ$.\newline
+		      \newline
+		      Korzystając z powyższej obserwacji oraz faktu, że $N$ jest podgrupą normalną mamy $(bN)(dN) = bdN = an_1cn_2N = an_1cN = an_1Nc = aNc = acN$.\newline
+		\item Aby pokazać, że $G/N$ jest grupą należy pokazać (2.1) zamkniętość na $\otimes$, (2.2) łączność $\otimes$, (2.3) istnienie elementu neutralnego oraz (2.4) istnienie elementów odwrotnych.
+		      \begin{enumerate}[label=(2.\arabic*)]
+		      	\item $G/N$ jest zamknięty na $\otimes$. Weźmy dowolne $aN, \, bN \in G/N$. Mamy $(aN)(bN) = abN$. $ab \in G$, więc $abN \in G/N$.
+		      	\item $\otimes$ jest łączne. Weźmy dowolne $aN, \, bN, \, cN \in G/N$. Korzystając z łączności $\odot$ i faktu, że N jest normalna ($cN = Nc$), mamy 
+		      	      \begin{align}
+		      	      	aN((bN)(cN)) & = aN(bcN) = a(bc)N = (ab)cN        \\
+		      	      	             & = (ab)Nc = (abN)cN = ((aN)(bN))cN. 
+		      	      \end{align}
+		      	\item Istnieje w $G/N$ element neutralny. Weźmy $eN$, gdzie $e$ jest elementem neutralnym w $G$. Dla dowolnego $aN \in G/N$ mamy $(aN)(eN) = aeN = aN$.
+		      	\item Dla każdego elementu istnieje element odwrotny. Weźmy dowolne $aN \in G/N$. Niech $-a$ będzie elementem odwrotnym $a$. Wiemy, że $-a \in G$. Mamy \[(aN)(-aN) = a(-a)N = eN,\] czyli element odwrotny w $G/N$.
+		      \end{enumerate}
+	\end{enumerate}
 \end{proof}
 
 Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowania pierścienia ilorazowego. Jest on analogicznie zbiorem warstw względem ideału z odpowiednio zdefiniowanymi działaniami.
 
 \begin{theorem}
 	Niech $I$ będzie ideałem pierścienia przemiennego $\langle R, \oplus, \odot \rangle$. Jeśli zdefiniujemy operacje $+$ i $\times$ jako: 
-	\begin{itemize}[leftmargin=.5in]
+	\begin{itemize}[leftmargin=.4in]
 		\item $(r \oplus I) \times (s \oplus I) = r \odot s \oplus I$ oraz
 		\item $(r \oplus I) + (s \oplus I) = r \oplus s \oplus I$,
 	\end{itemize}
@@ -230,22 +231,25 @@ Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowa
 % SPRAWDZONE DOTĄD
 
 \begin{proof}
-	(1) $\langle I, \oplus \rangle$ jest podgrupą normalną $\langle R, \oplus \rangle$, więc z twierdzenia \ref{grup_ilo} $\langle R/I, + \rangle$ z jest grupą ilorazową. \newline
-	Należy więc pokazać, że: \newline
-	(2) $\times$ jest dobrze zdefiniowana, tzn. dla $a, b, c, d \in R/I$ jeśli $a = b$ oraz $c = d$, to $a \times c = b \times d$; \newline
-	(3) $\langle R/I, +, \times \rangle$ jest pierścieniem przemiennym. \newline
-	\newline
-	(2) Weźmy dowolne $a, b, c, d \in R$ takie, że $a \oplus I = b \oplus I$ oraz $c \oplus I = d \oplus I$. Wiemy, że $\langle I, \oplus \rangle$ jest grupą, więc zawiera element neutralny $e$. Stąd $a \oplus e = a \in a \oplus I = b \oplus I$. Istnieje więc $i_1 \in I$ taki, że $a = b \oplus i_1$. Analogicznie istnieje $i_2 \in I$ takie, że $c = d \oplus i_2$. \newline
-	$\langle I, \oplus \rangle$ jest grupą, więc dla dowolnego $i \in I$ $i \oplus I = I$. \newline
-	Mamy więc $(a \oplus I) \times (c \oplus I) = a \odot c \oplus I = (b \oplus i_1) \odot (d \oplus i_2) \oplus I$. Jako że $b, d, i_1, i_2 \in R$ oraz $\langle R, \oplus, \odot \rangle$ jest pierścieniem mamy $(b \oplus i_1) \odot (d \oplus i_2) \oplus I = b \odot d \oplus b \odot i_2 \oplus i_2 \odot d \oplus i_1 \odot i_2 \oplus I$. $I$ jest ideałem, więc $b \odot i_2, i_1 \odot d, i_1 \odot i_2 \in I$. Stąd $b \odot d \oplus b \odot i_2 \oplus i_2 \odot d \oplus i_1 \odot i_2 \oplus I = b \odot d \oplus I = (b \oplus I) \times (d \oplus I)$. \newline
-	(3) Wystarczy pokazać, że: \newline
-	(3.1) + jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\oplus$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) + (b \oplus I) = a \oplus b \oplus I = b \oplus a \oplus I = (a \oplus I) + (b \oplus I)$. \newline
-	(3.2) + jest łączna. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z łączności $\oplus$ w $\langle R, \oplus, \odot \rangle$ mamy $((a \oplus I) + (b \oplus I)) + (c \oplus I) = (a \oplus b \oplus I) + (c \oplus I) = (a \oplus b) \oplus c \oplus I = a \oplus (b \oplus c) \oplus I = (a \oplus I) + (b \oplus c \oplus I) = (a \oplus I) + ((b \oplus I) + (c \oplus I))$. \newline
-	(3.3) Istnieje element zerowy. Niech $e = e' \oplus I$, gdzie $e'$ jest elementem zerowym pierścienia $\langle R, \oplus \rangle$. Weźmy dowolne $a \oplus I \in R/I$. Wtedy $(a \oplus I) + e = a \oplus e' \oplus I = e' \oplus I = e = e' \oplus a \oplus I = e + (a \oplus I)$. \newline
-	(3.4) Dla każdego elementu istnieje element odwrotny. Weźmy dowolne $a \oplus I \in R/I$. Istnieje $-a \in R$, będące elementem odwrotnym $a$. $(a \oplus I) + (-a \oplus I) = a \oplus -a \oplus I = e' \oplus I = e = -a \oplus a \oplus I = (-a \oplus I) + (a \oplus I)$. \newline
-	(3.5) $\times$ jest łączna. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z łączności $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $((a \oplus I) \times (b \oplus I)) \times (c \oplus I) = (a \odot b \oplus I) \times (c \oplus I) = (a \odot b) \odot c \oplus I = a \odot (b \odot c) \oplus I = (a \oplus I) \times (b \odot c \oplus I) = (a \oplus I) \times ((b \oplus I) \times (c \oplus I))$. \newline
-	(3.6) + jest rozdzielna względem $\times$. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z rozdzielności $\oplus$ względem $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) \times ((b \oplus I) + (c \oplus I) = a \odot (b \oplus c) \oplus I = a \odot b \oplus a \odot c \oplus I = ((a \oplus I) \times (b \oplus I)) + ((a \oplus I) \times (c \oplus I)))$ oraz $((a \oplus I) + (b \oplus I)) \times (c \oplus I) = (a \oplus b) \odot c \oplus I = a \odot c \oplus b \odot c \oplus I = ((a \oplus I) \times (c \oplus I)) + ((b \oplus I) \times (c \oplus I))$.\newline
-	(3.7) $\times$ jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) \times (b \oplus I) = a \odot b \oplus I = b \odot a \oplus I = (b \oplus I) \times (a \oplus I)$.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item $\langle I, \oplus \rangle$ jest podgrupą normalną $\langle R, \oplus \rangle$, więc z twierdzenia \ref{grup_ilo} $\langle R/I, + \rangle$ z jest grupą ilorazową.
+	\end{enumerate}
+	Należy więc pokazać, że (2) $\times$ jest dobrze zdefiniowana, tzn. dla $a, b, c, d \in R/I$ jeśli $a = b$ oraz $c = d$, to $a \times c = b \times d$ oraz (3) $\langle R/I, +, \times \rangle$ jest pierścieniem przemiennym.
+	\begin{enumerate}[resume,label=(\arabic*),leftmargin=.4in]
+		\item Weźmy dowolne $a, b, c, d \in R$ takie, że $a \oplus I = b \oplus I$ oraz $c \oplus I = d \oplus I$. Wiemy, że $\langle I, \oplus \rangle$ jest grupą, więc zawiera element neutralny $e$. Stąd $a \oplus e = a \in a \oplus I = b \oplus I$. Istnieje więc $i_1 \in I$ taki, że $a = b \oplus i_1$. Analogicznie istnieje $i_2 \in I$ takie, że $c = d \oplus i_2$. \newline
+		      $\langle I, \oplus \rangle$ jest grupą, więc dla dowolnego $i \in I$ $i \oplus I = I$. \newline
+		      Mamy więc $(a \oplus I) \times (c \oplus I) = a \odot c \oplus I = (b \oplus i_1) \odot (d \oplus i_2) \oplus I$. Jako że $b, d, i_1, i_2 \in R$ oraz $\langle R, \oplus, \odot \rangle$ jest pierścieniem mamy $(b \oplus i_1) \odot (d \oplus i_2) \oplus I = b \odot d \oplus b \odot i_2 \oplus i_2 \odot d \oplus i_1 \odot i_2 \oplus I$. $I$ jest ideałem, więc $b \odot i_2, i_1 \odot d, i_1 \odot i_2 \in I$. Stąd $b \odot d \oplus b \odot i_2 \oplus i_2 \odot d \oplus i_1 \odot i_2 \oplus I = b \odot d \oplus I = (b \oplus I) \times (d \oplus I)$.
+		\item Pokażemy, że $\langle R/I, +, \times \rangle$ spełnia warunki z definicji pierścienia przemiennego.
+		      \begin{enumerate}[label=(3.\arabic*)]  	    
+		      	\item + jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\oplus$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) + (b \oplus I) = a \oplus b \oplus I = b \oplus a \oplus I = (a \oplus I) + (b \oplus I)$. \newline
+		      	\item + jest łączna. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z łączności $\oplus$ w $\langle R, \oplus, \odot \rangle$ mamy $((a \oplus I) + (b \oplus I)) + (c \oplus I) = (a \oplus b \oplus I) + (c \oplus I) = (a \oplus b) \oplus c \oplus I = a \oplus (b \oplus c) \oplus I = (a \oplus I) + (b \oplus c \oplus I) = (a \oplus I) + ((b \oplus I) + (c \oplus I))$.
+		      	\item Istnieje element zerowy. Niech $e = e' \oplus I$, gdzie $e'$ jest elementem zerowym pierścienia $\langle R, \oplus \rangle$. Weźmy dowolne $a \oplus I \in R/I$. Wtedy $(a \oplus I) + e = a \oplus e' \oplus I = e' \oplus I = e = e' \oplus a \oplus I = e + (a \oplus I)$.
+		      	\item Dla każdego elementu istnieje element odwrotny. Weźmy dowolne $a \oplus I \in R/I$. Istnieje $-a \in R$, będące elementem odwrotnym $a$. $(a \oplus I) + (-a \oplus I) = a \oplus -a \oplus I = e' \oplus I = e = -a \oplus a \oplus I = (-a \oplus I) + (a \oplus I)$.
+		      	\item $\times$ jest łączna. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z łączności $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $((a \oplus I) \times (b \oplus I)) \times (c \oplus I) = (a \odot b \oplus I) \times (c \oplus I) = (a \odot b) \odot c \oplus I = a \odot (b \odot c) \oplus I = (a \oplus I) \times (b \odot c \oplus I) = (a \oplus I) \times ((b \oplus I) \times (c \oplus I))$.
+		      	\item + jest rozdzielna względem $\times$. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z rozdzielności $\oplus$ względem $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) \times ((b \oplus I) + (c \oplus I) = a \odot (b \oplus c) \oplus I = a \odot b \oplus a \odot c \oplus I = ((a \oplus I) \times (b \oplus I)) + ((a \oplus I) \times (c \oplus I)))$ oraz $((a \oplus I) + (b \oplus I)) \times (c \oplus I) = (a \oplus b) \odot c \oplus I = a \odot c \oplus b \odot c \oplus I = ((a \oplus I) \times (c \oplus I)) + ((b \oplus I) \times (c \oplus I))$.
+		      	\item $\times$ jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) \times (b \oplus I) = a \odot b \oplus I = b \odot a \oplus I = (b \oplus I) \times (a \oplus I)$.
+		      \end{enumerate}
+	\end{enumerate}
 \end{proof}
 
 Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pierścienie ilorazowe są ciałami. Będzie to twierdzenie, którego będziemy używać w późniejszych lematach dla pierścienia ilorazowego pierścienia wielomianów.
@@ -271,7 +275,7 @@ Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pie
 	Wiemy, że $J$ jest ideałem nad $R$. Możemy też pokazać, że $M \subset J$. $\forall_{m \in M} \, m = 0a \oplus m \in J$ oraz skoro $1 \in R, 0 \in M$, to $a \in J$. Wiemy, że $a \notin M$, więc $M \subset J$.
 	\newline
 	Mamy więc ideał $J$ nad $R$, który zawiera $M$. Z założenia, że $M$ jest maksymalny, mamy $J = R$, więc $1 \in J$, czyli $\exists_{m \in M, r \in R} \, ra \oplus m = 1$. Wtedy $(r \oplus M) \times (a \oplus M) = ra \oplus M = ra \oplus m \oplus M = 1 \oplus M$, czyli $(a \oplus M)^{-1} = r \oplus M$.
-		
+				
 \end{proof}
 
 \section{Pierścień wielomianów}
@@ -496,7 +500,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \begin{algorithm}
 	\caption{Algorytm ASK}
 	\begin{algorithmic}[1]
-					    
+									    
 		\Require{liczba całkowita $n > 1$}
 		\Ensure{\textbf{PIERWSZA} - jeśli $n$ jest pierwsza; \textbf{ZŁOŻONA} - jeśli $n$ jest złożona}
 		\If{istnieje takie $a \in \mathbb{N}, b > 1$, że $a^b = n$} \Comment{Krok 1.}
@@ -578,7 +582,7 @@ Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów
 	Zauważmy, że jeśli $q^i \, | \, m$, to $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) = 0$, a w przeciwnym wypadku $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq 1$. Stąd mamy \[\sum_{i=1}^{i \leq \lfloor log_qn \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq \lfloor log_qn \rfloor - l,\] a ponieważ $q^l \parallel m$, otrzymujemy wniosek, że jeśli $q^i \, | \, m \cdot {n \choose m}$, to $i \leq \lfloor log_qn \rfloor$. Ponieważ nierówność ta zachodzi dla każdego pierwszego dzielnika, możemy wywnioskować, że $m \cdot {n \choose m} \, | \, \ell_n$.\newline
 	(2) W szczególności mamy $n \cdot {2n \choose n} \, | \, \ell_{2n}$ oraz $(n+1){2n + 1 \choose n + 1} = (2n + 1){2n \choose n}\, |\, \ell_{2n+1}$. Wiemy, że $NWD(n,\, 2n + 1) = 1$ oraz $\ell_{2n} \, | \, \ell_{2n + 1}$, więc $n(2n + 1){2n \choose n}\, |\, \ell_{2n + 1}$. Możemy stąd przejść do nierówności \[\ell_{2n + 1} \geq n(2n + 1){2n \choose n} \geq n \sum_{i=0}^{i \leq 2n}{2n \choose n} \geq n {\sum_{i=0}^{i \leq 2n}{2n \choose i}} = n(1 + 1)^{2n} = n \, 4^n.\]
 	Mamy więc dla $n \geq 4$ nierówność $\ell_{2n+2} \geq \ell_{2n+1} \geq 2^{2n + 2}$, skąd bezpośrednio możemy wywnioskować $\ell_n \geq 2^n$ dla $n \geq 9$.
-			
+					
 \end{proof}
 	
 % SPRAWDZONE
@@ -686,7 +690,7 @@ Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów
 		p^{\phi(r)} & = 1 \, (mod \, r) &   & \text{(Dla każdego $a_i$ istnieje $a_i^{-1}$.)} 
 	\end{align*}
 	Z twierdzenia Lagrange'a mamy wniosek, że $\phi(r)$ dzieli moc grupy, generowanej przez $p$ modulo $r$, czyli zawartej w $G$, skąd wynika teza.
-			
+					
 \end{proof}
 	
 \begin{lemma}
@@ -709,7 +713,7 @@ Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów
 	
 \begin{proof}
 	Z lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) | X^k - 1$ w $\mathbb{F}_p[X]$. Rozważmy $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{F}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. Ponieważ $h(X) | X^k - 1$ także w rozszerzeniu ciała $\mathbb{F}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{F}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
-			
+					
 	%Pokażemy, że (1) w $F$ jest nie więcej niż $o_r(p)$ pierwiastków $r$-tego stopnia z jedności oraz, że (2) $X$ generuje dokładnie $o_r(p)$ różnych pierwiastków $r$-tego stopnia z jedności. \newline
 	%(1) Niech $\zeta \in F$ będzie pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$. Wiemy, że $\zeta$ generuje grupę wszystkich pierw
 	% TODO uwaga
@@ -802,8 +806,8 @@ Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów
 	\textbf{(krok 5.)} W kroku 5. wykonany zostanie krok 6. $\lfloor \sqrt{\phi(n)} \, log \, n \rfloor$. Mamy więc złożoność obliczeniową kroku 5. $O(\sqrt{\phi(r)} \, log \, n \cdot log^7n) \subseteq O(\sqrt{r} \, log \, n \cdot log^7n) \subseteq O(log^{\frac{5}{2}}n \cdot log^8n) \subseteq O(log^{\frac{21}{2}}n)$.\newline
 	\newline
 	Suma złożoności wszystkich kroków jest zdominowana przez złożoność kroku 5., więc złożoność całego algorytmu można ograniczyć przez $O(log^{\frac{21}{2}}n)$.
-			
-			
+					
+					
 \end{proof}
 	
 \chapter{Implementacja}
