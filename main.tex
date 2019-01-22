@@ -311,39 +311,60 @@ Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawi
 	Dowód twierdzenia przebiega poprzez pokazanie kolejnych własności pierścienia. Elementem zerowym jest wielomian zerowy, a elementem neutralnym mnożenia jest $1$.
 \end{remark*}
 
-Przyjrzyjmy się bliżej pierścieniowi wielomianów, którego współczynniki są elementami ciała. Na podstawie poniższych lematów o ideałach w tym pierścieniu oraz twierdzeń z powyższej sekcji, będziemy mogli określić strukturę pewnych pierścieni ilorazowych, które pojawią się później w dowodzie poprawności algorytmu AKS.
+Przyjrzyjmy się następnie bliżej pierścieniowi wielomianów, którego współczynniki są elementami ciała. Poniższe lematy pozwolą na ustalenie, kiedy pierścień ilorazowy takiego pierścienia jest ciałem, co stanie się podstawą dowodu algorytmu AKS.
 
 \begin{lemma}
 	Jeśli $\langle F, \oplus, \odot, 0, 1 \rangle$ jest ciałem, to wszystkie ideały nad $F[X]$ są ideałami głównymi.
 \end{lemma}
 
 \begin{proof}
-	Weźmy dowolny ideał $I$ nad $F[X]$. Jeśli $I = \{0\}$, to $I = \langle0\rangle$. Załóżmy więc, że $I$ jest niezerowe i weźmy $p(x) \in I$ takie, że $p(x) \neq 0$ oraz $p(x)$ jest wielomianem najmniejszego stopnia w $I$. Weźmy dowolny wielomian $f(x) \in I$. Wiemy, że $\exists_{q(x), r(x) \in I} \, f(x) = q(x)p(x) \oplus r(x) \wedge deg(r(x)) < deg(p(x))$. Z założenia o minimalnym stopniu $p(x)$ mamy $r(x) = 0$. Oznacza to, że dowolny wielomian z $I$ da się przedstawić w postaci $q(x)p(x)$, więc $I = \langle p(x) \rangle$. 
+	Weźmy dowolny ideał $I$ nad $F[X]$. Jeśli $I = \{0\}$, to $I = \langle0\rangle$. Załóżmy więc, że $I$ jest niezerowe i weźmy $p(X) \in I$ takie, że $p(X) \neq 0$ oraz $p(X)$ jest wielomianem najmniejszego stopnia w $I$. Weźmy dowolny wielomian $f(X) \in I$. Wiemy, że $\exists_{q(X), r(X) \in I} \, f(X) = q(X)p(X) \oplus r(X) \wedge deg(r(X)) < deg(p(X))$. Z założenia o minimalnym stopniu $p(X)$ mamy $r(X) = 0$. Oznacza to, że dowolny wielomian z $I$ da się przedstawić w postaci $q(X)p(X)$, więc $I = \langle p(X) \rangle$. 
 \end{proof}
 
 \begin{theorem}
-	Jeśli $\langle F, \oplus, \odot, 0, 1 \rangle$, to $\langle g(x) \rangle$ jest ciałem i wielomian $g(x)$ jest nierozkładalny w $F[X]$, to $\langle g(x) \rangle$ jest ideałem maksymalnym.
+	Jeśli $\langle F, \oplus, \odot, 0, 1 \rangle$, to $\langle g(X) \rangle$ jest ciałem i wielomian $g(X)$ jest nierozkładalny w $F[X]$, to $\langle g(X) \rangle$ jest ideałem maksymalnym.
 \end{theorem}
 
 \begin{proof}
-	Weźmy dowolny ideał $I$ nad $F[X]$. Wiemy, że jest to ideał główny, więc istnieje $f(x) \in F[X]$ takie, że $I = \langle f(x) \rangle$. Załóżmy, że $\langle g(x) \rangle \subset I$. Znaczy to, że istnieje $h(x) \in F[X]$ takie, że $g(x) = f(x)h(x)$. $g(x)$ jest nierozkładalny, więc $f(x)$ lub $h(x)$ jest wielomianem stopnia $0$. Jeśli $f(x)$ jest stopnia $0$, to $\langle f(x) \rangle = F$. Jeśli $h(x)$ jest stopnia $0$, to $\langle g(x) \rangle = \langle h(x) \rangle$, co jest sprzeczne z założeniem.
+	Weźmy dowolny ideał $I$ nad $F[X]$. Wiemy, że jest to ideał główny, więc istnieje $f(X) \in F[X]$ takie, że $I = \langle f(X) \rangle$. Załóżmy, że $\langle g(X) \rangle \subset I$. Znaczy to, że istnieje $h(X) \in F[X]$ takie, że $g(X) = f(X)h(X)$. $g(X)$ jest nierozkładalny, więc $f(X)$ lub $h(X)$ jest wielomianem stopnia $0$. Jeśli $f(X)$ jest stopnia $0$, to $\langle f(X) \rangle = F$. Jeśli $h(X)$ jest stopnia $0$, to $\langle g(X) \rangle = \langle h(X) \rangle$, co jest sprzeczne z założeniem.
 \end{proof}
 
 Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb całkowitych modulo liczba pierwsza.
 
 \begin{theorem} \label{pier_ilo_ciałem}
-	Jeśli $p$ jest pierwsze i $h(x)$ jest nierozkładalnym w $\mathbb{Z}_p[X]$ wielomianem stopnia $d$ to pierścień ilorazowy $\langle \mathbb{Z}_p[X]/\langle h(x) \rangle, \oplus, \odot \rangle$ jest ciałem rzędu $p^d$.
+	Jeśli $p$ jest pierwsze i $h(X)$ jest nierozkładalnym w $\mathbb{Z}_p[X]$ wielomianem stopnia $d$ to pierścień ilorazowy $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem rzędu $p^d$.
 \end{theorem}
 
 \begin{proof}
-	(1) $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(x)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc $\mathbb{Z}_p[X]/\langle h(x) \rangle$ jest ciałem. \newline
-	(2) Niech $M = \langle h(x) \rangle$ Pokażemy, że jeśli wielomiany $f(x) = h(x)q_1(x) +^* r_1(x), g(x) = h(x)q_2(x) +^* r_2(x) \in \mathbb{Z}_p[X]$, gdzie $r_1(x) = r_2(x)$, to $f(x) +^* M = g(x) +^* M$. Mamy $f(x) +^* M = h (x)q_1(x) +^* r_1(x) +^* M = r_1(x) +^* h (x)q_1(x) +^* M = r_1(x) +^* M =  r_2(x) +^* M = r_2(x) +^* h(x)q_2(x) + M = g(x) + M$. Ponadto, wiemy, że, ponieważ $M$ jest ideałem głównym, dowolna para wielomianów $f(x), g(x) \in r(x) +^* M$ ma taką samą resztę z dzielenia przez $h(x)$. Mamy więc wniosek, że para wielomianów należy do tego samego elementu zbioru $\mathbb{Z}_p[X]/\langle h(x) \rangle$ wtw mają taką samą resztę z dzielenia przez $h(x)$.\newline
-	Mamy więc tyle elementów zbioru $\mathbb{Z}_p[X]/\langle h(x) \rangle$, ile jest różnych reszt dzielenia wielomianu przez $h(x)$, czyli też tyle, ile jest wielomianów stopnia $d-1$ w $\mathbb{Z}_p[X]$. Stąd $ord(\mathbb{Z}_p[X]/\langle h(x) \rangle) = p^d$.
+    Pokażemy kolejno, że (1) $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem, a następnie że (2) jest ono rzędu $p^d$.
+    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+        \item $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(X)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc na mocy twierdzenia \ref{pier_ilo_cialem} $\mathbb{Z}_p[X]/\langle h(X) \rangle$ jest ciałem.
+        \item Niech $M = \langle h(X) \rangle$. Pokażemy, że jeśli wielomiany $f(X), g(X) \in \mathbb{Z}_p[X]$, gdzie 
+        \begin{align*}
+            f(X) &= h(X)q_1(X) +^* r_1(X), \\
+            g(X) &= h(X)q_2(X) +^* r_2(X),
+        \end{align*}
+        gdzie $r_1(X) = r_2(X)$, to 
+        \begin{align*}
+            f(X) +^* M = g(X) +^* M.
+        \end{align*}
+        Mamy 
+        \begin{align*}
+            f(X) +^* M &= h(X)q_1(X) +^* r_1(X) +^* M \\
+            &= r_1(X) +^* h (X)q_1(X) +^* M \\
+            &= r_1(X) +^* M \\
+            &= r_2(X) +^* M \\
+            &= r_2(X) +^* h(X)q_2(X) +^* M \\
+            &= g(X) +^* M.
+        \end{align*}
+        Ponadto wiemy, że, ponieważ $M$ jest ideałem głównym, dowolna para wielomianów $f(X), g(X) \in r(X) +^* M$ ma taką samą resztę z dzielenia przez $h(X)$. Mamy więc wniosek, że para wielomianów należy do tego samego elementu zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$ wtw mają taką samą resztę z dzielenia przez $h(X)$.\newline
+        Mamy więc tyle elementów zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$, ile jest różnych reszt dzielenia wielomianu przez $h(X)$, czyli też tyle, ile jest wielomianów stopnia $d-1$ w $\mathbb{Z}_p[X]$. Stąd $ord(\mathbb{Z}_p[X]/\langle h(X) \rangle) = p^d$.
+    \end{enumerate}
 \end{proof}
 
 \section{Pierwiastki z jedności, wielomiany cyklotomiczne}
 
-Kolejną grupą twierdzeń potrzebnych do udowodnienia poprawności algorytmu AKS są twierdzenia związane z pierwiastkami jedności nad ciałem. Aby uprościć późniejsze rozważania, wprowadźmy kolejne pojęcia związane z ciałami.
+Kolejną grupą twierdzeń potrzebnych do udowodnienia poprawności algorytmu AKS są twierdzenia związane z pierwiastkami jedności nad ciałem. Aby uprościć późniejsze rozważania, wprowadźmy następujące pojęcia związane z ciałami.
 
 \begin{definition}
 	\textit{\textbf{Podciałem}} ciała $F$ nazywamy takie $G$, że $G \subseteq F$ z działaniami z $F$ ograniczonymi do elementów $G$ jest ciałem.
@@ -363,18 +384,22 @@ Kolejną grupą twierdzeń potrzebnych do udowodnienia poprawności algorytmu AK
 
 Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewnego wielomianu nad ciałem, wprowadźmy twierdzenie Kroneckera, które pozwoli w późniejszych twierdzeniach udowodnić istnienie ciała rozkładu i pierwiastków z jedności.
 	
-\begin{lemma} \label{Kronecker}
+\begin{lemma}[Twierdzenie Kroneckera] \label{Kronecker}
 	Dla każdego ciała $F$ i wielomianu $f(X) \in F[X], deg(f) \geq 2$ istnieje rozszerzenie $G$ ciała $F$, w którym $f(X)$ ma pierwiastek.
 \end{lemma}
 	
 \begin{proof}
-	Niech $h(X) = a_0 + a_1x + \dots + a_nx^n$ będzie nierozkładalnym w $F[X]$ czynnikiem $f(X)$. Z 
-	%\ref{pier_ilo_ciałem} 
+	Niech $h(X) = a_0 + a_1x + \dots + a_nx^n$ będzie nierozkładalnym w $F[X]$ czynnikiem $f(X)$. Z twierdzenia \ref{pier_ilo_cialem} 
 	wiemy, że $F[X]/\langle h(X) \rangle$ jest ciałem. 
 	Zauważmy, że $F$ jest izomorficzny z $\{a + \langle h(X) \rangle \, | \, a \in F\} \subseteq F[X]/\langle h(X) \rangle$. 
 	%%% UWAGA BS %%%%
 	Więc $F[X]/\langle h(X) \rangle$ jest rozszerzeniem $F$.\newline
-	Ponieważ $deg(f) \geq 2$, $\alpha = X + \langle h(X)\rangle \in F[X]/\langle h(X) \rangle$. Wtedy $h(\alpha) = a_0 + a_1(X + \langle h(X)\rangle) + \dots + a_n(X+\langle h(X)\rangle)^n = h(X) + \langle h(X) \rangle = 0$ w $F[X]/\langle h(X) \rangle$. Czyli $\alpha$ jest pierwiastkiem $f(X)$.
+    Niech $\alpha = X + \langle h(X)\rangle$. Ponieważ $deg(f) \geq 2$, $\alpha \in F[X]/\langle h(X) \rangle$. Mamy więc 
+    \begin{align*}
+        h(\alpha) &= a_0 + a_1(X + \langle h(X)\rangle) + \dots + a_n(X+\langle h(X)\rangle)^n \\
+        &= h(X) + \langle h(X) \rangle = 0 
+    \end{align*}
+    w $F[X]/\langle h(X) \rangle$, czyli $\alpha$ jest pierwiastkiem $f(X)$.
 \end{proof}
 
 % Mając już potrzebne terminy wprowadźmy
@@ -410,16 +435,21 @@ Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewneg
 Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności nad ciałem. 
 	
 \begin{theorem}
-	Dla każdego ciała $F, p = char(F)$ zbiór pierwiastków $n$-tego stopnia z jedności $E^{(n)}$, gdzie $n \in \mathbb{N}$ oraz $p \nmid n$ z operacją mnożenia w $K^{(n)}$ jest grupą cykliczną rozmiaru $n$.
+	Dla każdego ciała $F$, gdzie $p = char(F)$, zbiór pierwiastków $n$-tego stopnia z jedności $E^{(n)}$, gdzie $n \in \mathbb{N}$ oraz $p \nmid n$ z operacją mnożenia w $K^{(n)}$ jest grupą cykliczną rozmiaru $n$.
 \end{theorem}
 	
 \begin{proof}
-	(1) Pokażemy, że $|\,E^{(n)}\,| = n$. Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^(n)$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.\newline
-	(2) $E^{(n)}$ jest grupą operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$. \newline
-	(3) $E^{(n)}$ jest cykliczna. \newline
-	Niech $n$ będzie liczbą pierwszą. Weźmy dowolne $\zeta \in E^{(n)}$. Załóżmy nie wprost, że istnieje $q < n, q \in \mathbb{N}$ takie, że $\zeta^q = 1$. Wtedy $q \, | \, n$, co jest sprzeczne z założeniem o pierwszości $n$. Skoro takie $q$ nie istnieje, to $\zeta$ generuje $E^{(n)}$, ponieważ dla każdego $i, j < n, i, j \in \mathbb{N} \, \zeta^i \neq \zeta^j$. \newline
-	Niech $n = p_1^{e_1} \cdot \dots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \geq i \geq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $x^{\frac{r}{p_i}}-1$. $n$ jest złożona, więc $\frac{n}{p_1} < n$ i istnieje $\zeta_i$ nie będąca pierwiastkiem $x^{\frac{r}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{p_i^{e_i}}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^p = \alpha_i^{p_i^{k+1}} = 1$ i poprzez indukcję względem $k$ $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
-	Weźmy $\alpha = \alpha_1 \cdot \dots \cdot \alpha_r$. Pokażemy, że $o_n(\alpha) = n$. Wiemy, że $o_n(\alpha) \, | \, n$. Załóżmy nie wprost, że $o_n(\alpha) \neq n$. Wynika stąd, że istnieje takie $p_i$, że $o_n(\alpha) \, | \, \frac{n}{p_i}$. Wtedy $\alpha^{\frac{n}{p_i}} = 1 = \alpha_1^{\frac{n}{p_i}} \cdot \dots \cdot \alpha_r^{\frac{n}{p_r}}$. Dla każdego $j \neq i, 1 \leq j \leq r$ $p_j^{e_j} \, | \, \frac{n}{p_i}$, a ponieważ $o_n(\alpha_j) = p_i^{e_j}$, mamy $\alpha_j^{\frac{n}{p_i}} = 1$. Mamy więc $\alpha_i^{\frac{n}{p_i}} = 1$, czyli $o_n(\alpha_i) | \frac{n}{p_i}$. Mamy jednak $o_n(\alpha_i) = p_i^{e_i}$, które nie dzieli $\frac{n}{p_i}$, więc otrzymaliśmy sprzeczność. Pokazalśmy więc, że $o_n(\alpha) = n$. Na mocy argumentu jak w przypadku pierwszego $n$ znaleźliśmy $\alpha$ będące generatorem $E^{(n)}$.
+    Pokażemy kolejno, że (1) $|\,E^{(n)}\,| = n$, (2) $E^{(n)}$ jest grupą, a co więcej, (3) jest grupą cykliczną.
+    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+        \item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.\newline
+        \item Pokażemy, że $E^{(n)}$ jest grupą z operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
+        \item Pokażemy cykliczność $E^{(n)}$ poprzez znalezienie generatora grupy. 
+        \begin{enumerate}[label=(3.\arabic*)]
+            \item Niech $n$ będzie liczbą pierwszą. Weźmy dowolne $\zeta \in E^{(n)}$. Załóżmy nie wprost, że istnieje $q < n, q \in \mathbb{N}$ takie, że $\zeta^q = 1$. Wtedy $q \, | \, n$, co jest sprzeczne z założeniem o pierwszości $n$. Skoro takie $q$ nie istnieje, to $\zeta$ generuje $E^{(n)}$, ponieważ dla każdego $i, j < n, i, j \in \mathbb{N} \, \zeta^i \neq \zeta^j$.
+            \item Niech $n = p_1^{e_1} \cdot \dots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \geq i \geq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $X^{\frac{r}{p_i}}-1$. $n$ jest złożona, więc $\frac{n}{p_1} < n$ i istnieje $\zeta_i$ nie będąca pierwiastkiem $X^{\frac{r}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{p_i^{e_i}}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^p = \alpha_i^{p_i^{k+1}} = 1$ i poprzez indukcję względem $k$ $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
+            Weźmy $\alpha = \alpha_1 \cdot \dots \cdot \alpha_r$. Pokażemy, że $o_n(\alpha) = n$. Wiemy, że $o_n(\alpha) \, | \, n$. Załóżmy nie wprost, że $o_n(\alpha) \neq n$. Wynika stąd, że istnieje takie $p_i$, że $o_n(\alpha) \, | \, \frac{n}{p_i}$. Wtedy $\alpha^{\frac{n}{p_i}} = 1 = \alpha_1^{\frac{n}{p_i}} \cdot \dots \cdot \alpha_r^{\frac{n}{p_r}}$. Dla każdego $j \neq i, 1 \leq j \leq r$ $p_j^{e_j} \, | \, \frac{n}{p_i}$, a ponieważ $o_n(\alpha_j) = p_i^{e_j}$, mamy $\alpha_j^{\frac{n}{p_i}} = 1$. Mamy więc $\alpha_i^{\frac{n}{p_i}} = 1$, czyli $o_n(\alpha_i) | \frac{n}{p_i}$. Mamy jednak $o_n(\alpha_i) = p_i^{e_i}$, które nie dzieli $\frac{n}{p_i}$, więc otrzymaliśmy sprzeczność. Pokazalśmy więc, że $o_n(\alpha) = n$. Na mocy argumentu jak w przypadku pierwszego $n$ znaleźliśmy $\alpha$ będące generatorem $E^{(n)}$.
+        \end{enumerate}
+    \end{enumerate}
 \end{proof}
     
 
@@ -554,9 +584,9 @@ Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów
 \end{lemma}
 	
 \begin{proof}
-	Rozpatrzmy współczynniki przy $x^i$ w wielomianie $p(x) = (X + a)^n - (X^n + a)$. Wystarczy pokazać, że $p(x) = 0 \: (mod \, n)$ wtw, gdy $n$ jest pierwsza.\newline
-	(1) Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $x^i$ ($1 \leq i \leq n$) w wielomianie $p(x)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-1}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz ${n \choose i}$ jest podzielne przez $n$. Stąd $n \, | \, p(x)$. \newline
-	(2) Załóżmy, że $n$ jest złożona. Niech $q$ będzie pewnym dzielnikiem pierwszym $n$ oraz $q^k \parallel n$. Współczynnik przy $x^q$ jest równy ${n \choose q}a^{n-q}$. Można zauważyć, że $q^k$ nie dzieli ${n \choose q}$, ponieważ ${n \choose q} = \frac{n!}{q!(n-q)!} = \frac{n \cdot (n-1) \cdot \dots \cdot (n - q + 1)}{q!}$. Wiemy, że skoro $q$ jest pierwsze i $q \,| \, n$, to $q \nmid (n-1) \cdot \dots \cdot (n - q + 1)$, czyli $q^k \parallel n \cdot (n-1) \cdot \dots \cdot (n - q + 1)$. Mamy więc $q^k \nmid {n \choose q}$. Ponieważ $a$ jest względnie pierwsze z $n$, to $q \nmid a^{n-q}$, więc $q^k \nmid {n \choose q}a^{n-q}$. Stąd mamy $p(x) \neq 0 \: (mod \, n)$.
+	Rozpatrzmy współczynniki przy $x^i$ w wielomianie $p(X) = (X + a)^n - (X^n + a)$. Wystarczy pokazać, że $p(X) = 0 \: (mod \, n)$ wtw, gdy $n$ jest pierwsza.\newline
+	(1) Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $x^i$ ($1 \leq i \leq n$) w wielomianie $p(X)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-1}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz ${n \choose i}$ jest podzielne przez $n$. Stąd $n \, | \, p(X)$. \newline
+	(2) Załóżmy, że $n$ jest złożona. Niech $q$ będzie pewnym dzielnikiem pierwszym $n$ oraz $q^k \parallel n$. Współczynnik przy $x^q$ jest równy ${n \choose q}a^{n-q}$. Można zauważyć, że $q^k$ nie dzieli ${n \choose q}$, ponieważ ${n \choose q} = \frac{n!}{q!(n-q)!} = \frac{n \cdot (n-1) \cdot \dots \cdot (n - q + 1)}{q!}$. Wiemy, że skoro $q$ jest pierwsze i $q \,| \, n$, to $q \nmid (n-1) \cdot \dots \cdot (n - q + 1)$, czyli $q^k \parallel n \cdot (n-1) \cdot \dots \cdot (n - q + 1)$. Mamy więc $q^k \nmid {n \choose q}$. Ponieważ $a$ jest względnie pierwsze z $n$, to $q \nmid a^{n-q}$, więc $q^k \nmid {n \choose q}a^{n-q}$. Stąd mamy $p(X) \neq 0 \: (mod \, n)$.
 \end{proof}
 	
 % SPRAWDZONE
