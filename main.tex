@@ -313,7 +313,7 @@ Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawi
 
 Przyjrzyjmy się następnie bliżej pierścieniowi wielomianów, którego współczynniki są elementami ciała. Poniższe lematy pozwolą na ustalenie, kiedy pierścień ilorazowy takiego pierścienia jest ciałem, co stanie się podstawą dowodu algorytmu AKS.
 
-\begin{lemma}
+\begin{lemma}\label{idealy_glowne0}
 	Jeśli $\langle F, \oplus, \odot, 0, 1 \rangle$ jest ciałem, to wszystkie ideały nad $F[X]$ są ideałami głównymi.
 \end{lemma}
 
@@ -441,7 +441,7 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 \begin{proof}
     Pokażemy kolejno, że (1) $|\,E^{(n)}\,| = n$, (2) $E^{(n)}$ jest grupą, a co więcej, (3) jest grupą cykliczną.
     \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-        \item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.\newline
+        \item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
         \item Pokażemy, że $E^{(n)}$ jest grupą z operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
         \item Pokażemy cykliczność $E^{(n)}$ poprzez znalezienie generatora grupy. 
         \begin{enumerate}[label=(3.\arabic*)]
@@ -453,7 +453,6 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 \end{proof}
     
 
-% TODO przenieść to gdzieś indziej. to niepoważnie wygląda tu
 \begin{reminder*}
 	\textbf{\textit{Funkcją Eulera}} nazywamy taką funkcję $\phi$, że dla $n \in \mathbb{N}, \, n \geq 2$ $\phi(n)$ jest równa liczbie liczb naturalnych $q < n$ takich, że $NWD(n, q) = 1$. 
 \end{reminder*}
@@ -481,7 +480,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{definition}
 	
 \begin{lemma}\label{cyklo_dzieli}
-	Jeśli $Q_n(X)$ jest wielomianem cyklotomicznym $n$-tego stopnia nad ciałem F, gdzie $n\in \mathbb{N}$, to $Q_n(X) \, | \, X^n - 1$ w F.
+	Jeśli $Q_n(X)$ jest $n$-tym wielomianem cyklotomicznym nad ciałem F, gdzie $n\in \mathbb{N}$, to $Q_n(X) \, | \, X^n - 1$ w F.
 \end{lemma}
 	
 \begin{proof} 
@@ -505,7 +504,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 	
 % Trochę byle jak ten dowód ale jest łatwy i już mi się nie chce.
 \begin{proof}
-	Niech $I = {f \, | f \in F, f(g) = 0}$. Zauważmy, że $I$ jest ideałem nad $F[X]$. Co więcej ponieważ $F$ jest ciałem, to $I$ jest ideałem głównym. Istnieje wiec $m(X) \in F[X]$ takie, że $I = \langle m(X) \rangle$ oraz $m(X)$ ma minimalny stopień w $I$. Dodatkowo ponieważ z założenia $I$ nie jest ideałem zerowym, $m(X)$ nie jest wielomianem zerowym. Jeśli $m(X)$ jest moniczny, to jest wielomianem minimalnym, w przeciwnym przypadku współczynnik $a$ przy najwyższej potędze $X$ nie jest jedynką. Ponieważ każdy element niezerowy ma odwrotność w $F$, to istnieje też moniczny wielomian będący wielomianem minimalnym.
+	Niech $I = \{f(X) \, | \, f(X) \in F[X], f(g) = 0\}$. Zauważmy, że $I$ jest ideałem nad $F[X]$. Ponieważ $F$ jest ciałem, to, na mocy lematu \ref{idealy_glowne0}, $I$ jest ideałem głównym. Istnieje wiec $m(X) \in F[X]$ takie, że $I = \langle m(X) \rangle$ oraz $m(X)$ ma minimalny stopień w $I$. Dodatkowo ponieważ z założenia $I$ nie jest ideałem zerowym, ponieważ istnieje niezerowy wielomian $f(X)$, mający pierwiastek w $g$, to także $m(X)$ nie jest wielomianem zerowym. Jeśli $m(X)$ jest moniczny, to jest wielomianem minimalnym, w przeciwnym przypadku współczynnik $a$ przy najwyższej potędze $X$ nie jest jedynką. Ponieważ każdy element niezerowy ma odwrotność w $F$, to istnieje też moniczny wielomian będący wielomianem minimalnym.
 	% http://mathonline.wikidot.com/the-minimal-polynomial-of-an-algebraic-element-in-a-field-ex
 \end{proof}
 	
@@ -519,16 +518,16 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{proof}
 	
 \begin{theorem} \label{kluczowe}
-	Dla $n, \, q \in \mathbb{N}, NWD(n, q) = 1$ wielomian cyklotomiczny $Q_n(X)$ nad $\mathbb{F}_q$ jest rozkładalny na nierozkładalne czynniki stopnia $o_n(q)$ w $\mathbb{F}_q[X]$.
+	Dla $n, \, q \in \mathbb{N}$ takich, że $NWD(n, q) = 1$, wielomian cyklotomiczny $Q_n(X)$ nad $\mathbb{F}_q$ jest rozkładalny na nierozkładalne czynniki stopnia $o_n(q)$ w $\mathbb{F}_q[X]$.
 \end{theorem}
 	
 \begin{proof}
-	Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{F}_q$. Dowód przebiegał będzie w dwóch krokach: (1) pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$ oraz, że (2) jeśli $\zeta \in \mathbb{F}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{F}_q$, to istnieje $h(X) \in \mathbb{F}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.\newline
-	(1) Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.\newline
-	Możemy zauważyć, że powyższą równoważność można zaaplikować do $\zeta$ otrzumując $\zeta \in \mathbb{F}_{q^k}$ wtw, gdy $\zeta^{q^k} = \zeta$ a więc i $q^k = 1\, (mod\,n)$.\newline
-	Weźmy $d = o_n(q)$. Wtedy $\mathbb{F}_{q^d}$ będzie najmniejszym ciałem, zawierającym wszystkie pierwiastki $n$-tego stopnia nad $\mathbb{F_q}$.\newline
-	(2) Niech $m(X) \in \mathbb{F}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{F}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{F}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{F}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{F}_q$. \newline 
-	Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{F}_q$.
+    Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{F}_q$. Dowód przebiegał będzie w dwóch krokach: (1) pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$ oraz, że (2) jeśli $\zeta \in \mathbb{F}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{F}_q$, to istnieje $h(X) \in \mathbb{F}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.\newline
+    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+        \item Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.
+        \item Niech $m(X) \in \mathbb{F}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{F}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{F}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{F}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{F}_q$. \newline 
+        Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{F}_q$.
+    \end{enumerate}
 \end{proof}
 	
 \chapter{Algorytm}
@@ -560,7 +559,8 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 	
 \section{Dowód poprawności}
     
-Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów i ostatecznie wykorzystanie ich do udowodnienia twierdzenia, że algorytm zwróci \textit{PIERWSZA} wtw, gdy liczba $n$ na wejściu jest pierwsza. Lematy prowadzące do końcowego twierdzenia będą często udowodnione z użyciem twierdzeń i lematów z poprzedniego rozdziału. Sam dowód twierdzenia o poprawności będzie opierał się na założeniu nie wprost, że $n$ jest złożona, a algorytm zwróci \textit{PIERWSZA} w kroku 7. Zdefiniujemy bowiem na podstawie $n$, jej pierwszego dzielnika $p$ oraz wybranego w trakcie wykonania algorytmu $r$ zbiór, który, korzystając z założeń wynikających z przebiegu algorytmu, będziemy mogli ograniczyć z dwóch stron, doprowadzając do sprzeczności. Następujące lematy przyjmują bowiem założenia, jakie te liczby spełniają w ostatnim kroku algorytmu.
+Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów i ostatecznie wykorzystanie ich do udowodnienia twierdzenia, że algorytm zwróci \textit{PIERWSZA} wtw, gdy liczba $n$ na wejściu jest pierwsza. Lematy prowadzące do końcowego twierdzenia będą często udowodnione z użyciem twierdzeń i lematów z poprzedniego rozdziału. Kluczowym fragmentem dowodu będzie znalezienie sprzeczności w twierdzeniu, że jeśli $n$ jest złożona, to algorytm może zwócić \textit{PIERWSZA} w kroku 7. Zdefiniujemy bowiem na podstawie $n$, jej pierwszego dzielnika $p$ oraz wybranego w trakcie wykonania algorytmu $r$ zbiór, który, korzystając z założeń wynikających z przebiegu algorytmu, będziemy mogli ograniczyć z dwóch stron, doprowadzając do sprzeczności. 
+% Następujące lematy przyjmują bowiem założenia, jakie $n, \, p$ i $r$ spełniają w ostatnim kroku algorytmu.
 
 \begin{lemma}\label{newton1}
 	Dla $n \in \mathbb{N}, \, n \geq 2$ zachodzi ${2n + 1 \choose n} \geq 2^{n+1}$.
