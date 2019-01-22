@@ -122,7 +122,7 @@ Zdefiniujmy najpierw podstawowe struktury algebraiczne, których własności bę
 Możemy teraz zauważyć, że pierścieniem jest na przykład zbiór liczb całkowitych z mnożeniem i dodawaniem lub zbiór wielomianów o współczynnikach całkowitych z dodawaniem i mnożeniem wielomianów.
 
 \theoremstyle{definition} 
-\begin{definition}
+\begin{definition} \label{cialo}
 	Pierścień $\langle F, \oplus, \odot \rangle$ nazywamy \textit{\textbf{ciałem}}, jeśli 
 	\begin{itemize}[leftmargin=.4in]
 		\item istnieje element neutralny mnożenia ($\exists_{1 \in F} \forall_{a \in F} \, a1 = 1a = a$) oraz
@@ -241,7 +241,7 @@ Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowa
 		      Mamy więc $(a \oplus I) \times (c \oplus I) = a \odot c \oplus I = (b \oplus i_1) \odot (d \oplus i_2) \oplus I$. Jako że $b, d, i_1, i_2 \in R$ oraz $\langle R, \oplus, \odot \rangle$ jest pierścieniem mamy $(b \oplus i_1) \odot (d \oplus i_2) \oplus I = b \odot d \oplus b \odot i_2 \oplus i_2 \odot d \oplus i_1 \odot i_2 \oplus I$. $I$ jest ideałem, więc $b \odot i_2, i_1 \odot d, i_1 \odot i_2 \in I$. Stąd $b \odot d \oplus b \odot i_2 \oplus i_2 \odot d \oplus i_1 \odot i_2 \oplus I = b \odot d \oplus I = (b \oplus I) \times (d \oplus I)$.
 		\item Pokażemy, że $\langle R/I, +, \times \rangle$ spełnia warunki z definicji pierścienia przemiennego.
 		      \begin{enumerate}[label=(3.\arabic*)]  	    
-		      	\item + jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\oplus$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) + (b \oplus I) = a \oplus b \oplus I = b \oplus a \oplus I = (a \oplus I) + (b \oplus I)$. \newline
+		      	\item + jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\oplus$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) + (b \oplus I) = a \oplus b \oplus I = b \oplus a \oplus I = (a \oplus I) + (b \oplus I)$.
 		      	\item + jest łączna. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z łączności $\oplus$ w $\langle R, \oplus, \odot \rangle$ mamy $((a \oplus I) + (b \oplus I)) + (c \oplus I) = (a \oplus b \oplus I) + (c \oplus I) = (a \oplus b) \oplus c \oplus I = a \oplus (b \oplus c) \oplus I = (a \oplus I) + (b \oplus c \oplus I) = (a \oplus I) + ((b \oplus I) + (c \oplus I))$.
 		      	\item Istnieje element zerowy. Niech $e = e' \oplus I$, gdzie $e'$ jest elementem zerowym pierścienia $\langle R, \oplus \rangle$. Weźmy dowolne $a \oplus I \in R/I$. Wtedy $(a \oplus I) + e = a \oplus e' \oplus I = e' \oplus I = e = e' \oplus a \oplus I = e + (a \oplus I)$.
 		      	\item Dla każdego elementu istnieje element odwrotny. Weźmy dowolne $a \oplus I \in R/I$. Istnieje $-a \in R$, będące elementem odwrotnym $a$. $(a \oplus I) + (-a \oplus I) = a \oplus -a \oplus I = e' \oplus I = e = -a \oplus a \oplus I = (-a \oplus I) + (a \oplus I)$.
@@ -260,22 +260,27 @@ Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pie
 \end{theorem}
 
 \begin{proof}
-	Wiemy, że $R/M$ jest pierścieniem przemiennym. Wystarczy pokazać, że (1) istnieje element neutralny mnożenia oraz (2) dla każdego niezerowego elementu istnieje element odwrotny.\newline
-	(1) Istnieje $1$ w $R$, więc dla dowolnego $a \oplus M \in R/M$ mamy
-	$(a \oplus M) \times (1 \oplus M) = a \odot 1 \oplus M = a \oplus M = 1 \odot a \oplus M = (1 \oplus M) \times (a \oplus M)$.\newline
-	(2) Weźmy dowolne $a \in R$ takie, że $a \oplus M$ jest niezerowe, czyli $a \notin M$. Weźmy zbiór $J = \{ra \oplus m \, | \, r \in R, m \in M\}$. Pokażemy, że $J$ jest ideałem nad $R$. W tym celu wystarczt pokazać, że (2.1) $\langle J, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2.2)$\forall_{j \in J, r \in R} \, jr \in J \wedge rj \in J$.\newline
-	(2.1.1) $J \subseteq R$. Wiemy, że $R$ jest zamknięty na $\oplus$ i $\odot$, więc $\forall_{r, a', m \in R} \, ra' \oplus m \in R$.\newline
-	(2.1.2) $J$ zawiera element zerowy. $M$ jest ideałem, czyli jest grupą, więc $0 \in M$. Stąd $0a \oplus 0 = 0 \in J$.\newline
-	(2.1.3) Dla każdego elementu $J$ istnieje element odwrotny. Weźmy dowolne $j = ra \oplus m \in J$. Wiemy, że $-r \in R$ oraz $-m \in M$. Stąd $-j = -ra \oplus -m \in J$. Wtedy $j \oplus -j = ra \oplus m \oplus -ra \oplus -m = ra \oplus -ra = 0a = 0$.\newline
-	(2.1.4) $J$ jest zamknięte na $\oplus$. Wexmy dowolne $j_1 = r_1a \oplus m_1, j_2 = r_2a \oplus m_2 \in J$. Wtedy $j_1 \oplus j_2 = r_1a \oplus m_1 \oplus r_2a \oplus m_2 = (r_1 \oplus r_2)a \oplus (m_1 \oplus m_2)$. Wiemy, że $r_1 \oplus r_2 \in R$ oraz $m_1 \oplus m_2 \in M$, więc $j_1 \oplus j_2 \in J$.
-	\newline
-	(2.1.5) $\oplus$ jest łączne. Własność wynika ta bezpośrednio z łączności $\oplus$ w $R$.\newline
-	(2.2) Weźmy dowolne $ra \oplus m \in J, r' \in R$. Wtedy $jr' = (ra \oplus m) \odot r' = rar' \oplus mr'$. Z przemienności $R$ $jr' = rr'a \oplus mr'$. $rr' \in R$ oraz, ponieważ $M$ jest ideałem $mr' \in M$, więc $jr' \in J$. Analogicznie $r'j \in J$.
-	\newline
-	Wiemy, że $J$ jest ideałem nad $R$. Możemy też pokazać, że $M \subset J$. $\forall_{m \in M} \, m = 0a \oplus m \in J$ oraz skoro $1 \in R, 0 \in M$, to $a \in J$. Wiemy, że $a \notin M$, więc $M \subset J$.
-	\newline
-	Mamy więc ideał $J$ nad $R$, który zawiera $M$. Z założenia, że $M$ jest maksymalny, mamy $J = R$, więc $1 \in J$, czyli $\exists_{m \in M, r \in R} \, ra \oplus m = 1$. Wtedy $(r \oplus M) \times (a \oplus M) = ra \oplus M = ra \oplus m \oplus M = 1 \oplus M$, czyli $(a \oplus M)^{-1} = r \oplus M$.
-				
+    Wiemy, że $R/M$ jest pierścieniem przemiennym. Wystarczy pokazać, że (1) istnieje element neutralny mnożenia oraz (2) dla każdego niezerowego elementu istnieje element odwrotny.
+    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+        \item Istnieje $1$ w $R$, więc dla dowolnego $a \oplus M \in R/M$ mamy
+        $(a \oplus M) \times (1 \oplus M) = a \odot 1 \oplus M = a \oplus M = 1 \odot a \oplus M = (1 \oplus M) \times (a \oplus M)$.
+        \item Weźmy dowolne $a \in R$ takie, że $a \oplus M$ jest niezerowe, czyli $a \notin M$. Weźmy zbiór $J = \{ra \oplus m \, | \, r \in R, m \in M\}$. Pokażemy, że $J$ jest ideałem nad $R$. W tym celu wystarczy pokazać, że (2.1) $\langle J, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2.2)$\forall_{j \in J, r \in R} \, jr \in J \wedge rj \in J$.
+        \begin{enumerate}[label=(2.\arabic*)]
+            \item Udowodnimy, że $\langle J, \oplus \rangle$ spełnia definicję grupy oraz zawiera się w $\langle R, \oplus \rangle$.
+            \begin{enumerate}[label=(2.1.\arabic*)]
+                \item Wiemy, że $R$ jest zamknięty na $\oplus$ i $\odot$, więc $\forall_{r, a', m \in R} \, ra' \oplus m \in R$ oraz $J \subseteq R$. 
+                \item $M$ jest ideałem, czyli jest grupą, więc $0 \in M$. Stąd $0a \oplus 0 = 0 \in J$, czyli $J$ zawiera element zerowy.
+                \item Weźmy dowolne $j = ra \oplus m \in J$. Wiemy, że $-r \in R$ oraz $-m \in M$. Stąd $-j = -ra \oplus -m \in J$. Wtedy $j \oplus -j = ra \oplus m \oplus -ra \oplus -m = ra \oplus -ra = 0a = 0$, tzn. dla każdego elementu $J$ istnieje element odwrotny.
+                \item Weźmy dowolne $j_1 = r_1a \oplus m_1, j_2 = r_2a \oplus m_2 \in J$. Wtedy $j_1 \oplus j_2 = r_1a \oplus m_1 \oplus r_2a \oplus m_2 = (r_1 \oplus r_2)a \oplus (m_1 \oplus m_2)$. Wiemy, że $r_1 \oplus r_2 \in R$ oraz $m_1 \oplus m_2 \in M$, więc $j_1 \oplus j_2 \in J$, czyli $J$ jest zamknięte na $\oplus$.
+                \item $\oplus$ jest łączne. Własność ta wynika bezpośrednio z łączności $\oplus$ w $R$.
+            \end{enumerate}
+            \item Weźmy dowolne $ra \oplus m \in J, r' \in R$. Wtedy $jr' = (ra \oplus m) \odot r' = rar' \oplus mr'$. Z przemienności $R$ $jr' = rr'a \oplus mr'$. $rr' \in R$ oraz, ponieważ $M$ jest ideałem $mr' \in M$, więc $jr' \in J$. Analogicznie $r'j \in J$.
+            \newline
+            Wiemy, że $J$ jest ideałem nad $R$. Możemy też pokazać, że $M \subset J$. $\forall_{m \in M} \, m = 0a \oplus m \in J$ oraz skoro $1 \in R, 0 \in M$, to $a \in J$. Wiemy, że $a \notin M$, więc $M \subset J$.
+            \newline
+            Mamy więc ideał $J$ nad $R$, który zawiera $M$. Z założenia, że $M$ jest maksymalny, mamy $J = R$, więc $1 \in J$, czyli $\exists_{m \in M, r \in R} \, ra \oplus m = 1$. Wtedy $(r \oplus M) \times (a \oplus M) = ra \oplus M = ra \oplus m \oplus M = 1 \oplus M$, czyli $(a \oplus M)^{-1} = r \oplus M$.
+        \end{enumerate}
+    \end{enumerate}
 \end{proof}
 
 \section{Pierścień wielomianów}
@@ -285,13 +290,16 @@ Następnym krokiem we wprowadzeniu pojęć algebry abstrakcyjnej będzie bliższ
 Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawie poniższego twierdzenia będziemy mogli powiązać pierwszość liczby z jego własnościami.
 
 \begin{theorem}
-	$\langle \mathbb{Z}_p, +_p, \times_p \rangle$, gdzie $p \in \mathbb{N}$ i $p \geq 2$,  $\mathbb{Z}_p = \{0, 1, \ldots, p-1\}$ oraz operacje są odpowiadającymi działaniami arytmetycznymi modulo $p$, jest ciałem, jeśli $p$ jest pierwsze.
+	$\langle \mathbb{Z}_p, +_p, \times_p \rangle$, gdzie $p \in \mathbb{N}$ i $p \geq 2$,  $\mathbb{Z}_p = \{0, 1, \ldots, p-1\}$ oraz operacje są odpowiadającymi działaniami arytmetycznymi modulo $p$, jest ciałem, jeśli $p$ jest pierwsza.
 \end{theorem}
 
 \begin{proof}
-	(1) $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ z $1$ jest pierścieniem. Dowód jest trywialny i korzysta z własności działań $+_p$ i $\times_p$. \newline
-	(2) $\langle \mathbb{Z}_p \setminus \{0\}, \times_p \rangle$ jest grupą abelową. Przemienność i łączność wynikają z własności $\times_p$. Elementem neutralnym jest $1$. Jedyną nietrywialną własnością jest istnienie elementu przeciwnego, tzn. należy udowodnić, że $\forall_{a \in \mathbb{Z}_p \setminus \{0\}} \, \exists_{a^{-1} \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p a^{-1} = 1$.\newline
-	Weźmy dowolne $a \in \mathbb{Z}_p \setminus \{0\}$. Załóżmy nie wprost, że nie istnieje $a^{-1} \in \mathbb{Z}_p \setminus \{0\}$ takie, że $a \times_p a{-1} = 1$. To znaczy $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 1$. Ponieważ $p$ jest pierwsze i wszystkie elementy $\mathbb{Z}_p \setminus \{0\}$ są mniejsze od $p$, wiemy, że $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 0$. Mamy więc $p-1$ czynników i $p-2$ możliwych wyników. Z zasady szufladkowej mamy $\exists{b_1, b_2 \in \mathbb{Z}_p \setminus \{0\}}, b_1 \neq b_2 \, a \times_p b_1 = a \times_p b_2$. Wiemy, że istnieje w $\mathbb{Z}_p$ niezerowy element $-b_2$, więc $-b_2 \in \mathbb{Z}_p \setminus \{0\}$. Korzystając z własności pierścienia $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ możemy przekształcić powyższe równanie do $a \times_p (b_1 +_p -b_2) = 0$. Z $b_1 \neq b_2$ mamy $b_1 +_p -b_2 \in \mathbb{Z}_p \setminus \{0\}$, czyli doszliśmy do sprzeczności.
+    Pokażemy, że, jeśli $p$ jest pierwsza $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ spełnia definicję \ref{cialo}.
+    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+        \item $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ z $1$ jest pierścieniem. Dowód jest trywialny i korzysta z własności działań $+_p$ i $\times_p$.
+        \item $\langle \mathbb{Z}_p \setminus \{0\}, \times_p \rangle$ jest grupą abelową. Przemienność i łączność wynikają z własności $\times_p$. Elementem neutralnym jest $1$. Jedyną nietrywialną własnością jest istnienie elementu przeciwnego, tzn. należy udowodnić, że $\forall_{a \in \mathbb{Z}_p \setminus \{0\}} \, \exists_{a^{-1} \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p a^{-1} = 1$.\newline
+        Weźmy dowolne $a \in \mathbb{Z}_p \setminus \{0\}$. Załóżmy nie wprost, że nie istnieje $a^{-1} \in \mathbb{Z}_p \setminus \{0\}$ takie, że $a \times_p a{-1} = 1$. To znaczy $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 1$. Ponieważ $p$ jest pierwsze i wszystkie elementy $\mathbb{Z}_p \setminus \{0\}$ są mniejsze od $p$, wiemy, że $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 0$. Mamy więc $p-1$ czynników i $p-2$ możliwych wyników. Z zasady szufladkowej mamy $\exists{b_1, b_2 \in \mathbb{Z}_p \setminus \{0\}}, b_1 \neq b_2 \, a \times_p b_1 = a \times_p b_2$. Wiemy, że istnieje w $\mathbb{Z}_p$ niezerowy element $-b_2$, więc $-b_2 \in \mathbb{Z}_p \setminus \{0\}$. Korzystając z własności pierścienia $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ możemy przekształcić powyższe równanie do $a \times_p (b_1 +_p -b_2) = 0$. Z $b_1 \neq b_2$ mamy $b_1 +_p -b_2 \in \mathbb{Z}_p \setminus \{0\}$, czyli doszliśmy do sprzeczności.
+    \end{enumerate}
 \end{proof}
 
 \begin{theorem}
