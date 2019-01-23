@@ -648,11 +648,14 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \end{proof}
 	
 \begin{lemma}\label{intro2}
-	Niech $r, \, p \in \mathbb{N}$ oraz $p$ jest pierwsza. Jeśli $m$ jest introspektywna modulo $X^r - 1, \, p$ dla $f(X)$ i $g(X)$, to jest także introspektywna modulo $X^r - 1, \, p$ dla $f(X)g(X)$.
+	Niech $r, \, p \in \mathbb{N}$ oraz $p$ jest pierwsza. Jeśli $m$ jest introspektywna modulo $X^r - 1, \, p$ dla $f(X)$ i $g(X)$, to jest także introspektywna modulo $X^r - 1, \, p$ dla ${f(X) \cdot g(X)}$.
 \end{lemma}
 	
 \begin{proof}
-	Mamy $(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p)$ oraz $(g(X))^m = g(X^m) \, (mod \, X^r - 1, \, p)$. Mnożąc stronami otrzymujemy $(f(X)g(X))^m = f(X^m)g(X^m) \, (mod \, X^r - 1, \, p)$.
+    Mamy $(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p)$ oraz $(g(X))^m = g(X^m) \, (mod \, X^r - 1, \, p)$. Mnożąc stronami otrzymujemy 
+    \begin{align*}
+        (f(X) \cdot g(X))^m = f(X^m) \cdot g(X^m) \; (mod \, X^r - 1, \, p).
+    \end{align*}
 \end{proof}
 
 \begin{lemma}\label{p_intro}
@@ -660,13 +663,18 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \end{lemma}
 	
 \begin{proof}
-	Mamy \[(f(X) + g(X))^p = (f(X))^p + (g(X))^p + \sum_{i=1}^{i < p}{p \choose i}(f(X))^i\cdot(g(X))^{p - i}.\] Na mocy argumentu użytego w dowodzie lematu \ref{L1} otrzymujemy wniosek, że dla $1 \leq i \leq p - 1$ zachodzi $p \, | \, {p \choose i}$, skąd wynika teza.
+	Mamy \[(f(X) + g(X))^p = (f(X))^p + (g(X))^p + \sum_{i=1}^{i < p}{p \choose i}(f(X))^i\cdot(g(X))^{p - i}.\] Na mocy argumentu użytego w dowodzie lematu \ref{L1} otrzymujemy wniosek, że dla $1 \leq i < p$ zachodzi $p \, | \, {p \choose i}$, skąd wynika teza.
 \end{proof}
 
 \begin{remark*}\label{def}
     Na potrzeby kolejnych lematów ustalmy $n, \, r, \, p \in \mathbb{N}, \, n \geq 2 
     %, \, r < \lceil log^5 \, n \rceil
-    $ oraz $\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor$ takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować, $I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\}$, $P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}$ oraz $G$ będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy $h(X) \in \mathbb{Z}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{Z}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
+    $ oraz \[\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor\] takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować 
+    \begin{align*}
+        I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\}, \\
+        P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}
+    \end{align*}
+     oraz $G$, niech $t = | \, G \, |$, będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy $h(X) \in \mathbb{Z}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{Z}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
 \end{remark*}
 
 Zauważmy, że ustalone powyżej liczby $n, \, r$ spełniają założenia, jakie spełniają odpowiednio zmienne $n$ i $r$ w 7. kroku algorytmu. Jeśli dodatkowo założymy, że $n$ jest złożona, to istnieje $p$ spełniające wszystkie założenia.
@@ -678,29 +686,38 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 \end{lemma}
 	
 \begin{proof}
-	Pokażemy, że (1) dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie (2) wywnioskujemy tezę. \newline
-	(1) Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
+    Pokażemy, że (1) dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie (2) wywnioskujemy tezę.
+    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	\item Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
 	\begin{align*}
-		(f_1(X))^p = X^n + a    & = (f_2(X))^p \, (mod \, X^r - 1, \, p) \\
-		(f_1(X))^p - (f_2(X))^p & = 0 \, (mod \, X^r - 1, \, p).         
+		(f_1(X))^p = X^n + a    & = (f_2(X))^p \; (mod \, X^r - 1, \, p) \\
+		(f_1(X))^p - (f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p).         
 	\end{align*}
 	Z lematu \ref{p_intro} mamy
 	\begin{align*}
-		(f_1(X) - f_2(X))^p & = 0 \, (mod \, X^r - 1, \, p)       \\
-		f_1(X)              & = f_2(X) \, (mod \, X^r - 1, \, p). 
+		(f_1(X) - f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p)       \\
+		f_1(X)              & = f_2(X) \; (mod \, X^r - 1, \, p). 
 	\end{align*}
 	Więc $\frac{n}{p}$ także jest introspektywne modulo $X^r - 1, \, p$ dla $X + a, 0 \leq a \leq \ell$.
-	\newline(2) Ponieważ elementy zbioru $I$ są iloczynami liczb $n$ i $p$, a elementy zbioru $P$ są iloczynami wielomianów $X + a, \, 0 \leq a \leq \ell$, z lematów \ref{intro1} i \ref{intro2} możemy wywnioskować tezę.
+    \item Ponieważ elementy zbioru $I$ są iloczynami liczb $\frac{n}{p}$ i $p$, a elementy zbioru $P$ są iloczynami wielomianów $X + a, \, 0 \leq a \leq \ell$, z lematów \ref{intro1} i \ref{intro2} możemy wywnioskować tezę.
+    \end{enumerate}
 \end{proof} 
 
 Żeby ograniczyć z dołu rozmiar zbioru $\mathcal{G}$ wprowadzimy i udowodnimy dwa pomocnicze lematy. Udowodnimy, że $X$ jest pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$, dzięki czemu będziemy ostatecznie w stanie stwierdzić, że w $\mathcal{G}$ jest co najmniej tyle elementów, ile różnych wielomianów stopnia mniejszego niż $t$ w $P$. Drugi lemat pozwoli nam natomiast oszacować dokładniej ich liczbę.
 
+% A nie w Z_p?
 \begin{lemma}\label{X_pierw}
 	$X$ jest pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$.
 \end{lemma}
 	
 \begin{proof}
-	Z lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) | X^k - 1$ w $\mathbb{Z}_p[X]$. Rozważmy $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{Z}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. Ponieważ $h(X) | X^k - 1$ także w rozszerzeniu ciała $\mathbb{Z}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{Z}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
+    % Z twierdzenia \ref{kluczowe} wiemy, że pierwiastki $h(Y)$ w $F$ są pierwotnymi pierwiastkami $r$-tego stopnia z jedności w $\mathbb{Z}_p$, więc też w $F$. Zauważmy, że $h(X) = 0$ w $F$, więc $X$ jest pierwiastkiem $h(Y)$ nad $F$
+    Z lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | \, Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. 
+    Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) \, | \, X^k - 1$ w $\mathbb{Z}_p[X]$. 
+    Rozważmy pierwiastki $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{Z}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. 
+    % UWAGA TO MOŻE BYĆ NIEPRAWDA
+    Mamy więc $h(\zeta) = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$, a ponieważ istnieje pewne $p(X) \in \mathbb{Z}_p[X]$ takie, że $(X^k - 1) = p(X) \cdot h(X) \; (mod \, p)$, to także $\zeta^k - 1 = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$. Wynika stąd, że $\zeta$ jest też pierwiastkiem z jedności $k$-tego stopnia w $\mathbb{Z}_p$, a ponieważ $k < r$, mamy sprzeczność z założeniem.
+    % Ponieważ $h(X) \, | \, X^k - 1$ także w rozszerzeniu ciała $\mathbb{Z}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{Z}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
 	%Pokażemy, że (1) w $F$ jest nie więcej niż $o_r(p)$ pierwiastków $r$-tego stopnia z jedności oraz, że (2) $X$ generuje dokładnie $o_r(p)$ różnych pierwiastków $r$-tego stopnia z jedności. \newline
 	%(1) Niech $\zeta \in F$ będzie pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$. Wiemy, że $\zeta$ generuje grupę wszystkich pierw
 	% TODO uwaga
