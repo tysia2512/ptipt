@@ -614,7 +614,8 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{proof}
 
 % Dla udowodnienia implikacji w drugą stronę 
-% ZACZĄĆ TU!
+Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywności oraz udowodnienia związanych z nim własności. 
+% W późniejszej części dowodu skorzystamy z introspektywności w kontekście elementów konkretnego zbioru, które pozwolą nam 
 
 \begin{definition}
 	Dla ustalonych $r, \, p \in \mathbb{N}$, gdzie $p$ jest pierwsza, liczbę $m \in \mathbb{N}$ nazywamy \textbf{\textit{introspektywną}} modulo $X^r - 1, \, p$ dla wielomianu $f(X)$, jeśli zachodzi \[(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p).\]
@@ -650,11 +651,15 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 	Mamy \[(f(X) + g(X))^p = (f(X))^p + (g(X))^p + \sum_{i=1}^{i < p}{p \choose i}(f(X))^i\cdot(g(X))^{p - i}.\] Na mocy argumentu użytego w dowodzie lematu \ref{L1} otrzymujemy wniosek, że dla $1 \leq i \leq p - 1$ zachodzi $p \, | \, {p \choose i}$, skąd wynika teza.
 \end{proof}
 
-\begin{definition}\label{def}
-    Na potrzeby kolejnych lematów ustalmy $n, \, r, \, p \in \mathbb{N}, \, n \geq 2, 
-    % \, r < \lceil log^5 
-    \, n \rceil$ oraz $\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor$ takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować, $I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\}$, $P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}$ oraz $G$ będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{F}_p$ ($ r \nmid p = char(\mathbb{F}_p)$). Weźmy $h(X) \in \mathbb{F}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{F}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{F}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
-\end{definition}
+\begin{remark*}\label{def}
+    Na potrzeby kolejnych lematów ustalmy $n, \, r, \, p \in \mathbb{N}, \, n \geq 2 
+    %, \, r < \lceil log^5 \, n \rceil
+    $ oraz $\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor$ takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować, $I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\}$, $P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}$ oraz $G$ będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{F}_p$ ($ r \nmid p = char(\mathbb{F}_p)$). Weźmy $h(X) \in \mathbb{F}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{F}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{F}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
+\end{remark*}
+
+Zauważmy, że ustalone powyżej liczby $n, \, r$ spełniają założenia, jakie spełniają odpowiednio zmienne $n$ i $r$ w 7. kroku algorytmu. Jeśli dodatkowo założymy, że $n$ jest złożona, to istnieje $p$ spełniające wszystkie założenia.
+
+Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności możemy udowodnić następujące twierdzenie.
 
 \begin{lemma}\label{intro}
 	Dowolny element $i \in I$ jest introspektywny modulo $X^r - 1, \, p$ dla dowolnego wielomianu $p(X) \in P$.
@@ -676,6 +681,8 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 	\newline(2) Ponieważ elementy zbioru $I$ są iloczynami liczb $n$ i $p$, a elementy zbioru $P$ są iloczynami wielomianów $X + a, \, 0 \leq a \leq \ell$, z lematów \ref{intro1} i \ref{intro2} możemy wywnioskować tezę.
 \end{proof} 
 
+Żeby ograniczyć z góry rozmiar zbioru $\mathcal{G}$ wprowadzimy i udowodnimy dwa pomocnicze lematy. Udowodnimy, że $X$ jest pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$, dzięki czemu będziemy ostatecznie w stanie stwierdzić, że w $\mathcal{G}$ jest co najmniej tyle elementów, ile różnych wielomianów stopnia mniejszego niż $t$ w $P$. Drugi lemat pozwoli nam natomiast oszacować dokładniej ich liczbę.
+
 \begin{lemma}\label{X_pierw}
 	$X$ jest pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$.
 \end{lemma}
@@ -689,20 +696,20 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 	% TODO: prymitywnym
 \end{proof}
 
-\begin{lemma}
-	$\mathcal{G}$ jest grupą z mnożeniem, generowaną przez zbiór $\mathcal{G}_{gen} = \{X, \, X + 1, \, \dots, X + \ell\}$ w ciele $F$.
-\end{lemma}
+% \begin{lemma}
+% 	$\mathcal{G}$ jest grupą z mnożeniem, generowaną przez zbiór $\mathcal{G}_{gen} = \{X, \, X + 1, \, \dots, X + \ell\}$ w ciele $F$.
+% \end{lemma}
 	
-\begin{observation}
-	$\mathcal{G} \subset F$.
-\end{observation}
+% \begin{observation}
+% 	$\mathcal{G} \subset F$.
+% \end{observation}
 	
-%OK
-\begin{proof}
-	(1) $\mathcal{G}$ jest grupą. Łatwo można zauważyć, że $\mathcal{G}$ zawiera element neutralny i jest zamknięty na mnożenie. Wystarczy więc pokazać, że dla każdego $g \in \mathcal{G}$ istnieje element odwrotny. Wykorzystamy argument z dowodu lematu \ref{el_odwr}, tzn. ponieważ $\mathcal{G}$ jest skończonego rozmiaru, dla dowolnego $g \in \mathcal{G}$ także $g^2, \, \dots, g^{| \,  \mathcal{G}\, | + 1}\in \mathcal{G}$. Istnieje $g^i \in \mathcal{G}, \,0 \leq i$, będące odwrotnością $g$.\newline
-	(2) Zbiór $\mathcal{G}_{gen}$ generuje $\mathcal{G}$. Dla $g \in \mathcal{G}, \, g \neq 1$ oczywistym jest, że $g$ można przedstawić jako iloczyn elementów $\mathcal{G}_{gen}$. Wiemy, że $h(X)$ dzieli $Q_r(X)$, czyli też, na mocy lematu \ref{cyklo_dzieli}, $X^r - 1$. Mamy więc $X^r = 1$ w $\mathcal{G}$, czyli $1$ także jest generowana przez $\mathcal{G}_{gen}$. Odwrotny wniosek, że każdy element generowany przez $\mathcal{G}_{gen}$ należy do $\mathcal{G}$ jest oczywisty.
-\end{proof}
-		
+% %OK
+% \begin{proof}
+% 	(1) $\mathcal{G}$ jest grupą. Łatwo można zauważyć, że $\mathcal{G}$ zawiera element neutralny i jest zamknięty na mnożenie. Wystarczy więc pokazać, że dla każdego $g \in \mathcal{G}$ istnieje element odwrotny. Wykorzystamy argument z dowodu lematu \ref{el_odwr}, tzn. ponieważ $\mathcal{G}$ jest skończonego rozmiaru, dla dowolnego $g \in \mathcal{G}$ także $g^2, \, \dots, g^{| \,  \mathcal{G}\, | + 1}\in \mathcal{G}$. Istnieje $g^i \in \mathcal{G}, \,0 \leq i$, będące odwrotnością $g$.\newline
+% 	(2) Zbiór $\mathcal{G}_{gen}$ generuje $\mathcal{G}$. Dla $g \in \mathcal{G}, \, g \neq 1$ oczywistym jest, że $g$ można przedstawić jako iloczyn elementów $\mathcal{G}_{gen}$. Wiemy, że $h(X)$ dzieli $Q_r(X)$, czyli też, na mocy lematu \ref{cyklo_dzieli}, $X^r - 1$. Mamy więc $X^r = 1$ w $\mathcal{G}$, czyli $1$ także jest generowana przez $\mathcal{G}_{gen}$. Odwrotny wniosek, że każdy element generowany przez $\mathcal{G}_{gen}$ należy do $\mathcal{G}$ jest oczywisty.
+% \end{proof}
+
 \begin{lemma}\label{liczba_wielo}
 	Jeśli w grupie $G$ istnieje co najmniej $k + 1$ różnych wielomianów $f_1(X), \, \dots,$ $\,f_{k + 1}(X)$ pierwszego stopnia, to istnieje co najmniej ${k + d \choose k + 1}$ różnych wielomianów stopnia mniejszego niż $d$.
 \end{lemma}
