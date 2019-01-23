@@ -560,15 +560,30 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \section{Dowód poprawności}
     
 Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów i ostatecznie wykorzystanie ich do udowodnienia twierdzenia, że algorytm zwróci \textit{PIERWSZA} wtw, gdy liczba $n$ na wejściu jest pierwsza. Lematy prowadzące do końcowego twierdzenia będą często udowodnione z użyciem twierdzeń i lematów z poprzedniego rozdziału. Kluczowym fragmentem dowodu będzie znalezienie sprzeczności w twierdzeniu, że jeśli $n$ jest złożona, to algorytm może zwócić \textit{PIERWSZA} w kroku 7. Zdefiniujemy bowiem na podstawie $n$, jej pierwszego dzielnika $p$ oraz wybranego w trakcie wykonania algorytmu $r$ zbiór, który, korzystając z założeń wynikających z przebiegu algorytmu, będziemy mogli ograniczyć z dwóch stron, doprowadzając do sprzeczności. 
+
+Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIERWSZA} przez algorytm pokażemy poprzez udowodnienie implikacji w dwie strony. Zacznijmy od pokazania, że jeśli $n$ jest liczbą pierwszą, to algorytm zwróci \textit{PIERWSZA}. Aby udowodnić to twierdzenie wykorzystamy dwa lematy, z których będziemy w stanie wywnioskować, że algorytm nie zakończy się zwróceniem \textit{ZŁOŻONA} w 5. kroku.
 % Następujące lematy przyjmują bowiem założenia, jakie $n, \, p$ i $r$ spełniają w ostatnim kroku algorytmu.
 \begin{lemma}\label{L1}
 	Jeśli $a, \, n \in \mathbb{N}, \, n \geq 2$ i $NWD(a, n) = 1$, to $n$ jest pierwsza wtw, gdy $(X + a)^n = X^n + a \: (mod \: n)$.
 \end{lemma}
 	
 \begin{proof}
-	Rozpatrzmy współczynniki przy $x^i$ w wielomianie $p(X) = (X + a)^n - (X^n + a)$. Wystarczy pokazać, że $p(X) = 0 \: (mod \, n)$ wtw, gdy $n$ jest pierwsza.\newline
-	(1) Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $x^i$ ($1 \leq i \leq n$) w wielomianie $p(X)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-1}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz ${n \choose i}$ jest podzielne przez $n$. Stąd $n \, | \, p(X)$. \newline
-	(2) Załóżmy, że $n$ jest złożona. Niech $q$ będzie pewnym dzielnikiem pierwszym $n$ oraz $q^k \parallel n$. Współczynnik przy $x^q$ jest równy ${n \choose q}a^{n-q}$. Można zauważyć, że $q^k$ nie dzieli ${n \choose q}$, ponieważ ${n \choose q} = \frac{n!}{q!(n-q)!} = \frac{n \cdot (n-1) \cdot \dots \cdot (n - q + 1)}{q!}$. Wiemy, że skoro $q$ jest pierwsze i $q \,| \, n$, to $q \nmid (n-1) \cdot \dots \cdot (n - q + 1)$, czyli $q^k \parallel n \cdot (n-1) \cdot \dots \cdot (n - q + 1)$. Mamy więc $q^k \nmid {n \choose q}$. Ponieważ $a$ jest względnie pierwsze z $n$, to $q \nmid a^{n-q}$, więc $q^k \nmid {n \choose q}a^{n-q}$. Stąd mamy $p(X) \neq 0 \: (mod \, n)$.
+    Rozpatrując współczynniki przy $X^i$ w wielomianie 
+    \begin{align*}
+        p(X) = (X + a)^n - (X^n + a).  
+    \end{align*}
+    pokażemy, że $p(X) = 0 \: (mod \, n)$ wtw, gdy $n$ jest pierwsza. \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	\item Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $X^i$ ($1 \leq i \leq n$) w wielomianie $p(X)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-1}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz ${n \choose i}$ jest podzielne przez $n$. Stąd $n \, | \, p(X)$.
+    \item Załóżmy, że $n$ jest złożona. Niech $q$ będzie pewnym dzielnikiem pierwszym $n$ oraz $q^k \parallel n$. Współczynnik przy $X^q$ jest równy ${n \choose q}a^{n-q}$. Możemy zauważyć, że $q^k$ nie dzieli ${n \choose q}$, ponieważ ${n \choose q} = \frac{n!}{q!(n-q)!} = \frac{n \cdot (n-1) \cdot \, \dots \, \cdot (n - q + 1)}{q!}$. Wiemy, że skoro $q$ jest pierwsze i $q \,| \, n$, to 
+    \begin{align*}
+        q & \nmid (n-1) \cdot \, \dots \, \cdot (n - q + 1),
+    \end{align*}
+    skąd możemy wywnioskować, że
+    \begin{align*}
+        q^k & \parallel n \cdot (n-1) \cdot \, \dots \, \cdot (n - q + 1).
+    \end{align*}
+    Mamy więc $q^k \nmid {n \choose q}$. Ponieważ $a$ jest względnie pierwsze z $n$, to $q \nmid a^{n-q}$, więc $q^k \nmid {n \choose q}a^{n-q}$. Stąd mamy $p(X) \neq 0 \: (mod \, n)$.
+    \end{enumerate}
 \end{proof}
 
 \begin{lemma} \label{L2}
