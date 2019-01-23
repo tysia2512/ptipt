@@ -518,15 +518,15 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{proof}
 	
 \begin{theorem} \label{kluczowe}
-	Dla $n, \, q \in \mathbb{N}$ takich, że $NWD(n, q) = 1$, wielomian cyklotomiczny $Q_n(X)$ nad $\mathbb{F}_q$ jest rozkładalny na nierozkładalne czynniki stopnia $o_n(q)$ w $\mathbb{F}_q[X]$.
+	Dla $n, \, q \in \mathbb{N}$ takich, że $NWD(n, q) = 1$, wielomian cyklotomiczny $Q_n(X)$ nad $\mathbb{Z}_q$ jest rozkładalny na nierozkładalne czynniki stopnia $o_n(q)$ w $\mathbb{Z}_q[X]$.
 \end{theorem}
 	
 \begin{proof}
-    Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{F}_q$. Dowód przebiegał będzie w dwóch krokach: (1) pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$ oraz, że (2) jeśli $\zeta \in \mathbb{F}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{F}_q$, to istnieje $h(X) \in \mathbb{F}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.\newline
+    Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Dowód przebiegał będzie w dwóch krokach: (1) pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{Z}_{q^k}$ oraz, że (2) jeśli $\zeta \in \mathbb{Z}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{Z}_q$, to istnieje $h(X) \in \mathbb{Z}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.\newline
     \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-        \item Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.
-        \item Niech $m(X) \in \mathbb{F}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{F}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{F}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{F}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{F}_q$. \newline 
-        Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{F}_q$.
+        \item Zauważmy, że jeśli dowolne $a \in \mathbb{Z}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{Z}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{Z}_{q^k}$.
+        \item Niech $m(X) \in \mathbb{Z}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{Z}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{Z}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{Z}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{Z}_q$. \newline 
+        Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
     \end{enumerate}
 \end{proof}
 	
@@ -619,7 +619,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 % W późniejszej części dowodu skorzystamy z introspektywności w kontekście elementów konkretnego zbioru, które pozwolą nam 
 
 \begin{definition}
-	Dla ustalonych $r, \, p \in \mathbb{N}$, gdzie $p$ jest pierwsza, liczbę $m \in \mathbb{N}$ nazywamy \textbf{\textit{introspektywną}} modulo $X^r - 1, \, p$ dla wielomianu $f(X)$, jeśli zachodzi \[(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p).\]
+	Dla ustalonych $r, \, p \in \mathbb{N}$, gdzie $p$ jest pierwsza, liczbę $m \in \mathbb{N}$ nazywamy \textbf{\textit{introspektywną}} modulo $X^r - 1, \, p$ dla wielomianu $f(X)$, jeśli zachodzi \[(f(X))^m = f(X^m) \; (mod \, X^r - 1, \, p).\]
 \end{definition}
 	
 %SPRAWDZONE
@@ -628,12 +628,23 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \end{lemma}
 	
 \begin{proof}
-	Z introspektywności $m$ mamy $(f(X))^{mm'} = (f(X^m))^{m'} \, (mod \, X^r - 1, \, p).$ Z introspektywności $m'$ wiemy, że istnieje $g(X) \in \mathbb{F}_p[X]$ takie, że 
+	Z introspektywności $m$ mamy $(f(X))^{mm'} = (f(X^m))^{m'} \, (mod \, X^r - 1, \, p).$ Z introspektywności $m'$ wiemy, że istnieje $g(X) \in \mathbb{Z}_p[X]$ takie, że 
 	\begin{align*}
-		f(X^{m'}) - {f(X)}^{m'}    & = g(X)(X^r - 1)     \\
-		f(X^{mm'}) - {f(X^m)}^{m'} & = g(X)(X^{mr} - 1). 
-	\end{align*}
-	Mamy więc $(f(X^m))^{m'} = f(X^{mm'}) \, (mod \, (X^m)^r - 1, \, p)$, a ponieważ $X^r - 1$ dzieli $X^{mr} - 1$ także $(f(X^m))^{m'} = f(X^{mm'}) \, (mod \, X^r - 1, \, p)$. Otrzymujemy więc $(f(X))^{mm'} = f(X^{mm'}) \, (mod \, X^r - 1, \, p)$.
+		f(X^{m'}) - {f(X)}^{m'}    & = g(X) \cdot (X^r - 1)     \; (mod \, p)\\
+		f(X^{mm'}) - {f(X^m)}^{m'} & = g(X^m) \cdot (X^{mr} - 1) \; (mod \, p). 
+    \end{align*}
+    Mamy więc 
+    \begin{align*}
+        (f(X^m))^{m'} = f(X^{mm'}) \; (mod \, (X^m)^r - 1, \, p),
+    \end{align*}
+    a ponieważ $X^r - 1$ dzieli $X^{mr} - 1$ także 
+    \begin{align*}
+        (f(X^m))^{m'} = f(X^{mm'}) \; (mod \, X^r - 1, \, p).
+    \end{align*}
+    Otrzymujemy więc 
+    \begin{align*}
+        (f(X))^{mm'} = f(X^{mm'}) \; (mod \, X^r - 1, \, p).
+    \end{align*}
 \end{proof}
 	
 \begin{lemma}\label{intro2}
@@ -645,7 +656,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \end{proof}
 
 \begin{lemma}\label{p_intro}
-	Jeśli $p$ jest liczbą pierwszą, to dla dowolnych $f(X), g(X) \in \mathbb{F}_p[X]$ zachodzi w $\mathbb{F}_p[X]$ \[(f(X) + g(X))^p = (f(X))^p + (g(X))^p.\]
+	Jeśli $p$ jest liczbą pierwszą, to dla dowolnych $f(X), g(X) \in \mathbb{Z}_p[X]$ zachodzi w $\mathbb{Z}_p[X]$ \[(f(X) + g(X))^p = (f(X))^p + (g(X))^p.\]
 \end{lemma}
 	
 \begin{proof}
@@ -655,7 +666,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \begin{remark*}\label{def}
     Na potrzeby kolejnych lematów ustalmy $n, \, r, \, p \in \mathbb{N}, \, n \geq 2 
     %, \, r < \lceil log^5 \, n \rceil
-    $ oraz $\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor$ takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować, $I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\}$, $P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}$ oraz $G$ będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{F}_p$ ($ r \nmid p = char(\mathbb{F}_p)$). Weźmy $h(X) \in \mathbb{F}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{F}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{F}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
+    $ oraz $\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor$ takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować, $I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\}$, $P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}$ oraz $G$ będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy $h(X) \in \mathbb{Z}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{Z}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
 \end{remark*}
 
 Zauważmy, że ustalone powyżej liczby $n, \, r$ spełniają założenia, jakie spełniają odpowiednio zmienne $n$ i $r$ w 7. kroku algorytmu. Jeśli dodatkowo założymy, że $n$ jest złożona, to istnieje $p$ spełniające wszystkie założenia.
@@ -668,7 +679,7 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 	
 \begin{proof}
 	Pokażemy, że (1) dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie (2) wywnioskujemy tezę. \newline
-	(1) Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{F}_p[X]$. Zauważmy, że 
+	(1) Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
 	\begin{align*}
 		(f_1(X))^p = X^n + a    & = (f_2(X))^p \, (mod \, X^r - 1, \, p) \\
 		(f_1(X))^p - (f_2(X))^p & = 0 \, (mod \, X^r - 1, \, p).         
@@ -689,7 +700,7 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 \end{lemma}
 	
 \begin{proof}
-	Z lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) | X^k - 1$ w $\mathbb{F}_p[X]$. Rozważmy $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{F}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. Ponieważ $h(X) | X^k - 1$ także w rozszerzeniu ciała $\mathbb{F}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{F}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
+	Z lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) | X^k - 1$ w $\mathbb{Z}_p[X]$. Rozważmy $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{Z}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. Ponieważ $h(X) | X^k - 1$ także w rozszerzeniu ciała $\mathbb{Z}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{Z}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
 	%Pokażemy, że (1) w $F$ jest nie więcej niż $o_r(p)$ pierwiastków $r$-tego stopnia z jedności oraz, że (2) $X$ generuje dokładnie $o_r(p)$ różnych pierwiastków $r$-tego stopnia z jedności. \newline
 	%(1) Niech $\zeta \in F$ będzie pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$. Wiemy, że $\zeta$ generuje grupę wszystkich pierw
 	% TODO uwaga
@@ -729,7 +740,7 @@ Mając już pomocnicze lematy, możemy przejść do znalezienia ograniczenia dol
 	Pokażemy, że (1) dowolne dwa różne wielomiany stopnia mniejszego niż $t$ w $P$ są różne także w $\mathcal{G}$ oraz, że w (2) $P$ jest co najmniej  ${t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. 
 	\newline
 	(1) Niech $f(X) \neq g(X) \in P, \, deg(f), deg(g) < t$. Załóżmy nie wprost, że $f(X) = g(X)$ w $F$. 
-	Niech $Q(Y) = f(Y) - g(Y)$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc $(f(X))^i = (g(X))^i$ i $f(X^i) = g(X^i)$ w $F$. Oznacza to, że dla każdego $i \in I$ $X^i$ jest pierwiastkiem $Q(Y)$ w $F$, czyli też dla każdego $i' \in G$ $X^{i'}$ jest pierwiastkiem $Q(Y)$ w $F$. Załóżmy nie wprost, że istnieją $i < i' \in G$ takie, że $X^i = X^{i'}$ w $F$. Mamy więc $h(X) | X^i$ w $\mathbb{F}_p$ lub $X^{i - i'} = 1$. Pierwszy argument tej dysjunkcji jest w oczywisty sposób nieprawdziwy, a drugi jest sprzeczny z lematem \ref{X_pierw}.
+	Niech $Q(Y) = f(Y) - g(Y)$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc $(f(X))^i = (g(X))^i$ i $f(X^i) = g(X^i)$ w $F$. Oznacza to, że dla każdego $i \in I$ $X^i$ jest pierwiastkiem $Q(Y)$ w $F$, czyli też dla każdego $i' \in G$ $X^{i'}$ jest pierwiastkiem $Q(Y)$ w $F$. Załóżmy nie wprost, że istnieją $i < i' \in G$ takie, że $X^i = X^{i'}$ w $F$. Mamy więc $h(X) | X^i$ w $\mathbb{Z}_p$ lub $X^{i - i'} = 1$. Pierwszy argument tej dysjunkcji jest w oczywisty sposób nieprawdziwy, a drugi jest sprzeczny z lematem \ref{X_pierw}.
 	%Mamy stąd wnioski $h(X) | X^i$ lub $i' - i | r \vee r | i' - i$, które są sprzeczne z założeniami o $h(X)$ oraz $NWD(i, r) = NWD(i', r) = 1$.
 	% Z lematów \ref{pierwotne} i \ref{X_pierw} wiemy, że $X^{i'}$ są prymitywnymi pierwiastkami $r$-tego stopnia z jedności w $F$, a ponieważ każde $i' < r$ wszystkie $X^{i'}$ są różne. 
 	Znaleźliśmy więc $|\,G\,| = t$ pierwiastków $Q(Y)$ w $F$ więc $Q(Y)$ jest wielomianem zerowym w $F$ lub $deg(Q) > t$, zatem doszliśmy do sprzeczności z założeniem.\newline
@@ -762,7 +773,7 @@ Mając już ograniczenia z dwóch stron zbioru $\mathcal{G}$ możemy je ze sobą
 \end{lemma}
 	
 \begin{proof}
-	Weźmy zbiór $A$ różnych $a_i$ takich, że $a_i < r$ oraz $NWD(a_i, r) = 1$ dla ${1 \leq i \leq k}$. Z definicji funkcji Eulera mamy $| \, A \, | = \phi(r)$. Niech zbiór $B = \{b \, | \, b = p \cdot a_i \, (mod \, r), \, b < r, \, a_i \in A\}$. Zauważmy, że dla wszystkich $b \in B$ zachodzi $NWD(b, r) = 1$, więc $B \subseteq A.$ Pokażemy, że $A = B$. Załóżmy nie wprost $p \cdot a_i = p \cdot a_j \, (mod \, r), 1 \leq i < j \leq \phi(r)$. Z lematu \ref{odwrotny} wiemy, że istnieje $p^{-1} \in \mathbb{F}_p$. Więc mnożąc stronami przez $p^{-1}$ otrzymujemy sprzeczność. \newline
+	Weźmy zbiór $A$ różnych $a_i$ takich, że $a_i < r$ oraz $NWD(a_i, r) = 1$ dla ${1 \leq i \leq k}$. Z definicji funkcji Eulera mamy $| \, A \, | = \phi(r)$. Niech zbiór $B = \{b \, | \, b = p \cdot a_i \, (mod \, r), \, b < r, \, a_i \in A\}$. Zauważmy, że dla wszystkich $b \in B$ zachodzi $NWD(b, r) = 1$, więc $B \subseteq A.$ Pokażemy, że $A = B$. Załóżmy nie wprost $p \cdot a_i = p \cdot a_j \, (mod \, r), 1 \leq i < j \leq \phi(r)$. Z lematu \ref{odwrotny} wiemy, że istnieje $p^{-1} \in \mathbb{Z}_p$. Więc mnożąc stronami przez $p^{-1}$ otrzymujemy sprzeczność. \newline
 	Mamy $A = B$, możemy więc wywnioskować równanie 
 	\begin{align*}
 		p^{\phi(r)} \cdot a_1 \cdot \dots \cdot a_{\phi(r)} &= a_1 \cdot \dots \cdot a_{\phi(r)} \, (mod \, r) \\
