@@ -591,7 +591,14 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{lemma}
 	
 \begin{proof}
-	Dowód wynika bezpośrednio z lematu \ref{L1}. Wiemy, że $(X + a)^n - (X^n + a) = 0 \: (mod \, n)$, więc także $(X + a)^n - (X^n + a) = 0 \: (mod \: X^r - 1,\, n)$.
+    Dowód wynika bezpośrednio z lematu \ref{L1}. Wiemy, że 
+    \begin{align*}
+        (X + a)^n - (X^n + a) = 0 \: (mod \, n),
+    \end{align*}
+    więc także 
+    \begin{align*}
+        (X + a)^n - (X^n + a) = 0 \: (mod \: X^r - 1,\, n).
+    \end{align*}
 \end{proof}
 
 \begin{theorem}
@@ -599,9 +606,15 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{theorem}
 	
 \begin{proof}
-	Ponieważ $n$ jest liczbą pierwszą, algorytm nie zwróci \textit{ZŁOŻONA} w kroku I i III. Z lematu \ref{L2} wiemy, że dla każdego $1 \leq a < n$ zachodzi $(X + a)^n = X^n + a \, (mod \, X^r - 1, \, n)$, więc algorytm się nie zakończy w kroku V. Ostatecznie algorytm zwróci \textit{PIERWSZA} w kroku IV lub VII.
-	% Ponieważ w kroku III algorytm nie zakończył wykonania, wiemy, że $\forall_{2 \leq a < r, \,a \neq n} \, a \nmid n$. W kroku IV \textbf{\textit{PIERWSZA}}, jeśli $n \leq r$, czyli $\forall_{2 \leq a < n} \, a \nmid n$
+    Ponieważ $n$ jest liczbą pierwszą, algorytm nie zwróci \textit{ZŁOŻONA} w kroku 1. i 3. Z lematu \ref{L2} wiemy, że dla każdego $1 \leq a < n$ zachodzi 
+    \begin{align*}
+        (X + a)^n = X^n + a \: (mod \: X^r - 1, \: n),
+    \end{align*}
+    więc algorytm się nie zakończy w kroku 5. Ostatecznie algorytm zwróci \textit{PIERWSZA} w kroku 4 lub 7.
 \end{proof}
+
+% Dla udowodnienia implikacji w drugą stronę 
+% ZACZĄĆ TU!
 
 \begin{definition}
 	Dla ustalonych $r, \, p \in \mathbb{N}$, gdzie $p$ jest pierwsza, liczbę $m \in \mathbb{N}$ nazywamy \textbf{\textit{introspektywną}} modulo $X^r - 1, \, p$ dla wielomianu $f(X)$, jeśli zachodzi \[(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p).\]
