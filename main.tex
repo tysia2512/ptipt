@@ -838,15 +838,18 @@ Dodatkowo w rozwijaniu nierówności w ostatecznym ciągu przekształceń skorzy
 	\end{align*}
 	skąd teza.
 \end{proof}
+
+Mając już ograniczenie górne i dolne mocy $\mathcal{G}$ oraz dodatkowe pomocnicze nierówności, możemy udowodnić docelową implikację, że jeśli algorytm zróci \textit{PIERWSZA} to $n$ jest liczbą pierwszą.
 	
 \begin{theorem}\label{T1}
 	Niech $n \in \mathbb{N}, \, n \geq 2$ będzie liczbą podaną na wejściu algorytmu. Jeśli algorytm zwróci \textit{PIERWSZA}, to $n$ jest pierwsza.
 \end{theorem}
 	
 \begin{proof}
-	Algorytm może zwrócić \textit{PIERWSZA} tylko w kroku IV i VII. \newline
-	(1) Jeśli algorytm zakończył wykonanie w kroku IV, to $r \geq n$, oraz \[\forall_{2 \leq a < r} \, NWD(a, \, n) = n \vee NWD(a, \, n) = 1.\] Oznacza to, że nie istnieje $2 \leq a < n$ będące właściwym dzielnikiem $n$, więc $n$ jest pierwsze.\newline
-	(2) Załóżmy nie wprost, że algorytm zakończył wykonanie w kroku VII, zwracając \textit{PIERWSZA} i $n$ jest złożona. Ponieważ algorytm nie zakończył się w kroku I, wiemy, że $n$ nie jest potęgą żadnej liczby naturalnej, w szczególności nie istnieją takie $p < n, k \in \mathbb{N}$, gdzie $p$ jest pierwsze, że $n = p^k$. W kroku II zostaje wybrane najmniejsze takie $r$, że $o_r(n) > log^2n$. Ponadto z niespełnionego warunku w kroku III wiemy, że dla $1 \leq a \leq r$ zachodzi $NWD(a, \, n) = 1$, w szczególności $NWD(r, \, n) = 1$. Z warunku w kroku IV i V mamy $n > r$ oraz ${\forall_{1 \leq a \leq \lfloor \sqrt{\phi(r)} \, log \, n \rfloor} \, (X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).}$ Z założenia, że $n$ jest liczbą złożoną wiemy, że istnieje $p$, będące pierwszym dzielnikiem $n$. Mamy więc $n, r, p \in \mathbb{N}$, spełniające założenia w definicji \ref{def}. Weźmy zdefiniowany w niej zbiór $\mathcal{G}$. Na mocy lematu \ref{lower} mamy nierówność $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$ oraz z lematu \ref{el_odwr} oraz definicji \ref{def} zachodzi ${t > log^2n,}$ ${\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor.}$ Możemy więc wywnioskować nierówność
+    Algorytm może zwrócić \textit{PIERWSZA} tylko w kroku 4. i 7.
+    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	\item Jeśli algorytm zakończył wykonanie w kroku 4., to $r \geq n$, oraz \[\forall_{2 \leq a < r} \, NWD(a, \, n) = n \vee NWD(a, \, n) = 1.\] Oznacza to, że nie istnieje $2 \leq a < n$ będące właściwym dzielnikiem $n$, więc $n$ jest pierwsze.
+	\item Załóżmy nie wprost, że algorytm zakończył wykonanie w kroku 7., zwracając \textit{PIERWSZA} i $n$ jest złożona. Ponieważ algorytm nie zakończył się w kroku 1., wiemy, że $n$ nie jest potęgą żadnej liczby naturalnej, w szczególności nie istnieją takie $p < n, k \in \mathbb{N}$, gdzie $p$ jest pierwsze, że $n = p^k$. W kroku 2. zostaje wybrane najmniejsze takie $r$, że $o_r(n) > log^2n$. Ponadto z niespełnionego warunku w kroku 3. wiemy, że dla $1 \leq a \leq r$ zachodzi $NWD(a, \, n) = 1$, w szczególności $NWD(r, \, n) = 1$. Z kroków 4. i 5. mamy $n > r$ oraz ${\forall_{1 \leq a \leq \lfloor \sqrt{\phi(r)} \, log \, n \rfloor} \, (X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).}$ Z założenia, że $n$ jest liczbą złożoną wiemy, że istnieje $p$, będące pierwszym dzielnikiem $n$. Mamy więc $n, r, p \in \mathbb{N}$, spełniające założenia w uwadze \ref{def}. Weźmy zdefiniowany w niej zbiór $\mathcal{G}$. Na mocy lematu \ref{lower} mamy nierówność $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$ oraz z lematu \ref{el_odwr} oraz uwagi \ref{def} zachodzi ${t > log^2n,}$ ${\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor.}$ Możemy więc wywnioskować nierówność
 	\begin{align*}
 		| \, \mathcal{G} \, | &\geq {t + \ell \choose t - 1} \\
 		  & \geq {\lfloor \sqrt{t}\, log \, n \rfloor + 1 + \ell \choose \ell + 1}                      &   & \text{Z ${t > log^2n}$ mamy ${t \geq \lfloor \sqrt{t}\, log \, n} \rfloor + 1$.}                                                               \\
@@ -856,7 +859,8 @@ Dodatkowo w rozwijaniu nierówności w ostatecznym ciągu przekształceń skorzy
 		&\geq 2^{\sqrt{t}\,log \,n} \\
 		&= n^{\sqrt{t}}.
 	\end{align*}
-	Mamy więc $| \, \mathcal{G} \, | > n ^{\sqrt{t}}$ oraz, ponieważ $n$ nie jest potęgą liczby pierwszej, z lematu \ref{upper} $| \, \mathcal{G} \, | \leq n^{\sqrt{t}}.$ Otrzymaliśmy sprzeczność, więc $n$ nie jest liczbą złożoną.
+    Mamy więc $| \, \mathcal{G} \, | > n ^{\sqrt{t}}$ oraz, ponieważ $n$ nie jest potęgą liczby pierwszej, z lematu \ref{upper} $| \, \mathcal{G} \, | \leq n^{\sqrt{t}}.$ Otrzymaliśmy sprzeczność, więc $n$ nie jest liczbą złożoną.
+    \end{enumerate}
 \end{proof}
 	
 \begin{theorem} \label{T2}
@@ -869,6 +873,8 @@ Dodatkowo w rozwijaniu nierówności w ostatecznym ciągu przekształceń skorzy
 	
 \section{Złożoność obliczeniowa}
     
+Oszacowanie złożoności obliczeniowej algorytmu jest o wiele prostsze niż udowodnienie poprawności i wymagać będzie tylko odpowiedniego ograniczenia wartości $r$. Aby to osiągnąć pokażmy najpierw pomocniczy lemat o dolnym ograniczeniu namniejszej wspólnej wielokrotności $n$ kolejnych liczb.
+
 \begin{lemma} \label{3.1}
 	Niech $\ell_n = NWW(1, \dots, n)$. Wtedy dla $n \geq 9$ zachodzi $\ell_n \geq 2^n$.
 \end{lemma}
@@ -876,24 +882,24 @@ Dodatkowo w rozwijaniu nierówności w ostatecznym ciągu przekształceń skorzy
 % Z internetu, ale zmodyfikowane, bo nie umiem całek
 %https://math.stackexchange.com/questions/851328/textlcm1-2-3-ldots-n-geq-2n-for-n-geq-7
 \begin{proof}
-	Pokażemy, że (1) dla dowolnego $m \leq n, \, m \in \mathbb{N}$ zachodzi $m \cdot {n \choose m} \, | \, \ell_n$, a następnie (2) wywnioskujemy tezę. \newline 
-	(1) Weźmy dowolne $m \leq n, \, m \in \mathbb{N}$. Niech $q$ będzie dowolną liczbą pierwszą taką, że $q \, | \, \ell_n$. Z własności $\ell_n$ i monotoniczności funkcji $log_q\, x$ możemy wywnioskować, że $q^{\lfloor log_q n \rfloor} \parallel \ell_n$. Niech $q^l \parallel m$. Zauważmy, że $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor} \parallel n!$. Analogicznie $q^{\sum_{i=1}^{i \leq \lfloor log_q m \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q (n-m) \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. Ponieważ $m, \, n - m \leq n$ zachodzi $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. 
+    Pokażemy, że (1) dla dowolnego $m \leq n, \, m \in \mathbb{N}$ zachodzi $m \cdot {n \choose m} \, | \, \ell_n$, a następnie (2) wywnioskujemy tezę.
+    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	\item Weźmy dowolne $m \leq n, \, m \in \mathbb{N}$. Niech $q$ będzie dowolną liczbą pierwszą taką, że $q \, | \, \ell_n$. Z własności $\ell_n$ i monotoniczności funkcji $log_q\, x$ możemy wywnioskować, że $q^{\lfloor log_q n \rfloor} \parallel \ell_n$. Niech $q^l \parallel m$. Zauważmy, że \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor} \parallel n!.\] Analogicznie $q^{\sum_{i=1}^{i \leq \lfloor log_q m \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q (n-m) \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. Ponieważ $m, \, n - m \leq n$ zachodzi $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. 
 	Otrzymujemy \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor)} \parallel {n \choose m}.\]    
-	Zauważmy, że jeśli $q^i \, | \, m$, to $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) = 0$, a w przeciwnym wypadku $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq 1$. Stąd mamy \[\sum_{i=1}^{i \leq \lfloor log_qn \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq \lfloor log_qn \rfloor - l,\] a ponieważ $q^l \parallel m$, otrzymujemy wniosek, że jeśli $q^i \, | \, m \cdot {n \choose m}$, to $i \leq \lfloor log_qn \rfloor$. Ponieważ nierówność ta zachodzi dla każdego pierwszego dzielnika, możemy wywnioskować, że $m \cdot {n \choose m} \, | \, \ell_n$.\newline
-	(2) W szczególności mamy $n \cdot {2n \choose n} \, | \, \ell_{2n}$ oraz $(n+1){2n + 1 \choose n + 1} = (2n + 1){2n \choose n}\, |\, \ell_{2n+1}$. Wiemy, że $NWD(n,\, 2n + 1) = 1$ oraz $\ell_{2n} \, | \, \ell_{2n + 1}$, więc $n(2n + 1){2n \choose n}\, |\, \ell_{2n + 1}$. Możemy stąd przejść do nierówności \[\ell_{2n + 1} \geq n(2n + 1){2n \choose n} \geq n \sum_{i=0}^{i \leq 2n}{2n \choose n} \geq n {\sum_{i=0}^{i \leq 2n}{2n \choose i}} = n(1 + 1)^{2n} = n \, 4^n.\]
+	Zauważmy, że jeśli $q^i \, | \, m$, to $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) = 0$, a w przeciwnym wypadku $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq 1$. Stąd mamy \[\sum_{i=1}^{i \leq \lfloor log_qn \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq \lfloor log_qn \rfloor - l,\] a ponieważ $q^l \parallel m$, otrzymujemy wniosek, że jeśli $q^i \, | \, m \cdot {n \choose m}$, to $i \leq \lfloor log_qn \rfloor$. Ponieważ nierówność ta zachodzi dla każdego pierwszego dzielnika, możemy wywnioskować, że $m \cdot {n \choose m} \, | \, \ell_n$.
+	\item W szczególności mamy \[n \cdot {2n \choose n} \, | \, \ell_{2n}\] oraz \[(n+1){2n + 1 \choose n + 1} = (2n + 1){2n \choose n}\, |\, \ell_{2n+1}.\] Wiemy, że $NWD(n,\, 2n + 1) = 1$ oraz $\ell_{2n} \, | \, \ell_{2n + 1}$, więc \[n(2n + 1){2n \choose n}\, |\, \ell_{2n + 1}.\] Możemy stąd przejść do nierówności \[\ell_{2n + 1} \geq n(2n + 1){2n \choose n} \geq n \sum_{i=0}^{i \leq 2n}{2n \choose n} \geq n {\sum_{i=0}^{i \leq 2n}{2n \choose i}} = n(1 + 1)^{2n} = n \, 4^n.\]
 	Mamy więc dla $n \geq 4$ nierówność $\ell_{2n+2} \geq \ell_{2n+1} \geq 2^{2n + 2}$, skąd bezpośrednio możemy wywnioskować $\ell_n \geq 2^n$ dla $n \geq 9$.
-						
+    \end{enumerate}		
 \end{proof}
-	
+
 % SPRAWDZONE
 \begin{lemma}\label{r_szacowanie}
 	Niech $n \in \mathbb{N}, \, n \geq 2$, wtedy istnieje takie $r \leq \max \{3, \lceil\log^5n\rceil \}$, $r \in \mathbb{N}$, że $o_r(n) > log^2n$.
 \end{lemma}
 	
 \begin{proof}
-	(1) Przypadek, gdy $n=2$ jest trywialny, ponieważ teza zachodzi dla $r=3$. Podobnie dla $n=3$, warunki spełnia $r=4$.\newline
-	%%%% DODAĆ 3 %%%%
-	(2) Załóżmy więc, że $n \geq 4$. Niech $B = \lceil log^5n \rceil$. Wtedy $B > 10$. \newline
+	Przypadek, gdy $n=2$ jest trywialny, ponieważ teza zachodzi dla $r=3$. Podobnie dla $n=3$, warunki spełnia $r=4$.\newline
+	Załóżmy więc, że $n \geq 4$. Niech $B = \lceil log^5n \rceil$. Wtedy $B > 10$. \newline
 	Spójrzmy na najmniejsze takie $r$, że \[ r \, \nmid \, n^{\lfloor log B \rfloor} \: \prod_{i=1}^{i \leq \lfloor log^2 n \rfloor}(n^i - 1).\]
 	Niech $P = n^{\lfloor log B \rfloor} \: \prod_{i=1}^{i \leq \lfloor log^2 n \rfloor}(n^i - 1)$. 
 	Istnieje więc pewne $q$ takie, że $q \, | \, r$ i $q \nmid P$. $\lfloor log B \rfloor \geq 1$, więc możemy wywnioskować, że $q \nmid n$. Wynika stąd, że $q \nmid NWD(r,\, n)$, więc $\frac{r}{NWD(r, \, n)} \nmid P$. Znaleźliśmy więc liczbę $\frac{r}{NWD(r, \, n)} \leq r$, która nie dzieli $P$. Z założenia, że $r$ jest najmniejsze takie, że $r \nmid P$ mamy $NWD(r, \, n) = 1$.\newline
@@ -905,6 +911,8 @@ Dodatkowo w rozwijaniu nierówności w ostatecznym ciągu przekształceń skorzy
 	Dla $n \geq 4$ mamy\[n^{{\lfloor log B \rfloor} + \frac{log^4n + log^2n}{2}} \leq n^{log^4n} \leq 2^{log^5n} \leq 2^B.\]
 	Wiemy, że $B > 10$, więc z lematu \ref{3.1} mamy $\ell_B \geq 2^B > P$. Oznacza to, że istnieje $l \in \{1, \dots, B\}$ takie, że $l \nmid P$. Z założenia o $r$ mamy, że $r \leq l \leq B$.
 \end{proof}
+
+Ograniczenie $r$ pozwala nam już bezpośrednio ograniczyć złożoność obliczeniową algorytmu.
 
 \begin{theorem}
 	Złożoność obliczeniową algorytmu można ograniczyć asymptotycznie poprzez $O(log^{\frac{21}{2}}n \cdot log \, log \, n)$.
