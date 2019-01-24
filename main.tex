@@ -537,7 +537,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \begin{algorithm}
 	\caption{Algorytm ASK}
 	\begin{algorithmic}[1]
-											    
+													    
 		\Require{liczba całkowita $n > 1$}
 		\Ensure{\textbf{PIERWSZA} - jeśli $n$ jest pierwsza; \textbf{ZŁOŻONA} - jeśli $n$ jest złożona}
 		\If{istnieje takie $a \in \mathbb{N}, b > 1$, że $a^b = n$} \Comment{Krok 1.}
@@ -846,21 +846,21 @@ Mając już ograniczenie górne i dolne mocy $\mathcal{G}$ oraz dodatkowe pomocn
 \end{theorem}
 	
 \begin{proof}
-    Algorytm może zwrócić \textit{PIERWSZA} tylko w kroku 4. i 7.
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-	\item Jeśli algorytm zakończył wykonanie w kroku 4., to $r \geq n$, oraz \[\forall_{2 \leq a < r} \, NWD(a, \, n) = n \vee NWD(a, \, n) = 1.\] Oznacza to, że nie istnieje $2 \leq a < n$ będące właściwym dzielnikiem $n$, więc $n$ jest pierwsze.
-	\item Załóżmy nie wprost, że algorytm zakończył wykonanie w kroku 7., zwracając \textit{PIERWSZA} i $n$ jest złożona. Ponieważ algorytm nie zakończył się w kroku 1., wiemy, że $n$ nie jest potęgą żadnej liczby naturalnej, w szczególności nie istnieją takie $p < n, k \in \mathbb{N}$, gdzie $p$ jest pierwsze, że $n = p^k$. W kroku 2. zostaje wybrane najmniejsze takie $r$, że $o_r(n) > log^2n$. Ponadto z niespełnionego warunku w kroku 3. wiemy, że dla $1 \leq a \leq r$ zachodzi $NWD(a, \, n) = 1$, w szczególności $NWD(r, \, n) = 1$. Z kroków 4. i 5. mamy $n > r$ oraz ${\forall_{1 \leq a \leq \lfloor \sqrt{\phi(r)} \, log \, n \rfloor} \, (X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).}$ Z założenia, że $n$ jest liczbą złożoną wiemy, że istnieje $p$, będące pierwszym dzielnikiem $n$. Mamy więc $n, r, p \in \mathbb{N}$, spełniające założenia w uwadze \ref{def}. Weźmy zdefiniowany w niej zbiór $\mathcal{G}$. Na mocy lematu \ref{lower} mamy nierówność $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$ oraz z lematu \ref{el_odwr} oraz uwagi \ref{def} zachodzi ${t > log^2n,}$ ${\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor.}$ Możemy więc wywnioskować nierówność
-	\begin{align*}
-		| \, \mathcal{G} \, | &\geq {t + \ell \choose t - 1} \\
-		  & \geq {\lfloor \sqrt{t}\, log \, n \rfloor + 1 + \ell \choose \ell + 1}                      &   & \text{Z ${t > log^2n}$ mamy ${t \geq \lfloor \sqrt{t}\, log \, n} \rfloor + 1$.}                                                               \\
-		& = {\lfloor \sqrt{t}\, log \, n \rfloor + 1 + \ell \choose \lfloor \sqrt{t}\, log \, n \rfloor} \\
-		  & \geq {2\lfloor \sqrt{t}\, log \, n \rfloor + 1 \choose \lfloor \sqrt{t}\, log \, n \rfloor} &   & \text{Z $\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor$ oraz lematu \ref{phi_r} otrzymujemy $\ell \geq \lfloor \sqrt{t} \, log \, n \rfloor$.} \\
-		  & > 2^{\lfloor \sqrt{t}\, log \, n \rfloor + 1}                                               &   & \text{Z lematu \ref{newton1}.}                                                                                                                 \\
-		&\geq 2^{\sqrt{t}\,log \,n} \\
-		&= n^{\sqrt{t}}.
-	\end{align*}
-    Mamy więc $| \, \mathcal{G} \, | > n ^{\sqrt{t}}$ oraz, ponieważ $n$ nie jest potęgą liczby pierwszej, z lematu \ref{upper} $| \, \mathcal{G} \, | \leq n^{\sqrt{t}}.$ Otrzymaliśmy sprzeczność, więc $n$ nie jest liczbą złożoną.
-    \end{enumerate}
+	Algorytm może zwrócić \textit{PIERWSZA} tylko w kroku 4. i 7.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item Jeśli algorytm zakończył wykonanie w kroku 4., to $r \geq n$, oraz \[\forall_{2 \leq a < r} \, NWD(a, \, n) = n \vee NWD(a, \, n) = 1.\] Oznacza to, że nie istnieje $2 \leq a < n$ będące właściwym dzielnikiem $n$, więc $n$ jest pierwsze.
+		\item Załóżmy nie wprost, że algorytm zakończył wykonanie w kroku 7., zwracając \textit{PIERWSZA} i $n$ jest złożona. Ponieważ algorytm nie zakończył się w kroku 1., wiemy, że $n$ nie jest potęgą żadnej liczby naturalnej, w szczególności nie istnieją takie $p < n, k \in \mathbb{N}$, gdzie $p$ jest pierwsze, że $n = p^k$. W kroku 2. zostaje wybrane najmniejsze takie $r$, że $o_r(n) > log^2n$. Ponadto z niespełnionego warunku w kroku 3. wiemy, że dla $1 \leq a \leq r$ zachodzi $NWD(a, \, n) = 1$, w szczególności $NWD(r, \, n) = 1$. Z kroków 4. i 5. mamy $n > r$ oraz ${\forall_{1 \leq a \leq \lfloor \sqrt{\phi(r)} \, log \, n \rfloor} \, (X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).}$ Z założenia, że $n$ jest liczbą złożoną wiemy, że istnieje $p$, będące pierwszym dzielnikiem $n$. Mamy więc $n, r, p \in \mathbb{N}$, spełniające założenia w uwadze \ref{def}. Weźmy zdefiniowany w niej zbiór $\mathcal{G}$. Na mocy lematu \ref{lower} mamy nierówność $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$ oraz z lematu \ref{el_odwr} oraz uwagi \ref{def} zachodzi ${t > log^2n,}$ ${\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor.}$ Możemy więc wywnioskować nierówność
+		      \begin{align*}
+		      	| \, \mathcal{G} \, | &\geq {t + \ell \choose t - 1} \\
+		      	  & \geq {\lfloor \sqrt{t}\, log \, n \rfloor + 1 + \ell \choose \ell + 1}                      &   & \text{Z ${t > log^2n}$ mamy ${t \geq \lfloor \sqrt{t}\, log \, n} \rfloor + 1$.}                                                               \\
+		      	& = {\lfloor \sqrt{t}\, log \, n \rfloor + 1 + \ell \choose \lfloor \sqrt{t}\, log \, n \rfloor} \\
+		      	  & \geq {2\lfloor \sqrt{t}\, log \, n \rfloor + 1 \choose \lfloor \sqrt{t}\, log \, n \rfloor} &   & \text{Z $\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor$ oraz lematu \ref{phi_r} otrzymujemy $\ell \geq \lfloor \sqrt{t} \, log \, n \rfloor$.} \\
+		      	  & > 2^{\lfloor \sqrt{t}\, log \, n \rfloor + 1}                                               &   & \text{Z lematu \ref{newton1}.}                                                                                                                 \\
+		      	&\geq 2^{\sqrt{t}\,log \,n} \\
+		      	&= n^{\sqrt{t}}.
+		      \end{align*}
+		      Mamy więc $| \, \mathcal{G} \, | > n ^{\sqrt{t}}$ oraz, ponieważ $n$ nie jest potęgą liczby pierwszej, z lematu \ref{upper} $| \, \mathcal{G} \, | \leq n^{\sqrt{t}}.$ Otrzymaliśmy sprzeczność, więc $n$ nie jest liczbą złożoną.
+	\end{enumerate}
 \end{proof}
 	
 \begin{theorem} \label{T2}
@@ -882,14 +882,14 @@ Oszacowanie złożoności obliczeniowej algorytmu jest o wiele prostsze niż udo
 % Z internetu, ale zmodyfikowane, bo nie umiem całek
 %https://math.stackexchange.com/questions/851328/textlcm1-2-3-ldots-n-geq-2n-for-n-geq-7
 \begin{proof}
-    Pokażemy, że (1) dla dowolnego $m \leq n, \, m \in \mathbb{N}$ zachodzi $m \cdot {n \choose m} \, | \, \ell_n$, a następnie (2) wywnioskujemy tezę.
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-	\item Weźmy dowolne $m \leq n, \, m \in \mathbb{N}$. Niech $q$ będzie dowolną liczbą pierwszą taką, że $q \, | \, \ell_n$. Z własności $\ell_n$ i monotoniczności funkcji $log_q\, x$ możemy wywnioskować, że $q^{\lfloor log_q n \rfloor} \parallel \ell_n$. Niech $q^l \parallel m$. Zauważmy, że \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor} \parallel n!.\] Analogicznie $q^{\sum_{i=1}^{i \leq \lfloor log_q m \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q (n-m) \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. Ponieważ $m, \, n - m \leq n$ zachodzi $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. 
-	Otrzymujemy \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor)} \parallel {n \choose m}.\]    
-	Zauważmy, że jeśli $q^i \, | \, m$, to $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) = 0$, a w przeciwnym wypadku $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq 1$. Stąd mamy \[\sum_{i=1}^{i \leq \lfloor log_qn \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq \lfloor log_qn \rfloor - l,\] a ponieważ $q^l \parallel m$, otrzymujemy wniosek, że jeśli $q^i \, | \, m \cdot {n \choose m}$, to $i \leq \lfloor log_qn \rfloor$. Ponieważ nierówność ta zachodzi dla każdego pierwszego dzielnika, możemy wywnioskować, że $m \cdot {n \choose m} \, | \, \ell_n$.
-	\item W szczególności mamy \[n \cdot {2n \choose n} \, | \, \ell_{2n}\] oraz \[(n+1){2n + 1 \choose n + 1} = (2n + 1){2n \choose n}\, |\, \ell_{2n+1}.\] Wiemy, że $NWD(n,\, 2n + 1) = 1$ oraz $\ell_{2n} \, | \, \ell_{2n + 1}$, więc \[n(2n + 1){2n \choose n}\, |\, \ell_{2n + 1}.\] Możemy stąd przejść do nierówności \[\ell_{2n + 1} \geq n(2n + 1){2n \choose n} \geq n \sum_{i=0}^{i \leq 2n}{2n \choose n} \geq n {\sum_{i=0}^{i \leq 2n}{2n \choose i}} = n(1 + 1)^{2n} = n \, 4^n.\]
-	Mamy więc dla $n \geq 4$ nierówność $\ell_{2n+2} \geq \ell_{2n+1} \geq 2^{2n + 2}$, skąd bezpośrednio możemy wywnioskować $\ell_n \geq 2^n$ dla $n \geq 9$.
-    \end{enumerate}		
+	Pokażemy, że (1) dla dowolnego $m \leq n, \, m \in \mathbb{N}$ zachodzi $m \cdot {n \choose m} \, | \, \ell_n$, a następnie (2) wywnioskujemy tezę.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item Weźmy dowolne $m \leq n, \, m \in \mathbb{N}$. Niech $q$ będzie dowolną liczbą pierwszą taką, że $q \, | \, \ell_n$. Z własności $\ell_n$ i monotoniczności funkcji $log_q\, x$ możemy wywnioskować, że $q^{\lfloor log_q n \rfloor} \parallel \ell_n$. Niech $q^l \parallel m$. Zauważmy, że \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor} \parallel n!.\] Analogicznie $q^{\sum_{i=1}^{i \leq \lfloor log_q m \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q (n-m) \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. Ponieważ $m, \, n - m \leq n$ zachodzi $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. 
+		      Otrzymujemy \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor)} \parallel {n \choose m}.\]    
+		      Zauważmy, że jeśli $q^i \, | \, m$, to $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) = 0$, a w przeciwnym wypadku $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq 1$. Stąd mamy \[\sum_{i=1}^{i \leq \lfloor log_qn \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq \lfloor log_qn \rfloor - l,\] a ponieważ $q^l \parallel m$, otrzymujemy wniosek, że jeśli $q^i \, | \, m \cdot {n \choose m}$, to $i \leq \lfloor log_qn \rfloor$. Ponieważ nierówność ta zachodzi dla każdego pierwszego dzielnika, możemy wywnioskować, że $m \cdot {n \choose m} \, | \, \ell_n$.
+		\item W szczególności mamy \[n \cdot {2n \choose n} \, | \, \ell_{2n}\] oraz \[(n+1){2n + 1 \choose n + 1} = (2n + 1){2n \choose n}\, |\, \ell_{2n+1}.\] Wiemy, że $NWD(n,\, 2n + 1) = 1$ oraz $\ell_{2n} \, | \, \ell_{2n + 1}$, więc \[n(2n + 1){2n \choose n}\, |\, \ell_{2n + 1}.\] Możemy stąd przejść do nierówności \[\ell_{2n + 1} \geq n(2n + 1){2n \choose n} \geq n \sum_{i=0}^{i \leq 2n}{2n \choose n} \geq n {\sum_{i=0}^{i \leq 2n}{2n \choose i}} = n(1 + 1)^{2n} = n \, 4^n.\]
+		      Mamy więc dla $n \geq 4$ nierówność $\ell_{2n+2} \geq \ell_{2n+1} \geq 2^{2n + 2}$, skąd bezpośrednio możemy wywnioskować $\ell_n \geq 2^n$ dla $n \geq 9$.
+	\end{enumerate}		
 \end{proof}
 
 % SPRAWDZONE
@@ -919,17 +919,18 @@ Ograniczenie $r$ pozwala nam już bezpośrednio ograniczyć złożoność oblicz
 \end{theorem}
 	
 \begin{proof}
-	Przeanalizujmy kolejne kroki algorytmu pod kątem złożoności obliczeniowej. \newline
-	\textbf{(krok 1.)} W kroku 1. algorytm sprawdzi dla wszystkich możliwych wartości $b$, których jest nie więcej niż $log\,n$, czy dla pewnego $a$ zachodzi $a^b = n$. Do znalezienia możliwego wykładnika $a$ użyć można wyszukiwania binarnego dla wartości od $2$ do $n$. Sprawdzenie możliwego $a$ wykonane w wyszukiwaniu binarnym będzie wymagało $log \, b$ operacji na liczbach długości nie większej niż $log \, n$. Mamy więc ograniczenie złożoności kroku pierwszego $O(log \, n \cdot (log \,n \cdot (log \,b \cdot log \,n ))) = O(log^n \cdot log \, log \, n)$.\newline
-	\textbf{(krok 2.)} Z lematu \ref{r_szacowanie} wiemy, że istnieje $r \leq max\{3, \lceil log^5n \rceil \}$. Dla potencjalnych $O(log^5n)$ wartości $r$, algorytm sprawdzi $O(log^2n)$ kolejnych potęg $n$ i przyrówna je do $1$ modulo $r$. Dla kroku 2. otrzymujemy więc ograniczenie złożoności $O(log^5n \cdot (log^2n \cdot log \,r)) = O(log^7n \cdot log\,log \,n)$. \newline
-	\textbf{(krok 3.)} Dla możliwych $O(r)$ wartości $a$ wystarczy obliczyć $NWD(a, n)$. Algorytm Euklidesa pozwala znaleźć $NWD(a, n)$ w czasie $O(log \,n + log ^2 \, r)$, gdzie pierwszy składnik sumy odpowiada pierwszej operacji policzenia $a$ modulo $n$, po czym algorytm będzie wykonywał się na liczbach nie większych niż $r$. Mamy więc złożoność kroku 3. ograniczoną przez $O(r \cdot (log \, n + log^2r)) = O(log^2n + log\,n \cdot log^2log \, n))$. \newline
-	\textbf{(krok 4.)} W kroku 4. zostaje wykonane tylko jedno porównanie na liczbach długości nie większej niż $n$, więc ogólnym ograniczeniem złożoności kroku jest $O(log\,n)$.\newline
-	\textbf{(krok 6.)} Dla danego $a$ algorytm obliczy wartość $(X + a)^n - X^n + a$ modulo $X^r - 1, \, p$. Obliczenie $(X + a)^n$ modulo $X^r - 1, \, p$ wykonane być może za pomocą wykorzystania szybkiej transformaty Fouriera w czasie $O(r \cdot log \, n \cdot log \, n)$, gdzie ostatni czynnik $log \, n$ odpowiada za złożoność wykonania operacji na współczynnikach długości $log \, n$. Mamy więc ograniczenie kroku 6. jako $O(log^7n)$
-	\textbf{(krok 5.)} W kroku 5. wykonany zostanie krok 6. $\lfloor \sqrt{\phi(n)} \, log \, n \rfloor$. Mamy więc złożoność obliczeniową kroku 5. $O(\sqrt{\phi(r)} \, log \, n \cdot log^7n) \subseteq O(\sqrt{r} \, log \, n \cdot log^7n) \subseteq O(log^{\frac{5}{2}}n \cdot log^8n) \subseteq O(log^{\frac{21}{2}}n)$.\newline
-	\newline
+	Przeanalizujmy kolejne kroki algorytmu pod kątem złożoności obliczeniowej.
+	\begin{enumerate}[label=(krok \arabic*.),leftmargin=.4in]
+		\item W kroku 1. algorytm sprawdzi dla wszystkich możliwych wartości $b$, których jest nie więcej niż $log\,n$, czy dla pewnego $a$ zachodzi $a^b = n$. Do znalezienia możliwego wykładnika $a$ użyć można wyszukiwania binarnego dla wartości od $2$ do $n$. Sprawdzenie możliwego $a$ wykonane w wyszukiwaniu binarnym będzie wymagało $log \, b$ operacji na liczbach długości nie większej niż $log \, n$. Mamy więc ograniczenie złożoności kroku pierwszego \[O(log \, n \cdot (log \,n \cdot (log \,b \cdot log \,n ))) = O(log^n \cdot log \, log \, n).\]
+		\item Z lematu \ref{r_szacowanie} wiemy, że istnieje $r \leq max\{3, \lceil log^5n \rceil \}$. Dla potencjalnych $O(log^5n)$ wartości $r$, algorytm sprawdzi $O(log^2n)$ kolejnych potęg $n$ i przyrówna je do $1$ modulo $r$. Dla kroku 2. otrzymujemy więc ograniczenie złożoności \[O(log^5n \cdot (log^2n \cdot log \,r)) = O(log^7n \cdot log\,log \,n).\]
+		\item Dla możliwych $O(r)$ wartości $a$ wystarczy obliczyć $NWD(a, n)$. Algorytm Euklidesa pozwala znaleźć $NWD(a, n)$ w czasie $O(log \,n + log ^2 \, r)$, gdzie pierwszy składnik sumy odpowiada pierwszej operacji policzenia $a$ modulo $n$, po czym algorytm będzie wykonywał się na liczbach nie większych niż $r$. Mamy więc złożoność kroku 3. ograniczoną przez \[O(r \cdot (log \, n + log^2r)) = O(log^2n + log\,n \cdot log^2log \, n)).\] 
+		\item W kroku 4. zostaje wykonane tylko jedno porównanie na liczbach długości nie większej niż $n$, więc ogólnym ograniczeniem złożoności kroku jest $O(log\,n)$.
+		      \stepcounter{enumi}
+		\item Dla danego $a$ algorytm obliczy wartość $(X + a)^n - X^n + a$ modulo $X^r - 1, \, p$. Obliczenie $(X + a)^n$ modulo $X^r - 1, \, p$ wykonane być może za pomocą wykorzystania szybkiej transformaty Fouriera w czasie $O(r \cdot log \, n \cdot log \, n)$, gdzie ostatni czynnik $log \, n$ odpowiada za złożoność wykonania operacji na współczynnikach długości $log \, n$. Mamy więc ograniczenie kroku 6. jako $O(log^7n)$.
+		      \addtocounter{enumi}{-2}
+		\item W kroku 5. wykonany zostanie krok 6. $\lfloor \sqrt{\phi(n)} \, log \, n \rfloor$. Mamy więc złożoność obliczeniową kroku 5. \[O(\sqrt{\phi(r)} \, log \, n \cdot log^7n) \subseteq O(\sqrt{r} \, log \, n \cdot log^7n) \subseteq O(log^{\frac{5}{2}}n \cdot log^8n) \subseteq O(log^{\frac{21}{2}}n).\]
+	\end{enumerate}				
 	Suma złożoności wszystkich kroków jest zdominowana przez złożoność kroku 5., więc złożoność całego algorytmu można ograniczyć przez $O(log^{\frac{21}{2}}n)$.
-						
-						
 \end{proof}
 	
 \chapter{Implementacja}
