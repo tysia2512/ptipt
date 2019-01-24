@@ -5,6 +5,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm}
+\usepackage{listings}
 \usepackage{lipsum}
 % \usepackage{listings}
 \usepackage{enumitem}
@@ -537,7 +538,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \begin{algorithm}
 	\caption{Algorytm ASK}
 	\begin{algorithmic}[1]
-													    
+															    
 		\Require{liczba całkowita $n > 1$}
 		\Ensure{\textbf{PIERWSZA} - jeśli $n$ jest pierwsza; \textbf{ZŁOŻONA} - jeśli $n$ jest złożona}
 		\If{istnieje takie $a \in \mathbb{N}, b > 1$, że $a^b = n$} \Comment{Krok 1.}
@@ -934,7 +935,22 @@ Ograniczenie $r$ pozwala nam już bezpośrednio ograniczyć złożoność oblicz
 \end{proof}
 	
 \chapter{Implementacja}
-	
+    
+Algorytm AKS zaimplementowałam w języku C++ (standard C++11) z użyciem biblioteki NTL w wersji 11.3.2. Wykorzystałam zaimplementowane w niej operacje na długich liczbach oraz efektywne mnożenie wielomianów.
+
+\section{Kompilacja i sposób użycia}
+
+Aby skompilować program \verb|aks.cpp| należy najpierw zainstalować bibliotekę NTL dostępną do ściągnięcia wraz z instrukcją na stronie \url{https://www.shoup.net/ntl/} w odpowiednim folderze.
+Następnie wystarczy skompilować program poleceniem
+% CO Z TYM ZROBIĆ?
+\verb|g++ -g -O2 -std=c++11 -pthread -march=native aks.cpp -o aks -lntl -lgmp -lm|.
+
+Kompilacja zakończy się stworzeniem pliku wykonywalnego \verb|aks|. Po jego uruchomieniu należy na standardowym wejściu podać liczbę naturalną, a program wypisze na standardowe wyjście napis \textit{PIERWSZA} lub \textit{ZŁOŻONA}. 
+
+\section{Testy}
+\subsection{Test poprawnościowe}
+\subsection{Testy wydajnościowe}
+
 %%%%% BIBLIOGRAFIA
 
 %\begin{thebibliography}{1}

@@ -8,7 +8,8 @@
 using namespace std;
 using namespace NTL;
 
-enum RESULT{PRIME, COMPOSITE};
+const string PRIME = "PIERWSZA", COMPOSITE = "ZŁOŻONA";
+
 const ZZ not_found(-1);
 
 ZZ log_floor(const ZZ& n) {
@@ -107,7 +108,7 @@ ZZX polynomial_power(const ZZX& f, const ZZ& n, const ZZX& mod) {
     return res;
 }
 
-RESULT aks(const ZZ& n) {
+string aks(const ZZ& n) {
     // cout << n << "\n";
     ZZ ln_floor(log_floor(n));
     
