@@ -188,7 +188,7 @@ Możemy teraz przedstawić analogię między ideałem a podgrupą normalną w sp
 	Należy pokazać, że dla dowolnego $r \in R$ zachodzi $r \oplus I = I \oplus r$. Wiemy, że $\oplus$ jest przemienna, więc mamy ${\{r \oplus i \, | \, i \in I, r \in R\}} = {\{i \oplus r \, | \, i \in I, r \in R\}}$, czyli $r \oplus I = I \oplus r$.
 \end{proof}
 
-Zdefiniujmy więc pojęcie grupy ilorazowej, które stanie się podstawą definicji pierścienia ilorazowego.
+Zdefiniujmy więc pojęcie grupy ilorazowej, które stanie się podstawą definicji pierścienia ilorazowego.
 
 \theoremstyle{theorem}\label{grup_ilo}
 \begin{theorem}
@@ -457,7 +457,7 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 	\textbf{\textit{Funkcją Eulera}} nazywamy taką funkcję $\phi$, że dla $n \in \mathbb{N}, \, n \geq 2$ $\phi(n)$ jest równa liczbie liczb naturalnych $q < n$ takich, że $NWD(n, q) = 1$. 
 \end{reminder*}
 
-Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomianu cyklotomicznego oraz udowodnić kilka związanych z nimi własności, które okażą się pomocne w dalszych dowodach.
+Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomianu cyklotomicznego oraz udowodnić kilka związanych z nimi własności, które okażą się pomocne w dalszych dowodach.
 
 \begin{definition}
 	Pierwiastek $n$-tego stopnia z jedności nad ciałem $F$ nazywamy \textbf{\textit{pierwotnym}}, jeśli jest generatorem grupy $E^{(n)}$.
@@ -716,7 +716,7 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
     Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) \, | \, X^k - 1$ w $\mathbb{Z}_p[X]$. 
     Rozważmy pierwiastki $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{Z}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. 
     % UWAGA TO MOŻE BYĆ NIEPRAWDA
-    Mamy więc $h(\zeta) = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$, a ponieważ istnieje pewne $p(X) \in \mathbb{Z}_p[X]$ takie, że $(X^k - 1) = p(X) \cdot h(X) \; (mod \, p)$, to także $\zeta^k - 1 = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$. Wynika stąd, że $\zeta$ jest też pierwiastkiem z jedności $k$-tego stopnia w $\mathbb{Z}_p$, a ponieważ $k < r$, mamy sprzeczność z założeniem.
+    Mamy więc $h(\zeta) = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$, a ponieważ istnieje pewne $p(X) \in \mathbb{Z}_p[X]$ takie, że $(X^k - 1) = p(X) \cdot h(X) \; (mod \, p)$, to także $\zeta^k - 1 = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$. Wynika stąd, że $\zeta$ jest też pierwiastkiem z jedności $k$-tego stopnia w $\mathbb{Z}_p$, a ponieważ $k < r$, mamy sprzeczność z założeniem o pierwszości $\zeta$.
     % Ponieważ $h(X) \, | \, X^k - 1$ także w rozszerzeniu ciała $\mathbb{Z}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{Z}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
 	%Pokażemy, że (1) w $F$ jest nie więcej niż $o_r(p)$ pierwiastków $r$-tego stopnia z jedności oraz, że (2) $X$ generuje dokładnie $o_r(p)$ różnych pierwiastków $r$-tego stopnia z jedności. \newline
 	%(1) Niech $\zeta \in F$ będzie pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$. Wiemy, że $\zeta$ generuje grupę wszystkich pierw
@@ -739,14 +739,12 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 % 	(2) Zbiór $\mathcal{G}_{gen}$ generuje $\mathcal{G}$. Dla $g \in \mathcal{G}, \, g \neq 1$ oczywistym jest, że $g$ można przedstawić jako iloczyn elementów $\mathcal{G}_{gen}$. Wiemy, że $h(X)$ dzieli $Q_r(X)$, czyli też, na mocy lematu \ref{cyklo_dzieli}, $X^r - 1$. Mamy więc $X^r = 1$ w $\mathcal{G}$, czyli $1$ także jest generowana przez $\mathcal{G}_{gen}$. Odwrotny wniosek, że każdy element generowany przez $\mathcal{G}_{gen}$ należy do $\mathcal{G}$ jest oczywisty.
 % \end{proof}
 
-
-%% DO POPRAWY
 \begin{lemma}\label{liczba_wielo}
-	Jeśli w grupie $G$ istnieje co najmniej $k + 1$ różnych wielomianów $f_1(X), \, \dots,$ $\,f_{k + 1}(X)$ pierwszego stopnia niepodzielnych przez siebie parami, to istnieje co najmniej ${k + d \choose k + 1}$ różnych wielomianów stopnia mniejszego niż $d$.
+	Dla $k + 1$ wielomianów pierwszego stopnia o różnych pierwiastkach $f_1(X), \, \dots,$ $\,f_{k + 1}(X)$ istnieje co najmniej ${k + d \choose k + 1}$ różnych wielomianów $f(X)$ stopnia mniejszego niż $d$, które można przedstawić jako $f(X) = \prod_{i=1}^{k+1}(f_i(X))^e$, gdzie $e \in \mathbb{N}$.
 \end{lemma}
 	
 \begin{proof}
-	Uzasadnimy, że jesteśmy w stanie skonstruować bijekcję między ${k + d \choose d - 1}$ elementami a różnymi wielomianami stopnia mniejszego niż $d$ w $F$. Spójrzmy na ciąg $k + d$ elementów z $k + 1$ elementami wyróżnionymi. Jeśli spojrzymy na liczbę elementów między elementami wyróżnionymi otrzymamy ciąg $a_1, \, \dots, a_{k + 2}$ taki, że $\sum_{i = 1}^{k + 2}a_i = d - 1$.  Powiemy, że takiemu ciągowi odpowiada wielomian $f(X) \in G$, jeśli $f(X) = \prod_{i = 1}^{k + 1} (f_i(X))^{a_i}$. Łatwo zauważyć, że jednemu takiemu wyróżnieniu elementów ciągu odpowiada dokładnie jeden wielomian oraz dla różnych wyróżnień elementów, odpowiadające wielomiany są różne. Stąd otrzymujemy tezę, że różnych wielomianów stopnia mniejszego niż $d$ w $F$ jest co najmniej ${k + d \choose k + 1}$.
+    Przedstawimy, w jaki sposób mozna skonstruować bijekcję między sposobem wyboru $k + 1$ z $k + d$ elementów ciągu a różnymi wielomianami $f(X)$. Spójrzmy na ciąg $k + d$ elementów z $k + 1$ elementami wyróżnionymi. Jeśli spojrzymy na liczbę elementów między elementami wyróżnionymi otrzymamy ciąg $a_1, \, \dots, a_{k + 2}$ taki, że $\sum_{i = 1}^{k + 2}a_i = d - 1$.  Powiemy, że takiemu ciągowi odpowiada wielomian $f(X) \in G$, jeśli $f(X) = \prod_{i = 1}^{k + 1} (f_i(X))^{a_i}$. Łatwo zauważyć, że jednemu takiemu wyróżnieniu elementów ciągu odpowiada dokładnie jeden wielomian oraz dla różnych wyróżnień elementów, odpowiadające wielomiany są różne. Stąd otrzymujemy tezę, że różnych wielomianów stopnia mniejszego niż $d$ w $F$ jest co najmniej ${k + d \choose k + 1}$.
 \end{proof}
 
 Mając już pomocnicze lematy, możemy przejść do znalezienia ograniczenia dolnego rozmiaru zbioru $\mathcal{G}$.
