@@ -785,7 +785,7 @@ Mając już ograniczenia z dwóch stron zbioru $\mathcal{G}$ możemy je ze sobą
 \end{lemma}
 	
 \begin{proof}
-	Spójrzmy na ciąg $a, a^2, \, \dots, a^{r+1}$. Istnieją w nim $1 \leq i < j \leq r + 1$ takie, że $a^i = a^j \, (mod \, r)$, Ponieważ $NWD(a, r) = 1$, to także $NWD(a^i, r) = NWD(a^j, r) = 1$. Mamy $a^ia^{j-i} = a^j \, (mod \, r),$ a ponieważ $a^i$ i $a^j$ są niezerowe, to $a^{j - i} = 1 \, (mod \, r)$ i ostatecznie $a \cdot a^{j - i - 1} = 1 \, (mod \, r)$, więc znaleźliśmy $a^{-1}$.
+	Spójrzmy na ciąg $a, a^2, \, \dots, a^{r+1}$. Istnieją w nim $1 \leq i < j \leq r + 1$ takie, że $a^i = a^j \, (mod \, r)$, Ponieważ $NWD(a, r) = 1$, to także $NWD(a^i, r) = NWD(a^j, r) = 1$. Mamy $a^ia^{j-i} = a^i \, (mod \, r),$ a ponieważ $a^i$ jest niezerowe, to $a^{j - i} = 1 \, (mod \, r)$ i ostatecznie $a \cdot a^{j - i - 1} = 1 \, (mod \, r)$, więc znaleźliśmy $a^{-1}$.
 \end{proof}
 
 \begin{lemma} \label{phi_r}
