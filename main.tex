@@ -754,15 +754,18 @@ Mając już pomocnicze lematy, możemy przejść do znalezienia ograniczenia dol
 \end{lemma}
 	
 \begin{proof}
-	Pokażemy, że (1) dowolne dwa różne wielomiany stopnia mniejszego niż $t$ w $P$ są różne także w $\mathcal{G}$ oraz, że w (2) $P$ jest co najmniej  ${t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. 
-	\newline
-	(1) Niech $f(X) \neq g(X) \in P, \, deg(f), deg(g) < t$. Załóżmy nie wprost, że $f(X) = g(X)$ w $F$. 
-	Niech $Q(Y) = f(Y) - g(Y)$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc $(f(X))^i = (g(X))^i$ i $f(X^i) = g(X^i)$ w $F$. Oznacza to, że dla każdego $i \in I$ $X^i$ jest pierwiastkiem $Q(Y)$ w $F$, czyli też dla każdego $i' \in G$ $X^{i'}$ jest pierwiastkiem $Q(Y)$ w $F$. Załóżmy nie wprost, że istnieją $i < i' \in G$ takie, że $X^i = X^{i'}$ w $F$. Mamy więc $h(X) | X^i$ w $\mathbb{Z}_p$ lub $X^{i - i'} = 1$. Pierwszy argument tej dysjunkcji jest w oczywisty sposób nieprawdziwy, a drugi jest sprzeczny z lematem \ref{X_pierw}.
-	%Mamy stąd wnioski $h(X) | X^i$ lub $i' - i | r \vee r | i' - i$, które są sprzeczne z założeniami o $h(X)$ oraz $NWD(i, r) = NWD(i', r) = 1$.
-	% Z lematów \ref{pierwotne} i \ref{X_pierw} wiemy, że $X^{i'}$ są prymitywnymi pierwiastkami $r$-tego stopnia z jedności w $F$, a ponieważ każde $i' < r$ wszystkie $X^{i'}$ są różne. 
-	Znaleźliśmy więc $|\,G\,| = t$ pierwiastków $Q(Y)$ w $F$ więc $Q(Y)$ jest wielomianem zerowym w $F$ lub $deg(Q) > t$, zatem doszliśmy do sprzeczności z założeniem.\newline
-	(2) Z założeń mamy $\ell = \lfloor \sqrt{\phi(r)} \, log\, n \rfloor < \sqrt{r} \, log \, n $ oraz $o_r(n) > log^2 \, n$. Ponieważ $r > o_r(n)$, otrzymujemy \[\ell < \sqrt{r} \, log \, n < r < p.\] W połączeniu z $deg(h) > 1$ mamy wniosek że dla dowolnych $0 \leq i < j \leq \ell$ $X + i \neq X + j$ w $F$ oraz $X + i$ i $X + j$ są niezerowe. 
-	\newline Z lematu \ref{liczba_wielo} otrzymujemy wniosek, że w $P$, a co za tym idzie także w $\mathcal{G}$, jest co najmniej ${t + \ell \choose \ell + 1} = {t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. Stąd $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$.
+	Pokażemy, że (1) dowolne dwa różne wielomiany stopnia mniejszego niż $t$ w $P$ są różne także w $\mathcal{G}$ oraz, że (2) w $P$ jest co najmniej  ${t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. 
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	\item Niech $f(X) \neq g(X) \in P, \, deg(f), deg(g) < t$. Załóżmy nie wprost, że $f(X) = g(X)$ w $F$. 
+    Niech $Q(Y) = f(Y) - g(Y)$, gdzie $Y$ jest elementem $F$, czyli także wielomianem. Zauważmy, że oczywistym pierwiastkiem $Q(Y)$ jest $X$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne modulo $X^r - 1, \, p$ dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc w $F$
+    \begin{align*}
+        (f(X))^i = (g(X))^i \; \text{i} \; f(X^i) = g(X^i).
+    \end{align*}
+    Oznacza to, że dla każdego $i \in I$ $X^i$ jest pierwiastkiem $Q(Y)$ w $F$, czyli też dla każdego $i' \in G$ $X^{i'}$ jest pierwiastkiem $Q(Y)$ w $F$. Załóżmy nie wprost, że istnieją $i < i' \in G$ takie, że $X^i = X^{i'}$ w $F$. Mamy więc $h(X) \, | \, X^i$ w $\mathbb{Z}_p[X]$ lub $X^{i - i'} = 1$. Pierwszy argument tej dysjunkcji jest w oczywisty sposób nieprawdziwy, ponieważ $h(X)$ nie ma pierwiastka w zerze, a drugi jest sprzeczny z lematem \ref{X_pierw}.
+	Znaleźliśmy więc $|\,G\,| = t$ pierwiastków $Q(Y)$ w $F$ więc $Q(Y)$ jest wielomianem zerowym w $F$ lub $deg(Q) \geq t$, zatem doszliśmy do sprzeczności z założeniem.
+	\item Z założeń o $\ell$ i $o_r(n)$ mamy $\ell = \lfloor \sqrt{\phi(r)} \, log\, n \rfloor < \sqrt{r} \, log \, n $ oraz $o_r(n) > log^2 \, n$. Ponieważ $r > o_r(n)$, otrzymujemy \[\ell < \sqrt{r} \, log \, n < \sqrt{r \cdot o_r(n)} < r < p.\] W połączeniu z $deg(h) > 1$ mamy wniosek że dla dowolnych $0 \leq i < j \leq \ell$ $X + i \neq X + j$ w $F$ oraz $X + i$ i $X + j$ są niezerowe. 
+    \newline Z lematu \ref{liczba_wielo} otrzymujemy wniosek, że w $P$, a co za tym idzie także w $\mathcal{G}$, jest co najmniej ${t + \ell \choose \ell + 1} = {t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. Stąd $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$.
+    \end{enumerate}
 \end{proof}
     
 Następnym krokiem będzie znalezienie ograniczenia górnego dla rozmiaru zbioru $\mathcal{G}$. Wykorzystamy do tego wiedzę o introspektywności elementów zbioru $I$ dla elementów zbioru $\mathcal{G}$.
