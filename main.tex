@@ -260,27 +260,27 @@ Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pie
 \end{theorem}
 
 \begin{proof}
-    Wiemy, że $R/M$ jest pierścieniem przemiennym. Wystarczy pokazać, że (1) istnieje element neutralny mnożenia oraz (2) dla każdego niezerowego elementu istnieje element odwrotny.
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-        \item Istnieje $1$ w $R$, więc dla dowolnego $a \oplus M \in R/M$ mamy
-        $(a \oplus M) \times (1 \oplus M) = a \odot 1 \oplus M = a \oplus M = 1 \odot a \oplus M = (1 \oplus M) \times (a \oplus M)$.
-        \item Weźmy dowolne $a \in R$ takie, że $a \oplus M$ jest niezerowe, czyli $a \notin M$. Weźmy zbiór $J = \{ra \oplus m \, | \, r \in R, m \in M\}$. Pokażemy, że $J$ jest ideałem nad $R$. W tym celu wystarczy pokazać, że (2.1) $\langle J, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2.2)$\forall_{j \in J, r \in R} \, jr \in J \wedge rj \in J$.
-        \begin{enumerate}[label=(2.\arabic*)]
-            \item Udowodnimy, że $\langle J, \oplus \rangle$ spełnia definicję grupy oraz zawiera się w $\langle R, \oplus \rangle$.
-            \begin{enumerate}[label=(2.1.\arabic*)]
-                \item Wiemy, że $R$ jest zamknięty na $\oplus$ i $\odot$, więc $\forall_{r, a', m \in R} \, ra' \oplus m \in R$ oraz $J \subseteq R$. 
-                \item $M$ jest ideałem, czyli jest grupą, więc $0 \in M$. Stąd $0a \oplus 0 = 0 \in J$, czyli $J$ zawiera element zerowy.
-                \item Weźmy dowolne $j = ra \oplus m \in J$. Wiemy, że $-r \in R$ oraz $-m \in M$. Stąd $-j = -ra \oplus -m \in J$. Wtedy $j \oplus -j = ra \oplus m \oplus -ra \oplus -m = ra \oplus -ra = 0a = 0$, tzn. dla każdego elementu $J$ istnieje element odwrotny.
-                \item Weźmy dowolne $j_1 = r_1a \oplus m_1, j_2 = r_2a \oplus m_2 \in J$. Wtedy $j_1 \oplus j_2 = r_1a \oplus m_1 \oplus r_2a \oplus m_2 = (r_1 \oplus r_2)a \oplus (m_1 \oplus m_2)$. Wiemy, że $r_1 \oplus r_2 \in R$ oraz $m_1 \oplus m_2 \in M$, więc $j_1 \oplus j_2 \in J$, czyli $J$ jest zamknięte na $\oplus$.
-                \item $\oplus$ jest łączne. Własność ta wynika bezpośrednio z łączności $\oplus$ w $R$.
-            \end{enumerate}
-            \item Weźmy dowolne $ra \oplus m \in J, r' \in R$. Wtedy $jr' = (ra \oplus m) \odot r' = rar' \oplus mr'$. Z przemienności $R$ $jr' = rr'a \oplus mr'$. $rr' \in R$ oraz, ponieważ $M$ jest ideałem $mr' \in M$, więc $jr' \in J$. Analogicznie $r'j \in J$.
-            \newline
-            Wiemy, że $J$ jest ideałem nad $R$. Możemy też pokazać, że $M \subset J$. $\forall_{m \in M} \, m = 0a \oplus m \in J$ oraz skoro $1 \in R, 0 \in M$, to $a \in J$. Wiemy, że $a \notin M$, więc $M \subset J$.
-            \newline
-            Mamy więc ideał $J$ nad $R$, który zawiera $M$. Z założenia, że $M$ jest maksymalny, mamy $J = R$, więc $1 \in J$, czyli $\exists_{m \in M, r \in R} \, ra \oplus m = 1$. Wtedy $(r \oplus M) \times (a \oplus M) = ra \oplus M = ra \oplus m \oplus M = 1 \oplus M$, czyli $(a \oplus M)^{-1} = r \oplus M$.
-        \end{enumerate}
-    \end{enumerate}
+	Wiemy, że $R/M$ jest pierścieniem przemiennym. Wystarczy pokazać, że (1) istnieje element neutralny mnożenia oraz (2) dla każdego niezerowego elementu istnieje element odwrotny.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item Istnieje $1$ w $R$, więc dla dowolnego $a \oplus M \in R/M$ mamy
+		      $(a \oplus M) \times (1 \oplus M) = a \odot 1 \oplus M = a \oplus M = 1 \odot a \oplus M = (1 \oplus M) \times (a \oplus M)$.
+		\item Weźmy dowolne $a \in R$ takie, że $a \oplus M$ jest niezerowe, czyli $a \notin M$. Weźmy zbiór $J = \{ra \oplus m \, | \, r \in R, m \in M\}$. Pokażemy, że $J$ jest ideałem nad $R$. W tym celu wystarczy pokazać, że (2.1) $\langle J, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2.2)$\forall_{j \in J, r \in R} \, jr \in J \wedge rj \in J$.
+		      \begin{enumerate}[label=(2.\arabic*)]
+		      	\item Udowodnimy, że $\langle J, \oplus \rangle$ spełnia definicję grupy oraz zawiera się w $\langle R, \oplus \rangle$.
+		      	      \begin{enumerate}[label=(2.1.\arabic*)]
+		      	      	\item Wiemy, że $R$ jest zamknięty na $\oplus$ i $\odot$, więc $\forall_{r, a', m \in R} \, ra' \oplus m \in R$ oraz $J \subseteq R$. 
+		      	      	\item $M$ jest ideałem, czyli jest grupą, więc $0 \in M$. Stąd $0a \oplus 0 = 0 \in J$, czyli $J$ zawiera element zerowy.
+		      	      	\item Weźmy dowolne $j = ra \oplus m \in J$. Wiemy, że $-r \in R$ oraz $-m \in M$. Stąd $-j = -ra \oplus -m \in J$. Wtedy $j \oplus -j = ra \oplus m \oplus -ra \oplus -m = ra \oplus -ra = 0a = 0$, tzn. dla każdego elementu $J$ istnieje element odwrotny.
+		      	      	\item Weźmy dowolne $j_1 = r_1a \oplus m_1, j_2 = r_2a \oplus m_2 \in J$. Wtedy $j_1 \oplus j_2 = r_1a \oplus m_1 \oplus r_2a \oplus m_2 = (r_1 \oplus r_2)a \oplus (m_1 \oplus m_2)$. Wiemy, że $r_1 \oplus r_2 \in R$ oraz $m_1 \oplus m_2 \in M$, więc $j_1 \oplus j_2 \in J$, czyli $J$ jest zamknięte na $\oplus$.
+		      	      	\item $\oplus$ jest łączne. Własność ta wynika bezpośrednio z łączności $\oplus$ w $R$.
+		      	      \end{enumerate}
+		      	\item Weźmy dowolne $ra \oplus m \in J, r' \in R$. Wtedy $jr' = (ra \oplus m) \odot r' = rar' \oplus mr'$. Z przemienności $R$ $jr' = rr'a \oplus mr'$. $rr' \in R$ oraz, ponieważ $M$ jest ideałem $mr' \in M$, więc $jr' \in J$. Analogicznie $r'j \in J$.
+		      	      \newline
+		      	      Wiemy, że $J$ jest ideałem nad $R$. Możemy też pokazać, że $M \subset J$. $\forall_{m \in M} \, m = 0a \oplus m \in J$ oraz skoro $1 \in R, 0 \in M$, to $a \in J$. Wiemy, że $a \notin M$, więc $M \subset J$.
+		      	      \newline
+		      	      Mamy więc ideał $J$ nad $R$, który zawiera $M$. Z założenia, że $M$ jest maksymalny, mamy $J = R$, więc $1 \in J$, czyli $\exists_{m \in M, r \in R} \, ra \oplus m = 1$. Wtedy $(r \oplus M) \times (a \oplus M) = ra \oplus M = ra \oplus m \oplus M = 1 \oplus M$, czyli $(a \oplus M)^{-1} = r \oplus M$.
+		      \end{enumerate}
+	\end{enumerate}
 \end{proof}
 
 \section{Pierścień wielomianów}
@@ -294,12 +294,12 @@ Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawi
 \end{theorem}
 
 \begin{proof}
-    Pokażemy, że, jeśli $p$ jest pierwsza $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ spełnia definicję \ref{cialo}.
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-        \item $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ z $1$ jest pierścieniem. Dowód jest trywialny i korzysta z własności działań $+_p$ i $\times_p$.
-        \item $\langle \mathbb{Z}_p \setminus \{0\}, \times_p \rangle$ jest grupą abelową. Przemienność i łączność wynikają z własności $\times_p$. Elementem neutralnym jest $1$. Jedyną nietrywialną własnością jest istnienie elementu przeciwnego, tzn. należy udowodnić, że $\forall_{a \in \mathbb{Z}_p \setminus \{0\}} \, \exists_{a^{-1} \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p a^{-1} = 1$.\newline
-        Weźmy dowolne $a \in \mathbb{Z}_p \setminus \{0\}$. Załóżmy nie wprost, że nie istnieje $a^{-1} \in \mathbb{Z}_p \setminus \{0\}$ takie, że $a \times_p a{-1} = 1$. To znaczy $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 1$. Ponieważ $p$ jest pierwsze i wszystkie elementy $\mathbb{Z}_p \setminus \{0\}$ są mniejsze od $p$, wiemy, że $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 0$. Mamy więc $p-1$ czynników i $p-2$ możliwych wyników. Z zasady szufladkowej mamy $\exists{b_1, b_2 \in \mathbb{Z}_p \setminus \{0\}}, b_1 \neq b_2 \, a \times_p b_1 = a \times_p b_2$. Wiemy, że istnieje w $\mathbb{Z}_p$ niezerowy element $-b_2$, więc $-b_2 \in \mathbb{Z}_p \setminus \{0\}$. Korzystając z własności pierścienia $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ możemy przekształcić powyższe równanie do $a \times_p (b_1 +_p -b_2) = 0$. Z $b_1 \neq b_2$ mamy $b_1 +_p -b_2 \in \mathbb{Z}_p \setminus \{0\}$, czyli doszliśmy do sprzeczności.
-    \end{enumerate}
+	Pokażemy, że, jeśli $p$ jest pierwsza $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ spełnia definicję \ref{cialo}.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ z $1$ jest pierścieniem. Dowód jest trywialny i korzysta z własności działań $+_p$ i $\times_p$.
+		\item $\langle \mathbb{Z}_p \setminus \{0\}, \times_p \rangle$ jest grupą abelową. Przemienność i łączność wynikają z własności $\times_p$. Elementem neutralnym jest $1$. Jedyną nietrywialną własnością jest istnienie elementu przeciwnego, tzn. należy udowodnić, że $\forall_{a \in \mathbb{Z}_p \setminus \{0\}} \, \exists_{a^{-1} \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p a^{-1} = 1$.\newline
+		      Weźmy dowolne $a \in \mathbb{Z}_p \setminus \{0\}$. Załóżmy nie wprost, że nie istnieje $a^{-1} \in \mathbb{Z}_p \setminus \{0\}$ takie, że $a \times_p a{-1} = 1$. To znaczy $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 1$. Ponieważ $p$ jest pierwsze i wszystkie elementy $\mathbb{Z}_p \setminus \{0\}$ są mniejsze od $p$, wiemy, że $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 0$. Mamy więc $p-1$ czynników i $p-2$ możliwych wyników. Z zasady szufladkowej mamy $\exists{b_1, b_2 \in \mathbb{Z}_p \setminus \{0\}}, b_1 \neq b_2 \, a \times_p b_1 = a \times_p b_2$. Wiemy, że istnieje w $\mathbb{Z}_p$ niezerowy element $-b_2$, więc $-b_2 \in \mathbb{Z}_p \setminus \{0\}$. Korzystając z własności pierścienia $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ możemy przekształcić powyższe równanie do $a \times_p (b_1 +_p -b_2) = 0$. Z $b_1 \neq b_2$ mamy $b_1 +_p -b_2 \in \mathbb{Z}_p \setminus \{0\}$, czyli doszliśmy do sprzeczności.
+	\end{enumerate}
 \end{proof}
 
 \begin{theorem}
@@ -336,30 +336,30 @@ Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb ca�
 \end{theorem}
 
 \begin{proof}
-    Pokażemy kolejno, że (1) $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem, a następnie że (2) jest ono rzędu $p^d$.
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-        \item $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(X)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc na mocy twierdzenia \ref{pier_ilo_cialem} $\mathbb{Z}_p[X]/\langle h(X) \rangle$ jest ciałem.
-        \item Niech $M = \langle h(X) \rangle$. Pokażemy, że jeśli wielomiany $f(X), g(X) \in \mathbb{Z}_p[X]$, gdzie 
-        \begin{align*}
-            f(X) &= h(X)q_1(X) +^* r_1(X), \\
-            g(X) &= h(X)q_2(X) +^* r_2(X),
-        \end{align*}
-        gdzie $r_1(X) = r_2(X)$, to 
-        \begin{align*}
-            f(X) +^* M = g(X) +^* M.
-        \end{align*}
-        Mamy 
-        \begin{align*}
-            f(X) +^* M &= h(X)q_1(X) +^* r_1(X) +^* M \\
-            &= r_1(X) +^* h (X)q_1(X) +^* M \\
-            &= r_1(X) +^* M \\
-            &= r_2(X) +^* M \\
-            &= r_2(X) +^* h(X)q_2(X) +^* M \\
-            &= g(X) +^* M.
-        \end{align*}
-        Ponadto wiemy, że, ponieważ $M$ jest ideałem głównym, dowolna para wielomianów $f(X), g(X) \in r(X) +^* M$ ma taką samą resztę z dzielenia przez $h(X)$. Mamy więc wniosek, że para wielomianów należy do tego samego elementu zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$ wtw mają taką samą resztę z dzielenia przez $h(X)$.\newline
-        Mamy więc tyle elementów zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$, ile jest różnych reszt dzielenia wielomianu przez $h(X)$, czyli też tyle, ile jest wielomianów stopnia $d-1$ w $\mathbb{Z}_p[X]$. Stąd $ord(\mathbb{Z}_p[X]/\langle h(X) \rangle) = p^d$.
-    \end{enumerate}
+	Pokażemy kolejno, że (1) $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem, a następnie że (2) jest ono rzędu $p^d$.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(X)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc na mocy twierdzenia \ref{pier_ilo_cialem} $\mathbb{Z}_p[X]/\langle h(X) \rangle$ jest ciałem.
+		\item Niech $M = \langle h(X) \rangle$. Pokażemy, że jeśli wielomiany $f(X), g(X) \in \mathbb{Z}_p[X]$, gdzie 
+		      \begin{align*}
+		      	f(X) & = h(X)q_1(X) +^* r_1(X), \\
+		      	g(X) & = h(X)q_2(X) +^* r_2(X), 
+		      \end{align*}
+		      gdzie $r_1(X) = r_2(X)$, to 
+		      \begin{align*}
+		      	f(X) +^* M = g(X) +^* M. 
+		      \end{align*}
+		      Mamy 
+		      \begin{align*}
+		      	f(X) +^* M & = h(X)q_1(X) +^* r_1(X) +^* M  \\
+		      	           & = r_1(X) +^* h (X)q_1(X) +^* M \\
+		      	           & = r_1(X) +^* M                 \\
+		      	           & = r_2(X) +^* M                 \\
+		      	           & = r_2(X) +^* h(X)q_2(X) +^* M  \\
+		      	           & = g(X) +^* M.                  
+		      \end{align*}
+		      Ponadto wiemy, że, ponieważ $M$ jest ideałem głównym, dowolna para wielomianów $f(X), g(X) \in r(X) +^* M$ ma taką samą resztę z dzielenia przez $h(X)$. Mamy więc wniosek, że para wielomianów należy do tego samego elementu zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$ wtw mają taką samą resztę z dzielenia przez $h(X)$.\newline
+		      Mamy więc tyle elementów zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$, ile jest różnych reszt dzielenia wielomianu przez $h(X)$, czyli też tyle, ile jest wielomianów stopnia $d-1$ w $\mathbb{Z}_p[X]$. Stąd $ord(\mathbb{Z}_p[X]/\langle h(X) \rangle) = p^d$.
+	\end{enumerate}
 \end{proof}
 
 \section{Pierwiastki z jedności, wielomiany cyklotomiczne}
@@ -394,12 +394,12 @@ Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewneg
 	Zauważmy, że $F$ jest izomorficzny z $\{a + \langle h(X) \rangle \, | \, a \in F\} \subseteq F[X]/\langle h(X) \rangle$. 
 	%%% UWAGA BS %%%%
 	Więc $F[X]/\langle h(X) \rangle$ jest rozszerzeniem $F$.\newline
-    Niech $\alpha = X + \langle h(X)\rangle$. Ponieważ $deg(f) \geq 2$, $\alpha \in F[X]/\langle h(X) \rangle$. Mamy więc 
-    \begin{align*}
-        h(\alpha) &= a_0 + a_1(X + \langle h(X)\rangle) + \dots + a_n(X+\langle h(X)\rangle)^n \\
-        &= h(X) + \langle h(X) \rangle = 0 
-    \end{align*}
-    w $F[X]/\langle h(X) \rangle$, czyli $\alpha$ jest pierwiastkiem $f(X)$.
+	Niech $\alpha = X + \langle h(X)\rangle$. Ponieważ $deg(f) \geq 2$, $\alpha \in F[X]/\langle h(X) \rangle$. Mamy więc 
+	\begin{align*}
+		h(\alpha) & = a_0 + a_1(X + \langle h(X)\rangle) + \dots + a_n(X+\langle h(X)\rangle)^n \\
+		          & = h(X) + \langle h(X) \rangle = 0                                           
+	\end{align*}
+	w $F[X]/\langle h(X) \rangle$, czyli $\alpha$ jest pierwiastkiem $f(X)$.
 \end{proof}
 
 % Mając już potrzebne terminy wprowadźmy
@@ -439,17 +439,17 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 \end{theorem}
 	
 \begin{proof}
-    Pokażemy kolejno, że (1) $|\,E^{(n)}\,| = n$, (2) $E^{(n)}$ jest grupą, a co więcej, (3) jest grupą cykliczną.
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-        \item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
-        \item Pokażemy, że $E^{(n)}$ jest grupą z operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
-        \item Pokażemy cykliczność $E^{(n)}$ poprzez znalezienie generatora grupy. 
-        \begin{enumerate}[label=(3.\arabic*)]
-            \item Niech $n$ będzie liczbą pierwszą. Weźmy dowolne $\zeta \in E^{(n)}$. Załóżmy nie wprost, że istnieje $q < n, q \in \mathbb{N}$ takie, że $\zeta^q = 1$. Wtedy $q \, | \, n$, co jest sprzeczne z założeniem o pierwszości $n$. Skoro takie $q$ nie istnieje, to $\zeta$ generuje $E^{(n)}$, ponieważ dla każdego $i, j < n, i, j \in \mathbb{N} \, \zeta^i \neq \zeta^j$.
-            \item Niech $n = p_1^{e_1} \cdot \dots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \geq i \geq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $X^{\frac{r}{p_i}}-1$. $n$ jest złożona, więc $\frac{n}{p_1} < n$ i istnieje $\zeta_i$ nie będąca pierwiastkiem $X^{\frac{r}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{p_i^{e_i}}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^p = \alpha_i^{p_i^{k+1}} = 1$ i poprzez indukcję względem $k$ $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
-            Weźmy $\alpha = \alpha_1 \cdot \dots \cdot \alpha_r$. Pokażemy, że $o_n(\alpha) = n$. Wiemy, że $o_n(\alpha) \, | \, n$. Załóżmy nie wprost, że $o_n(\alpha) \neq n$. Wynika stąd, że istnieje takie $p_i$, że $o_n(\alpha) \, | \, \frac{n}{p_i}$. Wtedy $\alpha^{\frac{n}{p_i}} = 1 = \alpha_1^{\frac{n}{p_i}} \cdot \dots \cdot \alpha_r^{\frac{n}{p_r}}$. Dla każdego $j \neq i, 1 \leq j \leq r$ $p_j^{e_j} \, | \, \frac{n}{p_i}$, a ponieważ $o_n(\alpha_j) = p_i^{e_j}$, mamy $\alpha_j^{\frac{n}{p_i}} = 1$. Mamy więc $\alpha_i^{\frac{n}{p_i}} = 1$, czyli $o_n(\alpha_i) | \frac{n}{p_i}$. Mamy jednak $o_n(\alpha_i) = p_i^{e_i}$, które nie dzieli $\frac{n}{p_i}$, więc otrzymaliśmy sprzeczność. Pokazalśmy więc, że $o_n(\alpha) = n$. Na mocy argumentu jak w przypadku pierwszego $n$ znaleźliśmy $\alpha$ będące generatorem $E^{(n)}$.
-        \end{enumerate}
-    \end{enumerate}
+	Pokażemy kolejno, że (1) $|\,E^{(n)}\,| = n$, (2) $E^{(n)}$ jest grupą, a co więcej, (3) jest grupą cykliczną.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
+		\item Pokażemy, że $E^{(n)}$ jest grupą z operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
+		\item Pokażemy cykliczność $E^{(n)}$ poprzez znalezienie generatora grupy. 
+		      \begin{enumerate}[label=(3.\arabic*)]
+		      	\item Niech $n$ będzie liczbą pierwszą. Weźmy dowolne $\zeta \in E^{(n)}$. Załóżmy nie wprost, że istnieje $q < n, q \in \mathbb{N}$ takie, że $\zeta^q = 1$. Wtedy $q \, | \, n$, co jest sprzeczne z założeniem o pierwszości $n$. Skoro takie $q$ nie istnieje, to $\zeta$ generuje $E^{(n)}$, ponieważ dla każdego $i, j < n, i, j \in \mathbb{N} \, \zeta^i \neq \zeta^j$.
+		      	\item Niech $n = p_1^{e_1} \cdot \dots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \geq i \geq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $X^{\frac{r}{p_i}}-1$. $n$ jest złożona, więc $\frac{n}{p_1} < n$ i istnieje $\zeta_i$ nie będąca pierwiastkiem $X^{\frac{r}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{p_i^{e_i}}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^p = \alpha_i^{p_i^{k+1}} = 1$ i poprzez indukcję względem $k$ $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
+		      	      Weźmy $\alpha = \alpha_1 \cdot \dots \cdot \alpha_r$. Pokażemy, że $o_n(\alpha) = n$. Wiemy, że $o_n(\alpha) \, | \, n$. Załóżmy nie wprost, że $o_n(\alpha) \neq n$. Wynika stąd, że istnieje takie $p_i$, że $o_n(\alpha) \, | \, \frac{n}{p_i}$. Wtedy $\alpha^{\frac{n}{p_i}} = 1 = \alpha_1^{\frac{n}{p_i}} \cdot \dots \cdot \alpha_r^{\frac{n}{p_r}}$. Dla każdego $j \neq i, 1 \leq j \leq r$ $p_j^{e_j} \, | \, \frac{n}{p_i}$, a ponieważ $o_n(\alpha_j) = p_i^{e_j}$, mamy $\alpha_j^{\frac{n}{p_i}} = 1$. Mamy więc $\alpha_i^{\frac{n}{p_i}} = 1$, czyli $o_n(\alpha_i) | \frac{n}{p_i}$. Mamy jednak $o_n(\alpha_i) = p_i^{e_i}$, które nie dzieli $\frac{n}{p_i}$, więc otrzymaliśmy sprzeczność. Pokazalśmy więc, że $o_n(\alpha) = n$. Na mocy argumentu jak w przypadku pierwszego $n$ znaleźliśmy $\alpha$ będące generatorem $E^{(n)}$.
+		      \end{enumerate}
+	\end{enumerate}
 \end{proof}
     
 
@@ -522,12 +522,12 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{theorem}
 	
 \begin{proof}
-    Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Dowód przebiegał będzie w dwóch krokach: (1) pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{Z}_{q^k}$ oraz, że (2) jeśli $\zeta \in \mathbb{Z}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{Z}_q$, to istnieje $h(X) \in \mathbb{Z}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.\newline
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-        \item Zauważmy, że jeśli dowolne $a \in \mathbb{Z}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{Z}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{Z}_{q^k}$.
-        \item Niech $m(X) \in \mathbb{Z}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{Z}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{Z}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{Z}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{Z}_q$. \newline 
-        Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
-    \end{enumerate}
+	Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Dowód przebiegał będzie w dwóch krokach: (1) pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{Z}_{q^k}$ oraz, że (2) jeśli $\zeta \in \mathbb{Z}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{Z}_q$, to istnieje $h(X) \in \mathbb{Z}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.\newline
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item Zauważmy, że jeśli dowolne $a \in \mathbb{Z}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{Z}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{Z}_{q^k}$.
+		\item Niech $m(X) \in \mathbb{Z}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{Z}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{Z}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{Z}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{Z}_q$. \newline 
+		      Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
+	\end{enumerate}
 \end{proof}
 	
 \chapter{Algorytm}
@@ -537,7 +537,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \begin{algorithm}
 	\caption{Algorytm ASK}
 	\begin{algorithmic}[1]
-									    
+											    
 		\Require{liczba całkowita $n > 1$}
 		\Ensure{\textbf{PIERWSZA} - jeśli $n$ jest pierwsza; \textbf{ZŁOŻONA} - jeśli $n$ jest złożona}
 		\If{istnieje takie $a \in \mathbb{N}, b > 1$, że $a^b = n$} \Comment{Krok 1.}
@@ -568,23 +568,23 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{lemma}
 	
 \begin{proof}
-    Rozpatrując współczynniki przy $X^i$ w wielomianie 
-    \begin{align*}
-        p(X) = (X + a)^n - (X^n + a)  
-    \end{align*}
-    pokażemy, że $p(X) = 0 \: (mod \, n)$ wtw, gdy $n$ jest pierwsza. 
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-	\item Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $X^i$ ($1 \leq i < n$) w wielomianie $p(X)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-1}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz $n \, | \, {n \choose i}$. Stąd $n \, | \, p(X)$.
-    \item Załóżmy, że $n$ jest złożona. Niech $q$ będzie pewnym dzielnikiem pierwszym $n$ oraz $q^k \parallel n$. Współczynnik przy $X^q$ jest równy ${n \choose q}a^{n-q}$. Możemy zauważyć, że $q^k$ nie dzieli ${n \choose q}$, ponieważ ${n \choose q} = \frac{n!}{q!(n-q)!} = \frac{n \cdot (n-1) \cdot \, \dots \, \cdot (n - q + 1)}{q!}$. Wiemy, że skoro $q$ jest pierwsze i $q \,| \, n$, to 
-    \begin{align*}
-        q & \nmid (n-1) \cdot \, \dots \, \cdot (n - q + 1),
-    \end{align*}
-    skąd możemy wywnioskować, że
-    \begin{align*}
-        q^k & \parallel n \cdot (n-1) \cdot \, \dots \, \cdot (n - q + 1).
-    \end{align*}
-    Mamy więc $q^k \nmid {n \choose q}$. Ponieważ $a$ jest względnie pierwsze z $n$, to $q \nmid a^{n-q}$, więc $q^k \nmid {n \choose q}a^{n-q}$. Stąd mamy $p(X) \neq 0 \: (mod \, n)$.
-    \end{enumerate}
+	Rozpatrując współczynniki przy $X^i$ w wielomianie 
+	\begin{align*}
+		p(X) = (X + a)^n - (X^n + a) 
+	\end{align*}
+	pokażemy, że $p(X) = 0 \: (mod \, n)$ wtw, gdy $n$ jest pierwsza. 
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $X^i$ ($1 \leq i < n$) w wielomianie $p(X)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-1}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz $n \, | \, {n \choose i}$. Stąd $n \, | \, p(X)$.
+		\item Załóżmy, że $n$ jest złożona. Niech $q$ będzie pewnym dzielnikiem pierwszym $n$ oraz $q^k \parallel n$. Współczynnik przy $X^q$ jest równy ${n \choose q}a^{n-q}$. Możemy zauważyć, że $q^k$ nie dzieli ${n \choose q}$, ponieważ ${n \choose q} = \frac{n!}{q!(n-q)!} = \frac{n \cdot (n-1) \cdot \, \dots \, \cdot (n - q + 1)}{q!}$. Wiemy, że skoro $q$ jest pierwsze i $q \,| \, n$, to 
+		      \begin{align*}
+		      	q & \nmid (n-1) \cdot \, \dots \, \cdot (n - q + 1), 
+		      \end{align*}
+		      skąd możemy wywnioskować, że
+		      \begin{align*}
+		      	q^k & \parallel n \cdot (n-1) \cdot \, \dots \, \cdot (n - q + 1). 
+		      \end{align*}
+		      Mamy więc $q^k \nmid {n \choose q}$. Ponieważ $a$ jest względnie pierwsze z $n$, to $q \nmid a^{n-q}$, więc $q^k \nmid {n \choose q}a^{n-q}$. Stąd mamy $p(X) \neq 0 \: (mod \, n)$.
+	\end{enumerate}
 \end{proof}
 
 \begin{lemma} \label{L2}
@@ -592,14 +592,14 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{lemma}
 	
 \begin{proof}
-    Dowód wynika bezpośrednio z lematu \ref{L1}. Wiemy, że 
-    \begin{align*}
-        (X + a)^n - (X^n + a) = 0 \: (mod \, n),
-    \end{align*}
-    więc także 
-    \begin{align*}
-        (X + a)^n - (X^n + a) = 0 \: (mod \: X^r - 1,\, n).
-    \end{align*}
+	Dowód wynika bezpośrednio z lematu \ref{L1}. Wiemy, że 
+	\begin{align*}
+		(X + a)^n - (X^n + a) = 0 \: (mod \, n), 
+	\end{align*}
+	więc także 
+	\begin{align*}
+		(X + a)^n - (X^n + a) = 0 \: (mod \: X^r - 1,\, n). 
+	\end{align*}
 \end{proof}
 
 \begin{theorem}
@@ -607,11 +607,11 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{theorem}
 	
 \begin{proof}
-    Ponieważ $n$ jest liczbą pierwszą, algorytm nie zwróci \textit{ZŁOŻONA} w kroku 1. i 3. Z lematu \ref{L2} wiemy, że dla każdego $1 \leq a < n$ zachodzi 
-    \begin{align*}
-        (X + a)^n = X^n + a \: (mod \: X^r - 1, \: n),
-    \end{align*}
-    więc algorytm się nie zakończy w kroku 5. Ostatecznie algorytm zwróci \textit{PIERWSZA} w kroku 4 lub 7.
+	Ponieważ $n$ jest liczbą pierwszą, algorytm nie zwróci \textit{ZŁOŻONA} w kroku 1. i 3. Z lematu \ref{L2} wiemy, że dla każdego $1 \leq a < n$ zachodzi 
+	\begin{align*}
+		(X + a)^n = X^n + a \: (mod \: X^r - 1, \: n), 
+	\end{align*}
+	więc algorytm się nie zakończy w kroku 5. Ostatecznie algorytm zwróci \textit{PIERWSZA} w kroku 4 lub 7.
 \end{proof}
 
 % Dla udowodnienia implikacji w drugą stronę 
@@ -630,21 +630,21 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \begin{proof}
 	Z introspektywności $m$ mamy $(f(X))^{mm'} = (f(X^m))^{m'} \, (mod \, X^r - 1, \, p).$ Z introspektywności $m'$ wiemy, że istnieje $g(X) \in \mathbb{Z}_p[X]$ takie, że 
 	\begin{align*}
-		f(X^{m'}) - {f(X)}^{m'}    & = g(X) \cdot (X^r - 1)     \; (mod \, p)\\
+		f(X^{m'}) - {f(X)}^{m'}    & = g(X) \cdot (X^r - 1)     \; (mod \, p)   \\
 		f(X^{mm'}) - {f(X^m)}^{m'} & = g(X^m) \cdot (X^{mr} - 1) \; (mod \, p). 
-    \end{align*}
-    Mamy więc 
-    \begin{align*}
-        (f(X^m))^{m'} = f(X^{mm'}) \; (mod \, (X^m)^r - 1, \, p),
-    \end{align*}
-    a ponieważ $X^r - 1$ dzieli $X^{mr} - 1$ także 
-    \begin{align*}
-        (f(X^m))^{m'} = f(X^{mm'}) \; (mod \, X^r - 1, \, p).
-    \end{align*}
-    Otrzymujemy więc 
-    \begin{align*}
-        (f(X))^{mm'} = f(X^{mm'}) \; (mod \, X^r - 1, \, p).
-    \end{align*}
+	\end{align*}
+	Mamy więc 
+	\begin{align*}
+		(f(X^m))^{m'} = f(X^{mm'}) \; (mod \, (X^m)^r - 1, \, p), 
+	\end{align*}
+	a ponieważ $X^r - 1$ dzieli $X^{mr} - 1$ także 
+	\begin{align*}
+		(f(X^m))^{m'} = f(X^{mm'}) \; (mod \, X^r - 1, \, p). 
+	\end{align*}
+	Otrzymujemy więc 
+	\begin{align*}
+		(f(X))^{mm'} = f(X^{mm'}) \; (mod \, X^r - 1, \, p). 
+	\end{align*}
 \end{proof}
 	
 \begin{lemma}\label{intro2}
@@ -652,10 +652,10 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \end{lemma}
 	
 \begin{proof}
-    Mamy $(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p)$ oraz $(g(X))^m = g(X^m) \, (mod \, X^r - 1, \, p)$. Mnożąc stronami otrzymujemy 
-    \begin{align*}
-        (f(X) \cdot g(X))^m = f(X^m) \cdot g(X^m) \; (mod \, X^r - 1, \, p).
-    \end{align*}
+	Mamy $(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p)$ oraz $(g(X))^m = g(X^m) \, (mod \, X^r - 1, \, p)$. Mnożąc stronami otrzymujemy 
+	\begin{align*}
+		(f(X) \cdot g(X))^m = f(X^m) \cdot g(X^m) \; (mod \, X^r - 1, \, p). 
+	\end{align*}
 \end{proof}
 
 \begin{lemma}\label{p_intro}
@@ -667,14 +667,14 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \end{proof}
 
 \begin{remark*}\label{def}
-    Na potrzeby kolejnych lematów ustalmy $n, \, r, \, p \in \mathbb{N}, \, n \geq 2 
-    %, \, r < \lceil log^5 \, n \rceil
-    $ oraz \[\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor\] takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować 
-    \begin{align*}
-        I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\}, \\
-        P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}
-    \end{align*}
-     oraz $G$, niech $t = | \, G \, |$, będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy $h(X) \in \mathbb{Z}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{Z}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
+	Na potrzeby kolejnych lematów ustalmy $n, \, r, \, p \in \mathbb{N}, \, n \geq 2 
+	%, \, r < \lceil log^5 \, n \rceil
+	$ oraz \[\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor\] takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować 
+	\begin{align*}
+		I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\},            \\
+		P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\} 
+	\end{align*}
+	oraz $G$, niech $t = | \, G \, |$, będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy $h(X) \in \mathbb{Z}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{Z}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
 \end{remark*}
 
 Zauważmy, że ustalone powyżej liczby $n, \, r$ spełniają założenia, jakie spełniają odpowiednio zmienne $n$ i $r$ w 7. kroku algorytmu. Jeśli dodatkowo założymy, że $n$ jest złożona, to istnieje $p$ spełniające wszystkie założenia.
@@ -686,21 +686,21 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 \end{lemma}
 	
 \begin{proof}
-    Pokażemy, że (1) dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie (2) wywnioskujemy tezę.
-    \begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-	\item Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
-	\begin{align*}
-		(f_1(X))^p = X^n + a    & = (f_2(X))^p \; (mod \, X^r - 1, \, p) \\
-		(f_1(X))^p - (f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p).         
-	\end{align*}
-	Z lematu \ref{p_intro} mamy
-	\begin{align*}
-		(f_1(X) - f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p)       \\
-		f_1(X)              & = f_2(X) \; (mod \, X^r - 1, \, p). 
-	\end{align*}
-	Więc $\frac{n}{p}$ także jest introspektywne modulo $X^r - 1, \, p$ dla $X + a, 0 \leq a \leq \ell$.
-    \item Ponieważ elementy zbioru $I$ są iloczynami liczb $\frac{n}{p}$ i $p$, a elementy zbioru $P$ są iloczynami wielomianów $X + a, \, 0 \leq a \leq \ell$, z lematów \ref{intro1} i \ref{intro2} możemy wywnioskować tezę.
-    \end{enumerate}
+	Pokażemy, że (1) dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie (2) wywnioskujemy tezę.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
+		      \begin{align*}
+		      	(f_1(X))^p = X^n + a    & = (f_2(X))^p \; (mod \, X^r - 1, \, p) \\
+		      	(f_1(X))^p - (f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p).         
+		      \end{align*}
+		      Z lematu \ref{p_intro} mamy
+		      \begin{align*}
+		      	(f_1(X) - f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p)       \\
+		      	f_1(X)              & = f_2(X) \; (mod \, X^r - 1, \, p). 
+		      \end{align*}
+		      Więc $\frac{n}{p}$ także jest introspektywne modulo $X^r - 1, \, p$ dla $X + a, 0 \leq a \leq \ell$.
+		\item Ponieważ elementy zbioru $I$ są iloczynami liczb $\frac{n}{p}$ i $p$, a elementy zbioru $P$ są iloczynami wielomianów $X + a, \, 0 \leq a \leq \ell$, z lematów \ref{intro1} i \ref{intro2} możemy wywnioskować tezę.
+	\end{enumerate}
 \end{proof} 
 
 Żeby ograniczyć z dołu rozmiar zbioru $\mathcal{G}$ wprowadzimy i udowodnimy dwa pomocnicze lematy. Udowodnimy, że $X$ jest pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$, dzięki czemu będziemy ostatecznie w stanie stwierdzić, że w $\mathcal{G}$ jest co najmniej tyle elementów, ile różnych wielomianów stopnia mniejszego niż $t$ w $P$. Drugi lemat pozwoli nam natomiast oszacować dokładniej ich liczbę.
@@ -711,13 +711,13 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 \end{lemma}
 	
 \begin{proof}
-    % Z twierdzenia \ref{kluczowe} wiemy, że pierwiastki $h(Y)$ w $F$ są pierwotnymi pierwiastkami $r$-tego stopnia z jedności w $\mathbb{Z}_p$, więc też w $F$. Zauważmy, że $h(X) = 0$ w $F$, więc $X$ jest pierwiastkiem $h(Y)$ nad $F$
-    Z lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | \, Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. 
-    Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) \, | \, X^k - 1$ w $\mathbb{Z}_p[X]$. 
-    Rozważmy pierwiastki $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{Z}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. 
-    % UWAGA TO MOŻE BYĆ NIEPRAWDA
-    Mamy więc $h(\zeta) = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$, a ponieważ istnieje pewne $p(X) \in \mathbb{Z}_p[X]$ takie, że $(X^k - 1) = p(X) \cdot h(X) \; (mod \, p)$, to także $\zeta^k - 1 = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$. Wynika stąd, że $\zeta$ jest też pierwiastkiem z jedności $k$-tego stopnia w $\mathbb{Z}_p$, a ponieważ $k < r$, mamy sprzeczność z założeniem o pierwszości $\zeta$.
-    % Ponieważ $h(X) \, | \, X^k - 1$ także w rozszerzeniu ciała $\mathbb{Z}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{Z}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
+	% Z twierdzenia \ref{kluczowe} wiemy, że pierwiastki $h(Y)$ w $F$ są pierwotnymi pierwiastkami $r$-tego stopnia z jedności w $\mathbb{Z}_p$, więc też w $F$. Zauważmy, że $h(X) = 0$ w $F$, więc $X$ jest pierwiastkiem $h(Y)$ nad $F$
+	Z lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | \, Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. 
+	Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) \, | \, X^k - 1$ w $\mathbb{Z}_p[X]$. 
+	Rozważmy pierwiastki $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{Z}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. 
+	% UWAGA TO MOŻE BYĆ NIEPRAWDA
+	Mamy więc $h(\zeta) = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$, a ponieważ istnieje pewne $p(X) \in \mathbb{Z}_p[X]$ takie, że $(X^k - 1) = p(X) \cdot h(X) \; (mod \, p)$, to także $\zeta^k - 1 = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$. Wynika stąd, że $\zeta$ jest też pierwiastkiem z jedności $k$-tego stopnia w $\mathbb{Z}_p$, a ponieważ $k < r$, mamy sprzeczność z założeniem o pierwszości $\zeta$.
+	% Ponieważ $h(X) \, | \, X^k - 1$ także w rozszerzeniu ciała $\mathbb{Z}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{Z}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
 	%Pokażemy, że (1) w $F$ jest nie więcej niż $o_r(p)$ pierwiastków $r$-tego stopnia z jedności oraz, że (2) $X$ generuje dokładnie $o_r(p)$ różnych pierwiastków $r$-tego stopnia z jedności. \newline
 	%(1) Niech $\zeta \in F$ będzie pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$. Wiemy, że $\zeta$ generuje grupę wszystkich pierw
 	% TODO uwaga
@@ -744,7 +744,7 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 \end{lemma}
 	
 \begin{proof}
-    Przedstawimy, w jaki sposób mozna skonstruować bijekcję między sposobem wyboru $k + 1$ z $k + d$ elementów ciągu a różnymi wielomianami $f(X)$. Spójrzmy na ciąg $k + d$ elementów z $k + 1$ elementami wyróżnionymi. Jeśli spojrzymy na liczbę elementów między elementami wyróżnionymi otrzymamy ciąg $a_1, \, \dots, a_{k + 2}$ taki, że $\sum_{i = 1}^{k + 2}a_i = d - 1$.  Powiemy, że takiemu ciągowi odpowiada wielomian $f(X) \in G$, jeśli $f(X) = \prod_{i = 1}^{k + 1} (f_i(X))^{a_i}$. Łatwo zauważyć, że jednemu takiemu wyróżnieniu elementów ciągu odpowiada dokładnie jeden wielomian oraz dla różnych wyróżnień elementów, odpowiadające wielomiany są różne. Stąd otrzymujemy tezę, że różnych wielomianów stopnia mniejszego niż $d$ w $F$ jest co najmniej ${k + d \choose k + 1}$.
+	Przedstawimy, w jaki sposób mozna skonstruować bijekcję między sposobem wyboru $k + 1$ z $k + d$ elementów ciągu a różnymi wielomianami $f(X)$. Spójrzmy na ciąg $k + d$ elementów z $k + 1$ elementami wyróżnionymi. Jeśli spojrzymy na liczbę elementów między elementami wyróżnionymi otrzymamy ciąg $a_1, \, \dots, a_{k + 2}$ taki, że $\sum_{i = 1}^{k + 2}a_i = d - 1$.  Powiemy, że takiemu ciągowi odpowiada wielomian $f(X) \in G$, jeśli $f(X) = \prod_{i = 1}^{k + 1} (f_i(X))^{a_i}$. Łatwo zauważyć, że jednemu takiemu wyróżnieniu elementów ciągu odpowiada dokładnie jeden wielomian oraz dla różnych wyróżnień elementów, odpowiadające wielomiany są różne. Stąd otrzymujemy tezę, że różnych wielomianów stopnia mniejszego niż $d$ w $F$ jest co najmniej ${k + d \choose k + 1}$.
 \end{proof}
 
 Mając już pomocnicze lematy, możemy przejść do znalezienia ograniczenia dolnego rozmiaru zbioru $\mathcal{G}$.
@@ -756,16 +756,16 @@ Mając już pomocnicze lematy, możemy przejść do znalezienia ograniczenia dol
 \begin{proof}
 	Pokażemy, że (1) dowolne dwa różne wielomiany stopnia mniejszego niż $t$ w $P$ są różne także w $\mathcal{G}$ oraz, że (2) w $P$ jest co najmniej  ${t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. 
 	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-	\item Niech $f(X) \neq g(X) \in P, \, deg(f), deg(g) < t$. Załóżmy nie wprost, że $f(X) = g(X)$ w $F$. 
-    Niech $Q(Y) = f(Y) - g(Y)$, gdzie $Y$ jest elementem $F$, czyli także wielomianem. Zauważmy, że oczywistym pierwiastkiem $Q(Y)$ jest $X$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne modulo $X^r - 1, \, p$ dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc w $F$
-    \begin{align*}
-        (f(X))^i = (g(X))^i \; \text{i} \; f(X^i) = g(X^i).
-    \end{align*}
-    Oznacza to, że dla każdego $i \in I$ $X^i$ jest pierwiastkiem $Q(Y)$ w $F$, czyli też dla każdego $i' \in G$ $X^{i'}$ jest pierwiastkiem $Q(Y)$ w $F$. Załóżmy nie wprost, że istnieją $i < i' \in G$ takie, że $X^i = X^{i'}$ w $F$. Mamy więc $h(X) \, | \, X^i$ w $\mathbb{Z}_p[X]$ lub $X^{i - i'} = 1$. Pierwszy argument tej dysjunkcji jest w oczywisty sposób nieprawdziwy, ponieważ $h(X)$ nie ma pierwiastka w zerze, a drugi jest sprzeczny z lematem \ref{X_pierw}.
-	Znaleźliśmy więc $|\,G\,| = t$ pierwiastków $Q(Y)$ w $F$ więc $Q(Y)$ jest wielomianem zerowym w $F$ lub $deg(Q) \geq t$, zatem doszliśmy do sprzeczności z założeniem.
-	\item Z założeń o $\ell$ i $o_r(n)$ mamy $\ell = \lfloor \sqrt{\phi(r)} \, log\, n \rfloor < \sqrt{r} \, log \, n $ oraz $o_r(n) > log^2 \, n$. Ponieważ $r > o_r(n)$, otrzymujemy \[\ell < \sqrt{r} \, log \, n < \sqrt{r \cdot o_r(n)} < r < p.\] W połączeniu z $deg(h) > 1$ mamy wniosek że dla dowolnych $0 \leq i < j \leq \ell$ $X + i \neq X + j$ w $F$ oraz $X + i$ i $X + j$ są niezerowe. 
-    \newline Z lematu \ref{liczba_wielo} otrzymujemy wniosek, że w $P$, a co za tym idzie także w $\mathcal{G}$, jest co najmniej ${t + \ell \choose \ell + 1} = {t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. Stąd $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$.
-    \end{enumerate}
+		\item Niech $f(X) \neq g(X) \in P, \, deg(f), deg(g) < t$. Załóżmy nie wprost, że $f(X) = g(X)$ w $F$. 
+		      Niech $Q(Y) = f(Y) - g(Y)$, gdzie $Y$ jest elementem $F$, czyli także wielomianem. Zauważmy, że oczywistym pierwiastkiem $Q(Y)$ jest $X$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne modulo $X^r - 1, \, p$ dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc w $F$
+		      \begin{align*}
+		      	(f(X))^i = (g(X))^i \; \text{i} \; f(X^i) = g(X^i). 
+		      \end{align*}
+		      Oznacza to, że dla każdego $i \in I$ $X^i$ jest pierwiastkiem $Q(Y)$ w $F$, czyli też dla każdego $i' \in G$ $X^{i'}$ jest pierwiastkiem $Q(Y)$ w $F$. Załóżmy nie wprost, że istnieją $i < i' \in G$ takie, że $X^i = X^{i'}$ w $F$. Mamy więc $h(X) \, | \, X^i$ w $\mathbb{Z}_p[X]$ lub $X^{i - i'} = 1$. Pierwszy argument tej dysjunkcji jest w oczywisty sposób nieprawdziwy, ponieważ $h(X)$ nie ma pierwiastka w zerze, a drugi jest sprzeczny z lematem \ref{X_pierw}.
+		      Znaleźliśmy więc $|\,G\,| = t$ pierwiastków $Q(Y)$ w $F$ więc $Q(Y)$ jest wielomianem zerowym w $F$ lub $deg(Q) \geq t$, zatem doszliśmy do sprzeczności z założeniem.
+		\item Z założeń o $\ell$ i $o_r(n)$ mamy $\ell = \lfloor \sqrt{\phi(r)} \, log\, n \rfloor < \sqrt{r} \, log \, n $ oraz $o_r(n) > log^2 \, n$. Ponieważ $r > o_r(n)$, otrzymujemy \[\ell < \sqrt{r} \, log \, n < \sqrt{r \cdot o_r(n)} < r < p.\] W połączeniu z $deg(h) > 1$ mamy wniosek że dla dowolnych $0 \leq i < j \leq \ell$ $X + i \neq X + j$ w $F$ oraz $X + i$ i $X + j$ są niezerowe. 
+		      \newline Z lematu \ref{liczba_wielo} otrzymujemy wniosek, że w $P$, a co za tym idzie także w $\mathcal{G}$, jest co najmniej ${t + \ell \choose \ell + 1} = {t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. Stąd $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$.
+	\end{enumerate}
 \end{proof}
     
 Następnym krokiem będzie znalezienie ograniczenia górnego dla rozmiaru zbioru $\mathcal{G}$. Wykorzystamy do tego wiedzę o introspektywności elementów zbioru $I$ dla elementów zbioru $\mathcal{G}$.
@@ -793,7 +793,7 @@ Mając już ograniczenia z dwóch stron zbioru $\mathcal{G}$ możemy je ze sobą
 \end{lemma}
 	
 \begin{proof}
-	Weźmy zbiór $A$ różnych $a_i$ takich, że $a_i < r$ oraz $NWD(a_i, r) = 1$ dla ${1 \leq i \leq k}$. Z definicji funkcji Eulera mamy $| \, A \, | = \phi(r)$. Niech zbiór $B = \{b \, | \, b = p \cdot a_i \, (mod \, r), \, b < r, \, a_i \in A\}$. Zauważmy, że dla wszystkich $b \in B$ zachodzi $NWD(b, r) = 1$, więc $B \subseteq A.$ Pokażemy, że $A = B$. Załóżmy nie wprost $p \cdot a_i = p \cdot a_j \, (mod \, r), 1 \leq i < j \leq \phi(r)$. Z lematu \ref{odwrotny} wiemy, że istnieje $p^{-1} \in \mathbb{Z}_p$. Więc mnożąc stronami przez $p^{-1}$ otrzymujemy sprzeczność. \newline
+	Weźmy zbiór $A$ różnych $a_i$ takich, że $a_i < r$ oraz $NWD(a_i, r) = 1$ dla ${1 \leq i \leq k}$. Z definicji funkcji Eulera mamy $| \, A \, | = \phi(r)$. Niech \[B = \{b \, | \, b = p \cdot a_i \, (mod \, r), \, b < r, \, a_i \in A\}.\] Zauważmy, że dla wszystkich $b \in B$ zachodzi $NWD(b, r) = 1$, więc $B \subseteq A.$ Pokażemy, że $A = B$. Załóżmy nie wprost $p \cdot a_i = p \cdot a_j \, (mod \, r), 1 \leq i < j \leq \phi(r)$. Z lematu \ref{odwrotny} wiemy, że istnieje $p^{-1} \in \mathbb{Z}_p$. Więc mnożąc stronami przez $p^{-1}$ otrzymujemy sprzeczność. \newline
 	Mamy $A = B$, możemy więc wywnioskować równanie 
 	\begin{align*}
 		p^{\phi(r)} \cdot a_1 \cdot \dots \cdot a_{\phi(r)} &= a_1 \cdot \dots \cdot a_{\phi(r)} \, (mod \, r) \\
@@ -807,10 +807,18 @@ Mając już ograniczenia z dwóch stron zbioru $\mathcal{G}$ możemy je ze sobą
 \end{lemma}
 	
 \begin{proof}
-	(1) Pokażemy, że $\langle G, \cdot \rangle$ jest podgrupą $\mathbb{Z}_r^*$. Oczywistym jest, że $G \subseteq \mathbb{Z}_r$. Wiemy, że $NWD(n, \, r) = 1$ oraz $p \, | \, n$, więc $NWD(p, \, r) = 1$. Wynika stąd, że nie istnieje w $I$ element podzielny przez $r$, więc $0 \notin G$. Mamy więc $G \subseteq \mathbb{Z}_r^*$. Mamy też $(\frac{n}{p})^0\cdot p^0 = 1 \in G$, czyli istnienie elementu neutralnego w $G$. Mnożenie spełnia własności działania w grupie, więc wystarczy jeszcze tylko pokazać, że $G$ jest (1.1) zamknięta na $\cdot$ i (1.2) dla każdego elementu istnieje element odwrotny.\newline
-	(1.1) Weźmy dowolne $g_1 = (\frac{n}{p})^{i_1} \, \cdot \, p^{j_1} \, (mod\,r), \, g_2 = (\frac{n}{p})^{i_2} \, \cdot \, p^{j_2}  \, (mod\,r) \in G, \, i_1, \,i_2, \,j_1, \, j_2 \geq 0$. Wtedy $g_1g_2 = (\frac{n}{p})^{i_1 + i_2} \, \cdot \, p^{j_1 + j_2} \, (mod\,r)$. $(\frac{n}{p})^{i_1 + i_2} \, \cdot \, p^{j_1 + j_2} \in I$, więc $g_1g_2\in G$. \newline
-	(1.2) Weźmy dowolne $g \in G$. Wiemy, że istnieją $1 \leq i < j \leq | \, G \, | + 1$ takie, że $g^i = g^j$. Ponieważ $g \neq 0$ mamy $g^{j - i} = 1$, więc mamy $g^{j - i - 1} \in G$, będące odwrotnością $g$. \newline
-	(2) Pokażemy, że $|\,G\,| > log^2n$. Załóżmy nie wprost, że $|\,G\,| \leq log^2n$. Spójrzmy na ciąg $1,\, n, \, \dots\,, n^{|G|}$ modulo $r$. Jest to ciąg $|G| + 1$ liczb, należących do $G$. Wynika stąd, że istnieją $k, l \in \mathbb{N}, 0 \leq k < l \leq |\,G\,|$ takie, że $n^k = n^l \, (mod\,r)$. Mamy więc $n^{l-k} = 1 \, (mod\,r)$. $l - k \leq |\,G\,| \leq log^2n$, co jest sprzeczne z założeniem, że $o_r(n) > log^2n$. 
+	Dowód przebiegać będzie w dwóch krokach.
+	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+		\item Udowodnimy, że $\langle G, \cdot \rangle$ spełnia definicję grupy i zawiera się w $\mathbb{Z}_r^*$.
+		      \begin{enumerate}[label=(1.\arabic*)]
+		      	\item Oczywistym jest, że $G \subseteq \mathbb{Z}_r$. Wiemy, że $NWD(n, \, r) = 1$ oraz $p \, | \, n$, więc $NWD(p, \, r) = 1$. Wynika stąd, że nie istnieje w $I$ element podzielny przez $r$, więc $0 \notin G$. Mamy więc $G \subseteq \mathbb{Z}_r^*$. 
+		      	\item $(\frac{n}{p})^0\cdot p^0 = 1 \in G$, czyli istnieje element neutralny w $G$. 
+		      	\item Mnożenie spełnia własności działania w grupie, co wynika z własności mnożenia.
+		      	\item Żeby pokazać zamkniętość na mnożenie, weźmy dowolne \[g_1 = (\frac{n}{p})^{i_1} \, \cdot \, p^{j_1} \, (mod\,r), \, g_2 = (\frac{n}{p})^{i_2} \, \cdot \, p^{j_2}  \, (mod\,r) \in G,\] gdzie $\, i_1, \,i_2, \,j_1, \, j_2 \geq 0$. Wtedy \[g_1g_2 = (\frac{n}{p})^{i_1 + i_2} \, \cdot \, p^{j_1 + j_2} \, (mod\,r)\]. Więc $g_1g_2\in G$.
+		      	\item Weźmy dowolne $g \in G$. Wiemy, że istnieją $1 \leq i < j \leq | \, G \, | + 1$ takie, że $g^i = g^j$. Ponieważ $g \neq 0$ mamy $g^{j - i} = 1$, więc mamy $g^{j - i - 1} \in G$, będące odwrotnością $g$.
+		      \end{enumerate}
+		\item Pokażemy, że $|\,G\,| > log^2n$. Załóżmy nie wprost, że $|\,G\,| \leq log^2n$. Spójrzmy na ciąg $1,\, n, \, \dots\,, n^{|G|}$ modulo $r$. Jest to ciąg $|G| + 1$ liczb, należących do $G$. Wynika stąd, że istnieją $k, l \in \mathbb{N}, 0 \leq k < l \leq |\,G\,|$ takie, że $n^k = n^l \, (mod\,r)$. Mamy więc $n^{l-k} = 1 \, (mod\,r)$. $l - k \leq |\,G\,| \leq log^2n$, co jest sprzeczne z założeniem, że $o_r(n) > log^2n$. 
+	\end{enumerate}
 \end{proof}
 
 Dodatkowo w rozwijaniu nierówności w ostatecznym ciągu przekształceń skorzystamy z następującego lematu.
@@ -874,7 +882,7 @@ Dodatkowo w rozwijaniu nierówności w ostatecznym ciągu przekształceń skorzy
 	Zauważmy, że jeśli $q^i \, | \, m$, to $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) = 0$, a w przeciwnym wypadku $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq 1$. Stąd mamy \[\sum_{i=1}^{i \leq \lfloor log_qn \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq \lfloor log_qn \rfloor - l,\] a ponieważ $q^l \parallel m$, otrzymujemy wniosek, że jeśli $q^i \, | \, m \cdot {n \choose m}$, to $i \leq \lfloor log_qn \rfloor$. Ponieważ nierówność ta zachodzi dla każdego pierwszego dzielnika, możemy wywnioskować, że $m \cdot {n \choose m} \, | \, \ell_n$.\newline
 	(2) W szczególności mamy $n \cdot {2n \choose n} \, | \, \ell_{2n}$ oraz $(n+1){2n + 1 \choose n + 1} = (2n + 1){2n \choose n}\, |\, \ell_{2n+1}$. Wiemy, że $NWD(n,\, 2n + 1) = 1$ oraz $\ell_{2n} \, | \, \ell_{2n + 1}$, więc $n(2n + 1){2n \choose n}\, |\, \ell_{2n + 1}$. Możemy stąd przejść do nierówności \[\ell_{2n + 1} \geq n(2n + 1){2n \choose n} \geq n \sum_{i=0}^{i \leq 2n}{2n \choose n} \geq n {\sum_{i=0}^{i \leq 2n}{2n \choose i}} = n(1 + 1)^{2n} = n \, 4^n.\]
 	Mamy więc dla $n \geq 4$ nierówność $\ell_{2n+2} \geq \ell_{2n+1} \geq 2^{2n + 2}$, skąd bezpośrednio możemy wywnioskować $\ell_n \geq 2^n$ dla $n \geq 9$.
-					
+						
 \end{proof}
 	
 % SPRAWDZONE
@@ -912,8 +920,8 @@ Dodatkowo w rozwijaniu nierówności w ostatecznym ciągu przekształceń skorzy
 	\textbf{(krok 5.)} W kroku 5. wykonany zostanie krok 6. $\lfloor \sqrt{\phi(n)} \, log \, n \rfloor$. Mamy więc złożoność obliczeniową kroku 5. $O(\sqrt{\phi(r)} \, log \, n \cdot log^7n) \subseteq O(\sqrt{r} \, log \, n \cdot log^7n) \subseteq O(log^{\frac{5}{2}}n \cdot log^8n) \subseteq O(log^{\frac{21}{2}}n)$.\newline
 	\newline
 	Suma złożoności wszystkich kroków jest zdominowana przez złożoność kroku 5., więc złożoność całego algorytmu można ograniczyć przez $O(log^{\frac{21}{2}}n)$.
-					
-					
+						
+						
 \end{proof}
 	
 \chapter{Implementacja}
