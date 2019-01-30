@@ -72,6 +72,27 @@
 %   {\thechapter.}% <replace>
 %   {}{}% <success><failure>
 % \renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
+% \makeatother
+
+\makeatletter
+\newenvironment{breakablealgorithm}
+  {% \begin{breakablealgorithm}
+   \begin{center}
+     \refstepcounter{algorithm}% New algorithm
+     \hrule height.8pt depth0pt \kern2pt% \@fs@pre for \@fs@ruled
+     \renewcommand{\caption}[2][\relax]{% Make a new \caption
+       {\raggedright\textbf{\ALG@name~\thealgorithm} ##2\par}%
+       \ifx\relax##1\relax % #1 is \relax
+         \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
+       \else % #1 is not \relax
+         \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
+       \fi
+       \kern2pt\hrule\kern2pt
+     }
+  }{% \end{breakablealgorithm}
+     \kern2pt\hrule\relax% \@fs@post for \@fs@ruled
+   \end{center}
+  }
 \makeatother
 
 \begin{document}
@@ -86,13 +107,24 @@ Przy takiej definicji problemu PRIMES otwartym do niedawna zagadnieniem było st
 
 O dowodzie
 
-Po opublikowaniu dowodu przynależności PRIMES do NP, głównym wyzwaniem związanym z problemem było pokazanie jego zawierania lub niezawierania się w klasie P. Przesłankami, sugerującymi przynależność PRIMES do klasy P były własności liczb pierwszych, wykorzystywanych w probablistycznych testach pierwszości. Najprostszym takim testem jest test pierwszości Fermata, opierającym się na małym twierdzeniu Fermata, czyli twierdzeniu, że dla liczby pierwszej $p$ i liczby naturalnej $a$ takiej, że $NWD(a, p) = 1$ zachodzi $a^{p-1} = 1 \; (mod \, p)$. Test Fermata polega więc na losowym wyborze $a$, spełniającym założenia twierdzenia i sprawdzeniu, czy równość z twierdzenia zachodzi. Problemem tego podejścia jest fakt, że implikacja w drugą stronę nie zawsze jest prawdziwa, tzn. istnieją liczby złożone $p$, nazywane liczbami pseudopierwszymi Fermata, dla których istnieje $a$ takie, że równość małego twierdzenia Fermata jest spełniona. 
+Po opublikowaniu dowodu przynależności PRIMES do NP, głównym wyzwaniem związanym z problemem było pokazanie jego zawierania lub niezawierania się w klasie P. Przesłankami, sugerującymi przynależność PRIMES do klasy P były własności liczb pierwszych, wykorzystywanych w probablistycznych testach pierwszości. Najprostszym takim testem jest test pierwszości Fermata, opierającym się na małym twierdzeniu Fermata, czyli twierdzeniu, że dla liczby pierwszej $p$ i liczby naturalnej $a$ takiej, że $NWD(a, p) = 1$ zachodzi $a^{p-1} = 1 \; (mod \, p)$. Test Fermata polega więc na losowym wyborze $a$, spełniającym założenia twierdzenia i sprawdzeniu, czy równość z twierdzenia zachodzi. Problemem tego podejścia jest fakt, że implikacja w drugą stronę nie zawsze jest prawdziwa, tzn. istnieją liczby złożone $p$, nazywane liczbami pseudopierwszymi Fermata, dla których istnieje $a$ takie, że równość małego twierdzenia Fermata jest spełniona. Z tego powodu test fermata nie jest algorytmem deterministycznym. Innym, powszechnie wykorzystywanym w praktyce probablistycznym podejściem jest test pierwszości Millera-Rabina, który także oparty jest na małym twierdzeniu Fermata.
 
-%BLA BLA
+W 2002 roku Manindra Agrawal, Neeraj Kayal i Nitin Saxena zaprezentowali deterministyczny test pierwszości o wielomianowej złożoności. Chociaż mimo determinizmu i wielomianowej złożoności algorytm AKS jest mniej powszechnie wykorzystywany w praktyce niż probablistyczny test Millera-Rabina, ma on duże znaczenie w informatyce, jako że jest pierwszym dowodem na przynależność problemu PRIMES do klasy P.
 
-% Wadą tego podejścia jest istnienie liczb pseudopierwszych Fermata, czyli liczb złożonych $p$, dla których dla pewnego $a$ zachodzi równanie małego twierdzenia Fermata. Z powodu na gęsty rozkład liczb pseudopierwszych Fermata, test Fermata nie jest 
+Celem niniejszej pracy jest właśnie przedstawienie czytelnikowi algorytmu AKS oraz uzasadnienie jego poprawności w zrozumiały sposób. Praca ta jest uzupełnieniem oryginalnej pracy Agrawala, Kayala i Saxeny o dowody nietrywialnych lematów i dodatkowe komentarze, ułatwiające zrozumienie wywodu.
 
-Ostatecznie w 2002 roku Manindra Agrawal, Neeraj Kayal i Nitin Saxena zaprezentowali deterministyczny test pierwszości o wielomianowej złożoności - algorytm AKS, który stał się dowodem przynależności PRIMES do klasy P.
+Ponieważ dowód poprawności wymaga znajomości pewnych pojęć i twierdzeń algebry abstrakcyjnej, rozdział 2. poświęcony jest ich wprowadzeniu. Od czytelnika wymagana jest znajomość podstawowej algebry, głównie teorii grup. Wprowadzone pojęcia i związane z nimi lematy obejmują pierścienie, ciała, pierścienie wielomianów, pierwiastki z jedności nad ciałem i wielomiany cyklotomiczne. Dla komfortu czytelnika dla zdecydowanej większości twierdzeń i lematów, nawet trywialnych, przedstawiony jest także ich dowód.
+
+Trzeci rozdział jest już poświęcony przedstawieniu i udowodnieniu poprawności algorytmu. Główna jego część ma formę serii lematów i twierdzeń, potrzebnych do uzasadnienia końcowego twierdzenia o poprawności algorytmu AKS. Wszystkie potrzebne w tej części twierdzenia algebry abstrakcyjnej są udowodnione w poprzednim rozdziale.
+
+Rozdział czwarty poświęcony jest oszacowaniu złożoności obliczeniowej testu. Ponieważ szacowanie jest dość bezpośrednie, jest to rozdział krótki i nieskomplikowany.
+
+Ostatni rozdział odnosi się do implementacji algorytmu AKS w języku C++. Celem zaimplementowania testu jest sprawdzenie jego wydajności i pokazanie prostoty implementacji. Nie powinna ona bowiem sprawić trudności programiście z dobrą znajomością klasycznych algorytmów, w szczególności wyszukiwania binarnego i FFT.
+
+% Niemniej jednak test pierwszości AKS jest pierwszym dowodem na przynależność PRIMES do klasy P, przez co ma duże znaczenie w rozwoju teorii liczb w informatyce.
+ %ma kluczowe znaczenie w pracy nad tym problemem.
+
+% Niemniej jednak ze względu na dużą złożoność obliczeniową testu AKS oraz wysoką dokładność testu Millera-Rabina.
 
 
 
@@ -559,11 +591,9 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 
 Algorytm AKS opiera się na uogólnieniu małego twierdzenia Fermata dla wielomianów, czyli twierdzeniu, że pierwszość liczby $n, \, n > 2$ jest równoważna z zachodzeniem równości $(X + a)^n = X^n + a \: (mod \: n)$, gdzie $NWD(a, n) = 1$. Jest to o wiele bardziej przydatna własność niż podstawowe małe twierdzenie Fermata, ponieważ występuje w nim równoważność a nie jednostronna implikacja, która była niewystarczająca, aby zapewnić determinizm w teście pierwszości Fermata. Naiwne sprawdzenie tego twierdzenia skutkowałoby jednak złożonością obliczeniową $O(nlog^2n)$, ponieważ wymagałaby mnożenia wielomianów $n$-tego stopnia. W kontekście problemu PRIMES jest to złożoność niesatysfakcjonująca, ponieważ względem rozmiaru problemu, czyli długości $n$, jest to złożoność wykładnicza. Problem ten rozwiązany został w algorytmie AKS poprzez sprawdzenie równości uogólnionego małego twierdzenia Fermata nie w pierścieniu $\mathbb{Z}_n[X]$ a w zawartym w nim pierścieniu ilorazowym zdefiniowanym tak, że długość wielomianów, na których wykonane jest mnożenie, jest wielomianowa względem długości liczby $n$. Poprawność tego podejścia wynika z nietrywialnego twierdzenia, że w odpowiednio wybranym pierścieniu ilorazowym pierścienia $\mathbb{Z}_n[X]$ jeśli równanie $(X + a)^n = X^n + a$ zachodzi dla odpowieniej liczby różnych $a$, to $n$ nie może być liczbą złożoną. 
 
-% Ograniczenie złożoności wynika więc z wykorzystania uogólnionego małego twierdzenia Fermata nie w ciele $\mathbb{Z}_n}$, ale jego rozszerzeniu 
-
 \section{Schemat algorytmu}
 	
-\begin{algorithm}
+\begin{breakablealgorithm}
 	\caption{Algorytm ASK}
 	\begin{algorithmic}[1]
 															    
@@ -584,7 +614,7 @@ Algorytm AKS opiera się na uogólnieniu małego twierdzenia Fermata dla wielomi
 		\EndFor
 		\State {\Return PIERWSZA} \Comment{Krok 7.}
 	\end{algorithmic}
-\end{algorithm}
+\end{breakablealgorithm}
 	
 \section{Dowód poprawności}
     
