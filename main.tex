@@ -1,7 +1,7 @@
 % Opcje klasy 'iithesis' opisane sa w komentarzach w pliku klasy. Za ich pomoca
 % ustawia sie przede wszystkim jezyk i rodzaj (lic/inz/mgr) pracy, oraz czy na
 % drugiej stronie pracy ma byc skladany wzor oswiadczenia o autorskim wykonaniu.
-\documentclass[declaration,shortabstract]{iithesis}
+\documentclass[polish,declaration,shortabstract]{iithesis}
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm}
@@ -10,7 +10,7 @@
 % \usepackage{listings}
 \usepackage{enumitem}
 % \usepackage[linesnumbered,vlined]{algorithm2e}
-\usepackage[noend]{algorithm,algpseudocode}
+\usepackage{algorithm,algpseudocode}
 % \usepackage[shortlabels]{enumitem}
 % \usepackage{alg}
 % \usepackage{theoremref}
@@ -30,10 +30,10 @@
 % Pamietaj o madrym (zgodnym z logicznym rozbiorem zdania oraz estetyka) recznym
 % zlamaniu wierszy w temacie pracy, zwlaszcza tego w jezyku pracy. Uzyj do tego
 % polecenia \fmlinebreak.
-\polishtitle    {Implementacja algorytmu, sprawdzającego pierwszość liczby w czasie wielomianowym}
+\polishtitle    {Implementacja algorytmu sprawdzającego pierwszość liczby w czasie wielomianowym}
 \englishtitle   {Implementation of primality test in polynomial time}
-\polishabstract {\ldots}
-\englishabstract{\ldots}
+\polishabstract {blah blah}
+\englishabstract{blah}
 % w pracach wielu autorow nazwiska mozna oddzielic poleceniem \and
 \author         {Martyna Siejba}
 % w przypadku kilku promotorow, lub koniecznosci podania ich afiliacji, linie
@@ -80,9 +80,31 @@
 
 \chapter{Wstęp}
 
-\section{Przesłanki}
+Problem testu pierwszości, nazwany PRIMES, polega na ustaleniu dla danej liczby naturalnej $n$, czy jest ona liczbą pierwszą. Jako że wejście składa się z jednej liczby, a naiwny deterministyczny algorytm jest w stanie stwierdzić pierwszość w czasie $O(\sqrt{n})$, za rozmiar problemu uznaje się długość liczby na wejściu.
 
-\section{Uwagi odnośnie notacji}
+Przy takiej definicji problemu PRIMES otwartym do niedawna zagadnieniem było stwierdzenie przynależności PRIMES do klas złożoności P i NP. Zawieranie w klasie NP zostało po raz pierwszy udowodnione przez Vaughana Pratta w 1975 roku. 
+
+O dowodzie
+
+Po opublikowaniu dowodu przynależności PRIMES do NP, głównym wyzwaniem związanym z problemem było pokazanie jego zawierania lub niezawierania się w klasie P. Przesłankami, sugerującymi przynależność PRIMES do klasy P były własności liczb pierwszych, wykorzystywanych w probablistycznych testach pierwszości. Najprostszym takim testem jest test pierwszości Fermata, opierającym się na małym twierdzeniu Fermata, czyli twierdzeniu, że dla liczby pierwszej $p$ i liczby naturalnej $a$ takiej, że $NWD(a, p) = 1$ zachodzi $a^{p-1} = 1 \; (mod \, p)$. Test Fermata polega więc na losowym wyborze $a$, spełniającym założenia twierdzenia i sprawdzeniu, czy równość z twierdzenia zachodzi. Problemem tego podejścia jest fakt, że implikacja w drugą stronę nie zawsze jest prawdziwa, tzn. istnieją liczby złożone $p$, nazywane liczbami pseudopierwszymi Fermata, dla których istnieje $a$ takie, że równość małego twierdzenia Fermata jest spełniona. 
+
+%BLA BLA
+
+% Wadą tego podejścia jest istnienie liczb pseudopierwszych Fermata, czyli liczb złożonych $p$, dla których dla pewnego $a$ zachodzi równanie małego twierdzenia Fermata. Z powodu na gęsty rozkład liczb pseudopierwszych Fermata, test Fermata nie jest 
+
+Ostatecznie w 2002 roku Manindra Agrawal, Neeraj Kayal i Nitin Saxena zaprezentowali deterministyczny test pierwszości o wielomianowej złożoności - algorytm AKS, który stał się dowodem przynależności PRIMES do klasy P.
+
+
+
+% Zanim w 2002 roku ostatecznie przedstawiono deterministyczny test pierwszości o wielomianowej złożoności, 
+
+% w literaturze pojawiały się przesłanki, wskazujące, że PRIMES prawdopodobnie należy do P.
+
+%ciekawym zagadnieniem okazuje się być stiwerdzenie jego przynależności do klas złożoności NP i P. Zawieranie się PRIMES w klasie NP zostało pierwszy raz udowodnione przez Vaughana Pratta w 1975 roku. 
+
+%nazwany PRIMES, jest tematem szeroko poruszanym w literaturze, którego przynależność do klasy złożoności 
+
+% Celem niniejszej pracy jest przedstawienie algorytmu AKS w sposób zrozumiały dla czytelnika o podstawowej wiedzy z zakresu algebry abstrokcyjnej.
 
 \chapter{Podstawy algebraiczne}
 
@@ -532,7 +554,13 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{proof}
 	
 \chapter{Algorytm}
-	
+
+\section{Idea algorytmu}
+
+Algorytm AKS opiera się na uogólnieniu małego twierdzenia Fermata dla wielomianów, czyli twierdzeniu, że pierwszość liczby $n, \, n > 2$ jest równoważna z zachodzeniem równości $(X + a)^n = X^n + a \: (mod \: n)$, gdzie $NWD(a, n) = 1$. Jest to o wiele bardziej przydatna własność niż podstawowe małe twierdzenie Fermata, ponieważ występuje w nim równoważność a nie jednostronna implikacja, która była niewystarczająca, aby zapewnić determinizm w teście Fermata. Naiwne sprawdzenie tego twierdzenia skutkowałoby jednak złożonością obliczeniową $O(nlog^2n)$, ponieważ wymagałaby mnożenia wielomianów $n$-tego stopnia. W kontekście problemu PRIMES jest to złożoność niesatysfakcjonująca, ponieważ względem rozmiaru problemu, czyli długości $n$, jest to złożoność wykładnicza. Problem ten rozwiązany został w algorytmi AKS poprzez sprawdzenie równości uogólnionego małego twierdzenia Fermata nie w pierścieniu $\mathbb{Z}_n[X]$, a w zawartym w nim pierścieniu ilorazowym zdefiniowanym tak, że długość wielomianów, na których wykonane jest mnożenie, jest wielomianowa względem długości liczby $n$. Poprawność tego podejścia wynika z nietrywialnego twierdzenia, że w odpowiednio wybranym pierścieniu ilorazowym pierścienia $\mathbb{Z}_n[X]$ jeśli równanie $(X + a)^n = X^n + a$ zachodzi dla odpowieniej liczby różnych $a$, to $n$ nie może być liczbą złożoną. 
+
+% Ograniczenie złożoności wynika więc z wykorzystania uogólnionego małego twierdzenia Fermata nie w ciele $\mathbb{Z}_n}$, ale jego rozszerzeniu 
+
 \section{Schemat algorytmu}
 	
 \begin{algorithm}
