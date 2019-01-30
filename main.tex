@@ -181,7 +181,8 @@ Możemy teraz zauważyć, że pierścieniem jest na przykład zbiór liczb całk
 	\begin{itemize}[leftmargin=.4in]
 		\item istnieje element neutralny mnożenia ($\exists_{1 \in F} \forall_{a \in F} \, a1 = 1a = a$) oraz
 		\item Zbiór $F \setminus \{0\}$ z działaniem $\odot$ i elementem neutralnym $1$ jest grupą abelową.
-	\end{itemize}
+    \end{itemize}
+    W dodatku \textbf{\textit{rzędem}} ciała $\langle F, \oplus, \odot \rangle$ nazywać będziemy moc zbioru $F$.
 \end{definition}
 
 Innymi słowy jest to pierścień z elementem neutralnym mnożenia, w którym dla każdego niezerowego elementu istnieje element odwrotny. Przykładem ciał są zbiory reszt z dzielenia przez liczbę pierwszą z operacjami dodawania i mnożenia modulo. Jeśli rozważymy natomiast wcześniej przywołane przykłady pierścieni, możemy zauważyć, że zarówno zbiór liczb całkowitych jak i zbiór wielomianów o całkowitych współczynnikach nie jest ciałem. W obu przykładach zbiory te nie spełniają warunku na istnienie elementów odwrotnych.
@@ -347,7 +348,7 @@ Następnym krokiem we wprowadzeniu pojęć algebry abstrakcyjnej będzie bliższ
 Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawie poniższego twierdzenia będziemy mogli powiązać pierwszość liczby z jego własnościami.
 
 \begin{theorem}
-	$\langle \mathbb{Z}_p, +_p, \times_p \rangle$, gdzie $p \in \mathbb{N}$ i $p \geq 2$,  $\mathbb{Z}_p = \{0, 1, \ldots, p-1\}$ oraz operacje są odpowiadającymi działaniami arytmetycznymi modulo $p$, jest ciałem, jeśli $p$ jest pierwsza.
+	Niech $p \in \mathbb{N}$ i $p \geq 2$ oraz $\mathbb{Z}_p = \{0, 1, \ldots, p-1\}$. Wówczas jeśli $p$ jest pierwsza, to $\langle \mathbb{Z}_p, +_p, \times_p \rangle$, gdzie operacje są odpowiadającymi działaniami arytmetycznymi modulo $p$, jest ciałem.
 \end{theorem}
 
 \begin{proof}
@@ -360,7 +361,8 @@ Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawi
 \end{proof}
 
 \begin{theorem}
-	Jeśli $\langle R, \oplus, \odot \rangle$ jest pieścieniem przemiennym z $1$, to $\langle R[X], \oplus^{*}, \odot^{*} \rangle$, gdzie $R[X]$ jest zbiorem wielomianów o współczynnikach w $R$, a $\oplus^*$ i $\odot^*$ są naturalnie zdefiniowanym dodawaniem i mnożeniem wielomianów z użyciem $\oplus$ i $\odot$ w operacjach na współczynnikach, jest pierścieniem przemiennym z $1$.
+    Niech $\langle R, \oplus, \odot \rangle$ będzie pierścieniem przemiennym z $1$ oraz $R[X]$ będzie zbiorem wielomianów o współczynnikach w $R$, a $\oplus^*$ i $\odot^*$ będą naturalnie zdefiniowanym dodawaniem i mnożeniem wielomianów z użyciem $\oplus$ i $\odot$ w operacjach na współczynnikach. Wówczas
+	$\langle R[X], \oplus^{*}, \odot^{*} \rangle$ jest pierścieniem przemiennym z $1$.
 \end{theorem}
 
 
