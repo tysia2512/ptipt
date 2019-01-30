@@ -105,8 +105,7 @@ Problem testu pierwszości, nazwany PRIMES, polega na ustaleniu dla danej liczby
 
 Przy takiej definicji problemu PRIMES otwartym do niedawna zagadnieniem było stwierdzenie przynależności PRIMES do klas złożoności P i NP. Zawieranie w klasie NP zostało po raz pierwszy udowodnione przez Vaughana Pratta w 1975 roku. 
 
-O dowodzie
-
+% O dowodzie
 Po opublikowaniu dowodu przynależności PRIMES do NP, głównym wyzwaniem związanym z problemem było pokazanie jego zawierania lub niezawierania się w klasie P. Przesłankami, sugerującymi przynależność PRIMES do klasy P były własności liczb pierwszych, wykorzystywanych w probablistycznych testach pierwszości. Najprostszym takim testem jest test pierwszości Fermata, opierającym się na małym twierdzeniu Fermata, czyli twierdzeniu, że dla liczby pierwszej $p$ i liczby naturalnej $a$ takiej, że $NWD(a, p) = 1$ zachodzi $a^{p-1} = 1 \; (mod \, p)$. Test Fermata polega więc na losowym wyborze $a$, spełniającym założenia twierdzenia i sprawdzeniu, czy równość z twierdzenia zachodzi. Problemem tego podejścia jest fakt, że implikacja w drugą stronę nie zawsze jest prawdziwa, tzn. istnieją liczby złożone $p$, nazywane liczbami pseudopierwszymi Fermata, dla których istnieje $a$ takie, że równość małego twierdzenia Fermata jest spełniona. Z tego powodu test fermata nie jest algorytmem deterministycznym. Innym, powszechnie wykorzystywanym w praktyce probablistycznym podejściem jest test pierwszości Millera-Rabina, który także oparty jest na małym twierdzeniu Fermata.
 
 W 2002 roku Manindra Agrawal, Neeraj Kayal i Nitin Saxena zaprezentowali deterministyczny test pierwszości o wielomianowej złożoności. Chociaż mimo determinizmu i wielomianowej złożoności algorytm AKS jest mniej powszechnie wykorzystywany w praktyce niż probablistyczny test Millera-Rabina, ma on duże znaczenie w informatyce, jako że jest pierwszym dowodem na przynależność problemu PRIMES do klasy P.
@@ -148,11 +147,11 @@ Zdefiniujmy najpierw podstawowe struktury algebraiczne, których własności bę
 
 \theoremstyle{definition} 
 \begin{definition}
-	Zbiór $R$ zamknięty na dwie operacje binarne $\oplus$ oraz $\odot$ nazywamy \textit{\textbf{pierścieniem}}, jeśli 
+	Zbiór $R$ zamknięty na dwie operacje binarne $\oplus$ (dodawanie) oraz $\odot$ (mnożenie) nazywamy \textit{\textbf{pierścieniem}}, jeśli 
 	\begin{itemize}[leftmargin=.4in]
 		\item $\oplus$ jest przemienna ($\forall_{a, b \in R} \, a \oplus b = b \oplus a$) oraz łączna ($\forall_{a, b, c \in R} \, (a \oplus b) \oplus c = a \oplus (b \oplus c)$);
-		\item zawiera element zerowy ($\exists_{0 \in R} \forall_{a \in R} \, a \oplus 0 = 0 \oplus a = 0$);
-		\item dla każdego elementu zawiera element odwrotny ($\forall_{a \in R} \exists_{(-a) \in R} \, a \oplus (-a) = 0$);
+		\item zawiera element zerowy ($\exists_{0 \in R} \forall_{a \in R} \, a \oplus 0 = 0 \oplus a = a$);
+		\item dla każdego elementu zawiera element przeciwny ($\forall_{a \in R} \exists_{(-a) \in R} \, a \oplus (-a) = 0$);
 		\item $\odot$ jest łączna ($\forall_{a, b, c \in R} \, (a \odot b) \odot c = a \odot (b \odot c)$);
 		\item $\oplus$ jest rozdzielna względem $\odot$ ($\forall_{a, b, c \in R} \, a \odot (b \oplus c) = (a \odot b) \oplus (a \odot c) \wedge (a \oplus b) \odot c = (a \odot c) \oplus (b \odot c)$).
 	\end{itemize}
@@ -174,22 +173,18 @@ Zdefiniujmy najpierw podstawowe struktury algebraiczne, których własności bę
 	Pierścień $\langle R, \oplus, \odot \rangle$ nazywamy \textit{\textbf{przemiennym}} jeśli $\forall_{a, b \in R} \, ab = ba$.
 \end{definition}
 
-Możemy teraz zauważyć, że pierścieniem jest na przykład zbiór liczb całkowitych z mnożeniem i dodawaniem lub zbiór wielomianów o współczynnikach całkowitych z dodawaniem i mnożeniem wielomianów.
+Możemy teraz zauważyć, że pierścieniem jest na przykład zbiór liczb całkowitych z dodawaniem i mnożeniem lub zbiór wielomianów o współczynnikach całkowitych z dodawaniem i mnożeniem wielomianów.
 
 \theoremstyle{definition} 
 \begin{definition} \label{cialo}
 	Pierścień $\langle F, \oplus, \odot \rangle$ nazywamy \textit{\textbf{ciałem}}, jeśli 
 	\begin{itemize}[leftmargin=.4in]
 		\item istnieje element neutralny mnożenia ($\exists_{1 \in F} \forall_{a \in F} \, a1 = 1a = a$) oraz
-		\item $\langle F \setminus \{0\}, \odot, 1 \rangle$ jest grupą abelową.
+		\item Zbiór $F \setminus \{0\}$ z działaniem $\odot$ i elementem neutralnym $1$ jest grupą abelową.
 	\end{itemize}
 \end{definition}
 
 Innymi słowy jest to pierścień z elementem neutralnym mnożenia, w którym dla każdego niezerowego elementu istnieje element odwrotny. Przykładem ciał są zbiory reszt z dzielenia przez liczbę pierwszą z operacjami dodawania i mnożenia modulo. Jeśli rozważymy natomiast wcześniej przywołane przykłady pierścieni, możemy zauważyć, że zarówno zbiór liczb całkowitych jak i zbiór wielomianów o całkowitych współczynnikach nie jest ciałem. W obu przykładach zbiory te nie spełniają warunku na istnienie elementów odwrotnych.
-
-\begin{definition}
-	\textbf{\textit{Charakterystyką}} ciała $F$ będziemy nazywać najmniejszą taką liczbę naturalną $char(F) = n$, że suma $n$ jedynek równa się zeru w $F$.
-\end{definition}
 
 \theoremstyle{definition}
 \begin{definition}
@@ -199,8 +194,6 @@ Innymi słowy jest to pierścień z elementem neutralnym mnożenia, w którym dl
 		\item $\forall_{i \in I, r \in R} \: ir \in I \wedge ri \in I $.
 	\end{itemize}
 \end{definition}
-
-Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalnej w teorii grup. Co więcej, analogia ta aplikuje się także do konstrukcji pierścienia ilorazowego. Ideał pełni bowiem w konstrukcji pierścienia ilorazowego taką rolę, jaką w konstrukcji grupy ilorazowej pełni podgrupa normalna.
 
 \theoremstyle{theorem}
 \begin{theorem}
@@ -227,9 +220,15 @@ Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalne
 	Ideał $M$ w pierścieniu $R$ nazywamy \textit{\textbf{ideałem maksymalnym}}, jeśli dla każdego ideału $I$ nad $R$ zachodzi $M \subseteq I \Rightarrow I = R$.
 \end{definition}
 
+Przypomnijmy sobie pojęcia teorii grup potrzebne do zdefiniowania grupy ilorazowej.
 % \theoremstyle{definition}
 \begin{reminder*}
-	Podgrupę $\langle N, \circ \rangle $ grupy $\langle G, \circ \rangle$ nazywamy \textit{\textbf{podgrupą normalną}}, jeśli $\forall_{g \in G} \, gN = Ng$, gdzie $gN = \{gn \, | \, n \in N\}$ oraz $Ng = \{ng \, | \, n \in N\}$.
+	Podgrupę $N$ grupy $G$ nazywamy \textit{\textbf{podgrupą normalną}}, jeśli $\forall_{g \in G} \, gN = Ng$, gdzie $gN = \{gn \, | \, n \in N\}$ oraz $Ng = \{ng \, | \, n \in N\}$.
+\end{reminder*}
+
+\begin{reminder*}
+    Niech $H$ będzie podgrupą grupy $G$ oraz $g \in G$. Wtedy zbiór 
+    $L = gH = \{gh \, | \, h \in H\}$ nazywamy \textbf{\textit{warstwą lewostronną}} oraz zbiór $R = Hg = \{hg \, | \, h \in H\}$ nazywamy \textbf{\textit{warstwą prawostronną}} grupy $G$ względem $H$ wyznaczonymi przez $g$.
 \end{reminder*}
 
 Możemy teraz przedstawić analogię między ideałem a podgrupą normalną w sposób formalny.
@@ -306,6 +305,9 @@ Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowa
 		      \end{enumerate}
 	\end{enumerate}
 \end{proof}
+
+Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalnej w teorii grup. Co więcej, analogia ta aplikuje się także do konstrukcji pierścienia ilorazowego. Ideał pełni bowiem w konstrukcji pierścienia ilorazowego taką rolę, jaką w konstrukcji grupy ilorazowej pełni podgrupa normalna.
+
 
 Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pierścienie ilorazowe są ciałami. Będzie to twierdzenie, którego będziemy używać w późniejszych lematach dla pierścienia ilorazowego pierścienia wielomianów.
 
@@ -420,6 +422,10 @@ Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb ca�
 \section{Pierwiastki z jedności, wielomiany cyklotomiczne}
 
 Kolejną grupą twierdzeń potrzebnych do udowodnienia poprawności algorytmu AKS są twierdzenia związane z pierwiastkami jedności nad ciałem. Aby uprościć późniejsze rozważania, wprowadźmy następujące pojęcia związane z ciałami.
+
+\begin{definition}
+	\textbf{\textit{Charakterystyką}} ciała $F$ będziemy nazywać najmniejszą taką liczbę naturalną $char(F) = n$, że suma $n$ jedynek równa się zeru w $F$.
+\end{definition}
 
 \begin{definition}
 	\textit{\textbf{Podciałem}} ciała $F$ nazywamy takie $G$, że $G \subseteq F$ z działaniami z $F$ ograniczonymi do elementów $G$ jest ciałem.
