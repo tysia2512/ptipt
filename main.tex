@@ -121,7 +121,7 @@ Rozdział czwarty poświęcony jest oszacowaniu złożoności obliczeniowej test
 Ostatni rozdział odnosi się do implementacji algorytmu AKS w języku C++. Celem zaimplementowania testu jest sprawdzenie jego wydajności i pokazanie prostoty implementacji. Nie powinna ona bowiem sprawić trudności programiście z dobrą znajomością klasycznych algorytmów, w szczególności wyszukiwania binarnego i FFT.
 
 % Niemniej jednak test pierwszości AKS jest pierwszym dowodem na przynależność PRIMES do klasy P, przez co ma duże znaczenie w rozwoju teorii liczb w informatyce.
- %ma kluczowe znaczenie w pracy nad tym problemem.
+%ma kluczowe znaczenie w pracy nad tym problemem.
 
 % Niemniej jednak ze względu na dużą złożoność obliczeniową testu AKS oraz wysoką dokładność testu Millera-Rabina.
 
@@ -181,8 +181,8 @@ Możemy teraz zauważyć, że pierścieniem jest na przykład zbiór liczb całk
 	\begin{itemize}[leftmargin=.4in]
 		\item istnieje element neutralny mnożenia ($\exists_{1 \in F} \forall_{a \in F} \, a1 = 1a = a$) oraz
 		\item Zbiór $F \setminus \{0\}$ z działaniem $\odot$ i elementem neutralnym $1$ jest grupą abelową.
-    \end{itemize}
-    W dodatku \textbf{\textit{rzędem}} ciała $\langle F, \oplus, \odot \rangle$ nazywać będziemy moc zbioru $F$.
+	\end{itemize}
+	W dodatku \textbf{\textit{rzędem}} ciała $\langle F, \oplus, \odot \rangle$ nazywać będziemy moc zbioru $F$.
 \end{definition}
 
 Innymi słowy jest to pierścień z elementem neutralnym mnożenia, w którym dla każdego niezerowego elementu istnieje element odwrotny. Przykładem ciał są zbiory reszt z dzielenia przez liczbę pierwszą z operacjami dodawania i mnożenia modulo. Jeśli rozważymy natomiast wcześniej przywołane przykłady pierścieni, możemy zauważyć, że zarówno zbiór liczb całkowitych jak i zbiór wielomianów o całkowitych współczynnikach nie jest ciałem. W obu przykładach zbiory te nie spełniają warunku na istnienie elementów odwrotnych.
@@ -202,12 +202,19 @@ Innymi słowy jest to pierścień z elementem neutralnym mnożenia, w którym dl
 \end{theorem}
 
 \begin{proof}
-	Aby pokazać, że $I = \langle a \rangle$ ($a \in R$) jest ideałem $\langle R, \oplus, \odot \rangle$, należy pokazać, że (1) $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2) $\forall_{i \in I, r \in R} \, i \odot r \in I \wedge r \odot i \in I $.
-	%  (1),  \newline
-	% \newline
-	\begin{enumerate}[label={(\arabic*)}, leftmargin=.4in]
-		\item Aby udowodnić, że $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ wystarczy pokazać, że (1.1) istnieje element neutralny $e \in I$, (1.2) $I$ jest zamknięte na $\oplus$ oraz (1.3) dla każdego elementu istnieje w $I$ element odwrotny.
-		      \begin{enumerate}[label=(1.\arabic*)]
+	Aby udowodnić, że $I = \langle a \rangle$ ($a \in R$) jest ideałem $\langle R, \oplus, \odot \rangle$, należy pokazać, że 
+	\begin{enumerate}[label=\arabic*., leftmargin=.4in]
+		\item $\langle I, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz 
+		\item $\forall_{i \in I, r \in R} \, i \odot r \in I \wedge r \odot i \in I $.
+	\end{enumerate}
+	\begin{enumerate}[label={Ad.\arabic*.}, leftmargin=.4in]
+		\item Pokażemy kolejno, że
+		      \begin{enumerate}[label=1.\arabic*., leftmargin=.4in] 
+		      	\item istnieje element neutralny $e \in I$, 
+		      	\item $I$ jest zamknięte na $\oplus$ oraz 
+		      	\item dla każdego elementu istnieje w $I$ element odwrotny.
+		      \end{enumerate}
+		      \begin{enumerate}[label=Ad.1.\arabic*]
 		      	\item Wiemy, że $0 \in R$, więc $a0=0 \in I$.
 		      	\item Weźmy dowolne $i_1, i_2 \in I$. Istnieją takie $r_1, r_2 \in R$, że $i_1 = ar_1$ oraz $i_2 = ar_2$. Stąd $i_1 \oplus i_2 = (ar_1) \oplus (ar_2)$. Z własności pierścienia $\langle R, \oplus, \odot \rangle$ mamy $(ar_1) \oplus (ar_2) = a(r_1 \oplus r_2)$, więc $i_1 \oplus i_2 \in I$, czyli $I$ jest zamknięty na $\oplus$.
 		      	\item Weźmy dowolne $i = ar \in I, r \in R$. Istnieje $-r \in R$, więc $a(-r) \in I$. Wiemy, że $i \oplus a(-r) = ar \oplus a(-r) = a(r \oplus -r) = a0 = 0$, więc $a(-r) \in I$ jest elementem odwrotnym $i$.
@@ -228,8 +235,8 @@ Przypomnijmy sobie pojęcia teorii grup potrzebne do zdefiniowania grupy ilorazo
 \end{reminder*}
 
 \begin{reminder*}
-    Niech $H$ będzie podgrupą grupy $G$ oraz $g \in G$. Wtedy zbiór 
-    $L = gH = \{gh \, | \, h \in H\}$ nazywamy \textbf{\textit{warstwą lewostronną}} oraz zbiór $R = Hg = \{hg \, | \, h \in H\}$ nazywamy \textbf{\textit{warstwą prawostronną}} grupy $G$ względem $H$ wyznaczonymi przez $g$.
+	Niech $H$ będzie podgrupą grupy $G$ oraz $g \in G$. Wtedy zbiór 
+	$L = gH = \{gh \, | \, h \in H\}$ nazywamy \textbf{\textit{warstwą lewostronną}} oraz zbiór $R = Hg = \{hg \, | \, h \in H\}$ nazywamy \textbf{\textit{warstwą prawostronną}} grupy $G$ względem $H$ wyznaczonymi przez $g$.
 \end{reminder*}
 
 Możemy teraz przedstawić analogię między ideałem a podgrupą normalną w sposób formalny.
@@ -251,15 +258,25 @@ Zdefiniujmy więc pojęcie grupy ilorazowej, które stanie się podstawą defini
 \end{theorem}
 
 \begin{proof}
-	Należy udowodnić, że (1) działanie jest dobrze zdefiniowane, czyli $\forall_{a, b, c, d \in G/N} \, a = b \wedge c = d \Rightarrow ac = bd$ oraz (2) $G/N$ z wyżej zdefiniowanym działaniem jest grupą.\newline
-	\begin{enumerate}[label={(\arabic*)}, leftmargin=.4in]
+	Wystarczy pokazać, że 
+	\begin{enumerate}[label=\arabic*., leftmargin=.4in]
+		\item działanie jest dobrze zdefiniowane, czyli \[\forall_{a, b, c, d \in G/N} \, a = b \wedge c = d \Rightarrow ac = bd\] oraz 
+		\item $G/N$ z wyżej zdefiniowanym działaniem jest grupą.
+	\end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*., leftmargin=.4in]
 		\item Weźmy $aN = bN \in G/N$ oraz $cN = dN \in G/N$. Chcemy pokazać, że $(aN)(cN) = (bN)(dN)$. Wiemy, że, skoro $\langle N, \circ \rangle$ jest grupą, istnieje element neutralny $e \in N$. Stąd wiemy, że $a = ae \in aN$ oraz $b = be \in bN$. Z $aN = bN$ mamy $b \in aN$. Istnieje więc $n_1 \in N$ takie, że $an_1 = b$. Analogicznie, istnieje $n_2 \in N$ takie, że $cn_2 = d$.\newline
 		      \newline
 		      Można zauważyć, że dla dowolnego $n \in N$ $nN = N$. Własność ta wynika bezpośrednio z faktu, że $N$ jest zamknięty na $\circ$.\newline
 		      \newline
 		      Korzystając z powyższej obserwacji oraz faktu, że $N$ jest podgrupą normalną mamy $(bN)(dN) = bdN = an_1cn_2N = an_1cN = an_1Nc = aNc = acN$.\newline
-		\item Aby pokazać, że $G/N$ jest grupą należy pokazać (2.1) zamkniętość na $\otimes$, (2.2) łączność $\otimes$, (2.3) istnienie elementu neutralnego oraz (2.4) istnienie elementów odwrotnych.
-		      \begin{enumerate}[label=(2.\arabic*)]
+		\item Pokażemy kolejno
+		      \begin{enumerate}[label=2.\arabic*.]
+		      	\item zamkniętość $G/N$ na $\otimes$, 
+		      	\item łączność $\otimes$, 
+		      	\item istnienie elementu neutralnego w $G/N$ oraz 
+		      	\item istnienie elementów odwrotnych.
+		      \end{enumerate}
+		      \begin{enumerate}[label=Ad.2.\arabic*.]
 		      	\item $G/N$ jest zamknięty na $\otimes$. Weźmy dowolne $aN, \, bN \in G/N$. Mamy $(aN)(bN) = abN$. $ab \in G$, więc $abN \in G/N$.
 		      	\item $\otimes$ jest łączne. Weźmy dowolne $aN, \, bN, \, cN \in G/N$. Korzystając z łączności $\odot$ i faktu, że N jest normalna ($cN = Nc$), mamy 
 		      	      \begin{align}
@@ -286,16 +303,17 @@ Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowa
 % SPRAWDZONE DOTĄD
 
 \begin{proof}
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
-		\item $\langle I, \oplus \rangle$ jest podgrupą normalną $\langle R, \oplus \rangle$, więc z twierdzenia \ref{grup_ilo} $\langle R/I, + \rangle$ z jest grupą ilorazową.
+	$\langle I, \oplus \rangle$ jest podgrupą normalną $\langle R, \oplus \rangle$, więc z twierdzenia \ref{grup_ilo} $\langle R/I, + \rangle$ z jest grupą ilorazową. Wystarczy zatem pokazać, że 
+	\begin{enumerate}[resume,label=\arabic*.,leftmargin=.4in]
+		\item $\times$ jest dobrze zdefiniowana, tzn. dla $a, b, c, d \in R/I$ jeśli $a = b$ oraz $c = d$, to $a \times c = b \times d$ oraz 
+		\item $\langle R/I, +, \times \rangle$ jest pierścieniem przemiennym.
 	\end{enumerate}
-	Należy więc pokazać, że (2) $\times$ jest dobrze zdefiniowana, tzn. dla $a, b, c, d \in R/I$ jeśli $a = b$ oraz $c = d$, to $a \times c = b \times d$ oraz (3) $\langle R/I, +, \times \rangle$ jest pierścieniem przemiennym.
-	\begin{enumerate}[resume,label=(\arabic*),leftmargin=.4in]
+	\begin{enumerate}[resume,label=Ad.\arabic*.,leftmargin=.4in]
 		\item Weźmy dowolne $a, b, c, d \in R$ takie, że $a \oplus I = b \oplus I$ oraz $c \oplus I = d \oplus I$. Wiemy, że $\langle I, \oplus \rangle$ jest grupą, więc zawiera element neutralny $e$. Stąd $a \oplus e = a \in a \oplus I = b \oplus I$. Istnieje więc $i_1 \in I$ taki, że $a = b \oplus i_1$. Analogicznie istnieje $i_2 \in I$ takie, że $c = d \oplus i_2$. \newline
 		      $\langle I, \oplus \rangle$ jest grupą, więc dla dowolnego $i \in I$ $i \oplus I = I$. \newline
 		      Mamy więc $(a \oplus I) \times (c \oplus I) = a \odot c \oplus I = (b \oplus i_1) \odot (d \oplus i_2) \oplus I$. Jako że $b, d, i_1, i_2 \in R$ oraz $\langle R, \oplus, \odot \rangle$ jest pierścieniem mamy $(b \oplus i_1) \odot (d \oplus i_2) \oplus I = b \odot d \oplus b \odot i_2 \oplus i_2 \odot d \oplus i_1 \odot i_2 \oplus I$. $I$ jest ideałem, więc $b \odot i_2, i_1 \odot d, i_1 \odot i_2 \in I$. Stąd $b \odot d \oplus b \odot i_2 \oplus i_2 \odot d \oplus i_1 \odot i_2 \oplus I = b \odot d \oplus I = (b \oplus I) \times (d \oplus I)$.
 		\item Pokażemy, że $\langle R/I, +, \times \rangle$ spełnia warunki z definicji pierścienia przemiennego.
-		      \begin{enumerate}[label=(3.\arabic*)]  	    
+		      \begin{itemize}	    
 		      	\item + jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\oplus$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) + (b \oplus I) = a \oplus b \oplus I = b \oplus a \oplus I = (a \oplus I) + (b \oplus I)$.
 		      	\item + jest łączna. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z łączności $\oplus$ w $\langle R, \oplus, \odot \rangle$ mamy $((a \oplus I) + (b \oplus I)) + (c \oplus I) = (a \oplus b \oplus I) + (c \oplus I) = (a \oplus b) \oplus c \oplus I = a \oplus (b \oplus c) \oplus I = (a \oplus I) + (b \oplus c \oplus I) = (a \oplus I) + ((b \oplus I) + (c \oplus I))$.
 		      	\item Istnieje element zerowy. Niech $e = e' \oplus I$, gdzie $e'$ jest elementem zerowym pierścienia $\langle R, \oplus \rangle$. Weźmy dowolne $a \oplus I \in R/I$. Wtedy $(a \oplus I) + e = a \oplus e' \oplus I = e' \oplus I = e = e' \oplus a \oplus I = e + (a \oplus I)$.
@@ -303,7 +321,7 @@ Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowa
 		      	\item $\times$ jest łączna. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z łączności $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $((a \oplus I) \times (b \oplus I)) \times (c \oplus I) = (a \odot b \oplus I) \times (c \oplus I) = (a \odot b) \odot c \oplus I = a \odot (b \odot c) \oplus I = (a \oplus I) \times (b \odot c \oplus I) = (a \oplus I) \times ((b \oplus I) \times (c \oplus I))$.
 		      	\item + jest rozdzielna względem $\times$. Weźmy dowolne $a \oplus I, b \oplus I, c \oplus I \in R/I$. Z rozdzielności $\oplus$ względem $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) \times ((b \oplus I) + (c \oplus I) = a \odot (b \oplus c) \oplus I = a \odot b \oplus a \odot c \oplus I = ((a \oplus I) \times (b \oplus I)) + ((a \oplus I) \times (c \oplus I)))$ oraz $((a \oplus I) + (b \oplus I)) \times (c \oplus I) = (a \oplus b) \odot c \oplus I = a \odot c \oplus b \odot c \oplus I = ((a \oplus I) \times (c \oplus I)) + ((b \oplus I) \times (c \oplus I))$.
 		      	\item $\times$ jest przemienna. Weźmy dowolne $a \oplus I, b \oplus I \in R/I$. Z przemienności $\odot$ w pierścieniu $\langle R, \oplus, \odot \rangle$ mamy $(a \oplus I) \times (b \oplus I) = a \odot b \oplus I = b \odot a \oplus I = (b \oplus I) \times (a \oplus I)$.
-		      \end{enumerate}
+		      \end{itemize}
 	\end{enumerate}
 \end{proof}
 
@@ -318,20 +336,28 @@ Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pie
 \end{theorem}
 
 \begin{proof}
-	Wiemy, że $R/M$ jest pierścieniem przemiennym. Wystarczy pokazać, że (1) istnieje element neutralny mnożenia oraz (2) dla każdego niezerowego elementu istnieje element odwrotny.
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	Wiemy, że $R/M$ jest pierścieniem przemiennym. Wystarczy pokazać, że 
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
+		\item istnieje element neutralny mnożenia oraz 
+		\item dla każdego niezerowego elementu istnieje element odwrotny.
+	\end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Istnieje $1$ w $R$, więc dla dowolnego $a \oplus M \in R/M$ mamy
 		      $(a \oplus M) \times (1 \oplus M) = a \odot 1 \oplus M = a \oplus M = 1 \odot a \oplus M = (1 \oplus M) \times (a \oplus M)$.
-		\item Weźmy dowolne $a \in R$ takie, że $a \oplus M$ jest niezerowe, czyli $a \notin M$. Weźmy zbiór $J = \{ra \oplus m \, | \, r \in R, m \in M\}$. Pokażemy, że $J$ jest ideałem nad $R$. W tym celu wystarczy pokazać, że (2.1) $\langle J, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz (2.2)$\forall_{j \in J, r \in R} \, jr \in J \wedge rj \in J$.
-		      \begin{enumerate}[label=(2.\arabic*)]
+		\item Weźmy dowolne $a \in R$ takie, że $a \oplus M$ jest niezerowe, czyli $a \notin M$. Weźmy zbiór $J = \{ra \oplus m \, | \, r \in R, m \in M\}$. Pokażemy, że $J$ jest ideałem nad $R$. W tym celu wystarczy pokazać, że 
+		      \begin{enumerate}[label=2.\arabic*.]
+		      	\item $\langle J, \oplus \rangle$ jest podgrupą $\langle R, \oplus \rangle$ oraz 
+		      	\item $\forall_{j \in J, r \in R} \, jr \in J \wedge rj \in J$.
+		      \end{enumerate}
+		      \begin{enumerate}[label=Ad.2.\arabic*.]
 		      	\item Udowodnimy, że $\langle J, \oplus \rangle$ spełnia definicję grupy oraz zawiera się w $\langle R, \oplus \rangle$.
-		      	      \begin{enumerate}[label=(2.1.\arabic*)]
+		      	      \begin{itemize}
 		      	      	\item Wiemy, że $R$ jest zamknięty na $\oplus$ i $\odot$, więc $\forall_{r, a', m \in R} \, ra' \oplus m \in R$ oraz $J \subseteq R$. 
 		      	      	\item $M$ jest ideałem, czyli jest grupą, więc $0 \in M$. Stąd $0a \oplus 0 = 0 \in J$, czyli $J$ zawiera element zerowy.
 		      	      	\item Weźmy dowolne $j = ra \oplus m \in J$. Wiemy, że $-r \in R$ oraz $-m \in M$. Stąd $-j = -ra \oplus -m \in J$. Wtedy $j \oplus -j = ra \oplus m \oplus -ra \oplus -m = ra \oplus -ra = 0a = 0$, tzn. dla każdego elementu $J$ istnieje element odwrotny.
 		      	      	\item Weźmy dowolne $j_1 = r_1a \oplus m_1, j_2 = r_2a \oplus m_2 \in J$. Wtedy $j_1 \oplus j_2 = r_1a \oplus m_1 \oplus r_2a \oplus m_2 = (r_1 \oplus r_2)a \oplus (m_1 \oplus m_2)$. Wiemy, że $r_1 \oplus r_2 \in R$ oraz $m_1 \oplus m_2 \in M$, więc $j_1 \oplus j_2 \in J$, czyli $J$ jest zamknięte na $\oplus$.
 		      	      	\item $\oplus$ jest łączne. Własność ta wynika bezpośrednio z łączności $\oplus$ w $R$.
-		      	      \end{enumerate}
+		      	      \end{itemize}
 		      	\item Weźmy dowolne $ra \oplus m \in J, r' \in R$. Wtedy $jr' = (ra \oplus m) \odot r' = rar' \oplus mr'$. Z przemienności $R$ $jr' = rr'a \oplus mr'$. $rr' \in R$ oraz, ponieważ $M$ jest ideałem $mr' \in M$, więc $jr' \in J$. Analogicznie $r'j \in J$.
 		      	      \newline
 		      	      Wiemy, że $J$ jest ideałem nad $R$. Możemy też pokazać, że $M \subset J$. $\forall_{m \in M} \, m = 0a \oplus m \in J$ oraz skoro $1 \in R, 0 \in M$, to $a \in J$. Wiemy, że $a \notin M$, więc $M \subset J$.
@@ -352,8 +378,8 @@ Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawi
 \end{theorem}
 
 \begin{proof}
-	Pokażemy, że, jeśli $p$ jest pierwsza $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ spełnia definicję \ref{cialo}.
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	Pokażemy, że jeśli $p$ jest pierwsza $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ spełnia definicję \ref{cialo}.
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
 		\item $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ z $1$ jest pierścieniem. Dowód jest trywialny i korzysta z własności działań $+_p$ i $\times_p$.
 		\item $\langle \mathbb{Z}_p \setminus \{0\}, \times_p \rangle$ jest grupą abelową. Przemienność i łączność wynikają z własności $\times_p$. Elementem neutralnym jest $1$. Jedyną nietrywialną własnością jest istnienie elementu przeciwnego, tzn. należy udowodnić, że $\forall_{a \in \mathbb{Z}_p \setminus \{0\}} \, \exists_{a^{-1} \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p a^{-1} = 1$.\newline
 		      Weźmy dowolne $a \in \mathbb{Z}_p \setminus \{0\}$. Załóżmy nie wprost, że nie istnieje $a^{-1} \in \mathbb{Z}_p \setminus \{0\}$ takie, że $a \times_p a{-1} = 1$. To znaczy $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 1$. Ponieważ $p$ jest pierwsze i wszystkie elementy $\mathbb{Z}_p \setminus \{0\}$ są mniejsze od $p$, wiemy, że $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 0$. Mamy więc $p-1$ czynników i $p-2$ możliwych wyników. Z zasady szufladkowej mamy $\exists{b_1, b_2 \in \mathbb{Z}_p \setminus \{0\}}, b_1 \neq b_2 \, a \times_p b_1 = a \times_p b_2$. Wiemy, że istnieje w $\mathbb{Z}_p$ niezerowy element $-b_2$, więc $-b_2 \in \mathbb{Z}_p \setminus \{0\}$. Korzystając z własności pierścienia $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ możemy przekształcić powyższe równanie do $a \times_p (b_1 +_p -b_2) = 0$. Z $b_1 \neq b_2$ mamy $b_1 +_p -b_2 \in \mathbb{Z}_p \setminus \{0\}$, czyli doszliśmy do sprzeczności.
@@ -361,7 +387,7 @@ Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawi
 \end{proof}
 
 \begin{theorem}
-    Niech $\langle R, \oplus, \odot \rangle$ będzie pierścieniem przemiennym z $1$ oraz $R[X]$ będzie zbiorem wielomianów o współczynnikach w $R$, a $\oplus^*$ i $\odot^*$ będą naturalnie zdefiniowanym dodawaniem i mnożeniem wielomianów z użyciem $\oplus$ i $\odot$ w operacjach na współczynnikach. Wówczas
+	Niech $\langle R, \oplus, \odot \rangle$ będzie pierścieniem przemiennym z $1$ oraz $R[X]$ będzie zbiorem wielomianów o współczynnikach w $R$, a $\oplus^*$ i $\odot^*$ będą naturalnie zdefiniowanym dodawaniem i mnożeniem wielomianów z użyciem $\oplus$ i $\odot$ w operacjach na współczynnikach. Wówczas
 	$\langle R[X], \oplus^{*}, \odot^{*} \rangle$ jest pierścieniem przemiennym z $1$.
 \end{theorem}
 
@@ -395,8 +421,12 @@ Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb ca�
 \end{theorem}
 
 \begin{proof}
-	Pokażemy kolejno, że (1) $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem, a następnie że (2) jest ono rzędu $p^d$.
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	Pokażemy kolejno, że 
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
+		\item $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem oraz
+		\item jest ono rzędu $p^d$.
+	\end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(X)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc na mocy twierdzenia \ref{pier_ilo_cialem} $\mathbb{Z}_p[X]/\langle h(X) \rangle$ jest ciałem.
 		\item Niech $M = \langle h(X) \rangle$. Pokażemy, że jeśli wielomiany $f(X), g(X) \in \mathbb{Z}_p[X]$, gdzie 
 		      \begin{align*}
@@ -502,12 +532,17 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 \end{theorem}
 	
 \begin{proof}
-	Pokażemy kolejno, że (1) $|\,E^{(n)}\,| = n$, (2) $E^{(n)}$ jest grupą, a co więcej, (3) jest grupą cykliczną.
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+    Pokażemy kolejno, że 
+    \begin{enumerate}[label=\arabic*.,leftmargin=.4in]
+        \item $|\,E^{(n)}\,| = n$, 
+        \item $E^{(n)}$ jest grupą, a co więcej, 
+        \item jest grupą cykliczną.
+    \end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
 		\item Pokażemy, że $E^{(n)}$ jest grupą z operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
 		\item Pokażemy cykliczność $E^{(n)}$ poprzez znalezienie generatora grupy. 
-		      \begin{enumerate}[label=(3.\arabic*)]
+		      \begin{enumerate}[label=Ad.3.\arabic*.]
 		      	\item Niech $n$ będzie liczbą pierwszą. Weźmy dowolne $\zeta \in E^{(n)}$. Załóżmy nie wprost, że istnieje $q < n, q \in \mathbb{N}$ takie, że $\zeta^q = 1$. Wtedy $q \, | \, n$, co jest sprzeczne z założeniem o pierwszości $n$. Skoro takie $q$ nie istnieje, to $\zeta$ generuje $E^{(n)}$, ponieważ dla każdego $i, j < n, i, j \in \mathbb{N} \, \zeta^i \neq \zeta^j$.
 		      	\item Niech $n = p_1^{e_1} \cdot \dots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \geq i \geq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $X^{\frac{r}{p_i}}-1$. $n$ jest złożona, więc $\frac{n}{p_1} < n$ i istnieje $\zeta_i$ nie będąca pierwiastkiem $X^{\frac{r}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{p_i^{e_i}}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^p = \alpha_i^{p_i^{k+1}} = 1$ i poprzez indukcję względem $k$ $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
 		      	      Weźmy $\alpha = \alpha_1 \cdot \dots \cdot \alpha_r$. Pokażemy, że $o_n(\alpha) = n$. Wiemy, że $o_n(\alpha) \, | \, n$. Załóżmy nie wprost, że $o_n(\alpha) \neq n$. Wynika stąd, że istnieje takie $p_i$, że $o_n(\alpha) \, | \, \frac{n}{p_i}$. Wtedy $\alpha^{\frac{n}{p_i}} = 1 = \alpha_1^{\frac{n}{p_i}} \cdot \dots \cdot \alpha_r^{\frac{n}{p_r}}$. Dla każdego $j \neq i, 1 \leq j \leq r$ $p_j^{e_j} \, | \, \frac{n}{p_i}$, a ponieważ $o_n(\alpha_j) = p_i^{e_j}$, mamy $\alpha_j^{\frac{n}{p_i}} = 1$. Mamy więc $\alpha_i^{\frac{n}{p_i}} = 1$, czyli $o_n(\alpha_i) | \frac{n}{p_i}$. Mamy jednak $o_n(\alpha_i) = p_i^{e_i}$, które nie dzieli $\frac{n}{p_i}$, więc otrzymaliśmy sprzeczność. Pokazalśmy więc, że $o_n(\alpha) = n$. Na mocy argumentu jak w przypadku pierwszego $n$ znaleźliśmy $\alpha$ będące generatorem $E^{(n)}$.
@@ -585,8 +620,12 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{theorem}
 	
 \begin{proof}
-	Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Dowód przebiegał będzie w dwóch krokach: (1) pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{Z}_{q^k}$ oraz, że (2) jeśli $\zeta \in \mathbb{Z}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{Z}_q$, to istnieje $h(X) \in \mathbb{Z}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.\newline
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+    Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Dowód przebiegał będzie w dwóch krokach: 
+    \begin{enumerate}[label=\arabic*.,leftmargin=.4in]
+        \item pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{Z}_{q^k}$ oraz, że 
+        \item jeśli $\zeta \in \mathbb{Z}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{Z}_q$, to istnieje $h(X) \in \mathbb{Z}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.
+    \end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Zauważmy, że jeśli dowolne $a \in \mathbb{Z}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{Z}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{Z}_{q^k}$.
 		\item Niech $m(X) \in \mathbb{Z}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{Z}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{Z}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{Z}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{Z}_q$. \newline 
 		      Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
@@ -604,7 +643,7 @@ Algorytm AKS opiera się na uogólnieniu małego twierdzenia Fermata dla wielomi
 \begin{breakablealgorithm}
 	\caption{Algorytm ASK}
 	\begin{algorithmic}[1]
-															    
+																			    
 		\Require{liczba całkowita $n > 1$}
 		\Ensure{\textbf{PIERWSZA} - jeśli $n$ jest pierwsza; \textbf{ZŁOŻONA} - jeśli $n$ jest złożona}
 		\If{istnieje takie $a \in \mathbb{N}, b > 1$, że $a^b = n$} \Comment{Krok 1.}
@@ -640,7 +679,7 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 		p(X) = (X + a)^n - (X^n + a) 
 	\end{align*}
 	pokażemy, że $p(X) = 0 \: (mod \, n)$ wtw, gdy $n$ jest pierwsza. 
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
 		\item Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $X^i$ ($1 \leq i < n$) w wielomianie $p(X)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-1}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz $n \, | \, {n \choose i}$. Stąd $n \, | \, p(X)$.
 		\item Załóżmy, że $n$ jest złożona. Niech $q$ będzie pewnym dzielnikiem pierwszym $n$ oraz $q^k \parallel n$. Współczynnik przy $X^q$ jest równy ${n \choose q}a^{n-q}$. Możemy zauważyć, że $q^k$ nie dzieli ${n \choose q}$, ponieważ ${n \choose q} = \frac{n!}{q!(n-q)!} = \frac{n \cdot (n-1) \cdot \, \dots \, \cdot (n - q + 1)}{q!}$. Wiemy, że skoro $q$ jest pierwsze i $q \,| \, n$, to 
 		      \begin{align*}
@@ -753,8 +792,12 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 \end{lemma}
 	
 \begin{proof}
-	Pokażemy, że (1) dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie (2) wywnioskujemy tezę.
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+    Pokażemy, że 
+    \begin{enumerate}[label=\arabic*.,leftmargin=.4in] 
+    \item dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie 
+    \item wywnioskujemy tezę.
+    \end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
 		      \begin{align*}
 		      	(f_1(X))^p = X^n + a    & = (f_2(X))^p \; (mod \, X^r - 1, \, p) \\
@@ -821,8 +864,12 @@ Mając już pomocnicze lematy, możemy przejść do znalezienia ograniczenia dol
 \end{lemma}
 	
 \begin{proof}
-	Pokażemy, że (1) dowolne dwa różne wielomiany stopnia mniejszego niż $t$ w $P$ są różne także w $\mathcal{G}$ oraz, że (2) w $P$ jest co najmniej  ${t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. 
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+    Pokażemy, że 
+    \begin{enumerate}[label=\arabic*.,leftmargin=.4in] 
+        \item dowolne dwa różne wielomiany stopnia mniejszego niż $t$ w $P$ są różne także w $\mathcal{G}$ oraz
+        \item w $P$ jest co najmniej  ${t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. 
+    \end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Niech $f(X) \neq g(X) \in P, \, deg(f), deg(g) < t$. Załóżmy nie wprost, że $f(X) = g(X)$ w $F$. 
 		      Niech $Q(Y) = f(Y) - g(Y)$, gdzie $Y$ jest elementem $F$, czyli także wielomianem. Zauważmy, że oczywistym pierwiastkiem $Q(Y)$ jest $X$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne modulo $X^r - 1, \, p$ dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc w $F$
 		      \begin{align*}
@@ -875,9 +922,9 @@ Mając już ograniczenia z dwóch stron zbioru $\mathcal{G}$ możemy je ze sobą
 	
 \begin{proof}
 	Dowód przebiegać będzie w dwóch krokach.
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
 		\item Udowodnimy, że $\langle G, \cdot \rangle$ spełnia definicję grupy i zawiera się w $\mathbb{Z}_r^*$.
-		      \begin{enumerate}[label=(1.\arabic*)]
+		      \begin{enumerate}[label=1.\arabic*.]
 		      	\item Oczywistym jest, że $G \subseteq \mathbb{Z}_r$. Wiemy, że $NWD(n, \, r) = 1$ oraz $p \, | \, n$, więc $NWD(p, \, r) = 1$. Wynika stąd, że nie istnieje w $I$ element podzielny przez $r$, więc $0 \notin G$. Mamy więc $G \subseteq \mathbb{Z}_r^*$. 
 		      	\item $(\frac{n}{p})^0\cdot p^0 = 1 \in G$, czyli istnieje element neutralny w $G$. 
 		      	\item Mnożenie spełnia własności działania w grupie, co wynika z własności mnożenia.
@@ -914,7 +961,7 @@ Mając już ograniczenie górne i dolne mocy $\mathcal{G}$ oraz dodatkowe pomocn
 	
 \begin{proof}
 	Algorytm może zwrócić \textit{PIERWSZA} tylko w kroku 4. i 7.
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
 		\item Jeśli algorytm zakończył wykonanie w kroku 4., to $r \geq n$, oraz \[\forall_{2 \leq a < r} \, NWD(a, \, n) = n \vee NWD(a, \, n) = 1.\] Oznacza to, że nie istnieje $2 \leq a < n$ będące właściwym dzielnikiem $n$, więc $n$ jest pierwsze.
 		\item Załóżmy nie wprost, że algorytm zakończył wykonanie w kroku 7., zwracając \textit{PIERWSZA} i $n$ jest złożona. Ponieważ algorytm nie zakończył się w kroku 1., wiemy, że $n$ nie jest potęgą żadnej liczby naturalnej, w szczególności nie istnieją takie $p < n, k \in \mathbb{N}$, gdzie $p$ jest pierwsze, że $n = p^k$. W kroku 2. zostaje wybrane najmniejsze takie $r$, że $o_r(n) > log^2n$. Ponadto z niespełnionego warunku w kroku 3. wiemy, że dla $1 \leq a \leq r$ zachodzi $NWD(a, \, n) = 1$, w szczególności $NWD(r, \, n) = 1$. Z kroków 4. i 5. mamy $n > r$ oraz ${\forall_{1 \leq a \leq \lfloor \sqrt{\phi(r)} \, log \, n \rfloor} \, (X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).}$ Z założenia, że $n$ jest liczbą złożoną wiemy, że istnieje $p$, będące pierwszym dzielnikiem $n$. Mamy więc $n, r, p \in \mathbb{N}$, spełniające założenia w uwadze \ref{def}. Weźmy zdefiniowany w niej zbiór $\mathcal{G}$. Na mocy lematu \ref{lower} mamy nierówność $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$ oraz z lematu \ref{el_odwr} oraz uwagi \ref{def} zachodzi ${t > log^2n,}$ ${\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor.}$ Możemy więc wywnioskować nierówność
 		      \begin{align*}
@@ -949,8 +996,12 @@ Oszacowanie złożoności obliczeniowej algorytmu jest o wiele prostsze niż udo
 % Z internetu, ale zmodyfikowane, bo nie umiem całek
 %https://math.stackexchange.com/questions/851328/textlcm1-2-3-ldots-n-geq-2n-for-n-geq-7
 \begin{proof}
-	Pokażemy, że (1) dla dowolnego $m \leq n, \, m \in \mathbb{N}$ zachodzi $m \cdot {n \choose m} \, | \, \ell_n$, a następnie (2) wywnioskujemy tezę.
-	\begin{enumerate}[label=(\arabic*),leftmargin=.4in]
+    Pokażemy, że 
+    \begin{enumerate}[label=\arabic*.,leftmargin=.4in]
+        \item dla dowolnego $m \leq n, \, m \in \mathbb{N}$ zachodzi $m \cdot {n \choose m} \, | \, \ell_n$, a następnie 
+        \item wywnioskujemy tezę.
+    \end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Weźmy dowolne $m \leq n, \, m \in \mathbb{N}$. Niech $q$ będzie dowolną liczbą pierwszą taką, że $q \, | \, \ell_n$. Z własności $\ell_n$ i monotoniczności funkcji $log_q\, x$ możemy wywnioskować, że $q^{\lfloor log_q n \rfloor} \parallel \ell_n$. Niech $q^l \parallel m$. Zauważmy, że \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor} \parallel n!.\] Analogicznie $q^{\sum_{i=1}^{i \leq \lfloor log_q m \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q (n-m) \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. Ponieważ $m, \, n - m \leq n$ zachodzi $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. 
 		      Otrzymujemy \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor)} \parallel {n \choose m}.\]    
 		      Zauważmy, że jeśli $q^i \, | \, m$, to $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) = 0$, a w przeciwnym wypadku $\lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq 1$. Stąd mamy \[\sum_{i=1}^{i \leq \lfloor log_qn \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor) \leq \lfloor log_qn \rfloor - l,\] a ponieważ $q^l \parallel m$, otrzymujemy wniosek, że jeśli $q^i \, | \, m \cdot {n \choose m}$, to $i \leq \lfloor log_qn \rfloor$. Ponieważ nierówność ta zachodzi dla każdego pierwszego dzielnika, możemy wywnioskować, że $m \cdot {n \choose m} \, | \, \ell_n$.
