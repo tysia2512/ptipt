@@ -466,6 +466,8 @@ Kolejną grupą twierdzeń potrzebnych do udowodnienia poprawności algorytmu AK
 \begin{definition}
 	\textit{\textbf{Rozszerzeniem ciała}} $F$ nazywamy takie ciało $G$, $F$ jest podciałem $G$.
 \end{definition}
+
+Zauważmy, że ciało liczb zespolonych jest rozszerzeniem ciała liczb rzeczywistych. Bardziej interesującym przykładem w dalszej części wywodu będzie jednak rozszerzenie ciał skończonego rzędu. Skorzystamy bowiem z własności, że jeśli $p$ jest liczbą pierwszą oraz $f(X)$ jest nierozkładalny w $\mathbb{Z}_p[X]$, to $\mathbb{Z}_p[X]/\langle f(X)\rangle$ jest rozszerzeniem ciała $\mathbb{Z}_p$. Widoczna jest w tym wypadku analogia z pierwszym przykładem.
 	
 \begin{remark*}
 	Jako $F(a_1, \, \dots,\, a_n)$ będziemy oznaczać najmniejsze rozszerzenie ciała $F$ zawierające $a_1, \, \dots,\, a_n$.
@@ -483,10 +485,7 @@ Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewneg
 	
 \begin{proof}
 	Niech $h(X) = a_0 + a_1x + \dots + a_nx^n$ będzie nierozkładalnym w $F[X]$ czynnikiem $f(X)$. Z twierdzenia \ref{pier_ilo_cialem} 
-	wiemy, że $F[X]/\langle h(X) \rangle$ jest ciałem. 
-	Zauważmy, że $F$ jest izomorficzny z $\{a + \langle h(X) \rangle \, | \, a \in F\} \subseteq F[X]/\langle h(X) \rangle$. 
-	%%% UWAGA BS %%%%
-	Więc $F[X]/\langle h(X) \rangle$ jest rozszerzeniem $F$.\newline
+	wiemy, że $F[X]/\langle h(X) \rangle$. Zauważmy dodatkowo, że $F[X]/\langle h(X) \rangle$ jest rozszerzeniem $F$.\newline
 	Niech $\alpha = X + \langle h(X)\rangle$. Ponieważ $deg(f) \geq 2$, $\alpha \in F[X]/\langle h(X) \rangle$. Mamy więc 
 	\begin{align*}
 		h(\alpha) & = a_0 + a_1(X + \langle h(X)\rangle) + \dots + a_n(X+\langle h(X)\rangle)^n \\
@@ -532,12 +531,12 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 \end{theorem}
 	
 \begin{proof}
-    Pokażemy kolejno, że 
-    \begin{enumerate}[label=\arabic*.,leftmargin=.4in]
-        \item $|\,E^{(n)}\,| = n$, 
-        \item $E^{(n)}$ jest grupą, a co więcej, 
-        \item jest grupą cykliczną.
-    \end{enumerate}
+	Pokażemy kolejno, że 
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
+		\item $|\,E^{(n)}\,| = n$, 
+		\item $E^{(n)}$ jest grupą, a co więcej, 
+		\item jest grupą cykliczną.
+	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
 		\item Pokażemy, że $E^{(n)}$ jest grupą z operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
@@ -620,16 +619,24 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{theorem}
 	
 \begin{proof}
-    Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Dowód przebiegał będzie w dwóch krokach: 
-    \begin{enumerate}[label=\arabic*.,leftmargin=.4in]
-        \item pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{Z}_{q^k}$ oraz, że 
-        \item jeśli $\zeta \in \mathbb{Z}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{Z}_q$, to istnieje $h(X) \in \mathbb{Z}_q$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h(X)) = d$.
-    \end{enumerate}
-	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
-		\item Zauważmy, że jeśli dowolne $a \in \mathbb{Z}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma niewięcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{Z}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{Z}_{q^k}$.
-		\item Niech $m(X) \in \mathbb{Z}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{Z}_q[X]$ i $f(\zeta) = 0$. Ponieważ $\mathbb{Z}_q / \langle m(X) \rangle$ jest izomorficzne z $\mathbb{Z}_{p^d}$, to $deg(m) = d$. Z własności wielomianu minimalnego mamy $m(X) | Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{Z}_q$. \newline 
-		      Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
+
+    % IN PROGRESS
+
+	Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Wprowadźmy oznaczenie $\mathbb{F}_{q^k}$ na zbiór będący ciałem rzędu $q^k$. Zauważmy, że takie ciało istnieje, ponieważ zbiór wielomianów o współczynnikach ze zbioru $\mathbb{Z}_q$ stopnia mniejszego niż $k$ jest ciałem rzędu $q^k$.
+	    
+	Dowód przebiegał będzie w dwóch krokach: 
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
+		\item pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$ oraz, że 
+		\item jeśli $\zeta \in \mathbb{F}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{Z}_q[X]$, to istnieje $h(X) \in \mathbb{Z}_q[X]$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h) = d$.
 	\end{enumerate}
+	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
+		\item Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma nie więcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.
+		\item Niech $m(X) \in \mathbb{Z}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{Z}_q[X]$ i $f(\zeta) = 0$. Niech $d = deg(m)$. Oznaczmy $\mathbb{Z}_q / \langle m(X) \rangle$ przez $\mathbb{F}_{p^d}$. Z własności wielomianu minimalnego mamy $m(X) \, | \, Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{Z}_q$.
+	    
+        Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
+    \end{enumerate}
+    
+    
 \end{proof}
 	
 \chapter{Algorytm}
@@ -643,7 +650,7 @@ Algorytm AKS opiera się na uogólnieniu małego twierdzenia Fermata dla wielomi
 \begin{breakablealgorithm}
 	\caption{Algorytm ASK}
 	\begin{algorithmic}[1]
-																			    
+																					    
 		\Require{liczba całkowita $n > 1$}
 		\Ensure{\textbf{PIERWSZA} - jeśli $n$ jest pierwsza; \textbf{ZŁOŻONA} - jeśli $n$ jest złożona}
 		\If{istnieje takie $a \in \mathbb{N}, b > 1$, że $a^b = n$} \Comment{Krok 1.}
@@ -665,7 +672,7 @@ Algorytm AKS opiera się na uogólnieniu małego twierdzenia Fermata dla wielomi
 	
 \section{Dowód poprawności}
     
-Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów i ostatecznie wykorzystanie ich do udowodnienia twierdzenia, że algorytm zwróci \textit{PIERWSZA} wtw, gdy liczba $n$ na wejściu jest pierwsza. Lematy prowadzące do końcowego twierdzenia będą często udowodnione z użyciem twierdzeń i lematów z poprzedniego rozdziału. Kluczowym fragmentem dowodu będzie znalezienie sprzeczności w twierdzeniu, że jeśli $n$ jest złożona, to algorytm może zwócić \textit{PIERWSZA} w kroku 7. Zdefiniujemy bowiem na podstawie $n$, jej pierwszego dzielnika $p$ oraz wybranego w trakcie wykonania algorytmu $r$ zbiór, który, korzystając z założeń wynikających z przebiegu algorytmu, będziemy mogli ograniczyć z dwóch stron, doprowadzając do sprzeczności. 
+Dowód poprawności algorytmu przeprowadzimy poprzez udowodnienie serii lematów i ostatecznie wykorzystanie ich do udowodnienia twierdzenia, że algorytm zwróci \textit{PIERWSZA} wtedy i tylko wtedy, gdy liczba $n$ na wejściu jest pierwsza. Lematy prowadzące do końcowego twierdzenia będą często udowodnione z użyciem twierdzeń i lematów z poprzedniego rozdziału. Kluczowym fragmentem dowodu będzie znalezienie sprzeczności w twierdzeniu, że jeśli $n$ jest złożona, to algorytm może zwócić \textit{PIERWSZA} w kroku 7. Zdefiniujemy bowiem na podstawie $n$, jej pierwszego dzielnika $p$ oraz wybranego w trakcie wykonania algorytmu $r$ zbiór, który, korzystając z założeń wynikających z przebiegu algorytmu, będziemy mogli ograniczyć z dwóch stron, doprowadzając do sprzeczności. 
 
 Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIERWSZA} przez algorytm pokażemy poprzez udowodnienie implikacji w dwie strony. Zacznijmy od pokazania, że jeśli $n$ jest liczbą pierwszą, to algorytm zwróci \textit{PIERWSZA}. Aby udowodnić to twierdzenie wykorzystamy dwa lematy, z których będziemy w stanie wywnioskować, że algorytm nie zakończy się zwróceniem \textit{ZŁOŻONA} w 5. kroku.
 % Następujące lematy przyjmują bowiem założenia, jakie $n, \, p$ i $r$ spełniają w ostatnim kroku algorytmu.
@@ -792,11 +799,11 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 \end{lemma}
 	
 \begin{proof}
-    Pokażemy, że 
-    \begin{enumerate}[label=\arabic*.,leftmargin=.4in] 
-    \item dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie 
-    \item wywnioskujemy tezę.
-    \end{enumerate}
+	Pokażemy, że 
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in] 
+		\item dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie 
+		\item wywnioskujemy tezę.
+	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
 		      \begin{align*}
@@ -826,7 +833,7 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 	Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) \, | \, X^k - 1$ w $\mathbb{Z}_p[X]$. 
 	Rozważmy pierwiastki $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{Z}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. 
 	% UWAGA TO MOŻE BYĆ NIEPRAWDA
-	Mamy więc $h(\zeta) = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$, a ponieważ istnieje pewne $p(X) \in \mathbb{Z}_p[X]$ takie, że $(X^k - 1) = p(X) \cdot h(X) \; (mod \, p)$, to także $\zeta^k - 1 = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$. Wynika stąd, że $\zeta$ jest też pierwiastkiem z jedności $k$-tego stopnia w $\mathbb{Z}_p$, a ponieważ $k < r$, mamy sprzeczność z założeniem o pierwszości $\zeta$.
+	Mamy więc $h(\zeta) = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$, a ponieważ istnieje pewne $p(X) \in \mathbb{Z}_p[X]$ takie, że $(X^k - 1) = p(X) \cdot h(X) \; (mod \, p)$, to także $\zeta^k - 1 = 0 \; (mod \, p)$ w $\mathbb{Z}_p^{(r)}$. Wynika stąd, że $\zeta$ jest też pierwiastkiem z jedności $k$-tego stopnia w $\mathbb{Z}_p$, a ponieważ $k < r$, mamy sprzeczność z założeniem o pierwotności $\zeta$.
 	% Ponieważ $h(X) \, | \, X^k - 1$ także w rozszerzeniu ciała $\mathbb{Z}_p$, to $\zeta^k - 1 = 0$ w $\mathbb{Z}_p^{(r)}$. Otrzymaliśmy sprzeczność z założeniem, że $\zeta$ jest pierwiastkiem pierwotnym, ponieważ $k < r$.
 	%Pokażemy, że (1) w $F$ jest nie więcej niż $o_r(p)$ pierwiastków $r$-tego stopnia z jedności oraz, że (2) $X$ generuje dokładnie $o_r(p)$ różnych pierwiastków $r$-tego stopnia z jedności. \newline
 	%(1) Niech $\zeta \in F$ będzie pierwotnym pierwiastkiem $r$-tego stopnia z jedności w $F$. Wiemy, że $\zeta$ generuje grupę wszystkich pierw
@@ -864,11 +871,11 @@ Mając już pomocnicze lematy, możemy przejść do znalezienia ograniczenia dol
 \end{lemma}
 	
 \begin{proof}
-    Pokażemy, że 
-    \begin{enumerate}[label=\arabic*.,leftmargin=.4in] 
-        \item dowolne dwa różne wielomiany stopnia mniejszego niż $t$ w $P$ są różne także w $\mathcal{G}$ oraz
-        \item w $P$ jest co najmniej  ${t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. 
-    \end{enumerate}
+	Pokażemy, że 
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in] 
+		\item dowolne dwa różne wielomiany stopnia mniejszego niż $t$ w $P$ są różne także w $\mathcal{G}$ oraz
+		\item w $P$ jest co najmniej  ${t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. 
+	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Niech $f(X) \neq g(X) \in P, \, deg(f), deg(g) < t$. Załóżmy nie wprost, że $f(X) = g(X)$ w $F$. 
 		      Niech $Q(Y) = f(Y) - g(Y)$, gdzie $Y$ jest elementem $F$, czyli także wielomianem. Zauważmy, że oczywistym pierwiastkiem $Q(Y)$ jest $X$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne modulo $X^r - 1, \, p$ dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc w $F$
@@ -996,11 +1003,11 @@ Oszacowanie złożoności obliczeniowej algorytmu jest o wiele prostsze niż udo
 % Z internetu, ale zmodyfikowane, bo nie umiem całek
 %https://math.stackexchange.com/questions/851328/textlcm1-2-3-ldots-n-geq-2n-for-n-geq-7
 \begin{proof}
-    Pokażemy, że 
-    \begin{enumerate}[label=\arabic*.,leftmargin=.4in]
-        \item dla dowolnego $m \leq n, \, m \in \mathbb{N}$ zachodzi $m \cdot {n \choose m} \, | \, \ell_n$, a następnie 
-        \item wywnioskujemy tezę.
-    \end{enumerate}
+	Pokażemy, że 
+	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
+		\item dla dowolnego $m \leq n, \, m \in \mathbb{N}$ zachodzi $m \cdot {n \choose m} \, | \, \ell_n$, a następnie 
+		\item wywnioskujemy tezę.
+	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Weźmy dowolne $m \leq n, \, m \in \mathbb{N}$. Niech $q$ będzie dowolną liczbą pierwszą taką, że $q \, | \, \ell_n$. Z własności $\ell_n$ i monotoniczności funkcji $log_q\, x$ możemy wywnioskować, że $q^{\lfloor log_q n \rfloor} \parallel \ell_n$. Niech $q^l \parallel m$. Zauważmy, że \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor} \parallel n!.\] Analogicznie $q^{\sum_{i=1}^{i \leq \lfloor log_q m \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q (n-m) \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. Ponieważ $m, \, n - m \leq n$ zachodzi $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{m}{q^i}\rfloor} \parallel m!$ i $q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n-m}{q^i}\rfloor} \parallel (n-m)!$. 
 		      Otrzymujemy \[q^{\sum_{i=1}^{i \leq \lfloor log_q n \rfloor} \lfloor \frac{n}{q^i}\rfloor - (\lfloor \frac{m}{q^i}\rfloor + \lfloor \frac{n-m}{q^i}\rfloor)} \parallel {n \choose m}.\]    
