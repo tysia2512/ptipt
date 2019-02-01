@@ -327,7 +327,6 @@ Znając już definicję grupy ilorazowej, możemy ją wykorzystać do zdefiniowa
 
 Możemy zauważyć, że ideał w teorii pierścieni odpowiada podgrupie normalnej w teorii grup. Co więcej, analogia ta aplikuje się także do konstrukcji pierścienia ilorazowego. Ideał pełni bowiem w konstrukcji pierścienia ilorazowego taką rolę, jaką w konstrukcji grupy ilorazowej pełni podgrupa normalna.
 
-
 Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pierścienie ilorazowe są ciałami. Będzie to twierdzenie, którego będziemy używać w późniejszych lematach dla pierścienia ilorazowego pierścienia wielomianów.
 
 \theoremstyle{theorem}
@@ -594,10 +593,9 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 	Jeśli $G$ jest rozszerzeniem ciała $F$, to \textbf{\textit{wielomianem minimalnym}} dla $g \in G$ nazywamy nierozkładalny moniczny wielomian $m(X) \in F[X]$ taki, że $m(g) = 0$.
 \end{definition}
 	
-\begin{theorem}
-	Jeśli $G$ jest rozszerzeniem ciała $F$ oraz istnieje, to dla każdego $g \in G$, jeśli istnieje niezerowy $f(X) \in F[X], \, f(g) = 0$, to istnieje niezerowy wielomian minimalny w $F[X]$.
+\begin{theorem}\label{istnieje_mini}
+	Jeśli $G$ jest rozszerzeniem ciała $F$, to dla każdego $g \in G$, jeśli istnieje niezerowy $f(X) \in F[X], \, f(g) = 0$, to istnieje niezerowy wielomian minimalny w $F[X]$.
 \end{theorem}
-	
 	
 % Trochę byle jak ten dowód ale jest łatwy i już mi się nie chce.
 \begin{proof}
@@ -605,7 +603,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 	% http://mathonline.wikidot.com/the-minimal-polynomial-of-an-algebraic-element-in-a-field-ex
 \end{proof}
 	
-\begin{lemma}
+\begin{lemma} \label{mini_dzieli}
 	Jeśli $G$ jest rozszerzeniem ciała $F$ oraz $m(X) \in F[X]$ wielomianem minimalnym dla $g \in G$, to dla każdego $f(X) \in F[X]$ $f(g) = 0 \Rightarrow m(X) \, | \, f(X)$.
 \end{lemma}
 	
@@ -619,24 +617,20 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{theorem}
 	
 \begin{proof}
-
-    % IN PROGRESS
-
 	Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Wprowadźmy oznaczenie $\mathbb{F}_{q^k}$ na zbiór będący ciałem rzędu $q^k$. Zauważmy, że takie ciało istnieje, ponieważ zbiór wielomianów o współczynnikach ze zbioru $\mathbb{Z}_q$ stopnia mniejszego niż $k$ jest ciałem rzędu $q^k$.
 	    
-	Dowód przebiegał będzie w dwóch krokach: 
+	Dowód przebiegał będzie w dwóch krokach. 
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
-		\item pokażemy, że dla dowolnego $k > 1$ $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$ oraz, że 
-		\item jeśli $\zeta \in \mathbb{F}_{q^d}$ jest pierwiastkiem wielomianu $f(X) \in \mathbb{Z}_q[X]$, to istnieje $h(X) \in \mathbb{Z}_q[X]$ takie, że $h(X) \, | \, f(X)$ oraz $deg(h) = d$.
+        \item Pokażemy, że dla dowolnego $k > 1$ zachodzi $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$.
+        \item Weźmy najmniejsze takie $d$, że $\zeta \in \mathbb{F}_{q^d}$. Wtedy dla dowolnego wielomianu $f(X) \in \mathbb{Z}_q[X]$ o pierwiastku w $\zeta$ istnieje w $\mathbb{Z}_q[X]$ wielomian $h(X) \, | \, f(X)$ taki, że $deg(h) = d$.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma nie więcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.
-		\item Niech $m(X) \in \mathbb{Z}_q$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje i jest niezerowy, ponieważ istnieje $f(X) = X^{n} - 1 \in \mathbb{Z}_q[X]$ i $f(\zeta) = 0$. Niech $d = deg(m)$. Oznaczmy $\mathbb{Z}_q / \langle m(X) \rangle$ przez $\mathbb{F}_{p^d}$. Z własności wielomianu minimalnego mamy $m(X) \, | \, Q_n(X)$ oraz $m(X)$ jest nierozkładalny w $\mathbb{Z}_q$.
-	    
-        Ponieważ $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
+        \item Niech $m(X) \in \mathbb{Z}_q[X]$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje z \ref{istnieje_mini} oraz ponieważ istnieje $Q_n(X) \in \mathbb{Z}_q[X]$. Założyliśmy, że $\zeta \in \mathbb{F}_{q^d}$. Wiemy także, że $\zeta \in \mathbb{Z}_q / \langle m(X) \rangle$, tzn. $\zeta \in \mathbb{F}_{q^{deg(m)}}$. Ponieważ $m(X)$ jest wielomianem minimalnym oraz $d$ jest najmniejszą liczbą spełniającą założenie, otrzymujemy $deg(m) = d$. Na mocy lematu \ref{mini_dzieli} otrzymujemy dodatkowo, że $m(X)$ dzieli dowolny wielomian $f(X) \in \mathbb{Z}_q[X]$, mający pierwiastek w $\zeta$.
     \end{enumerate}
-    
-    
+
+    Wiemy, że zachodzi $\zeta^{q^{o_n(q)}}=\zeta$, więc także $\zeta \in \mathbb{F}_{q^{o_n(q)}}$. Ponieważ $\zeta$ jest pierwiastkiem pierwotnym wiemy, że jest to najmniejsza liczba, spełniająca tę własność. Możemy więc skorzystać z faktu udowodnionego w drugim kroku i wywnioskować, że każdy wielomian o pierwiastku w $\zeta$ można podzielić przez pewien inny wielomian należący do $\mathbb{Z}_q[X]$ stopnia $o_n(q)$. Stosując to rozumowanie indukcyjnie możemy wywnioskować tezę.
+    % Ponieważ dla każdego wielomianu, mającego pierwiastek w pierwotnym pierwiastku $n$-tego stopnia z jedności istnieje dzielący go wielomian $h(X)$ stopnia $ $. $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
 \end{proof}
 	
 \chapter{Algorytm}
