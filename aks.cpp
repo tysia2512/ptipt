@@ -109,12 +109,10 @@ ZZX polynomial_power(const ZZX& f, const ZZ& n, const ZZX& mod) {
 }
 
 string aks(const ZZ& n) {
-    // cout << n << "\n";
     ZZ ln_floor(log_floor(n));
     
     for (long b = 2; b <= log_floor(n); b++) {
         if (find_power(ZZ(2), max(n, ZZ(2)), b, n) != not_found) {
-            cout << "KROK 1\n";
             return COMPOSITE;
         }
     }
@@ -124,30 +122,23 @@ string aks(const ZZ& n) {
     while (!is_order_greater(n, ZZ(r), ln_ceil * ln_ceil)) {
         r++;
     }
-    cout << "r: " << r << "\n";
 
     for (ZZ a(2); a <= ZZ(r); a++) {
         if (1 < gcd(a, n) && gcd(a, n) < n) {
-            cout << "KROK 2: " << a << "\n";
             return COMPOSITE;
         }
     }
     
     if (n <= ZZ(r)) {
-        cout << "KROK 3\n";
         return PRIME;
     }
     
     ZZ l(sqrt_ceil(phi(ZZ(r))) * ln_ceil);
-    cout << l << "\n";
     for (ZZ a(1); a <= l; a++) {
-        cout << a << "\n";
         ZZX mod;
         mod.SetLength(r + 1);
         mod[0] = -1;
         mod[r] = 1;
-
-        // cout << "X^r - 1: " << mod << "\n";
 
         ZZX left;
         left.SetLength(2);
@@ -165,19 +156,14 @@ string aks(const ZZ& n) {
         diff = polynomial_mod(diff, n);
         diff.normalize();
         if (!IsZero(diff)) {
-            cout << "KROK 4\n";
-            cout << diff << "\n";
             return COMPOSITE;
         }
     }
-    cout << "KROK 5\n";
     return PRIME;
 }
 
 int main() {
-
     ZZ n;
     cin >> n;
     cout << aks(n) << "\n";
-
 }
