@@ -506,7 +506,7 @@ Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewneg
 \end{theorem}
 	
 \begin{proof}
-	Dowód przebiegać będzie przez indukcję względem $n = deg(f)$. Przypadek dla $n = 1$ jest trywialny, ponieważ $F$ spełnia warunki. Załóżmy więc $deg(f) \geq 2$ oraz, że dla wszystkich wielomianów niższego stopnia teza zachodzi. Z \ref{Kronecker} wiemy, że istnieje ciało $G$ będące rozszerzeniem $F$ takie, że istnieje $\alpha \in G, \, f(\alpha) = 0$. Mamy więc w $G[X]$ $f(X) = (X - \alpha)g(X)$. Z założenia indukcyjnego wiemy, że dla $g(X)$ istnieje ciało rozkładu $H$ nad $G$ więc $H$ jest też ciałem rozkładu $f(X)$ nad $F$.
+	Dowód przebiegać będzie przez indukcję względem $n = deg(f)$. Przypadek dla $n = 1$ jest trywialny, ponieważ $F$ spełnia warunki. Załóżmy więc $deg(f) \geq 2$ oraz, że dla wszystkich wielomianów niższego stopnia teza zachodzi. Z lematu \ref{Kronecker} wiemy, że istnieje ciało $G$ będące rozszerzeniem $F$ takie, że istnieje $\alpha \in G, \, f(\alpha) = 0$. Mamy więc w $G[X]$ $f(X) = (X - \alpha)g(X)$. Z założenia indukcyjnego wiemy, że dla $g(X)$ istnieje ciało rozkładu $H$ nad $G$ więc $H$ jest też ciałem rozkładu $f(X)$ nad $F$.
 \end{proof}
 	
 \begin{definition}
@@ -543,7 +543,7 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 		\item jest grupą cykliczną.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
-		\item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
+		\item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z twierdzenia \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z lematu \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
 		\item Pokażemy, że $E^{(n)}$ jest grupą z operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
 		\item Pokażemy cykliczność $E^{(n)}$ poprzez znalezienie generatora grupy. 
 		      \begin{enumerate}[label=Ad.3.\arabic*.]
@@ -632,7 +632,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma nie więcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.
-        \item Niech $m(X) \in \mathbb{Z}_q[X]$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje z \ref{istnieje_mini} oraz ponieważ istnieje $Q_n(X) \in \mathbb{Z}_q[X]$. Założyliśmy, że $\zeta \in \mathbb{F}_{q^d}$. Wiemy także, że $\zeta \in \mathbb{Z}_q / \langle m(X) \rangle$, tzn. $\zeta \in \mathbb{F}_{q^{deg(m)}}$. Ponieważ $m(X)$ jest wielomianem minimalnym oraz $d$ jest najmniejszą liczbą spełniającą założenie, otrzymujemy $deg(m) = d$. Na mocy lematu \ref{mini_dzieli} otrzymujemy dodatkowo, że $m(X)$ dzieli dowolny wielomian $f(X) \in \mathbb{Z}_q[X]$, mający pierwiastek w $\zeta$.
+        \item Niech $m(X) \in \mathbb{Z}_q[X]$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje z twierdzenia \ref{istnieje_mini} oraz ponieważ istnieje $Q_n(X) \in \mathbb{Z}_q[X]$. Założyliśmy, że $\zeta \in \mathbb{F}_{q^d}$. Wiemy także, że $\zeta \in \mathbb{Z}_q / \langle m(X) \rangle$, tzn. $\zeta \in \mathbb{F}_{q^{deg(m)}}$. Ponieważ $m(X)$ jest wielomianem minimalnym oraz $d$ jest najmniejszą liczbą spełniającą założenie, otrzymujemy $deg(m) = d$. Na mocy lematu \ref{mini_dzieli} otrzymujemy dodatkowo, że $m(X)$ dzieli dowolny wielomian $f(X) \in \mathbb{Z}_q[X]$, mający pierwiastek w $\zeta$.
     \end{enumerate}
 
     Wiemy, że zachodzi $\zeta^{q^{o_n(q)}}=\zeta$, więc także $\zeta \in \mathbb{F}_{q^{o_n(q)}}$. Ponieważ $\zeta$ jest pierwiastkiem pierwotnym wiemy, że jest to najmniejsza liczba, spełniająca tę własność. Możemy więc skorzystać z faktu udowodnionego w drugim kroku i wywnioskować, że każdy wielomian o pierwiastku w $\zeta$ można podzielić przez pewien inny wielomian należący do $\mathbb{Z}_q[X]$ stopnia $o_n(q)$. Stosując to rozumowanie indukcyjnie możemy wywnioskować tezę.
