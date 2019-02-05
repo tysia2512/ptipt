@@ -19,6 +19,11 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{enumitem}
+\usepackage[backend=bibtex,style=ieee]{biblatex}
+% \bibliography{main}
+\nocite{*}
+\addbibresource{main.bib}
+
 % \usepackage{autoref}
 % \usepackage{graphicx,listings,amsmath,amssymb,amsthm,amsfonts,tikz}
 % \SetKwInput{KwData}{Dane wejściowe}
@@ -1075,17 +1080,19 @@ Testy poprawnościowe znajdują się w pliku \verb|corr.in|, a poprawne wyniki w
 %%%%% BIBLIOGRAFIA
 
 % \bibliographystyle{plain}
-% \bibliography{bibliography.bib}
 
 % \bibliographystyle{plain}
-% \bibliography{bib.bib}
+% \phantomsection
+\printbibliography[heading=bibintoc]
 
-\begin{thebibliography}{1}
+% \addcontentsline{toc}{chapter}{Bibliografia}
+% \begin{thebibliography}{1}
  
-\bibitem{sml_proposal} 
-The Standard ML Core Language, by Robin Milner, July 1984.
+% \bibitem{aks}
+% Manindra Agrawal, Neeraj Kayal, Nitin Saxena, \textit{PRIMES is in P}
+% The Standard ML Core Language, by Robin Milner, July 1984.
 % \\\texttt{http://sml-family.org/history/SML-proposal-7-84.pdf}
 
-\end{thebibliography}
+% \end{thebibliography}
 
 \end{document}
