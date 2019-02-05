@@ -10,3 +10,9 @@ main.log
 main.out
 main.toc
 main.dvi
+main.bbl
+main.bcf
+main.blg
+main-blx.bib
+main.run.xml
+corr_run.out
