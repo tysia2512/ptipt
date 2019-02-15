@@ -80,6 +80,7 @@ Additionaly, a sample implementation of AKS algorithm in C++ language is present
 \theoremstyle{plain} \newtheorem{theorem}{Twierdzenie}
 \theoremstyle{plain} \newtheorem{lemma}{Lemat}
 \theoremstyle{remark} \newtheorem*{remark*}{Uwaga}
+\theoremstyle{remark} \newtheorem{remark}{Uwaga}
 \theoremstyle{reminder} \newtheorem*{reminder*}{Przypomnienie}
 % \usepackage{etoolbox}
 % \makeatletter
@@ -564,8 +565,8 @@ Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności na
 		\item Pokażemy zamkniętość $E^{(n)}$ na $\cdot$, istnienie elementu neutralnego i elementów odwrotnych w $E^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2)^n = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
 		\item Pokażemy cykliczność $E^{(n)}$ poprzez znalezienie generatora grupy. 
 		      \begin{enumerate}[label=Ad.3.\arabic*.]
-		      	\item Niech $n$ będzie liczbą pierwszą. Weźmy dowolne $\zeta \in E^{(n)}$. Załóżmy nie wprost, że istnieje $q < n, q \in \mathbb{N}$ takie, że $\zeta^q = 1$. Wtedy $q \, | \, n$, co jest sprzeczne z założeniem o pierwszości $n$. Skoro takie $q$ nie istnieje, to $\zeta$ generuje $E^{(n)}$, ponieważ dla każdego $i, j < n, i, j \in \mathbb{N} \, \zeta^i \neq \zeta^j$.
-		      	\item Niech $n = p_1^{e_1} \cdot \ldots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \leq i \leq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $X^{\frac{n}{p_i}}-1$. Ponieważ $\frac{n}{p_1} < n$, istnieje $\zeta_i$ nie będąca pierwiastkiem $X^{\frac{n}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{(p_i^{e_i})}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ zachodzi $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^{p_i} = \alpha_i^{p_i^{k+1}} = 1$. Poprzez indukcję względem $k$ zachodzi $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
+		      	\item Niech $n$ będzie liczbą pierwszą. Weźmy dowolne $\zeta \in E^{(n)}$. Załóżmy nie wprost, że istnieje $q < n, q \in \mathbb{N}$ takie, że $\zeta^q = 1$. Wtedy $q \, | \, n$, co jest sprzeczne z założeniem o pierwszości $n$. Skoro takie $q$ nie istnieje, to $\zeta$ generuje $E^{(n)}$, ponieważ dla każdej pary $i, j < n, i, j \in \mathbb{N}$ zachodzi $\zeta^i \neq \zeta^j$.
+		      	\item Niech $n = p_1^{e_1} \cdot \ldots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \leq i \leq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $X^{\frac{n}{p_i}}-1$. Ponieważ $\frac{n}{p_1} < n$, istnieje $\zeta_i$ niebędąca pierwiastkiem $X^{\frac{n}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{(p_i^{e_i})}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ zachodzi $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^{p_i} = \alpha_i^{p_i^{k+1}} = 1$. Poprzez indukcję względem $k$ zachodzi $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
 		      	      Weźmy $\alpha = \alpha_1 \cdot \ldots \cdot \alpha_r$. Pokażemy, że $o_n(\alpha) = n$. Wiemy, że $o_n(\alpha) \, | \, n$. Załóżmy nie wprost, że $o_n(\alpha) \neq n$. Wynika stąd, że istnieje takie $p_i$, że $o_n(\alpha) \, | \, \frac{n}{p_i}$. Wtedy $\alpha^{\frac{n}{p_i}} = 1 = \alpha_1^{\frac{n}{p_i}} \cdot \dots \cdot \alpha_r^{\frac{n}{p_r}}$. Dla każdego $j \neq i, 1 \leq j \leq r$ zachodzi z założenia $p_j^{e_j} \, | \, \frac{n}{p_i}$, a ponieważ $o_n(\alpha_j) = p_i^{e_j}$, mamy $\alpha_j^{\frac{n}{p_i}} = 1$. Mamy więc $\alpha^{\frac{n}{p_i}} = \alpha_i^{\frac{n}{p_i}} = 1$, czyli $o_n(\alpha_i) | \frac{n}{p_i}$. Mamy jednak $o_n(\alpha_i) = p_i^{e_i}$, które nie dzieli $\frac{n}{p_i}$, więc otrzymaliśmy sprzeczność. Pokazaliśmy więc, że $o_n(\alpha) = n$. Na mocy argumentu jak w przypadku, gdy $n$ jest pierwsza, znaleźliśmy $\alpha$ będące generatorem $E^{(n)}$.
 		      \end{enumerate}
 	\end{enumerate}
@@ -797,7 +798,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 	Mamy \[(f(X) + g(X))^p = (f(X))^p + (g(X))^p + \sum_{i=1}^{i < p}{p \choose i}(f(X))^i\cdot(g(X))^{p - i}.\] Na mocy argumentu użytego w dowodzie Lematu \ref{L1} otrzymujemy wniosek, że dla $1 \leq i < p$ zachodzi $p \, | \, {p \choose i}$, skąd wynika teza.
 \end{proof}
 
-\begin{remark*}\label{def}
+\begin{remark}\label{def}
 	Na potrzeby kolejnych lematów ustalmy $n, \, r, \, p \in \mathbb{N}, \, n \geq 2 
 	%, \, r < \lceil log^5 \, n \rceil
 	$ oraz \[\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor\] takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto niech dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować 
@@ -806,7 +807,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 		P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}. 
 	\end{align*}
 	Niech $G$ będzie zbiorem reszt z dzielenia elementów $I$ przez $r$ oraz niech $t = | \, G \, |$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy nierozkładalny w $\mathbb{Z}_p[X]$ wielomian $h(X) \in \mathbb{Z}_p[X]$ taki, że $h(X) \, | Q_r(X)$ i $deg(h) = o_r(p)$. Z Twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje. Zdefiniujmy następnie $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
-\end{remark*}
+\end{remark}
 
 Zauważmy, że ustalone powyżej liczby $n, \, r$ spełniają założenia, jakie spełniają odpowiednio zmienne $n$ i $r$ w 7. kroku algorytmu. Jeśli dodatkowo założymy, że $n$ jest złożona, to istnieje $p$ spełniające wszystkie założenia. Dowód będzie przebiegał przed oszacowanie mocy zbioru $\mathcal{G}$ z góry i z dołu doprowadzając do sprzeczności, skąd będziemy mogli wywnioskować, że niemożliwym jest, aby w algorytm zakończył się w kroku 7. przy złożonej $n$.
 

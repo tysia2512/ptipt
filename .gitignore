@@ -16,3 +16,6 @@ main.blg
 main-blx.bib
 main.run.xml
 corr_run.out
+code/corr.in
+code/test.sh
+code/aks.cpp
