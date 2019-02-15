@@ -429,23 +429,23 @@ Przyjrzyjmy się następnie bliżej pierścieniowi wielomianów, którego wspó�
 Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb całkowitych modulo liczba pierwsza.
 
 \begin{theorem} \label{pier_ilo_cialem}
-	Jeśli $p$ jest liczbą pierwszą i $h(X)$ jest nierozkładalnym w $\mathbb{Z}_p[X]$ wielomianem stopnia $d$, to pierścień ilorazowy $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem rzędu $p^d$.
+	Jeśli $p$ jest liczbą pierwszą i $h(X)$ jest nierozkładalnym w $\mathbb{Z}_p[X]$ wielomianem stopnia $d$, to pierścień ilorazowy $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$, gdzie $\oplus$ i $\odot$ są naturalnie zdefiniowanymi operacjami na wielomianach, jest ciałem rzędu $p^d$.
 \end{theorem}
 
 \begin{proof}
 	Pokażemy kolejno, że 
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
-		\item $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem oraz
+		\item pierścień $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem oraz
 		\item jest ono rzędu $p^d$.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
-		\item $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(X)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc na mocy twierdzenia \ref{pier_ilo_cialem} $\mathbb{Z}_p[X]/\langle h(X) \rangle$ jest ciałem.
+		\item $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(X)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc na mocy twierdzenia \ref{pier_ilo_cialem0}$\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem.
 		\item Niech $M = \langle h(X) \rangle$. Pokażemy, że jeśli wielomiany $f(X), g(X) \in \mathbb{Z}_p[X]$, gdzie 
 		      \begin{align*}
 		      	f(X) & = h(X)q_1(X) +^* r_1(X), \\
 		      	g(X) & = h(X)q_2(X) +^* r_2(X), 
 		      \end{align*}
-		      gdzie $r_1(X) = r_2(X)$, to 
+		      oraz $r_1(X) = r_2(X)$, to 
 		      \begin{align*}
 		      	f(X) +^* M = g(X) +^* M. 
 		      \end{align*}
@@ -458,7 +458,7 @@ Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb ca�
 		      	           & = r_2(X) +^* h(X)q_2(X) +^* M  \\
 		      	           & = g(X) +^* M.                  
 		      \end{align*}
-		      Ponadto wiemy, że, ponieważ $M$ jest ideałem głównym, dowolna para wielomianów $f(X), g(X) \in r(X) +^* M$ ma taką samą resztę z dzielenia przez $h(X)$. Mamy więc wniosek, że para wielomianów należy do tego samego elementu zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$ wtw mają taką samą resztę z dzielenia przez $h(X)$.\newline
+		      Ponadto wiemy, że, ponieważ $M$ jest ideałem głównym, dowolna para wielomianów $f(X), g(X) \in r(X) +^* M$ ma taką samą resztę z dzielenia przez $h(X)$. Mamy więc wniosek, że para wielomianów należy do tego samego elementu zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$ wtw, gdy mają taką samą resztę z dzielenia przez $h(X)$.\newline
 		      Mamy więc tyle elementów zbioru $\mathbb{Z}_p[X]/\langle h(X) \rangle$, ile jest różnych reszt dzielenia wielomianu przez $h(X)$, czyli też tyle, ile jest wielomianów stopnia $d-1$ w $\mathbb{Z}_p[X]$. Stąd $ord(\mathbb{Z}_p[X]/\langle h(X) \rangle) = p^d$.
 	\end{enumerate}
 \end{proof}
@@ -467,37 +467,46 @@ Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb ca�
 
 Kolejną grupą twierdzeń potrzebnych do udowodnienia poprawności algorytmu AKS są twierdzenia związane z pierwiastkami jedności nad ciałem. Aby uprościć późniejsze rozważania, wprowadźmy następujące pojęcia związane z ciałami.
 
+\begin{remark*}
+    Ponieważ w tej i kolejnych sekcjach rozważane w kontekście pewnego ciała operacje i ich elementy neutralne będą oczywiste, dla uproszczenia będziemy oznaczać jako $F$ ciało $\langle F, +, \cdot, 0, 1 \rangle$.    
+\end{remark*}
+
 \begin{definition}
-	\textbf{\textit{Charakterystyką}} ciała $F$ będziemy nazywać najmniejszą taką liczbę naturalną $char(F) = n$, że suma $n$ jedynek równa się zeru w $F$.
+	\textbf{\textit{Charakterystyką}} ciała $F$ będziemy nazywać najmniejszą taką liczbę naturalną $char(F) = n$, że suma $n$ jedności równa się zeru w $F$.
 \end{definition}
 
 \begin{definition}
-	\textit{\textbf{Podciałem}} ciała $F$ nazywamy takie $G$, że $G \subseteq F$ z działaniami z $F$ ograniczonymi do elementów $G$ jest ciałem.
+	\textit{\textbf{Podciałem}} ciała $F$ nazywamy takie $G \subseteq F$, że $G$ z działaniami z $F$ ograniczonymi do elementów $G$ jest ciałem.
 \end{definition}
 	
 \begin{definition}
-	\textit{\textbf{Rozszerzeniem ciała}} $F$ nazywamy takie ciało $G$, $F$ jest podciałem $G$.
+	\textit{\textbf{Rozszerzeniem ciała}} $F$ nazywamy takie ciało $G$, że $F$ jest podciałem $G$.
 \end{definition}
 
-Zauważmy, że ciało liczb zespolonych jest rozszerzeniem ciała liczb rzeczywistych. Bardziej interesującym przykładem w dalszej części wywodu będzie jednak rozszerzenie ciał skończonego rzędu. Skorzystamy bowiem z własności, że jeśli $p$ jest liczbą pierwszą oraz $f(X)$ jest nierozkładalny w $\mathbb{Z}_p[X]$, to $\mathbb{Z}_p[X]/\langle f(X)\rangle$ jest rozszerzeniem ciała $\mathbb{Z}_p$. Widoczna jest w tym wypadku analogia z pierwszym przykładem.
+Zauważmy, że ciało liczb zespolonych jest rozszerzeniem ciała liczb rzeczywistych. Bardziej interesującym przykładem w dalszej części wywodu będzie jednak rozszerzenie ciał skończonego rzędu. Skorzystamy bowiem z własności, że jeśli $p$ jest liczbą pierwszą oraz $f(X)$ jest nierozkładalny w $\mathbb{Z}_p[X]$, to $\mathbb{Z}_p[X]/\langle f(X)\rangle$ jest rozszerzeniem ciała $\mathbb{Z}_p$. Co więcej, umiemy uzasadnić, że $\mathbb{Z}_p$ jest podciałem $\mathbb{Z}_{p^{deg(g)}}$. Niech $d = deg(g)$. Zauważmy, że możemy skonstruować bijekcję między elementami $\mathbb{Z}_p[X]/\langle f(X)\rangle$ i $\mathbb{Z}_p$ zachowującą działania, ich elementy neutralne i odwrotności. Wielomianowi $h(X) = a_0 + a_1X + \ldots + a_{d-1}X^{d-1} \in \mathbb{Z}_p[X]/\langle f(X)\rangle$ odpowiada liczba $a_0p^{d-1} + \ldots + a_{d-1} \in \mathbb{Z}_{p^d}$. Wówczas $\mathbb{Z}_p$ jest podciałem $\mathbb{Z}_{p^d}$ w taki sposób, że elementowi $k \in \mathbb{Z}_p$ odpowiada $kp^{d-1} \in \mathbb{Z}_{p^d}$.
+
+% Widoczna jest w tym wypadku analogia z pierwszym przykładem.
+\begin{observation}\label{char1}
+	Jeśli ciało $G$ jest rozszerzeniem ciała $F$, to $char(G)=char(F)$.
+\end{observation}
 	
 \begin{remark*}
 	Jako $F(a_1, \, \dots,\, a_n)$ będziemy oznaczać najmniejsze rozszerzenie ciała $F$ zawierające $a_1, \, \dots,\, a_n$.
 \end{remark*}
 	
 \begin{definition}
-	\textit{\textbf{Ciałem rozkładu}} wielomianu $f(X) \in F[X]$ nad $F$ nazywamy $G$, będące rozszerzeniem $F$ takie, że $f(X)$ można rozłożyć na czynniki liniowe w pierścieniu $G[X]$.
+	\textit{\textbf{Ciałem rozkładu}} wielomianu $f(X) \in F[X]$ nad $F$ nazywamy $G$ będące rozszerzeniem $F$ takie, że $f(X)$ można rozłożyć na czynniki liniowe w pierścieniu $G[X]$.
 \end{definition}
 
-Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewnego wielomianu nad ciałem, wprowadźmy twierdzenie Kroneckera, które pozwoli w późniejszych twierdzeniach udowodnić istnienie ciała rozkładu i pierwiastków z jedności.
+Jako że ciało rozkładu wielomianu będzie ważnym pojęciem w kolejnych deifnicjach, pokażmy, że takowe zawsze istnieje. 
 	
 \begin{lemma}[Twierdzenie Kroneckera] \label{Kronecker}
 	Dla każdego ciała $F$ i wielomianu $f(X) \in F[X], deg(f) \geq 2$ istnieje rozszerzenie $G$ ciała $F$, w którym $f(X)$ ma pierwiastek.
 \end{lemma}
 	
 \begin{proof}
-	Niech $h(X) = a_0 + a_1x + \dots + a_nx^n$ będzie nierozkładalnym w $F[X]$ czynnikiem $f(X)$. Z twierdzenia \ref{pier_ilo_cialem} 
-	wiemy, że $F[X]/\langle h(X) \rangle$. Zauważmy dodatkowo, że $F[X]/\langle h(X) \rangle$ jest rozszerzeniem $F$.\newline
+	Niech $h(X) = a_0 + a_1X + \dots + a_nX^n$ będzie nierozkładalnym w $F[X]$ czynnikiem $f(X)$. Z Twierdzenia \ref{pier_ilo_cialem} 
+	wiemy, że $F[X]/\langle h(X) \rangle$ jest ciałem, a co więcej jest rozszerzeniem $F$.\newline
 	Niech $\alpha = X + \langle h(X)\rangle$. Ponieważ $deg(f) \geq 2$, $\alpha \in F[X]/\langle h(X) \rangle$. Mamy więc 
 	\begin{align*}
 		h(\alpha) & = a_0 + a_1(X + \langle h(X)\rangle) + \dots + a_n(X+\langle h(X)\rangle)^n \\
@@ -513,50 +522,43 @@ Jako że zdefiniujemy pierwiastki z jedności z użyciem ciała rozkładu pewneg
 \end{theorem}
 	
 \begin{proof}
-	Dowód przebiegać będzie przez indukcję względem $n = deg(f)$. Przypadek dla $n = 1$ jest trywialny, ponieważ $F$ spełnia warunki. Załóżmy więc $deg(f) \geq 2$ oraz, że dla wszystkich wielomianów niższego stopnia teza zachodzi. Z lematu \ref{Kronecker} wiemy, że istnieje ciało $G$ będące rozszerzeniem $F$ takie, że istnieje $\alpha \in G, \, f(\alpha) = 0$. Mamy więc w $G[X]$ $f(X) = (X - \alpha)g(X)$. Z założenia indukcyjnego wiemy, że dla $g(X)$ istnieje ciało rozkładu $H$ nad $G$ więc $H$ jest też ciałem rozkładu $f(X)$ nad $F$.
+	Dowód przebiegać będzie przez indukcję względem $n = deg(f)$. Przypadek dla $n = 1$ jest trywialny, ponieważ $F$ spełnia warunki. Załóżmy więc $deg(f) \geq 2$ oraz, że dla wszystkich wielomianów niższego stopnia teza zachodzi. Z Lematu \ref{Kronecker} wiemy, że istnieje ciało $G$ będące rozszerzeniem $F$ takie, że istnieje $\alpha \in G, \, f(\alpha) = 0$. Mamy więc w $G[X]$ równość $f(X) = (X - \alpha)g(X)$. Z założenia indukcyjnego wiemy, że dla $g(X)$ istnieje ciało rozkładu $H$ nad $G$ więc $H$ jest też ciałem rozkładu $f(X)$ nad $F$.
 \end{proof}
 	
 \begin{definition}
-	Niech $F$ będzie ciałem, a $n \geq 1, n \in \mathbb{N}$. Ciało rozkładu $F^{(n)}$ dla $X^n - 1$ nad $F$ będziemy nazywać \textit{\textbf{n-tym ciałem cyklotomicznym}}, a zbiór pierwiastków $X^n - 1$ w $F^{(n)}$ \textit{\textbf{pierwiastkami n-tego stopnia z jedności}} i oznaczać $E^{(n)}$.
+	Niech $F$ będzie ciałem i $n \in \mathbb{N}_+$. Ciało rozkładu  wielomianu $X^n - 1$ nad $F$ będziemy nazywać \textit{\textbf{n-tym ciałem cyklotomicznym}} i oznaczać $F^{(n)}$, a zbiór pierwiastków $X^n - 1$ w $F^{(n)}$ \textit{\textbf{pierwiastkami n-tego stopnia z jedności}} i oznaczać $E^{(n)}$.
 \end{definition}
 	
 \begin{theorem} \label{mult_root}
-	Niech $F$ będzie ciałem, a $f(X) \in F[X]$. Jeśli $a \in F$ jest wielokrotnym pierwiastkiem $f(X)$, to jest też pierwiastkiem $f'(X)$.
+	Niech $F$ będzie ciałem i $f(X) \in F[X]$. Jeśli $a \in F$ jest wielokrotnym pierwiastkiem $f(X)$, to jest też pierwiastkiem $f'(X)$.
 \end{theorem}
 	
 \begin{proof}
 	Zauważmy, że, ponieważ $f(X)$ jest wielomianem, $f(X) \in F[X]$ implikuje $f'(X) \in F[X]$. Skoro $f(X)$ ma co najmniej podwójny pierwiastek w $a$, to istnieje $h(X) \in F[X]$ takie, że $f(X) = (X - a)(X - a)h(X)$. Wtedy $f'(X) = (X - a)((X - a)h'(X) + 2h(X))$, czyli $f'(X)$ ma pierwiastek w $a$.
 \end{proof}
-	
-\begin{lemma}\label{char1}
-	Jeśli ciało $G$ jest rozszerzeniem ciała $F$, to $char(G)=char(F)$.
-\end{lemma}
-	
-\begin{proof}
-	Ponieważ $F$ i $G$ są ciałami dla tych samych operacji $0_F=0_G$ i $1_F = 1_G$, z definicji charakterystyki mamy $char(F) = char(G)$.
-\end{proof}
 
 Przyjrzyjmy się strukturze zbioru pierwiastków $n$-tego stopnia z jedności nad ciałem. 
 	
 \begin{theorem}
-	Dla każdego ciała $F$, gdzie $p = char(F)$, zbiór pierwiastków $n$-tego stopnia z jedności $E^{(n)}$, gdzie $n \in \mathbb{N}$ oraz $p \nmid n$ z operacją mnożenia w $K^{(n)}$ jest grupą cykliczną rozmiaru $n$.
+	Niech $F$ będzie ciałem i $p = char(F)$. Wówczas zbiór pierwiastków $n$-tego stopnia z jedności $E^{(n)}$, gdzie $n \in \mathbb{N}$ oraz $p \nmid n$ z operacją mnożenia w $K^{(n)}$ jest grupą cykliczną rozmiaru $n$.
 \end{theorem}
 	
 \begin{proof}
+    Niech $\cdot$ będzie operacją mnożenia w $K^{(n)}$.
 	Pokażemy kolejno, że 
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
 		\item $|\,E^{(n)}\,| = n$, 
-		\item $E^{(n)}$ jest grupą, a co więcej, 
-		\item jest grupą cykliczną.
+		\item $\langle E^{(n)}, \cdot \rangle$ jest grupą, a co więcej, 
+		\item $\langle E^{(n)}, \cdot \rangle$ jest cykliczna.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
-		\item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z twierdzenia \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z lematu \ref{char1} mamy $char(K^{(n)}) = p$, więc istnieje $n^{-1}$ w $K^{(n)}$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
-		\item Pokażemy, że $E^{(n)}$ jest grupą z operacją mnożenia w $K^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2) = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
+		\item Przypadek dla $n = 1$ jest trywialny, ponieważ zbiór $E^{(n)}$ jest wtedy zbiorem zawierającym tylko $1$. Załóżmy więc, że $n \geq 2$. Z Twierdzenia \ref{mult_root} wiemy, że jeśli $f(X) = X^n - 1$ i $f'(X) = nX^{n-1}$ nie mają wspólnych pierwiastków w $F$, to nie istnieją w $F$ wielokrotne pierwiastki wielomianu $f(X)$. Z Obserwacji \ref{char1} mamy $char(K^{(n)}) = p$. Z założenia $p \nmid n$. Możemy więc zauważyć, że jedynym pierwiastkiem $f'(X)$ w $F$ jest $0$. Dodatkowo $0$ nie jest pierwiastkiem $f(X)$, więc $f(X)$ ma $n$ różnych pierwiastków w $F$, skąd $|\,E^{(n)}\,| = n$.
+		\item Pokażemy zamkniętość $E^{(n)}$ na $\cdot$, istnienie elementu neutralnego i elementów odwrotnych w $E^{(n)}$. Weźmy dowolne $\zeta_1, \zeta_2 \in E^{(n)}$. Niech $\zeta = \zeta_1 \zeta_2$. Wtedy $\zeta^n = (\zeta_1 \zeta_2)^n = \zeta_1^n \zeta_2^n = 1$, czyli $\zeta_1 \zeta_2 \in E^{(n)}$. Dla dowolnego $\zeta \in E^{(n)}$ istnieje element odwortny $\zeta^{n-1} \in E^{(n)}$. Element neutralny stanowi $1_{K^{(n)}}$.
 		\item Pokażemy cykliczność $E^{(n)}$ poprzez znalezienie generatora grupy. 
 		      \begin{enumerate}[label=Ad.3.\arabic*.]
 		      	\item Niech $n$ będzie liczbą pierwszą. Weźmy dowolne $\zeta \in E^{(n)}$. Załóżmy nie wprost, że istnieje $q < n, q \in \mathbb{N}$ takie, że $\zeta^q = 1$. Wtedy $q \, | \, n$, co jest sprzeczne z założeniem o pierwszości $n$. Skoro takie $q$ nie istnieje, to $\zeta$ generuje $E^{(n)}$, ponieważ dla każdego $i, j < n, i, j \in \mathbb{N} \, \zeta^i \neq \zeta^j$.
-		      	\item Niech $n = p_1^{e_1} \cdot \dots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \geq i \geq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $X^{\frac{r}{p_i}}-1$. $n$ jest złożona, więc $\frac{n}{p_1} < n$ i istnieje $\zeta_i$ nie będąca pierwiastkiem $X^{\frac{r}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{p_i^{e_i}}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^p = \alpha_i^{p_i^{k+1}} = 1$ i poprzez indukcję względem $k$ $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
-		      	      Weźmy $\alpha = \alpha_1 \cdot \dots \cdot \alpha_r$. Pokażemy, że $o_n(\alpha) = n$. Wiemy, że $o_n(\alpha) \, | \, n$. Załóżmy nie wprost, że $o_n(\alpha) \neq n$. Wynika stąd, że istnieje takie $p_i$, że $o_n(\alpha) \, | \, \frac{n}{p_i}$. Wtedy $\alpha^{\frac{n}{p_i}} = 1 = \alpha_1^{\frac{n}{p_i}} \cdot \dots \cdot \alpha_r^{\frac{n}{p_r}}$. Dla każdego $j \neq i, 1 \leq j \leq r$ $p_j^{e_j} \, | \, \frac{n}{p_i}$, a ponieważ $o_n(\alpha_j) = p_i^{e_j}$, mamy $\alpha_j^{\frac{n}{p_i}} = 1$. Mamy więc $\alpha_i^{\frac{n}{p_i}} = 1$, czyli $o_n(\alpha_i) | \frac{n}{p_i}$. Mamy jednak $o_n(\alpha_i) = p_i^{e_i}$, które nie dzieli $\frac{n}{p_i}$, więc otrzymaliśmy sprzeczność. Pokazalśmy więc, że $o_n(\alpha) = n$. Na mocy argumentu jak w przypadku pierwszego $n$ znaleźliśmy $\alpha$ będące generatorem $E^{(n)}$.
+		      	\item Niech $n = p_1^{e_1} \cdot \ldots \cdot p_r^{e_r}$ będzie rozkładem $n$ na czynniki pierwsze. Dla każdego $1 \leq i \leq r$ istnieje nie więcej niż $\frac{n}{p_i}$ pierwiastków wielomianu $X^{\frac{n}{p_i}}-1$. Ponieważ $\frac{n}{p_1} < n$, istnieje $\zeta_i$ nie będąca pierwiastkiem $X^{\frac{n}{p_i}} - 1$. Niech $\alpha_i = \zeta_i^{\frac{n}{(p_i^{e_i})}}$. Wiemy, że $o_n(\alpha_i) \, | \, p_i^{e_i}$, a ponieważ $p_i$ jest pierwsza, $o_n(\alpha_i) = p_i^s$, gdzie $s \leq e_i$. Zauważmy, że jeśli dla $k < r_i$ zachodzi $\alpha_i^{p_i^k} = 1$, to także $(\alpha_i^{p_i^k})^{p_i} = \alpha_i^{p_i^{k+1}} = 1$. Poprzez indukcję względem $k$ zachodzi $\alpha_i^{p_i^{e_i-1}} = 1$. Wybraliśmy $\alpha$ takie, że $\alpha_i^{p_i^{e_i-1}} = \zeta^{\frac{n}{p_i}} \neq 1$, więc $o_n(\alpha_i) = p_i^{e_i}$. \newline
+		      	      Weźmy $\alpha = \alpha_1 \cdot \ldots \cdot \alpha_r$. Pokażemy, że $o_n(\alpha) = n$. Wiemy, że $o_n(\alpha) \, | \, n$. Załóżmy nie wprost, że $o_n(\alpha) \neq n$. Wynika stąd, że istnieje takie $p_i$, że $o_n(\alpha) \, | \, \frac{n}{p_i}$. Wtedy $\alpha^{\frac{n}{p_i}} = 1 = \alpha_1^{\frac{n}{p_i}} \cdot \dots \cdot \alpha_r^{\frac{n}{p_r}}$. Dla każdego $j \neq i, 1 \leq j \leq r$ zachodzi z założenia $p_j^{e_j} \, | \, \frac{n}{p_i}$, a ponieważ $o_n(\alpha_j) = p_i^{e_j}$, mamy $\alpha_j^{\frac{n}{p_i}} = 1$. Mamy więc $\alpha^{\frac{n}{p_i}} = \alpha_i^{\frac{n}{p_i}} = 1$, czyli $o_n(\alpha_i) | \frac{n}{p_i}$. Mamy jednak $o_n(\alpha_i) = p_i^{e_i}$, które nie dzieli $\frac{n}{p_i}$, więc otrzymaliśmy sprzeczność. Pokazaliśmy więc, że $o_n(\alpha) = n$. Na mocy argumentu jak w przypadku, gdy $n$ jest pierwsza, znaleźliśmy $\alpha$ będące generatorem $E^{(n)}$.
 		      \end{enumerate}
 	\end{enumerate}
 \end{proof}
@@ -573,7 +575,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{definition}
 	
 \begin{observation}
-	Dla każdego ciała $F$ i $n \in \mathbb{N}, \, n \nmid char(F)$  istnieje co najmniej jeden pierwotny pierwiastek z jedności $n$-tego stopnia nad $F$.
+	Dla każdego ciała $F$ i $n \in \mathbb{N}, \, char(F) \nmid n$  istnieje co najmniej jeden pierwotny pierwiastek z jedności $n$-tego stopnia nad $F$.
 \end{observation}
 	
 \begin{lemma}\label{pierwotne}
@@ -581,11 +583,11 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{lemma}
 	
 \begin{proof}
-	Weźmy $s$ takie, że $NWD(s, n) = 1$. Niech $k = o_n(\zeta^s)$. Mamy więc $k \, | \, n$. Ponieważ $\zeta^n = 1$ mamy $(\zeta^s)^k = \zeta^n$. $(\zeta^s)^k \in E^{(n)}$, więc, jako że $E^{(n)}$ jest grupą, $(\zeta^s)^-k \in E^{(n)}$. Otrzymujemy $\zeta^s = \zeta^{frac{n}{k}}$. Z $NWD(s, n) = 1$ mamy $n = k$ i ostatecznie $o_n(\zeta^s) = n$, czyli $\zeta^s$ jest generatorem grupy. 
+    Weźmy $s$ takie, że $NWD(s, n) = 1$. Załóżmy nie wprost, że istnieje $k < n$ takie, że $(\zeta^s)^k = 1$. Wtedy $\zeta^{sk} = 1$, więc z pierwotności $\zeta$ możemy wywnioskować, że $n \, | \, sk$. Ponieważ $NWD(s, n) = 1$, otrzymujemy $n \, | \, k$, czyli doszliśmy do sprzeczności i $\zeta^s$ jest generatorem grupy.
 \end{proof}
 	
 \begin{definition}
-	Niech $F$ będzie ciałem, $n \in \mathbb{N}, \, n \nmid char(F)$ oraz $\zeta$ będzie pierwotnym pierwiastkiem z jedności $n$-tego stopnia nad $F$. Wtedy wielomian \[Q_n(X) = \prod_{s = 1, NWD(s, n) = 1}^{n}(X - \zeta^s)\] nazywamy \textit{\textbf{$n$-tym wielomianem cyklotomicznym}} nad $F$.
+	Niech $F$ będzie ciałem, $n \in \mathbb{N}, \, char(F) \nmid n$ oraz $\zeta$ będzie pierwotnym pierwiastkiem z jedności $n$-tego stopnia nad $F$. Wtedy wielomian \[Q_n(X) = \prod_{s = 1, NWD(s, n) = 1}^{n}(X - \zeta^s)\] nazywamy \textit{\textbf{$n$-tym wielomianem cyklotomicznym}} nad $F$.
 \end{definition}
 	
 \begin{lemma}\label{cyklo_dzieli}
@@ -593,7 +595,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{lemma}
 	
 \begin{proof} 
-	Własność ta jest oczywista i wynika z zawierania się zbioru pierwiastków $Q_n(X)$ w zbiorze pierwiastków $X^n - 1$.
+	Własność ta jest oczywista i wynika z zawierania się zbioru pierwiastków $Q_n(X)$ w zbiorze pierwiastków wielomianu $X^n - 1$.
 \end{proof}
 	
 \begin{observation}
@@ -607,21 +609,21 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \end{definition}
 	
 \begin{theorem}\label{istnieje_mini}
-	Jeśli $G$ jest rozszerzeniem ciała $F$, to dla każdego $g \in G$, jeśli istnieje niezerowy $f(X) \in F[X], \, f(g) = 0$, to istnieje niezerowy wielomian minimalny w $F[X]$.
+	Niech $G$ będzie rozszerzeniem ciała $F$ i dla $g \in G$, istnieje niezerowy $f(X) \in F[X]$ taki, że $ f(g) = 0$. Wówczas istnieje niezerowy wielomian minimalny dla $g$ w $F[X]$.
 \end{theorem}
 	
 % Trochę byle jak ten dowód ale jest łatwy i już mi się nie chce.
 \begin{proof}
-	Niech $I = \{f(X) \, | \, f(X) \in F[X], f(g) = 0\}$. Zauważmy, że $I$ jest ideałem nad $F[X]$. Ponieważ $F$ jest ciałem, to, na mocy lematu \ref{idealy_glowne0}, $I$ jest ideałem głównym. Istnieje wiec $m(X) \in F[X]$ takie, że $I = \langle m(X) \rangle$ oraz $m(X)$ ma minimalny stopień w $I$. Dodatkowo ponieważ z założenia $I$ nie jest ideałem zerowym, ponieważ istnieje niezerowy wielomian $f(X)$, mający pierwiastek w $g$, to także $m(X)$ nie jest wielomianem zerowym. Jeśli $m(X)$ jest moniczny, to jest wielomianem minimalnym, w przeciwnym przypadku współczynnik $a$ przy najwyższej potędze $X$ nie jest jedynką. Ponieważ każdy element niezerowy ma odwrotność w $F$, to istnieje też moniczny wielomian będący wielomianem minimalnym.
+	Niech $I = \{f(X) \, | \, f(X) \in F[X], f(g) = 0\}$. Zauważmy, że $I$ jest ideałem nad $F[X]$. Ponieważ $F$ jest ciałem, to na mocy Lematu \ref{idealy_glowne0} $I$ jest ideałem głównym. Istnieje wiec $m(X) \in F[X]$ takie, że $I = \langle m(X) \rangle$ oraz $m(X)$ ma minimalny stopień w $I$. Dodatkowo ponieważ z założenia $I \neq \{0\}$, istnieje niezerowy wielomian $f(X)$ mający pierwiastek w $g$. Stąd także $m(X)$ nie jest wielomianem zerowym. Jeśli $m(X)$ jest moniczny, to jest wielomianem minimalnym, w przeciwnym przypadku współczynnik przy najwyższej potędze $X$ nie jest jedynką. Ponieważ każdy element niezerowy ma odwrotność w $F$, to istnieje też moniczny wielomian będący wielomianem minimalnym.
 	% http://mathonline.wikidot.com/the-minimal-polynomial-of-an-algebraic-element-in-a-field-ex
 \end{proof}
 	
 \begin{lemma} \label{mini_dzieli}
-	Jeśli $G$ jest rozszerzeniem ciała $F$ oraz $m(X) \in F[X]$ wielomianem minimalnym dla $g \in G$, to dla każdego $f(X) \in F[X]$ $f(g) = 0 \Rightarrow m(X) \, | \, f(X)$.
+	Niech $G$ będzie rozszerzeniem ciała $F$ oraz $m(X) \in F[X]$ będzie wielomianem minimalnym dla $g \in G$. Wówczas dla każdego  $f(X) \in F[X]$ zachodzi implikacja $f(g) = 0 \Rightarrow m(X) \, | \, f(X)$.
 \end{lemma}
 	
 \begin{proof}
-	Własność ta wynika z poprzedniego dowodu. Jeśli $m(X)$ jest wielomianem minimalnym dla $g$ nad $F$ i $f(X) \in F[X], f(g) = 0$, to $f$ należy do ideału głównego generowanego przez $m(X)$, czyli istnieje $h(X) \in F[X]$ takie, że $f(X) = h(X)m(X)$.
+	Własność ta wynika z poprzedniego dowodu. Jeśli $m(X)$ jest wielomianem minimalnym dla $g$ nad $F$ i $f(X) \in F[X]$ oraz $f(g) = 0$, to $f(X)$ należy do ideału głównego generowanego przez $m(X)$. Istnieje zatem $h(X) \in F[X]$ takie, że $f(X) = h(X)m(X)$.
 	% http://mathonline.wikidot.com/the-minimal-polynomial-of-an-algebraic-element-in-a-field-ex
 \end{proof}
 	
@@ -632,17 +634,17 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 \begin{proof}
 	Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Wprowadźmy oznaczenie $\mathbb{F}_{q^k}$ na zbiór będący ciałem rzędu $q^k$. Zauważmy, że takie ciało istnieje, ponieważ zbiór wielomianów o współczynnikach ze zbioru $\mathbb{Z}_q$ stopnia mniejszego niż $k$ jest ciałem rzędu $q^k$.
 				    
-	Dowód przebiegał będzie w dwóch krokach. 
+	Dowód przebiegał będzie w trzech krokach. 
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
 		\item Pokażemy, że dla dowolnego $k > 1$ zachodzi $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$.
-		\item Weźmy najmniejsze takie $d$, że $\zeta \in \mathbb{F}_{q^d}$. Wtedy dla dowolnego wielomianu $f(X) \in \mathbb{Z}_q[X]$ o pierwiastku w $\zeta$ istnieje w $\mathbb{Z}_q[X]$ wielomian $h(X) \, | \, f(X)$ taki, że $deg(h) = d$.
+        \item Niech $d$ będzie najmniejszą liczbą taką, że $\zeta \in \mathbb{F}_{q^d}$ oraz $f(X) \in \mathbb{Z}_q[X]$ będzie wielomianem o pierwiastku w $\zeta$ takim, że $deg(f) > 0$. Wówczas istnieje w $\mathbb{Z}_q[X]$ wielomian $h(X)$ taki, że $h(X) \, | \, f(X)$ i $deg(h) = d$.
+        \item Wywnioskujemy tezę.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma nie więcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.
-		\item Niech $m(X) \in \mathbb{Z}_q[X]$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje z twierdzenia \ref{istnieje_mini} oraz ponieważ istnieje $Q_n(X) \in \mathbb{Z}_q[X]$. Założyliśmy, że $\zeta \in \mathbb{F}_{q^d}$. Wiemy także, że $\zeta \in \mathbb{Z}_q / \langle m(X) \rangle$, tzn. $\zeta \in \mathbb{F}_{q^{deg(m)}}$. Ponieważ $m(X)$ jest wielomianem minimalnym oraz $d$ jest najmniejszą liczbą spełniającą założenie, otrzymujemy $deg(m) = d$. Na mocy lematu \ref{mini_dzieli} otrzymujemy dodatkowo, że $m(X)$ dzieli dowolny wielomian $f(X) \in \mathbb{Z}_q[X]$, mający pierwiastek w $\zeta$.
+        \item Niech $m(X) \in \mathbb{Z}_q[X]$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje z Twierdzenia \ref{istnieje_mini} oraz ponieważ istnieje niezerowe $Q_n(X) \in \mathbb{Z}_q[X]$. Założyliśmy, że $\zeta \in \mathbb{F}_{q^d}$. Wiemy także, że $\zeta \in \mathbb{Z}_q / \langle m(X) \rangle$, tzn. $\zeta \in \mathbb{F}_{q^{deg(m)}}$. Ponieważ $m(X)$ jest wielomianem minimalnym oraz $d$ jest najmniejszą liczbą spełniającą założenie, otrzymujemy $deg(m) = d$. Na mocy Lematu \ref{mini_dzieli} otrzymujemy dodatkowo, że $m(X)$ dzieli dowolny wielomian $f(X) \in \mathbb{Z}_q[X]$, mający pierwiastek w $\zeta$.
+        \item Wiemy, że zachodzi $\zeta^{q^{o_n(q)}}=\zeta$, więc także $\zeta \in \mathbb{F}_{q^{o_n(q)}}$. Ponieważ $\zeta$ jest pierwiastkiem pierwotnym wiemy, że jest to najmniejsza liczba, spełniająca tę własność. Możemy więc skorzystać z faktu udowodnionego w drugim kroku i wywnioskować, że każdy wielomian o pierwiastku w $\zeta$ można podzielić przez pewien inny wielomian należący do $\mathbb{Z}_q[X]$ stopnia $o_n(q)$. Stosując to rozumowanie indukcyjnie możemy wywnioskować tezę.
 	\end{enumerate}
-			
-	Wiemy, że zachodzi $\zeta^{q^{o_n(q)}}=\zeta$, więc także $\zeta \in \mathbb{F}_{q^{o_n(q)}}$. Ponieważ $\zeta$ jest pierwiastkiem pierwotnym wiemy, że jest to najmniejsza liczba, spełniająca tę własność. Możemy więc skorzystać z faktu udowodnionego w drugim kroku i wywnioskować, że każdy wielomian o pierwiastku w $\zeta$ można podzielić przez pewien inny wielomian należący do $\mathbb{Z}_q[X]$ stopnia $o_n(q)$. Stosując to rozumowanie indukcyjnie możemy wywnioskować tezę.
 	% Ponieważ dla każdego wielomianu, mającego pierwiastek w pierwotnym pierwiastku $n$-tego stopnia z jedności istnieje dzielący go wielomian $h(X)$ stopnia $ $. $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
 \end{proof}
 	
