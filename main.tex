@@ -49,7 +49,11 @@
 Początkowa część pracy poświęcona jest wprowadzeniu potrzebnych do przeprowadzenia wywodu o algorytmie AKS pojęć algebry abstrakcyjnej - zdefiniowaniu pierścienia, ciała, grupy pierwiastków z jedności oraz wielomianu cyklotomicznego. Część ta zawiera także dowody użytych w dalszych rozdziałach pracy twierdzeń algebry abstrakcyjnej. Jest ona wstępem do głównego tematu pracy, czyli prezentacji algorytmu AKS i dowodu jego poprawności. Wywód służący udowodnieniu poprawności algorytmu uzupełnia artykuł \textit{PRIMES is in P} o dowody nieoczywistych lematów pomocniczych. Ponadto dowody wszystkich własności algebry znaleźć można w początkowej części pracy. Praca zawiera też ograniczenie złożoności algorytmu. Zaprezentowany dowód nie wykorzystuje najsilniejszego znanego ograniczenia, a służy jedynie pokazaniu, że złożoność algorytmu jest wielomianowa.
 
 Dodatkowym celem pracy jest zaprezentowanie przykładowej implementacji algorytmu AKS w języku C++.}
-\englishabstract{To samo in inglisz.}
+\englishabstract{The purpose of this thesis is presentation of AKS algorithm in an understable way for a reader with basic knowledge of abstract algebra. It is an extension of the article \textit{PRIMES is in P} by M. Agrawal, N. Kayal and N. Saxena. It suplements the article with proofs of helper lemmas and theorems of algebra.
+
+The beginning part serves as an introduction of terms of abstract algebra necessary to prove corectness of AKS algorithm, such as rings, fields, group of roots of unity and cyclotomic polynomials. It also contains proofs of theorems used in further chapters. This part is an introduction to following proof of correctness of AKS algorithm, which is main focus of this thesis. Presented proof suplements \textit{PRIMES is in P} with proofs of non-trival lemmas. Moreover all used theorems of algebra can be found in the introductory chapter. The thesis also contains an estimation for algorithm's time complexity. However, presented estimation is not the most accurate estimation known, as its main purpose is to proove polynomial complexity of algorithm.
+
+Additionaly, a sample implementation of AKS algorithm in C++ language is presented.}
 %\date          {}                     % Data zlozenia pracy
 % Dane do oswiadczenia o autorskim wykonaniu
 %\transcriptnum {}                     % Numer indeksu
@@ -269,6 +273,10 @@ Zdefiniujmy więc pojęcie grupy ilorazowej, które stanie się podstawą defini
 \begin{theorem}
 	Jeśli $\langle G, \odot \rangle$ jest grupą, a $\langle N, \odot \rangle$ jej podgrupą normalną, to zbiór warstw grupy $G$ względem $N$ z działaniem $\otimes$ zdefiniowanym jako $(aN)\otimes(bN) = abN$ tworzy grupę. Grupę tę oznaczamy $G/N$ i nazywamy \textbf{\textit{grupą ilorazową}}.
 \end{theorem}
+
+\begin{remark*}
+    Jako że definiujemy nową operację, poza udowadnianymi do tej pory własnościami, musimy uargumentować najpierw zasadność takiej definicji działania. Należy pokazać, że, co do tej pory zakładaliśmy, wyniki działania na parach argumentów, których odpowiadające argumenty są sobie równe, także są równe.
+\end{remark*}
 
 \begin{proof}
 	Wystarczy pokazać, że 
@@ -925,7 +933,7 @@ Mając już ograniczenia z dwóch stron zbioru $\mathcal{G}$ możemy je ze sobą
 	
 \begin{proof}
 	Weźmy zbiór $A$ liczb względnie pierwszych z $r$, mniejszych od $r$. Z definicji funkcji Eulera mamy $| \, A \, | = \phi(r)$. Niech \[B = \{b \, | \, b = p \cdot a \, (mod \, r), \, b < r, \, a \in A\},\]. Zauważmy, że dla wszystkich $b \in B$ zachodzi $NWD(b, r) = 1$, więc $B \subseteq A.$ Pokażemy, że $A = B$. Załóżmy nie wprost $p \cdot a_i = p \cdot a_j \, (mod \, r)$, gdzie $a_i, a_j \in A$. Z Lematu \ref{odwrotny} wiemy, że istnieje $p^{-1} \in \mathbb{Z}_r$. Więc mnożąc stronami przez $p^{-1}$ otrzymujemy sprzeczność. \newline
-	Niech $A = \{a_1, \ldots, \a_{\phi(r)}\}$. Mamy $A = B$, możemy więc wywnioskować równanie 
+	Niech $A = \{a_1, \ldots, a_{\phi(r)}\}$. Mamy $A = B$, możemy więc wywnioskować równanie 
 	\begin{align*}
 		p^{\phi(r)} \cdot a_1 \cdot \dots \cdot a_{\phi(r)} &= a_1 \cdot \dots \cdot a_{\phi(r)} \, (mod \, r) \\
 		p^{\phi(r)} & = 1 \, (mod \, r) &   & \text{(Dla każdego $a_i$ istnieje $a_i^{-1}$.)} 
