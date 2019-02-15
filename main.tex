@@ -439,7 +439,7 @@ Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb ca�
 		\item jest ono rzędu $p^d$.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
-		\item $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(X)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc na mocy twierdzenia \ref{pier_ilo_cialem0}$\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem.
+		\item $\langle \mathbb{Z}_p, +_p, \times_p, 0, 1 \rangle$ jest ciałem, a $h(X)$ jest nierozkładalny w pierścieniu $\langle \mathbb{Z}_p[X], +^*, \times^* \rangle$, więc na mocy Twierdzenia \ref{pier_ilo_cialem0}$\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem.
 		\item Niech $M = \langle h(X) \rangle$. Pokażemy, że jeśli wielomiany $f(X), g(X) \in \mathbb{Z}_p[X]$, gdzie 
 		      \begin{align*}
 		      	f(X) & = h(X)q_1(X) +^* r_1(X), \\
@@ -714,7 +714,7 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{lemma}
 	
 \begin{proof}
-	Dowód wynika bezpośrednio z lematu \ref{L1}. Wiemy, że 
+	Dowód wynika bezpośrednio z Lematu \ref{L1}. Wiemy, że 
 	\begin{align*}
 		(X + a)^n - (X^n + a) = 0 \: (mod \, n), 
 	\end{align*}
@@ -729,7 +729,7 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{theorem}
 	
 \begin{proof}
-	Ponieważ $n$ jest liczbą pierwszą, algorytm nie zwróci \textit{ZŁOŻONA} w kroku 1. i 3. Z lematu \ref{L2} wiemy, że dla każdego $1 \leq a < n$ zachodzi 
+	Ponieważ $n$ jest liczbą pierwszą, algorytm nie zwróci \textit{ZŁOŻONA} w kroku 1. i 3. Z Lematu \ref{L2} wiemy, że dla każdego $1 \leq a < n$ zachodzi 
 	\begin{align*}
 		(X + a)^n = X^n + a \: (mod \: X^r - 1, \: n), 
 	\end{align*}
@@ -786,7 +786,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \end{lemma}
 	
 \begin{proof}
-	Mamy \[(f(X) + g(X))^p = (f(X))^p + (g(X))^p + \sum_{i=1}^{i < p}{p \choose i}(f(X))^i\cdot(g(X))^{p - i}.\] Na mocy argumentu użytego w dowodzie lematu \ref{L1} otrzymujemy wniosek, że dla $1 \leq i < p$ zachodzi $p \, | \, {p \choose i}$, skąd wynika teza.
+	Mamy \[(f(X) + g(X))^p = (f(X))^p + (g(X))^p + \sum_{i=1}^{i < p}{p \choose i}(f(X))^i\cdot(g(X))^{p - i}.\] Na mocy argumentu użytego w dowodzie Lematu \ref{L1} otrzymujemy wniosek, że dla $1 \leq i < p$ zachodzi $p \, | \, {p \choose i}$, skąd wynika teza.
 \end{proof}
 
 \begin{remark*}\label{def}
@@ -797,7 +797,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 		I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\},            \\
 		P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\} 
 	\end{align*}
-	oraz $G$, niech $t = | \, G \, |$, będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy $h(X) \in \mathbb{Z}_p[X]$. Z twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{Z}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
+	oraz $G$, niech $t = | \, G \, |$, będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy $h(X) \in \mathbb{Z}_p[X]$. Z Twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{Z}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
 \end{remark*}
 
 Zauważmy, że ustalone powyżej liczby $n, \, r$ spełniają założenia, jakie spełniają odpowiednio zmienne $n$ i $r$ w 7. kroku algorytmu. Jeśli dodatkowo założymy, że $n$ jest złożona, to istnieje $p$ spełniające wszystkie założenia.
@@ -815,18 +815,18 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 		\item wywnioskujemy tezę.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
-		\item Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
+		\item Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z Lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w Uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
 		      \begin{align*}
 		      	(f_1(X))^p = X^n + a    & = (f_2(X))^p \; (mod \, X^r - 1, \, p) \\
 		      	(f_1(X))^p - (f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p).         
 		      \end{align*}
-		      Z lematu \ref{p_intro} mamy
+		      Z Lematu \ref{p_intro} mamy
 		      \begin{align*}
 		      	(f_1(X) - f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p)       \\
 		      	f_1(X)              & = f_2(X) \; (mod \, X^r - 1, \, p). 
 		      \end{align*}
 		      Więc $\frac{n}{p}$ także jest introspektywne modulo $X^r - 1, \, p$ dla $X + a, 0 \leq a \leq \ell$.
-		\item Ponieważ elementy zbioru $I$ są iloczynami liczb $\frac{n}{p}$ i $p$, a elementy zbioru $P$ są iloczynami wielomianów $X + a, \, 0 \leq a \leq \ell$, z lematów \ref{intro1} i \ref{intro2} możemy wywnioskować tezę.
+		\item Ponieważ elementy zbioru $I$ są iloczynami liczb $\frac{n}{p}$ i $p$, a elementy zbioru $P$ są iloczynami wielomianów $X + a, \, 0 \leq a \leq \ell$, z Lematów \ref{intro1} i \ref{intro2} możemy wywnioskować tezę.
 	\end{enumerate}
 \end{proof} 
 
@@ -839,7 +839,7 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 	
 \begin{proof}
 	% Z twierdzenia \ref{kluczowe} wiemy, że pierwiastki $h(Y)$ w $F$ są pierwotnymi pierwiastkami $r$-tego stopnia z jedności w $\mathbb{Z}_p$, więc też w $F$. Zauważmy, że $h(X) = 0$ w $F$, więc $X$ jest pierwiastkiem $h(Y)$ nad $F$
-	Z lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | \, Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. 
+	Z Lematu \ref{cyklo_dzieli} oraz ponieważ $h(X) \, | \, Q_r(X)$, mamy $h(X) \, | \, X^r - 1$, więc $X^r = 1$ w $F$, czyli $X$ jest pierwiastkiem $r$-tego stopnia z jedności w $F$. 
 	Załóżmy nie wprost, że $X$ nie jest pierwotnym pierwiastkiem. Oznacza to, że istnieje $k < r$ takie, że $X^k = 1$ w $F$. Implikuje to, że $h(X) \, | \, X^k - 1$ w $\mathbb{Z}_p[X]$. 
 	Rozważmy pierwiastki $h(X)$ i $X^k - 1$ w $r$-tym ciele cyklotomicznym nad $\mathbb{Z}_p$. Istnieje w nim pierwiastek pierwotny $r$-tego stopnia $\zeta$, który jest pierwiastkiem $h(X)$. 
 	% UWAGA TO MOŻE BYĆ NIEPRAWDA
@@ -888,14 +888,14 @@ Mając już pomocnicze lematy, możemy przejść do znalezienia ograniczenia dol
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Niech $f(X) \neq g(X) \in P, \, deg(f), deg(g) < t$. Załóżmy nie wprost, że $f(X) = g(X)$ w $F$. 
-		      Niech $Q(Y) = f(Y) - g(Y)$, gdzie $Y$ jest elementem $F$, czyli także wielomianem. Zauważmy, że oczywistym pierwiastkiem $Q(Y)$ jest $X$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z lematu \ref{intro} wiemy, że $i$ jest introspektywne modulo $X^r - 1, \, p$ dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc w $F$
+		      Niech $Q(Y) = f(Y) - g(Y)$, gdzie $Y$ jest elementem $F$, czyli także wielomianem. Zauważmy, że oczywistym pierwiastkiem $Q(Y)$ jest $X$. Wiemy, że $f(X) \neq g(X)$, więc $Q(Y)$ nie jest wielomianem zerowym. Weźmy dowolne $i \in I$. Z Lematu \ref{intro} wiemy, że $i$ jest introspektywne modulo $X^r - 1, \, p$ dla dowolnego wielomianu z $P$, więc też dla dowolnego wielomianu w $\mathcal{G}$. Mamy więc w $F$
 		      \begin{align*}
 		      	(f(X))^i = (g(X))^i \; \text{i} \; f(X^i) = g(X^i). 
 		      \end{align*}
-		      Oznacza to, że dla każdego $i \in I$ $X^i$ jest pierwiastkiem $Q(Y)$ w $F$, czyli też dla każdego $i' \in G$ $X^{i'}$ jest pierwiastkiem $Q(Y)$ w $F$. Załóżmy nie wprost, że istnieją $i < i' \in G$ takie, że $X^i = X^{i'}$ w $F$. Mamy więc $h(X) \, | \, X^i$ w $\mathbb{Z}_p[X]$ lub $X^{i - i'} = 1$. Pierwszy argument tej dysjunkcji jest w oczywisty sposób nieprawdziwy, ponieważ $h(X)$ nie ma pierwiastka w zerze, a drugi jest sprzeczny z lematem \ref{X_pierw}.
+		      Oznacza to, że dla każdego $i \in I$ $X^i$ jest pierwiastkiem $Q(Y)$ w $F$, czyli też dla każdego $i' \in G$ $X^{i'}$ jest pierwiastkiem $Q(Y)$ w $F$. Załóżmy nie wprost, że istnieją $i < i' \in G$ takie, że $X^i = X^{i'}$ w $F$. Mamy więc $h(X) \, | \, X^i$ w $\mathbb{Z}_p[X]$ lub $X^{i - i'} = 1$. Pierwszy argument tej dysjunkcji jest w oczywisty sposób nieprawdziwy, ponieważ $h(X)$ nie ma pierwiastka w zerze, a drugi jest sprzeczny z Lematem \ref{X_pierw}.
 		      Znaleźliśmy więc $|\,G\,| = t$ pierwiastków $Q(Y)$ w $F$ więc $Q(Y)$ jest wielomianem zerowym w $F$ lub $deg(Q) \geq t$, zatem doszliśmy do sprzeczności z założeniem.
 		\item Z założeń o $\ell$ i $o_r(n)$ mamy $\ell = \lfloor \sqrt{\phi(r)} \, log\, n \rfloor < \sqrt{r} \, log \, n $ oraz $o_r(n) > log^2 \, n$. Ponieważ $r > o_r(n)$, otrzymujemy \[\ell < \sqrt{r} \, log \, n < \sqrt{r \cdot o_r(n)} < r < p.\] W połączeniu z $deg(h) > 1$ mamy wniosek że dla dowolnych $0 \leq i < j \leq \ell$ $X + i \neq X + j$ w $F$ oraz $X + i$ i $X + j$ są niezerowe. 
-		      \newline Z lematu \ref{liczba_wielo} otrzymujemy wniosek, że w $P$, a co za tym idzie także w $\mathcal{G}$, jest co najmniej ${t + \ell \choose \ell + 1} = {t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. Stąd $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$.
+		      \newline Z Lematu \ref{liczba_wielo} otrzymujemy wniosek, że w $P$, a co za tym idzie także w $\mathcal{G}$, jest co najmniej ${t + \ell \choose \ell + 1} = {t + \ell \choose t - 1}$ różnych wielomianów stopnia mniejszego niż $t$. Stąd $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$.
 	\end{enumerate}
 \end{proof}
     
@@ -906,7 +906,7 @@ Następnym krokiem będzie znalezienie ograniczenia górnego dla rozmiaru zbioru
 \end{lemma}
 	
 \begin{proof}
-	Weźmy \[I' = \{(\frac{n}{p})^i \cdot p^j \, | \, 0 \leq i, \, j \leq \lfloor \sqrt{t} \rfloor \} \subset I.\] Ponieważ $n$ nie jest potęgą $p$, \[i \neq i' \vee \, j \neq j' \Rightarrow (\frac{n}{p})^i \cdot p^j \neq (\frac{n}{p})^{i'} \cdot p^{j'}.\] Mamy więc $| \, I' \, | = (\lfloor \sqrt{t} \rfloor + 1)^2 > t$. Ponieważ $| \, G \, | = t$, istnieją takie ${i_1 < i_2 \in I'}$, że $i_1 = i_2 \, (mod \, r)$. W połączeniu z $X^r = 1 \, (mod \, X^r - 1)$ otrzymujemy \[X^{i_1} = X^{i_2} \, (mod \, X^r - 1),\] a więc i \[X^{i_1} = X^{i_2} \, (mod \, X^r - 1, \, p).\]  Weźmy dowolny wielomian $f(X) \in P$. Z lematu \ref{intro} mamy \[(f(X))^{i_1} = f(X^{i_1}) = f(X^{i_2}) = (f(X))^{i_2} \; (mod \,  X^r - 1, \, p).\] Oznacza to, że dowolny $f(X) \in \mathcal{G}$ jest pierwiastkiem wielomianu $Q(Y) = Y^{i_1} - Y^{i_2}$ w $F$. Skoro $\mathcal{G} \subset F$, to $Q(Y)$ ma co najmniej $| \, \mathcal{G} \, |$ różnych pierwiastków w $F$ oraz \[deg(Q) = i_2 \leq (\frac{n}{p} \cdot p)^{\lfloor \sqrt{t} \rfloor} \leq n^{\sqrt{t}}.\] Otrzymujemy więc $| \, \mathcal{G} \, | \leq deg(Q) \leq n^{\sqrt{t}}$.
+	Weźmy \[I' = \{(\frac{n}{p})^i \cdot p^j \, | \, 0 \leq i, \, j \leq \lfloor \sqrt{t} \rfloor \} \subset I.\] Ponieważ $n$ nie jest potęgą $p$, \[i \neq i' \vee \, j \neq j' \Rightarrow (\frac{n}{p})^i \cdot p^j \neq (\frac{n}{p})^{i'} \cdot p^{j'}.\] Mamy więc $| \, I' \, | = (\lfloor \sqrt{t} \rfloor + 1)^2 > t$. Ponieważ $| \, G \, | = t$, istnieją takie ${i_1 < i_2 \in I'}$, że $i_1 = i_2 \, (mod \, r)$. W połączeniu z $X^r = 1 \, (mod \, X^r - 1)$ otrzymujemy \[X^{i_1} = X^{i_2} \, (mod \, X^r - 1),\] a więc i \[X^{i_1} = X^{i_2} \, (mod \, X^r - 1, \, p).\]  Weźmy dowolny wielomian $f(X) \in P$. Z Lematu \ref{intro} mamy \[(f(X))^{i_1} = f(X^{i_1}) = f(X^{i_2}) = (f(X))^{i_2} \; (mod \,  X^r - 1, \, p).\] Oznacza to, że dowolny $f(X) \in \mathcal{G}$ jest pierwiastkiem wielomianu $Q(Y) = Y^{i_1} - Y^{i_2}$ w $F$. Skoro $\mathcal{G} \subset F$, to $Q(Y)$ ma co najmniej $| \, \mathcal{G} \, |$ różnych pierwiastków w $F$ oraz \[deg(Q) = i_2 \leq (\frac{n}{p} \cdot p)^{\lfloor \sqrt{t} \rfloor} \leq n^{\sqrt{t}}.\] Otrzymujemy więc $| \, \mathcal{G} \, | \leq deg(Q) \leq n^{\sqrt{t}}$.
 \end{proof}
 
 Mając już ograniczenia z dwóch stron zbioru $\mathcal{G}$ możemy je ze sobą porównać, czym będziemy chcieli ostatecznie dojść do sprzeczności. W tym celu skorzystamy z dodatkowych dwóch ograniczeń dolnych mocy zbioru $G$, wprowadzonych w kolejnych lematach.
@@ -924,7 +924,7 @@ Mając już ograniczenia z dwóch stron zbioru $\mathcal{G}$ możemy je ze sobą
 \end{lemma}
 	
 \begin{proof}
-	Weźmy zbiór $A$ różnych $a_i$ takich, że $a_i < r$ oraz $NWD(a_i, r) = 1$ dla ${1 \leq i \leq k}$. Z definicji funkcji Eulera mamy $| \, A \, | = \phi(r)$. Niech \[B = \{b \, | \, b = p \cdot a_i \, (mod \, r), \, b < r, \, a_i \in A\}.\] Zauważmy, że dla wszystkich $b \in B$ zachodzi $NWD(b, r) = 1$, więc $B \subseteq A.$ Pokażemy, że $A = B$. Załóżmy nie wprost $p \cdot a_i = p \cdot a_j \, (mod \, r), 1 \leq i < j \leq \phi(r)$. Z lematu \ref{odwrotny} wiemy, że istnieje $p^{-1} \in \mathbb{Z}_p$. Więc mnożąc stronami przez $p^{-1}$ otrzymujemy sprzeczność. \newline
+	Weźmy zbiór $A$ różnych $a_i$ takich, że $a_i < r$ oraz $NWD(a_i, r) = 1$ dla ${1 \leq i \leq k}$. Z definicji funkcji Eulera mamy $| \, A \, | = \phi(r)$. Niech \[B = \{b \, | \, b = p \cdot a_i \, (mod \, r), \, b < r, \, a_i \in A\}.\] Zauważmy, że dla wszystkich $b \in B$ zachodzi $NWD(b, r) = 1$, więc $B \subseteq A.$ Pokażemy, że $A = B$. Załóżmy nie wprost $p \cdot a_i = p \cdot a_j \, (mod \, r), 1 \leq i < j \leq \phi(r)$. Z Lematu \ref{odwrotny} wiemy, że istnieje $p^{-1} \in \mathbb{Z}_p$. Więc mnożąc stronami przez $p^{-1}$ otrzymujemy sprzeczność. \newline
 	Mamy $A = B$, możemy więc wywnioskować równanie 
 	\begin{align*}
 		p^{\phi(r)} \cdot a_1 \cdot \dots \cdot a_{\phi(r)} &= a_1 \cdot \dots \cdot a_{\phi(r)} \, (mod \, r) \\
@@ -980,13 +980,13 @@ Mając już ograniczenie górne i dolne mocy $\mathcal{G}$ oraz dodatkowe pomocn
 	Algorytm może zwrócić \textit{PIERWSZA} tylko w kroku 4. i 7.
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
 		\item Jeśli algorytm zakończył wykonanie w kroku 4., to $r \geq n$, oraz \[\forall_{2 \leq a < r} \, NWD(a, \, n) = n \vee NWD(a, \, n) = 1.\] Oznacza to, że nie istnieje $2 \leq a < n$ będące właściwym dzielnikiem $n$, więc $n$ jest pierwsze.
-		\item Załóżmy nie wprost, że algorytm zakończył wykonanie w kroku 7., zwracając \textit{PIERWSZA} i $n$ jest złożona. Ponieważ algorytm nie zakończył się w kroku 1., wiemy, że $n$ nie jest potęgą żadnej liczby naturalnej, w szczególności nie istnieją takie $p < n, k \in \mathbb{N}$, gdzie $p$ jest pierwsze, że $n = p^k$. W kroku 2. zostaje wybrane najmniejsze takie $r$, że $o_r(n) > log^2n$. Ponadto z niespełnionego warunku w kroku 3. wiemy, że dla $1 \leq a \leq r$ zachodzi $NWD(a, \, n) = 1$, w szczególności $NWD(r, \, n) = 1$. Z kroków 4. i 5. mamy $n > r$ oraz ${\forall_{1 \leq a \leq \lfloor \sqrt{\phi(r)} \, log \, n \rfloor} \, (X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).}$ Z założenia, że $n$ jest liczbą złożoną wiemy, że istnieje $p$, będące pierwszym dzielnikiem $n$. Mamy więc $n, r, p \in \mathbb{N}$, spełniające założenia w uwadze \ref{def}. Weźmy zdefiniowany w niej zbiór $\mathcal{G}$. Na mocy lematu \ref{lower} mamy nierówność $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$ oraz z lematu \ref{el_odwr} oraz uwagi \ref{def} zachodzi ${t > log^2n,}$ ${\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor.}$ Możemy więc wywnioskować nierówność
+		\item Załóżmy nie wprost, że algorytm zakończył wykonanie w kroku 7., zwracając \textit{PIERWSZA} i $n$ jest złożona. Ponieważ algorytm nie zakończył się w kroku 1., wiemy, że $n$ nie jest potęgą żadnej liczby naturalnej, w szczególności nie istnieją takie $p < n, k \in \mathbb{N}$, gdzie $p$ jest pierwsze, że $n = p^k$. W kroku 2. zostaje wybrane najmniejsze takie $r$, że $o_r(n) > log^2n$. Ponadto z niespełnionego warunku w kroku 3. wiemy, że dla $1 \leq a \leq r$ zachodzi $NWD(a, \, n) = 1$, w szczególności $NWD(r, \, n) = 1$. Z kroków 4. i 5. mamy $n > r$ oraz ${\forall_{1 \leq a \leq \lfloor \sqrt{\phi(r)} \, log \, n \rfloor} \, (X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).}$ Z założenia, że $n$ jest liczbą złożoną wiemy, że istnieje $p$, będące pierwszym dzielnikiem $n$. Mamy więc $n, r, p \in \mathbb{N}$, spełniające założenia w Uwadze \ref{def}. Weźmy zdefiniowany w niej zbiór $\mathcal{G}$. Na mocy Lematu \ref{lower} mamy nierówność $| \, \mathcal{G} \, | \geq {t + \ell \choose t - 1}$ oraz z Lematu \ref{el_odwr} oraz Uwagi \ref{def} zachodzi ${t > log^2n,}$ ${\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor.}$ Możemy więc wywnioskować nierówność
 		      \begin{align*}
 		      	| \, \mathcal{G} \, | &\geq {t + \ell \choose t - 1} \\
 		      	  & \geq {\lfloor \sqrt{t}\, log \, n \rfloor + 1 + \ell \choose \ell + 1}                      &   & \text{Z ${t > log^2n}$ mamy ${t \geq \lfloor \sqrt{t}\, log \, n} \rfloor + 1$.}                                                               \\
 		      	& = {\lfloor \sqrt{t}\, log \, n \rfloor + 1 + \ell \choose \lfloor \sqrt{t}\, log \, n \rfloor} \\
-		      	  & \geq {2\lfloor \sqrt{t}\, log \, n \rfloor + 1 \choose \lfloor \sqrt{t}\, log \, n \rfloor} &   & \text{Z $\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor$ oraz lematu \ref{phi_r} otrzymujemy $\ell \geq \lfloor \sqrt{t} \, log \, n \rfloor$.} \\
-		      	  & > 2^{\lfloor \sqrt{t}\, log \, n \rfloor + 1}                                               &   & \text{Z lematu \ref{newton1}.}                                                                                                                 \\
+		      	  & \geq {2\lfloor \sqrt{t}\, log \, n \rfloor + 1 \choose \lfloor \sqrt{t}\, log \, n \rfloor} &   & \text{Z $\ell = \lfloor \sqrt{\phi(r)}log \, n \rfloor$ oraz Lematu \ref{phi_r} otrzymujemy $\ell \geq \lfloor \sqrt{t} \, log \, n \rfloor$.} \\
+		      	  & > 2^{\lfloor \sqrt{t}\, log \, n \rfloor + 1}                                               &   & \text{Z Lematu \ref{newton1}.}                                                                                                                 \\
 		      	&\geq 2^{\sqrt{t}\,log \,n} \\
 		      	&= n^{\sqrt{t}}.
 		      \end{align*}
@@ -999,7 +999,7 @@ Mając już ograniczenie górne i dolne mocy $\mathcal{G}$ oraz dodatkowe pomocn
 \end{theorem}
 	
 \begin{proof}
-	W twierdzeniach \ref{T1} i \ref{T2} udowodniliśmy implikacje w dwie strony, skąd wynika teza.
+	W Twierdzeniach \ref{T1} i \ref{T2} udowodniliśmy implikacje w dwie strony, skąd wynika teza.
 \end{proof}
 	
 \section{Złożoność obliczeniowa}
@@ -1044,7 +1044,7 @@ Oszacowanie złożoności obliczeniowej algorytmu jest o wiele prostsze niż udo
 	%%%%% UWAGA TUTAJ! RÓŻNI SIĘ OD ORYGINAŁU. NIE ZGADZAM SIĘ Z JEDNYM PRZEJŚCIEM TAM %%%%%
 	% TODO - zapytać o to
 	Dla $n \geq 4$ mamy\[n^{{\lfloor log B \rfloor} + \frac{log^4n + log^2n}{2}} \leq n^{log^4n} \leq 2^{log^5n} \leq 2^B.\]
-	Wiemy, że $B > 10$, więc z lematu \ref{3.1} mamy $\ell_B \geq 2^B > P$. Oznacza to, że istnieje $l \in \{1, \dots, B\}$ takie, że $l \nmid P$. Z założenia o $r$ mamy, że $r \leq l \leq B$.
+	Wiemy, że $B > 10$, więc z Lematu \ref{3.1} mamy $\ell_B \geq 2^B > P$. Oznacza to, że istnieje $l \in \{1, \dots, B\}$ takie, że $l \nmid P$. Z założenia o $r$ mamy, że $r \leq l \leq B$.
 \end{proof}
 
 Ograniczenie $r$ pozwala nam już bezpośrednio ograniczyć złożoność obliczeniową algorytmu.
@@ -1057,7 +1057,7 @@ Ograniczenie $r$ pozwala nam już bezpośrednio ograniczyć złożoność oblicz
 	Przeanalizujmy kolejne kroki algorytmu pod kątem złożoności obliczeniowej.
 	\begin{enumerate}[label=(krok \arabic*.),leftmargin=.4in]
 		\item W kroku 1. algorytm sprawdzi dla wszystkich możliwych wartości $b$, których jest nie więcej niż $log\,n$, czy dla pewnego $a$ zachodzi $a^b = n$. Do znalezienia możliwego wykładnika $a$ użyć można wyszukiwania binarnego dla wartości od $2$ do $n$. Sprawdzenie możliwego $a$ wykonane w wyszukiwaniu binarnym będzie wymagało $log \, b$ operacji na liczbach długości nie większej niż $log \, n$. Mamy więc ograniczenie złożoności kroku pierwszego \[O(log \, n \cdot (log \,n \cdot (log \,b \cdot log \,n ))) = O(log^n \cdot log \, log \, n).\]
-		\item Z lematu \ref{r_szacowanie} wiemy, że istnieje $r \leq max\{3, \lceil log^5n \rceil \}$. Dla potencjalnych $O(log^5n)$ wartości $r$, algorytm sprawdzi $O(log^2n)$ kolejnych potęg $n$ i przyrówna je do $1$ modulo $r$. Dla kroku 2. otrzymujemy więc ograniczenie złożoności \[O(log^5n \cdot (log^2n \cdot log \,r)) = O(log^7n \cdot log\,log \,n).\]
+		\item Z Lematu \ref{r_szacowanie} wiemy, że istnieje $r \leq max\{3, \lceil log^5n \rceil \}$. Dla potencjalnych $O(log^5n)$ wartości $r$, algorytm sprawdzi $O(log^2n)$ kolejnych potęg $n$ i przyrówna je do $1$ modulo $r$. Dla kroku 2. otrzymujemy więc ograniczenie złożoności \[O(log^5n \cdot (log^2n \cdot log \,r)) = O(log^7n \cdot log\,log \,n).\]
 		\item Dla możliwych $O(r)$ wartości $a$ wystarczy obliczyć $NWD(a, n)$. Algorytm Euklidesa pozwala znaleźć $NWD(a, n)$ w czasie $O(log \,n + log ^2 \, r)$, gdzie pierwszy składnik sumy odpowiada pierwszej operacji policzenia $a$ modulo $n$, po czym algorytm będzie wykonywał się na liczbach nie większych niż $r$. Mamy więc złożoność kroku 3. ograniczoną przez \[O(r \cdot (log \, n + log^2r)) = O(log^2n + log\,n \cdot log^2log \, n)).\] 
 		\item W kroku 4. zostaje wykonane tylko jedno porównanie na liczbach długości nie większej niż $n$, więc ogólnym ograniczeniem złożoności kroku jest $O(log\,n)$.
 		      \stepcounter{enumi}
