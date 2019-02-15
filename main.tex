@@ -190,8 +190,8 @@ Możemy teraz zauważyć, że pierścieniem jest na przykład zbiór liczb całk
 	\begin{itemize}[leftmargin=.4in]
 		\item istnieje element $1 \in F$, będący elementem neutralnym mnożenia ($\forall_{a \in F} \, a1 = 1a = a$) oraz
 		\item jeśli $0$ jest elementem zerowym pierścienia $\langle F, \oplus, \odot \rangle$, to $\langle F \setminus \{0\}, \odot \rangle$ jest grupą abelową, której elementem neutralnym jest $1$.
-    \end{itemize}
-    Ciało takie będziemy oznaczać $\langle F, \oplus, \odot, 0, 1 \rangle$. W dodatku \textbf{\textit{rzędem}} ciała $\langle F, \oplus, \odot, 0, 1 \rangle$ nazywać będziemy moc zbioru $F$.
+	\end{itemize}
+	Ciało takie będziemy oznaczać $\langle F, \oplus, \odot, 0, 1 \rangle$. W dodatku \textbf{\textit{rzędem}} ciała $\langle F, \oplus, \odot, 0, 1 \rangle$ nazywać będziemy moc zbioru $F$.
 \end{definition}
 
 Innymi słowy ciało jest pierścieniem z elementem neutralnym mnożenia, w którym dla każdego niezerowego elementu istnieje element odwrotny. Przykładem ciał są zbiory reszt z dzielenia przez liczbę pierwszą z operacjami dodawania i mnożenia modulo. Jeśli rozważymy natomiast wcześniej przywołane przykłady pierścieni, możemy zauważyć, że zarówno zbiór liczb całkowitych jak i zbiór wielomianów o całkowitych współczynnikach nie jest ciałem. W obu przykładach zbiory te nie spełniają warunku na istnienie elementów odwrotnych.
@@ -293,9 +293,9 @@ Zdefiniujmy więc pojęcie grupy ilorazowej, które stanie się podstawą defini
 		      	\item Weźmy dowolne $aN, \, bN \in G/N$. Mamy $(aN)\otimes(bN) = abN$. $ab \in G$, więc $abN \in G/N$.
 		      	\item Weźmy dowolne $aN, \, bN, \, cN \in G/N$. Korzystając z łączności $\odot$ i faktu, że N jest normalna ($cN = Nc$), mamy 
 		      	      \begin{align}
-		      	      	aN\otimes((bN)\otimes(cN)) & = aN\otimes(bcN) = a(bc)N = (ab)cN        \\
-		      	      	             & = (ab)Nc = (abN)\otimes cN \\
-                                         &= ((aN)\otimes(bN))\otimes cN. 
+		      	      	aN\otimes((bN)\otimes(cN)) & = aN\otimes(bcN) = a(bc)N = (ab)cN \\
+		      	      	                           & = (ab)Nc = (abN)\otimes cN         \\
+		      	      	                           & = ((aN)\otimes(bN))\otimes cN.     
 		      	      \end{align}
 		      	\item Weźmy $1N \in G/N$, gdzie $1$ jest elementem neutralnym w $\langle G, \odot \rangle$. Dla dowolnego $aN \in G/N$ mamy $(aN)\otimes(1N) = a1N = aN$, zatem $1N$ jest elementem neutralnym w $G/N$.
 		      	\item Weźmy dowolne $aN \in G/N$. Niech $a^{-1}$ będzie elementem odwrotnym $a$ w grupie $\langle G, \odot \rangle$. Mamy \[(aN)(a^{-1}N) = aa^{-1}N = 1N,\] czyli element odwrotny w $G/N$.
@@ -365,19 +365,19 @@ Mając już definicję pierścienia ilorazowego, możemy pokazać, że pewne pie
 		      \begin{enumerate}[label=Ad.2.\arabic*.]
 		      	\item Udowodnimy, że $\langle J, \oplus \rangle$ spełnia definicję grupy oraz zawiera się w $\langle R, \oplus \rangle$.
 		      	      \begin{itemize}
-		      	      	\item Wiemy, że $R$ jest zamknięty na $\oplus$ i $\odot$, więc $\forall_{r, a', m \in R} \, ra' \oplus m \in R$ oraz $J \subseteq R$. 
+		      	      	\item Wiemy, że $R$ jest zamknięty na $\oplus$ i $\odot$, więc $\forall_{r, a', m \in R} \, ra' \oplus m \in R$ i $J \subseteq R$. 
 		      	      	\item $M$ jest ideałem, czyli jest grupą, więc $0 \in M$. Stąd $0a \oplus 0 = 0 \in J$, czyli $J$ zawiera element zerowy.
-		      	      	\item Weźmy dowolne $j = ra \oplus m \in J$. Wiemy, że $-r \in R$ oraz $-m \in M$. Stąd $-j = -ra \oplus -m \in J$. Wtedy $j \oplus -j = ra \oplus m \oplus -ra \oplus -m = ra \oplus -ra = 0a = 0$, tzn. dla każdego elementu $J$ istnieje element odwrotny.
+		      	      	\item Weźmy dowolne $j = ra \oplus m \in J$. Wiemy, że $-r \in R$ oraz $-m \in M$. Stąd $-j = -ra \oplus -m \in J$. Wtedy $j \oplus -j = ra \oplus m \oplus -ra \oplus -m = ra \oplus -ra = 0a = 0$, tzn. dla każdego elementu $J$ istnieje element przeciwny.
 		      	      	\item Weźmy dowolne $j_1 = r_1a \oplus m_1, j_2 = r_2a \oplus m_2 \in J$. Wtedy $j_1 \oplus j_2 = r_1a \oplus m_1 \oplus r_2a \oplus m_2 = (r_1 \oplus r_2)a \oplus (m_1 \oplus m_2)$. Wiemy, że $r_1 \oplus r_2 \in R$ oraz $m_1 \oplus m_2 \in M$, więc $j_1 \oplus j_2 \in J$, czyli $J$ jest zamknięte na $\oplus$.
 		      	      	\item $\oplus$ jest łączne. Własność ta wynika bezpośrednio z łączności $\oplus$ w $R$.
 		      	      \end{itemize}
-		      	\item Weźmy dowolne $ra \oplus m \in J, r' \in R$. Wtedy $jr' = (ra \oplus m) \odot r' = rar' \oplus mr'$. Z przemienności $R$ $jr' = rr'a \oplus mr'$. $rr' \in R$ oraz, ponieważ $M$ jest ideałem $mr' \in M$, więc $jr' \in J$. Analogicznie $r'j \in J$.
-		      	      \newline
-		      	      Wiemy, że $J$ jest ideałem nad $R$. Możemy też pokazać, że $M \subset J$. $\forall_{m \in M} \, m = 0a \oplus m \in J$ oraz skoro $1 \in R, 0 \in M$, to $a \in J$. Wiemy, że $a \notin M$, więc $M \subset J$.
-		      	      \newline
-		      	      Mamy więc ideał $J$ nad $R$, który zawiera $M$. Z założenia, że $M$ jest maksymalny, mamy $J = R$, więc $1 \in J$, czyli $\exists_{m \in M, r \in R} \, ra \oplus m = 1$. Wtedy $(r \oplus M) \times (a \oplus M) = ra \oplus M = ra \oplus m \oplus M = 1 \oplus M$, czyli $(a \oplus M)^{-1} = r \oplus M$.
+		      	\item Weźmy dowolne $ra \oplus m \in J$ oraz $r' \in R$. Wtedy $jr' = (ra \oplus m) \odot r' = rar' \oplus mr'$. Z przemienności mnożenia w $R$ mamy $jr' = rr'a \oplus mr'$. Z $rr' \in R$ oraz ponieważ $M$ jest ideałem $mr' \in M$, otrzymujemy $jr' \in J$. Analogicznie $r'j \in J$.
 		      \end{enumerate}
-	\end{enumerate}
+		      Wiemy, że $J$ jest ideałem nad $R$. Możemy też pokazać, że $M \subset J$. Skoro $\forall_{m \in M} \, m = 0a \oplus m \in J$ oraz $1 \in R$ i $0 \in M$, to $a \in J$. Wiemy, że $a \notin M$, więc $M \subset J$.
+		      \newline
+		      Mamy więc ideał $J$ nad $R$, który zawiera $M$. Z założenia, że $M$ jest maksymalny, mamy $J = R$, więc $1 \in J$, czyli $\exists_{m \in M, r \in R} \, ra \oplus m = 1$. Wtedy $(r \oplus M) \times (a \oplus M) = ra \oplus M = ra \oplus m \oplus M = 1 \oplus M$, czyli $(a \oplus M)^{-1} = r \oplus M$.
+	\end{enumerate}   
+	    
 \end{proof}
 
 \section{Pierścień wielomianów}
@@ -387,26 +387,25 @@ Następnym krokiem we wprowadzeniu pojęć algebry abstrakcyjnej będzie bliższ
 Spójrzmy na pierścień liczb całkowitych modulo liczba naturalna. Na podstawie poniższego twierdzenia będziemy mogli powiązać pierwszość liczby z jego własnościami.
 
 \begin{theorem}
-	Niech $p \in \mathbb{N}$ i $p \geq 2$ oraz $\mathbb{Z}_p = \{0, 1, \ldots, p-1\}$. Wówczas jeśli $p$ jest pierwsza, to $\langle \mathbb{Z}_p, +_p, \times_p \rangle$, gdzie operacje są odpowiadającymi działaniami arytmetycznymi modulo $p$, jest ciałem.
+	Niech $p \in \mathbb{N}$ i $p \geq 2$ oraz $\mathbb{Z}_p = \{0, 1, \ldots, p-1\}$. Wówczas jeśli $p$ jest pierwsza, to $\langle \mathbb{Z}_p, +_p, \times_p \rangle$, gdzie operacje są $+_p$ i $\times_p$ odpowiadającymi działaniami arytmetycznymi modulo $p$, jest ciałem.
 \end{theorem}
 
 \begin{proof}
-	Pokażemy, że jeśli $p$ jest pierwsza $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ spełnia definicję \ref{cialo}.
+	Pokażemy, że jeśli $p$ jest pierwsza, $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ spełnia Definicję \ref{cialo}.
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
 		\item $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ z $1$ jest pierścieniem. Dowód jest trywialny i korzysta z własności działań $+_p$ i $\times_p$.
-		\item $\langle \mathbb{Z}_p \setminus \{0\}, \times_p \rangle$ jest grupą abelową. Przemienność i łączność wynikają z własności $\times_p$. Elementem neutralnym jest $1$. Jedyną nietrywialną własnością jest istnienie elementu przeciwnego, tzn. należy udowodnić, że $\forall_{a \in \mathbb{Z}_p \setminus \{0\}} \, \exists_{a^{-1} \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p a^{-1} = 1$.\newline
-		      Weźmy dowolne $a \in \mathbb{Z}_p \setminus \{0\}$. Załóżmy nie wprost, że nie istnieje $a^{-1} \in \mathbb{Z}_p \setminus \{0\}$ takie, że $a \times_p a{-1} = 1$. To znaczy $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 1$. Ponieważ $p$ jest pierwsze i wszystkie elementy $\mathbb{Z}_p \setminus \{0\}$ są mniejsze od $p$, wiemy, że $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 0$. Mamy więc $p-1$ czynników i $p-2$ możliwych wyników. Z zasady szufladkowej mamy $\exists{b_1, b_2 \in \mathbb{Z}_p \setminus \{0\}}, b_1 \neq b_2 \, a \times_p b_1 = a \times_p b_2$. Wiemy, że istnieje w $\mathbb{Z}_p$ niezerowy element $-b_2$, więc $-b_2 \in \mathbb{Z}_p \setminus \{0\}$. Korzystając z własności pierścienia $\langle \mathbb{Z}_p, +_p, \times_p \rangle$ możemy przekształcić powyższe równanie do $a \times_p (b_1 +_p -b_2) = 0$. Z $b_1 \neq b_2$ mamy $b_1 +_p -b_2 \in \mathbb{Z}_p \setminus \{0\}$, czyli doszliśmy do sprzeczności.
+		\item Należy więc pokazać, że $\langle \mathbb{Z}_p \setminus \{0\}, \times_p \rangle$ jest grupą abelową. Przemienność i łączność wynikają z własności $\times_p$. Elementem neutralnym jest $1$. Jedyną nietrywialną własnością jest istnienie elementu przeciwnego, tzn. należy udowodnić, że $\forall_{a \in \mathbb{Z}_p \setminus \{0\}} \, \exists_{a^{-1} \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p a^{-1} = 1$.\newline
+		      Weźmy dowolne $a \in \mathbb{Z}_p \setminus \{0\}$. Załóżmy nie wprost, że nie istnieje $a^{-1} \in \mathbb{Z}_p \setminus \{0\}$ takie, że $a \times_p a^{-1} = 1$. To znaczy $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 1$. Ponieważ $p$ jest pierwsze i wszystkie elementy $\mathbb{Z}_p \setminus \{0\}$ są mniejsze od $p$, wiemy, że $\forall_{b \in \mathbb{Z}_p \setminus \{0\}} \, a \times_p b \neq 0$. Mamy więc $p-1$ czynników $b$ i $p-2$ możliwych wyników $a \times_p b$. Z zasady szufladkowej mamy $\exists_{b_1, b_2 \in \mathbb{Z}_p \setminus \{0\}}, b_1 \neq b_2 \, a \times_p b_1 = a \times_p b_2$. Otrzymujemy $a \times_p (b_1 -_p b_2) = 0$, czyli doszliśmy do sprzeczności.
 	\end{enumerate}
 \end{proof}
 
 \begin{theorem}
 	Niech $\langle R, \oplus, \odot \rangle$ będzie pierścieniem przemiennym z $1$ oraz $R[X]$ będzie zbiorem wielomianów o współczynnikach w $R$, a $\oplus^*$ i $\odot^*$ będą naturalnie zdefiniowanym dodawaniem i mnożeniem wielomianów z użyciem $\oplus$ i $\odot$ w operacjach na współczynnikach. Wówczas
-	$\langle R[X], \oplus^{*}, \odot^{*} \rangle$ jest pierścieniem przemiennym z $1$.
+	$\langle R[X], \oplus^{*}, \odot^{*} \rangle$ jest pierścieniem przemiennym z elementem neutralnym mnożenia będącym wielomianem stałym $1$.
 \end{theorem}
 
-
 \begin{remark*}
-	Dowód twierdzenia przebiega poprzez pokazanie kolejnych własności pierścienia. Elementem zerowym jest wielomian zerowy, a elementem neutralnym mnożenia jest $1$.
+    Pomijamy dowód twierdzenia, ponieważ jest on standardowy. Przebiega on przez pokazanie kolejnych własności pierścienia.
 \end{remark*}
 
 Przyjrzyjmy się następnie bliżej pierścieniowi wielomianów, którego współczynniki są elementami ciała. Poniższe lematy pozwolą na ustalenie, kiedy pierścień ilorazowy takiego pierścienia jest ciałem, co stanie się podstawą dowodu algorytmu AKS.
@@ -416,21 +415,21 @@ Przyjrzyjmy się następnie bliżej pierścieniowi wielomianów, którego wspó�
 \end{lemma}
 
 \begin{proof}
-	Weźmy dowolny ideał $I$ nad $F[X]$. Jeśli $I = \{0\}$, to $I = \langle0\rangle$. Załóżmy więc, że $I$ jest niezerowe i weźmy $p(X) \in I$ takie, że $p(X) \neq 0$ oraz $p(X)$ jest wielomianem najmniejszego stopnia w $I$. Weźmy dowolny wielomian $f(X) \in I$. Wiemy, że $\exists_{q(X), r(X) \in I} \, f(X) = q(X)p(X) \oplus r(X) \wedge deg(r(X)) < deg(p(X))$. Z założenia o minimalnym stopniu $p(X)$ mamy $r(X) = 0$. Oznacza to, że dowolny wielomian z $I$ da się przedstawić w postaci $q(X)p(X)$, więc $I = \langle p(X) \rangle$. 
+    Weźmy dowolny ideał $I$ nad $F[X]$. Jeśli $I = \{0\}$, to $I = \langle0\rangle$. Załóżmy więc, że $I \neq \{0\}$ i weźmy $p(X) \in I$ takie, że $p(X) \neq 0$ oraz $p(X)$ jest wielomianem najmniejszego stopnia w $I$. Weźmy dowolny wielomian $f(X) \in I$. Jeśli w wyniku jego podzielenia przez $p(X)$ daje resztę $r(X)$, to możemy go przedstawić jako $f(X) = q(X)p(X) \oplus r(X)$, gdzie $deg(r) < deg(p)$. Zauważmy, że $r(X) \in I$, a więc i $q(X)p(X) \in I$. Z założenia o minimalnym stopniu $p(X)$ mamy $r(X) = 0$. Oznacza to, że dowolny wielomian z $I$ da się przedstawić w postaci $q(X)p(X)$, więc $I = \langle p(X) \rangle$. 
 \end{proof}
 
 \begin{theorem}
-	Jeśli $\langle F, \oplus, \odot, 0, 1 \rangle$, to $\langle g(X) \rangle$ jest ciałem i wielomian $g(X)$ jest nierozkładalny w $F[X]$, to $\langle g(X) \rangle$ jest ideałem maksymalnym.
+	Jeśli $\langle F, \oplus, \odot, 0, 1 \rangle$ jest ciałem i wielomian $g(X)$ jest nierozkładalny w $F[X]$, to $\langle g(X) \rangle$ jest ideałem maksymalnym.
 \end{theorem}
 
 \begin{proof}
-	Weźmy dowolny ideał $I$ nad $F[X]$. Wiemy, że jest to ideał główny, więc istnieje $f(X) \in F[X]$ takie, że $I = \langle f(X) \rangle$. Załóżmy, że $\langle g(X) \rangle \subset I$. Znaczy to, że istnieje $h(X) \in F[X]$ takie, że $g(X) = f(X)h(X)$. $g(X)$ jest nierozkładalny, więc $f(X)$ lub $h(X)$ jest wielomianem stopnia $0$. Jeśli $f(X)$ jest stopnia $0$, to $\langle f(X) \rangle = F$. Jeśli $h(X)$ jest stopnia $0$, to $\langle g(X) \rangle = \langle h(X) \rangle$, co jest sprzeczne z założeniem.
+	Weźmy dowolny ideał $I$ nad $F[X]$. Wiemy, że jest to ideał główny, więc istnieje $f(X) \in F[X]$ takie, że $I = \langle f(X) \rangle$. Załóżmy, że $\langle g(X) \rangle \subset I$. Znaczy to, że istnieje $h(X) \in F[X]$ takie, że $g(X) = f(X)h(X)$. Z założenia $g(X)$ jest nierozkładalny, więc $f(X)$ lub $h(X)$ jest wielomianem stopnia $0$. Jeśli $f(X)$ jest stopnia $0$, to $\langle f(X) \rangle = F$. Jeśli $h(X)$ jest stopnia $0$, to $\langle g(X) \rangle = \langle h(X) \rangle$, co jest sprzeczne z założeniem.
 \end{proof}
 
 Możemy w szczególności zaaplikować powyższe twierdzenia do ciała liczb całkowitych modulo liczba pierwsza.
 
 \begin{theorem} \label{pier_ilo_cialem}
-	Jeśli $p$ jest pierwsze i $h(X)$ jest nierozkładalnym w $\mathbb{Z}_p[X]$ wielomianem stopnia $d$ to pierścień ilorazowy $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem rzędu $p^d$.
+	Jeśli $p$ jest liczbą pierwszą i $h(X)$ jest nierozkładalnym w $\mathbb{Z}_p[X]$ wielomianem stopnia $d$, to pierścień ilorazowy $\langle \mathbb{Z}_p[X]/\langle h(X) \rangle, \oplus, \odot \rangle$ jest ciałem rzędu $p^d$.
 \end{theorem}
 
 \begin{proof}
@@ -632,19 +631,19 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 	
 \begin{proof}
 	Niech $\zeta$ będzie pierwotnym pierwiastkiem $n$-tego stopnia nad $\mathbb{Z}_q$. Wprowadźmy oznaczenie $\mathbb{F}_{q^k}$ na zbiór będący ciałem rzędu $q^k$. Zauważmy, że takie ciało istnieje, ponieważ zbiór wielomianów o współczynnikach ze zbioru $\mathbb{Z}_q$ stopnia mniejszego niż $k$ jest ciałem rzędu $q^k$.
-	    
+				    
 	Dowód przebiegał będzie w dwóch krokach. 
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
-        \item Pokażemy, że dla dowolnego $k > 1$ zachodzi $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$.
-        \item Weźmy najmniejsze takie $d$, że $\zeta \in \mathbb{F}_{q^d}$. Wtedy dla dowolnego wielomianu $f(X) \in \mathbb{Z}_q[X]$ o pierwiastku w $\zeta$ istnieje w $\mathbb{Z}_q[X]$ wielomian $h(X) \, | \, f(X)$ taki, że $deg(h) = d$.
+		\item Pokażemy, że dla dowolnego $k > 1$ zachodzi $\zeta^{q^k}=\zeta$ wtw, gdy $\zeta \in \mathbb{F}_{q^k}$.
+		\item Weźmy najmniejsze takie $d$, że $\zeta \in \mathbb{F}_{q^d}$. Wtedy dla dowolnego wielomianu $f(X) \in \mathbb{Z}_q[X]$ o pierwiastku w $\zeta$ istnieje w $\mathbb{Z}_q[X]$ wielomian $h(X) \, | \, f(X)$ taki, że $deg(h) = d$.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
 		\item Zauważmy, że jeśli dowolne $a \in \mathbb{F}_{q^k}$, to z twierdzenia Lagrange'a mamy $a^{q^k-1} = 1$, stąd $a^{q^k} = a$. Zauważmy, że równanie $a^{q^k} = a$ ma nie więcej niż $q^k$ pierwiastków, a skoro wszystkie elementy $\mathbb{F}_{q^k}$ są jego pierwiastkami, to wszystkie pierwiastki są elementami $\mathbb{F}_{q^k}$.
-        \item Niech $m(X) \in \mathbb{Z}_q[X]$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje z twierdzenia \ref{istnieje_mini} oraz ponieważ istnieje $Q_n(X) \in \mathbb{Z}_q[X]$. Założyliśmy, że $\zeta \in \mathbb{F}_{q^d}$. Wiemy także, że $\zeta \in \mathbb{Z}_q / \langle m(X) \rangle$, tzn. $\zeta \in \mathbb{F}_{q^{deg(m)}}$. Ponieważ $m(X)$ jest wielomianem minimalnym oraz $d$ jest najmniejszą liczbą spełniającą założenie, otrzymujemy $deg(m) = d$. Na mocy lematu \ref{mini_dzieli} otrzymujemy dodatkowo, że $m(X)$ dzieli dowolny wielomian $f(X) \in \mathbb{Z}_q[X]$, mający pierwiastek w $\zeta$.
-    \end{enumerate}
-
-    Wiemy, że zachodzi $\zeta^{q^{o_n(q)}}=\zeta$, więc także $\zeta \in \mathbb{F}_{q^{o_n(q)}}$. Ponieważ $\zeta$ jest pierwiastkiem pierwotnym wiemy, że jest to najmniejsza liczba, spełniająca tę własność. Możemy więc skorzystać z faktu udowodnionego w drugim kroku i wywnioskować, że każdy wielomian o pierwiastku w $\zeta$ można podzielić przez pewien inny wielomian należący do $\mathbb{Z}_q[X]$ stopnia $o_n(q)$. Stosując to rozumowanie indukcyjnie możemy wywnioskować tezę.
-    % Ponieważ dla każdego wielomianu, mającego pierwiastek w pierwotnym pierwiastku $n$-tego stopnia z jedności istnieje dzielący go wielomian $h(X)$ stopnia $ $. $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
+		\item Niech $m(X) \in \mathbb{Z}_q[X]$ będzie minimalnym wielomianem dla $\zeta$. Wiemy, że taki istnieje z twierdzenia \ref{istnieje_mini} oraz ponieważ istnieje $Q_n(X) \in \mathbb{Z}_q[X]$. Założyliśmy, że $\zeta \in \mathbb{F}_{q^d}$. Wiemy także, że $\zeta \in \mathbb{Z}_q / \langle m(X) \rangle$, tzn. $\zeta \in \mathbb{F}_{q^{deg(m)}}$. Ponieważ $m(X)$ jest wielomianem minimalnym oraz $d$ jest najmniejszą liczbą spełniającą założenie, otrzymujemy $deg(m) = d$. Na mocy lematu \ref{mini_dzieli} otrzymujemy dodatkowo, że $m(X)$ dzieli dowolny wielomian $f(X) \in \mathbb{Z}_q[X]$, mający pierwiastek w $\zeta$.
+	\end{enumerate}
+			
+	Wiemy, że zachodzi $\zeta^{q^{o_n(q)}}=\zeta$, więc także $\zeta \in \mathbb{F}_{q^{o_n(q)}}$. Ponieważ $\zeta$ jest pierwiastkiem pierwotnym wiemy, że jest to najmniejsza liczba, spełniająca tę własność. Możemy więc skorzystać z faktu udowodnionego w drugim kroku i wywnioskować, że każdy wielomian o pierwiastku w $\zeta$ można podzielić przez pewien inny wielomian należący do $\mathbb{Z}_q[X]$ stopnia $o_n(q)$. Stosując to rozumowanie indukcyjnie możemy wywnioskować tezę.
+	% Ponieważ dla każdego wielomianu, mającego pierwiastek w pierwotnym pierwiastku $n$-tego stopnia z jedności istnieje dzielący go wielomian $h(X)$ stopnia $ $. $m(X)$ dzieli dowolny wielomian, którego pierwiastkiem jest $\zeta$ oraz wszystkie pierwiastki $Q_n(X)$ są pierwiastkami pierwotnymi z jedynki $n$-tego stopnia, możemy wywnioskować, że $Q_n(X)$ można rozłożyć na nierozkładalne wielomiany stopnia $o_n(q)$ w $\mathbb{Z}_q$.
 \end{proof}
 	
 \chapter{Algorytm}
@@ -658,7 +657,7 @@ Algorytm AKS opiera się na uogólnieniu małego twierdzenia Fermata dla wielomi
 \begin{breakablealgorithm}
 	\caption{Algorytm AKS}
 	\begin{algorithmic}[1]
-																					    
+																											    
 		\Require{liczba całkowita $n > 1$}
 		\Ensure{\textbf{PIERWSZA} - jeśli $n$ jest pierwsza; \textbf{ZŁOŻONA} - jeśli $n$ jest złożona}
 		\If{istnieje takie $a \in \mathbb{N}, b > 1$, że $a^b = n$} \Comment{Krok 1.}
@@ -740,8 +739,8 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 % W późniejszej części dowodu skorzystamy z introspektywności w kontekście elementów konkretnego zbioru, które pozwolą nam 
 
 \begin{definition}
-    Dla ustalonych $r, \, p \in \mathbb{N}$, gdzie $p$ jest pierwsza, liczbę $m \in \mathbb{N}$ nazywamy \textbf{\textit{introspektywną}} modulo $X^r - 1, \, p$ dla wielomianu $f(X)$, jeśli zachodzi \[(f(X))^m = f(X^m) \; (mod \, X^r - 1, \, p).\] 
-    % \cite{aks}
+	Dla ustalonych $r, \, p \in \mathbb{N}$, gdzie $p$ jest pierwsza, liczbę $m \in \mathbb{N}$ nazywamy \textbf{\textit{introspektywną}} modulo $X^r - 1, \, p$ dla wielomianu $f(X)$, jeśli zachodzi \[(f(X))^m = f(X^m) \; (mod \, X^r - 1, \, p).\] 
+	% \cite{aks}
 \end{definition}
 	
 %SPRAWDZONE
