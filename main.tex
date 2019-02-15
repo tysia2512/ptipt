@@ -652,7 +652,7 @@ Możemy teraz wprowadzić pojęcie pierwiastka pierwotnego a następnie wielomia
 
 \section{Idea algorytmu}
 
-Algorytm AKS opiera się na uogólnieniu małego twierdzenia Fermata dla wielomianów, czyli twierdzeniu, że pierwszość liczby $n, \, n > 2$ jest równoważna z zachodzeniem równości $(X + a)^n = X^n + a \: (mod \: n)$, gdzie $NWD(a, n) = 1$. Jest to własność przydatna bardziej niż podstawowe małe twierdzenie Fermata, ponieważ występuje w nim równoważność a nie jednostronna implikacja, która była niewystarczająca, aby zapewnić determinizm w teście pierwszości Fermata. Naiwne sprawdzenie tego twierdzenia skutkowałoby jednak złożonością obliczeniową $O(nlog^2n)$, ponieważ wymagałaby mnożenia wielomianów $n$-tego stopnia. W kontekście problemu PRIMES jest to złożoność niesatysfakcjonująca, ponieważ względem rozmiaru problemu, czyli długości $n$, jest to złożoność wykładnicza. Problem ten rozwiązany został w algorytmie AKS poprzez sprawdzenie równości uogólnionego małego twierdzenia Fermata nie w pierścieniu $\mathbb{Z}_n[X]$ a w zawartym w nim pierścieniu ilorazowym zdefiniowanym tak, że długość wielomianów, na których wykonane jest mnożenie, jest wielomianowa względem długości liczby $n$. Poprawność tego podejścia wynika z nietrywialnego twierdzenia, że w odpowiednio wybranym pierścieniu ilorazowym pierścienia $\mathbb{Z}_n[X]$ jeśli równanie $(X + a)^n = X^n + a$ zachodzi dla odpowieniej liczby różnych $a$, to $n$ nie może być liczbą złożoną. 
+Algorytm AKS opiera się na uogólnieniu Małego Twierdzenia Fermata dla wielomianów, czyli twierdzeniu, że pierwszość liczby $n, \, n > 2$ jest równoważna z zachodzeniem równości $(X + a)^n = X^n + a \: (mod \: n)$, gdzie $NWD(a, n) = 1$. Jest to własność przydatna bardziej niż podstawowe Małe Twierdzenie Fermata, ponieważ występuje w nim równoważność a nie jednostronna implikacja, która była niewystarczająca, aby zapewnić determinizm w teście pierwszości Fermata. Naiwne sprawdzenie tego twierdzenia skutkowałoby jednak złożonością obliczeniową $O(nlog^2n)$, ponieważ wymagałaby mnożenia wielomianów $n$-tego stopnia. W kontekście problemu PRIMES jest to złożoność niesatysfakcjonująca, ponieważ względem rozmiaru problemu, czyli długości $n$, jest to złożoność wykładnicza. Problem ten rozwiązany został w algorytmie AKS poprzez sprawdzenie równości uogólnionego Małego Twierdzenia Fermata nie w pierścieniu $\mathbb{Z}_n[X]$ a w zawartym w nim pierścieniu ilorazowym zdefiniowanym tak, że długość wielomianów, na których wykonane jest mnożenie, jest wielomianowa względem długości liczby $n$. Poprawność tego podejścia wynika z nietrywialnego twierdzenia, że w odpowiednio wybranym pierścieniu ilorazowym pierścienia $\mathbb{Z}_n[X]$ jeśli równanie $(X + a)^n = X^n + a$ zachodzi dla odpowieniej liczby różnych $a$, to $n$ nie może być liczbą złożoną. 
 
 \section{Schemat algorytmu}
 	
@@ -696,7 +696,7 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 	\end{align*}
 	pokażemy, że $p(X) = 0 \: (mod \, n)$ wtw, gdy $n$ jest pierwsza. 
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in]
-		\item Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $X^i$ ($1 \leq i < n$) w wielomianie $p(X)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-1}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz $n \, | \, {n \choose i}$. Stąd $n \, | \, p(X)$.
+		\item Załóżmy, że $n$ jest pierwsza. Wtedy współczynnik przy $X^i$ ($1 \leq i < n$) w wielomianie $p(X)$ jest równy ${n \choose i}a^{n-i} = \frac{n!}{i!(n-i)!} \cdot a^{n-i}$. Z ${n \choose i} \in \mathbb{Z}$ oraz pierwszości $n$ wiemy, że nie istnieje $q$ takie, że $q \, | \, i! \cdot (n-i)! \wedge q \nmid \, (n - 1)!$, więc $\frac{(n - 1)!}{i! \cdot (n - i)!} \in \mathbb{Z}$ oraz $n \, | \, {n \choose i}$. Stąd $n \, | \, p(X)$.
 		\item Załóżmy, że $n$ jest złożona. Niech $q$ będzie pewnym dzielnikiem pierwszym $n$ oraz $q^k \parallel n$. Współczynnik przy $X^q$ jest równy ${n \choose q}a^{n-q}$. Możemy zauważyć, że $q^k$ nie dzieli ${n \choose q}$, ponieważ ${n \choose q} = \frac{n!}{q!(n-q)!} = \frac{n \cdot (n-1) \cdot \, \dots \, \cdot (n - q + 1)}{q!}$. Wiemy, że skoro $q$ jest pierwsze i $q \,| \, n$, to 
 		      \begin{align*}
 		      	q & \nmid (n-1) \cdot \, \dots \, \cdot (n - q + 1), 
@@ -710,7 +710,7 @@ Równoważność między pierwszością liczby $n$ oraz zwróceniem \textit{PIER
 \end{proof}
 
 \begin{lemma} \label{L2}
-	Niech $a,\, n, \, r \in \mathbb{N},\, n \geq 2,\, r \geq 1$ i $NWD(a, n) = 1$, wtedy, jeśli $n$ jest pierwsza, to $(X + a)^n = X^n + a \: (mod \: X^r - 1,\, n)$.
+	Niech $a,\, n, \, r \in \mathbb{N},\, n \geq 2,\, r \geq 1$ i $NWD(a, n) = 1$. Wówczas jeśli $n$ jest pierwsza, to $(X + a)^n = X^n + a \: (mod \: X^r - 1,\, n)$.
 \end{lemma}
 	
 \begin{proof}
@@ -760,7 +760,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 	\begin{align*}
 		(f(X^m))^{m'} = f(X^{mm'}) \; (mod \, (X^m)^r - 1, \, p), 
 	\end{align*}
-	a ponieważ $X^r - 1$ dzieli $X^{mr} - 1$ także 
+	a, ponieważ $X^r - 1$ dzieli $X^{mr} - 1$, także 
 	\begin{align*}
 		(f(X^m))^{m'} = f(X^{mm'}) \; (mod \, X^r - 1, \, p). 
 	\end{align*}
@@ -775,7 +775,7 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \end{lemma}
 	
 \begin{proof}
-	Mamy $(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p)$ oraz $(g(X))^m = g(X^m) \, (mod \, X^r - 1, \, p)$. Mnożąc stronami otrzymujemy 
+	Mamy \[(f(X))^m = f(X^m) \, (mod \, X^r - 1, \, p)\] oraz \[(g(X))^m = g(X^m) \, (mod \, X^r - 1, \, p).\] Mnożąc stronami otrzymujemy 
 	\begin{align*}
 		(f(X) \cdot g(X))^m = f(X^m) \cdot g(X^m) \; (mod \, X^r - 1, \, p). 
 	\end{align*}
@@ -792,12 +792,12 @@ Zacznijmy dowód odwrotnej implikacji od wprowadzenia pojęcia introspektywnośc
 \begin{remark*}\label{def}
 	Na potrzeby kolejnych lematów ustalmy $n, \, r, \, p \in \mathbb{N}, \, n \geq 2 
 	%, \, r < \lceil log^5 \, n \rceil
-	$ oraz \[\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor\] takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować 
+	$ oraz \[\ell = \lfloor\sqrt{\phi (r)} \, log \, n \rfloor\] takie, że $p$ jest pierwszym dzielnikiem $n$, $o_r(n) > log^2n$, $NWD(r, \, n) = 1$, więc i $NWD(r, \, p) = 1$. Ponadto niech dla każdego $0 \leq a \leq \ell$ zachodzi \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Możemy teraz zdefiniować 
 	\begin{align*}
-		I = \{n^i \, \cdot \, p^j \, | \, i, \, j \geq 0\},            \\
-		P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\} 
+		I = \{(\frac{n}{p})^i \, \cdot \, p^j \, | \, i, \, j \geq 0\},            \\
+		P = \{\prod_{a=0}^{\ell} \, (X + a)^{e_a} \, | \, e_a \geq 0\}. 
 	\end{align*}
-	oraz $G$, niech $t = | \, G \, |$, będące zbiorem reszt z dzielenia elementów $I$ przez $r$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy $h(X) \in \mathbb{Z}_p[X]$. Z Twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje, jest nierozkładalny w $\mathbb{Z}_p[X]$ oraz $deg(h) = o_r(p)$. Zdefiniujmy $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
+	Niech $G$ będzie zbiorem reszt z dzielenia elementów $I$ przez $r$ oraz niech $t = | \, G \, |$. Niech $Q_r(X)$ będzie $r$-tym wielomianem cyklotomicznym nad $\mathbb{Z}_p$ ($ r \nmid p = char(\mathbb{Z}_p)$). Weźmy nierozkładalny w $\mathbb{Z}_p[X]$ wielomian $h(X) \in \mathbb{Z}_p[X]$ taki, że $h(X) \, | Q_r(X)$ i $deg(h) = o_r(p)$. Z Twierdzenia \ref{kluczowe} wiemy, że taki wielomian istnieje. Zdefiniujmy następnie $F = \mathbb{Z}_p / \langle h(X) \rangle$ oraz $\mathcal{G}$ będący zbiorem elementów $P$ w $F$.
 \end{remark*}
 
 Zauważmy, że ustalone powyżej liczby $n, \, r$ spełniają założenia, jakie spełniają odpowiednio zmienne $n$ i $r$ w 7. kroku algorytmu. Jeśli dodatkowo założymy, że $n$ jest złożona, to istnieje $p$ spełniające wszystkie założenia.
@@ -811,11 +811,11 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 \begin{proof}
 	Pokażemy, że 
 	\begin{enumerate}[label=\arabic*.,leftmargin=.4in] 
-		\item dla dowolnego $0 \leq a \leq \ell$ $n$ oraz $p$ są introspektywne dla $X + a$, a następnie 
+		\item dla dowolnego $0 \leq a \leq \ell$ liczby $\frac{n}{p}$ i $p$ są introspektywne dla $X + a$, a następnie 
 		\item wywnioskujemy tezę.
 	\end{enumerate}
 	\begin{enumerate}[label=Ad.\arabic*.,leftmargin=.4in]
-		\item Niech $0 \leq a \leq \ell$. $p$ jest pierwsze, więc z Lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w Uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
+		\item Niech $0 \leq a \leq \ell$. Liczba $p$ jest pierwsza, więc z Lematu \ref{L1} otrzymujemy \[(X + a)^p = X^p + a \, (mod \, X^r - 1, \, p),\] więc $p$ jest introspektywne dla $(X + a)$. Z założenia w Uwadze \ref{def} mamy też  \[(X + a)^n = X^n + a \: (mod \, X^r - 1, \, n).\] Weźmy $f_1(X) = (X + a)^{\frac{n}{p}}, \, f_2(X) = X^{\frac{n}{p}} + a \in \mathbb{Z}_p[X]$. Zauważmy, że 
 		      \begin{align*}
 		      	(f_1(X))^p = X^n + a    & = (f_2(X))^p \; (mod \, X^r - 1, \, p) \\
 		      	(f_1(X))^p - (f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p).         
@@ -825,7 +825,7 @@ Na podstawie zdefiniowanej wcześniej introspektywności oraz jej własności mo
 		      	(f_1(X) - f_2(X))^p & = 0 \; (mod \, X^r - 1, \, p)       \\
 		      	f_1(X)              & = f_2(X) \; (mod \, X^r - 1, \, p). 
 		      \end{align*}
-		      Więc $\frac{n}{p}$ także jest introspektywne modulo $X^r - 1, \, p$ dla $X + a, 0 \leq a \leq \ell$.
+		      Więc $\frac{n}{p}$ także jest introspektywne modulo $X^r - 1, \, p$ dla $X + a$.
 		\item Ponieważ elementy zbioru $I$ są iloczynami liczb $\frac{n}{p}$ i $p$, a elementy zbioru $P$ są iloczynami wielomianów $X + a, \, 0 \leq a \leq \ell$, z Lematów \ref{intro1} i \ref{intro2} możemy wywnioskować tezę.
 	\end{enumerate}
 \end{proof} 
